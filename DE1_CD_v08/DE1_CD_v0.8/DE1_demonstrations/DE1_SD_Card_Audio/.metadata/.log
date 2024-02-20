@@ -1,0 +1,113 @@
+!SESSION 九月 27, 2006 12:13:30.281 ----------------------------------------------
+eclipse.buildId=I200406251208
+java.version=1.5.0_06
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=zh_TW
+
+!ENTRY com.altera.ide.core 1 0 九月 27, 2006 12:13:30.281
+!MESSAGE sh C:\altera\quartus60\sopc_builder\bin\sopc_builder --update_classes_and_exit --no_splash -s --projectpathC:/DE1/DE1_SD_Card_Audio 
+
+!ENTRY com.altera.ide.core 4 0 九月 27, 2006 12:13:31.281
+!MESSAGE Error occurred while updating SOPC Builder Cache. Launch SOPC Builder from Quartus II for more information.
+
+!ENTRY com.altera.ide.core 4 0 九月 27, 2006 12:13:31.312
+!MESSAGE Error: create link to components folder failed
+
+
+!ENTRY com.altera.ide.core 4 0 九月 27, 2006 12:13:31.343
+!MESSAGE Error: create link to components folder failed
+
+
+!ENTRY com.altera.ide.core 4 0 九月 27, 2006 12:13:31.359
+!MESSAGE Error: create link to components folder failed
+
+!SESSION 2007-06-27 18:16:52.984 -----------------------------------------------
+eclipse.buildId=M20060629-1905
+java.version=1.5.0_06
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=zh_TW
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.core.resources 1 0 2007-06-27 18:16:54.921
+!MESSAGE Conversion of persistent properties completed successfully.
+
+!ENTRY org.eclipse.cdt.debug.core 4 1000 2007-06-27 18:17:03.593
+!MESSAGE Unable to restore source location: Unable to initialize source location - invalid directory path C:\altera\kits\nios2_60\bin\nios2-gnutools\src.
+
+!ENTRY org.eclipse.cdt.debug.core 4 1000 2007-06-27 18:17:05.375
+!MESSAGE Unable to restore source location: Unable to initialize source location - invalid directory path C:\altera\kits\nios2_60\bin\nios2-gnutools\src.
+
+!ENTRY org.eclipse.cdt.core 4 969 2007-06-27 18:17:07.156
+!MESSAGE !element.doesNotExist!
+
+!ENTRY org.eclipse.cdt.core 4 969 2007-06-27 18:17:07.156
+!MESSAGE !element.doesNotExist!
+
+!ENTRY org.eclipse.core.resources 1 0 2007-06-27 18:17:12.390
+!MESSAGE Conversion of local history completed successfully.
+!SESSION 2007-06-27 18:17:14.078 -----------------------------------------------
+eclipse.buildId=M20060629-1905
+java.version=1.5.0_06
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=zh_TW
+Command-line arguments:  -data D:\keith_temp\quartusII\DE1_QIIv71\DE1_demonstrations\DE1_SD_Card_Audio -os win32 -ws win32 -arch x86
+
+!ENTRY com.altera.ide.core 1 0 2007-06-27 18:17:29.343
+!MESSAGE C:\altera\71\quartus\bin\cygwin\bin/cygpath --unix --file - 
+
+!ENTRY com.altera.nj.launch 1 0 2007-06-27 18:17:59.156
+!MESSAGE jtagconfig --listhardware 
+
+!ENTRY com.altera.nj.launch 1 0 2007-06-27 18:17:59.843
+!MESSAGE jtagconfig --cable USB-Blaster [USB-0] --extra-info 
+
+!ENTRY com.altera.nj.launch 4 104 2007-06-27 18:18:08.140
+!MESSAGE The Nios II ELF executable does not exist. Please verify that the project hello_led_0 built successfully.
+!STACK 0
+java.io.FileNotFoundException: D:/keith_temp/quartusII/DE1_QIIv71/DE1_demonstrations/DE1_SD_Card_Audio/hello_led_0/Debug/hello_led_0.elf not found.
+	at com.altera.nj.launch.internal.Nios2LaunchConfigurationDelegate.getProgramFile(Nios2LaunchConfigurationDelegate.java:1406)
+	at org.eclipse.cdt.launch.AbstractCLaunchDelegate.verifyProgramFile(AbstractCLaunchDelegate.java:378)
+	at com.altera.nj.launch.internal.Nios2LaunchConfigurationDelegate.syncLaunch(Nios2LaunchConfigurationDelegate.java:373)
+	at com.altera.nj.launch.internal.Nios2LaunchConfigurationDelegate.launch(Nios2LaunchConfigurationDelegate.java:338)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:639)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:565)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:754)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$6.run(DebugUIPlugin.java:944)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:58)
+!SUBENTRY 1 com.altera.nj.launch 4 104 2007-06-27 18:18:08.140
+!MESSAGE D:/keith_temp/quartusII/DE1_QIIv71/DE1_demonstrations/DE1_SD_Card_Audio/hello_led_0/Debug/hello_led_0.elf not found.
+!STACK 0
+java.io.FileNotFoundException: D:/keith_temp/quartusII/DE1_QIIv71/DE1_demonstrations/DE1_SD_Card_Audio/hello_led_0/Debug/hello_led_0.elf not found.
+	at com.altera.nj.launch.internal.Nios2LaunchConfigurationDelegate.getProgramFile(Nios2LaunchConfigurationDelegate.java:1406)
+	at org.eclipse.cdt.launch.AbstractCLaunchDelegate.verifyProgramFile(AbstractCLaunchDelegate.java:378)
+	at com.altera.nj.launch.internal.Nios2LaunchConfigurationDelegate.syncLaunch(Nios2LaunchConfigurationDelegate.java:373)
+	at com.altera.nj.launch.internal.Nios2LaunchConfigurationDelegate.launch(Nios2LaunchConfigurationDelegate.java:338)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:639)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:565)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:754)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$6.run(DebugUIPlugin.java:944)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:58)
+!SESSION 2007-06-27 18:28:58.375 -----------------------------------------------
+eclipse.buildId=M20060629-1905
+java.version=1.5.0_06
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=zh_TW
+Command-line arguments:  -data D:\keith_temp\quartusII\DE1_QIIv71\DE1_demonstrations\DE1_SD_Card_Audio -os win32 -ws win32 -arch x86
+
+!ENTRY com.altera.ide.core 1 0 2007-06-27 18:29:12.187
+!MESSAGE C:\altera\71\quartus\bin\cygwin\bin/cygpath --unix --file - 
+
+!ENTRY com.altera.nj.launch 1 0 2007-06-27 18:31:23.281
+!MESSAGE jtagconfig --listhardware 
+
+!ENTRY com.altera.nj.launch 1 0 2007-06-27 18:31:23.968
+!MESSAGE jtagconfig --cable USB-Blaster [USB-0] --extra-info 
+!SESSION 2007-06-27 18:57:20.687 -----------------------------------------------
+eclipse.buildId=M20060629-1905
+java.version=1.5.0_06
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=zh_TW
+Command-line arguments:  -data D:\keith_temp\quartusII\DE1_QIIv71\DE1_demonstrations\DE1_SD_Card_Audio -os win32 -ws win32 -arch x86
+
+!ENTRY com.altera.ide.core 1 0 2007-06-27 18:57:36.046
+!MESSAGE C:\altera\71\quartus\bin\cygwin\bin/cygpath --unix --file - 

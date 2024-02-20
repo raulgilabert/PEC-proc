@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="CleanDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="378"/>
+		<item key="DIALOG_HEIGHT" value="395"/>
+		<item key="BUILD_NOW" value="true"/>
+		<item key="DIALOG_Y_ORIGIN" value="234"/>
+		<item key="TOGGLE_SELECTED" value="false"/>
+		<item key="DIALOG_WIDTH" value="524"/>
+	</section>
+	<section name="org.eclipse.ui.views.problem">
+	</section>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="196"/>
+		<item key="DIALOG_HEIGHT" value="225"/>
+		<item key="DIALOG_FONT_NAME" value="1|冼极|9|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|冼极"/>
+		<item key="DIALOG_Y_ORIGIN" value="234"/>
+		<item key="DIALOG_WIDTH" value="633"/>
+	</section>
+</section>
