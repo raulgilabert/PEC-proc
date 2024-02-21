@@ -1,3 +1,0 @@
-The latest datasheets for Altera devices are available at
-
-http://www.altera.com/literature
