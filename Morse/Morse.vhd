@@ -74,7 +74,7 @@ ARCHITECTURE Structure OF Morse IS
 	
 BEGIN
 	
-	ledG(0) <= '1';
+	--ledG(0) <= '1';
 	
 	
 	Clock_05: clock
@@ -239,6 +239,8 @@ BEGIN
 					  '0' when others;
 
 	
+	ledG(0) <= not end_bit;
+
 	-- temp
 	ledg(1) <= clk_05;
 	ledg(2) <= clk_15;
