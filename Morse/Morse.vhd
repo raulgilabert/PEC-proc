@@ -61,6 +61,16 @@ ARCHITECTURE Structure OF Morse IS
 	SIGNAL F_s: std_logic;
 	SIGNAL G_s: std_logic;
 	SIGNAL H_s: std_logic;
+	SIGNAL end_bit: std_logic;
+	SIGNAL end_bitA: std_logic;
+	SIGNAL end_bitB: std_logic;
+	SIGNAL end_bitC: std_logic;
+	SIGNAL end_bitD: std_logic;
+	SIGNAL end_bitE: std_logic;
+	SIGNAL end_bitF: std_logic;
+	SIGNAL end_bitG: std_logic;
+	SIGNAL end_bitH: std_logic;
+	
 	
 BEGIN
 	
@@ -105,7 +115,7 @@ BEGIN
 			reset => reset,
 			clk => clk_05,
 			led => A_s,
-			end_char => ledr(1)
+			end_char => end_bitA
 		);
 
 	B: MorseChar
@@ -117,7 +127,7 @@ BEGIN
 			reset => reset,
 			clk => clk_05,
 			led => B_s,
-			end_char => ledr(1)
+			end_char => end_bitB
 		);
 
 	C: MorseChar
@@ -129,7 +139,7 @@ BEGIN
 			reset => reset,
 			clk => clk_05,
 			led => C_s,
-			end_char => ledr(1)
+			end_char => end_bitC
 		);
 
 	D: MorseChar
@@ -141,7 +151,7 @@ BEGIN
 			reset => reset,
 			clk => clk_05,
 			led => D_s,
-			end_char => ledr(1)
+			end_char => end_bitD
 		);
 
 	E: MorseChar
@@ -153,7 +163,7 @@ BEGIN
 			reset => reset,
 			clk => clk_05,
 			led => E_s,
-			end_char => ledr(1)
+			end_char => end_bitE
 		);
 
 	F: MorseChar
@@ -164,8 +174,8 @@ BEGIN
 			data => "1010111010",
 			reset => reset,
 			clk => clk_05,
-			led => F_s),
-			end_char => ledr(1)
+			led => F_s,
+			end_char => end_bitF
 		);
 
 	G: MorseChar
@@ -177,7 +187,7 @@ BEGIN
 			reset => reset,
 			clk => clk_05,
 			led => G_s,
-			end_char => ledr(1)
+			end_char => end_bitG
 		);
 
 	H: MorseChar
@@ -189,13 +199,45 @@ BEGIN
 			reset => reset,
 			clk => clk_05,
 			led => H_s,
-			end_char => ledr(1)
+			end_char => end_bitH
 		);
 		
 	reset <= not key(0) or not key(1);
 
-	with sw select
-		ledR(0) <= 
+--	with sw select
+--		ledR(0) <= A_s when "000",
+--					  B_s when "001", 
+--					  C_s when "010",
+--					  D_s when "011",
+--					  E_s when "100",
+--					  F_s when "101",
+--					  G_s when "110",
+--					  H_s when others;
+
+	with sw select	
+		end_bit <= end_bitA when "000",
+				   end_bitB	when "001",
+				   end_bitC when "010",
+				   end_bitD when "011",
+				   end_bitE when "100",
+				   end_bitF when "101",
+				   end_bitG when "110",
+				   end_bitH when others;
+				   
+
+	
+	
+	with end_bit & sw select
+		ledR(0) <= A_s when "0000",
+					  B_s when "0001", 
+					  C_s when "0010",
+					  D_s when "0011",
+					  E_s when "0100",
+					  F_s when "0101",
+					  G_s when "0110",
+					  H_s when "0111",
+					  '0' when others;
+
 	
 	-- temp
 	ledg(1) <= clk_05;

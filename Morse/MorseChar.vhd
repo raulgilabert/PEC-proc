@@ -16,7 +16,8 @@ ENTITY MorseChar IS
 		data: IN std_logic_vector(size - 1 downto 0);
 		reset: IN std_logic;
 		clk: IN std_logic;
-		led: OUT std_logic
+		led: OUT std_logic;
+		end_char: OUT std_logic
 	);
 END MorseChar;
 
@@ -34,10 +35,16 @@ BEGIN
 			
 			led <= data(to_integer(unsigned(counter)));
 			
+			end_char <= '0';
+			
 			if counter = 0 then
 				counter_s <= std_logic_vector(to_unsigned(size - 1, 4));
+				end_char <= '1';
 			END if;
 		END if;
+		
+		
+		
 	END PROCESS;
 		
 	with reset select 	
