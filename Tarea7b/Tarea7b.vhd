@@ -7,10 +7,12 @@ use ieee.numeric_std.all;
 
 ENTITY Tarea7b IS
 	PORT( CLOCK_50 : IN std_logic;
+			KEY: IN std_logic_vector(0 downto 0);
 			HEX0 : OUT std_logic_vector(6 downto 0);
 			HEX1 : OUT std_logic_vector(6 downto 0);
 			HEX2 : OUT std_logic_vector(6 downto 0);
-			HEX3 : OUT std_logic_vector(6 downto 0)
+			HEX3 : OUT std_logic_vector(6 downto 0);
+			LEDR : OUT std_logic_vector(0 downto 0)
 	);
 END Tarea7b;
 
@@ -31,6 +33,7 @@ ARCHITECTURE Structure OF Tarea7b IS
 		);
 		PORT(
 			CLOCK_50: IN std_logic;
+			reset: IN std_logic;
 			counter: IN std_logic_vector(size - 1 downto 0);
 			clk: OUT std_logic
 		);
@@ -38,18 +41,22 @@ ARCHITECTURE Structure OF Tarea7b IS
 
 	SIGNAL counter: std_logic_vector(15 downto 0) := (others => '0');
 	SIGNAL clk: std_logic;
+	SIGNAL reset: std_logic;
+	SIGNAL counter_s: std_logic_vector(15 downto 0);
+	
 BEGIN
-	PROCESS (clk)
+	PROCESS (reset)
 	BEGIN
-		if rising_edge(clk) then
-			counter <= counter + 1;
+		if rising_edge(clk)then
+			counter_s <= counter + 1;
 		END if;
 	END PROCESS;
-	
+			
 	Clock_tic_tac: clock
 		GENERIC map (26)
 		PORT map (
 			CLOCK_50 => CLOCK_50,
+			reset => not key(0),
 			counter => std_logic_vector(to_unsigned(50_000_000, 26)),
 			clk => clk
 		);
@@ -63,6 +70,13 @@ BEGIN
 			HEX3 => HEX3
 		);
 		
+		with key(0) select
+			counter <= counter_s when '1',
+			           (others => '1') when others;
 	
 
+	reset <= clk or not key(0);
+
+	ledr(0) <= clk;
+	
 END Structure;

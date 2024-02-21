@@ -38,6 +38,8 @@ BEGIN
 		half_counter <= half_counter_s when '0',
 							 counter(size - 1 downto 1) when others;
 
-	clk <= clk_s;
+	with reset select
+		clk <= clk_s when '0',
+				 '0' when others;
 	
 END Structure;
