@@ -37,7 +37,7 @@ BEGIN
 			
 			end_char <= '0';
 			
-			if counter = 0 then
+			if  data(counter) nor data(counter + 1) then
 				counter_s <= std_logic_vector(to_unsigned(size - 1, 4));
 				end_char <= '1';
 			END if;
