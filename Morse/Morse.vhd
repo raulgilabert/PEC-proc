@@ -106,137 +106,17 @@ BEGIN
 			charBits => HEX0
 		);
 		
-	A: MorseChar
+	generator: MorseChar
 		GENERIC map(
-			6
+			13
 		)
 		PORT map(
-			data => "101110",
+			data => ,
 			reset => reset,
 			clk => clk_05,
 			led => A_s,
 			end_char => end_bitA
 		);
-
-	B: MorseChar
-		GENERIC map(
-			10
-		)
-		PORT map(
-			data => "1110101010",
-			reset => reset,
-			clk => clk_05,
-			led => B_s,
-			end_char => end_bitB
-		);
-
-	C: MorseChar
-		GENERIC map(
-			12
-		)
-		PORT map(
-			data => "111010111010",
-			reset => reset,
-			clk => clk_05,
-			led => C_s,
-			end_char => end_bitC
-		);
-
-	D: MorseChar
-		GENERIC map(
-			8
-		)
-		PORT map(
-			data => "11101010",
-			reset => reset,
-			clk => clk_05,
-			led => D_s,
-			end_char => end_bitD
-		);
-
-	E: MorseChar
-		GENERIC map(
-			2
-		)
-		PORT map(
-			data => "10",
-			reset => reset,
-			clk => clk_05,
-			led => E_s,
-			end_char => end_bitE
-		);
-
-	F: MorseChar
-		GENERIC map(
-			10
-		)
-		PORT map(
-			data => "1010111010",
-			reset => reset,
-			clk => clk_05,
-			led => F_s,
-			end_char => end_bitF
-		);
-
-	G: MorseChar
-		GENERIC map(
-			10
-		)
-		PORT map(
-			data => "1110111010",
-			reset => reset,
-			clk => clk_05,
-			led => G_s,
-			end_char => end_bitG
-		);
-
-	H: MorseChar
-		GENERIC map(
-			8
-		)
-		PORT map(
-			data => "10101010",
-			reset => reset,
-			clk => clk_05,
-			led => H_s,
-			end_char => end_bitH
-		);
-		
-	reset <= not key(0) or not key(1);
-
---	with sw select
---		ledR(0) <= A_s when "000",
---					  B_s when "001", 
---					  C_s when "010",
---					  D_s when "011",
---					  E_s when "100",
---					  F_s when "101",
---					  G_s when "110",
---					  H_s when others;
-
-	with sw select	
-		end_bit <= end_bitA when "000",
-				   end_bitB	when "001",
-				   end_bitC when "010",
-				   end_bitD when "011",
-				   end_bitE when "100",
-				   end_bitF when "101",
-				   end_bitG when "110",
-				   end_bitH when others;
-				   
-
-	
-	
-	with end_bit & sw select
-		ledR(0) <= A_s when "0000",
-					  B_s when "0001", 
-					  C_s when "0010",
-					  D_s when "0011",
-					  E_s when "0100",
-					  F_s when "0101",
-					  G_s when "0110",
-					  H_s when "0111",
-					  '0' when others;
 
 	
 	ledG(0) <= not end_bit;
@@ -246,6 +126,3 @@ BEGIN
 	ledg(2) <= clk_15;
 
 END Structure;
-
-
-

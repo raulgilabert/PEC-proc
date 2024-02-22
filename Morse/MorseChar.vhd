@@ -14,7 +14,7 @@ ENTITY MorseChar IS
 	);
 	PORT (
 		data: IN std_logic_vector(size - 1 downto 0);
-		reset: IN std_logic;
+		start: IN std_logic;
 		clk: IN std_logic;
 		led: OUT std_logic;
 		end_char: OUT std_logic
@@ -42,10 +42,14 @@ BEGIN
 				end_char <= '1';
 			END if;
 		END if;
-		
-		
-		
 	END PROCESS;
+
+	PROCESS (start)
+	BEGIN
+
+        
+
+	END PROCESS
 		
 	with reset select 	
 			counter <= counter_s when '0',
