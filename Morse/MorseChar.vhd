@@ -31,16 +31,17 @@ BEGIN
 	PROCESS (clk)
 	BEGIN
 		if rising_edge(clk) then
-			counter_s <= counter + 1;
+			counter_s <= counter - 1;
 			
 			led <= data(to_integer(unsigned(counter)));
 			
-			if  data(counter) nor data(counter + 1) then
+			end_char <= '0';
+			
+			if counter = 0 then
 				counter_s <= std_logic_vector(to_unsigned(size - 1, 4));
 				end_char <= '1';
 			END if;
 		END if;
-	END PROCESS;
 
 	PROCESS (start)
 	BEGIN
