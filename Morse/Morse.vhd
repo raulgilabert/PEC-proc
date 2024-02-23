@@ -55,6 +55,7 @@ ARCHITECTURE Structure OF Morse IS
 	SIGNAL reset_s: std_logic := '0';
 	SIGNAL start: std_logic;
 	SIGNAL data: std_logic_vector(13 downto 0);
+	SIGNAL end_bit: std_logic;
 	
 	
 BEGIN
@@ -96,17 +97,24 @@ BEGIN
 			13
 		)
 		PORT map(
-			data => ,
+			data => data,
 			reset => reset,
 			clk => clk_05,
-			led => A_s,
-			end_char => end_bitA
+			led => ledR(0),
+			end_char => end_bit
 		);
 
 	start <= key(1);
 
 	with sw select
-		data <= "" when 
+		data <= "1011100000000" when "000", --A
+				"1110101010000" when "001", --B
+				"1110101110100" when "010", --C
+				"1110101000000" when "011", --D
+				"1000000000000" when "100", --E
+				"1010111010000" when "101", --F
+				"1110111010000" when "110", --G
+				"0101010100000" when others;
 	
 	ledG(0) <= not end_bit;
 

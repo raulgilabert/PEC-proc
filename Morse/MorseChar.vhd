@@ -25,31 +25,34 @@ END MorseChar;
 ARCHITECTURE Structure OF MorseChar IS
 	SIGNAL counter: std_logic_vector(3 downto 0);
 	SIGNAL counter_s: std_logic_vector(3 downto 0);
+	SIGNAL work: std_logic;
 
 BEGIN
 	
-	PROCESS (clk)
+	PROCESS (work)
 	BEGIN
-		if rising_edge(clk) then
+		if rising_edge(work) then
 			counter_s <= counter - 1;
 			
 			led <= data(to_integer(unsigned(counter)));
 			
-			end_char <= '0';
-			
-			if counter = 0 then
+			if data(to_integer(unsigned(counter))) = '0' and data(to_integer(unsigned(counter)) + 1) = '0' then
 				counter_s <= std_logic_vector(to_unsigned(size - 1, 4));
 				end_char <= '1';
 			END if;
 		END if;
+	END PROCESS;
 
 	PROCESS (start)
 	BEGIN
 
-        if rising_edge(start)
+        if rising_edge(start) then
 			end_char <= '0';
+		  END if;
 
-	END PROCESS
+	END PROCESS;
+
+	work <= not end_char and clk;
 		
 	with reset select 	
 			counter <= counter_s when '0',
