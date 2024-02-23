@@ -46,4 +46,17 @@ BEGIN
 
 	PROCESS (start)
 	BEGIN
-
+        if rising_edge(start) then 
+				end_char <= '0';
+		  END if;	
+  END PROCESS;
+  
+  
+  working <= not end_char and clk;
+  
+  with reset select 	
+			counter <= counter_s when '0',
+						  (others=>'0') when others;
+						  
+END structure;
+  
