@@ -16,6 +16,7 @@ ENTITY MorseChar IS
 		data: IN std_logic_vector(size - 1 downto 0);
 		start: IN std_logic;
 		clk: IN std_logic;
+		reset: IN std_logic;
 		led: OUT std_logic;
 		end_char: OUT std_logic
 	);
@@ -25,13 +26,13 @@ END MorseChar;
 ARCHITECTURE Structure OF MorseChar IS
 	SIGNAL counter: std_logic_vector(3 downto 0);
 	SIGNAL counter_s: std_logic_vector(3 downto 0);
-	SIGNAL work: std_logic;
+	SIGNAL working: std_logic;
 
 BEGIN
 	
-	PROCESS (work)
+	PROCESS (working)
 	BEGIN
-		if rising_edge(work) then
+		if rising_edge(working) then
 			counter_s <= counter - 1;
 			
 			led <= data(to_integer(unsigned(counter)));
@@ -45,20 +46,4 @@ BEGIN
 
 	PROCESS (start)
 	BEGIN
-
-        if rising_edge(start) then
-			end_char <= '0';
-		  END if;
-
-	END PROCESS;
-
-	work <= not end_char and clk;
-		
-	with reset select 	
-			counter <= counter_s when '0',
-						  (others=>'0') when others;
-	
-END Structure;
-
-
 

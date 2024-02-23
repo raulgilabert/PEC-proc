@@ -41,6 +41,7 @@ ARCHITECTURE Structure OF Morse IS
 		);
 		PORT (
 			data: IN std_logic_vector(size - 1 downto 0);
+			start: IN std_logic;
 			reset: IN std_logic;
 			clk: IN std_logic;
 			led: OUT std_logic;
@@ -54,7 +55,7 @@ ARCHITECTURE Structure OF Morse IS
 	SIGNAL reset: std_logic := '0';
 	SIGNAL reset_s: std_logic := '0';
 	SIGNAL start: std_logic;
-	SIGNAL data: std_logic_vector(13 downto 0);
+	SIGNAL data: std_logic_vector(12 downto 0);
 	SIGNAL end_bit: std_logic;
 	
 	
@@ -98,6 +99,7 @@ BEGIN
 		)
 		PORT map(
 			data => data,
+			start => key(1),
 			reset => reset,
 			clk => clk_05,
 			led => ledR(0),
@@ -107,14 +109,14 @@ BEGIN
 	start <= key(1);
 
 	with sw select
-		data <= "1011100000000" when "000", --A
-				"1110101010000" when "001", --B
-				"1110101110100" when "010", --C
-				"1110101000000" when "011", --D
-				"1000000000000" when "100", --E
-				"1010111010000" when "101", --F
-				"1110111010000" when "110", --G
-				"0101010100000" when others;
+		data <= "1011100000000" when "000", 	--A
+				"1110101010000" when "001", 	--B
+				"1110101110100" when "010", 	--C
+				"1110101000000" when "011", 	--D
+				"1000000000000" when "100", 	--E
+				"1010111010000" when "101", 	--F
+				"1110111010000" when "110", 	--G
+				"0101010100000" when others;	--H
 	
 	ledG(0) <= not end_bit;
 
