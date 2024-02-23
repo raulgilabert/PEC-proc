@@ -31,11 +31,9 @@ BEGIN
 	PROCESS (clk)
 	BEGIN
 		if rising_edge(clk) then
-			counter_s <= counter - 1;
+			counter_s <= counter + 1;
 			
 			led <= data(to_integer(unsigned(counter)));
-			
-			end_char <= '0';
 			
 			if  data(counter) nor data(counter + 1) then
 				counter_s <= std_logic_vector(to_unsigned(size - 1, 4));
@@ -47,7 +45,8 @@ BEGIN
 	PROCESS (start)
 	BEGIN
 
-        
+        if rising_edge(start)
+			end_char <= '0';
 
 	END PROCESS
 		

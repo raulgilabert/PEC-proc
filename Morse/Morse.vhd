@@ -53,23 +53,8 @@ ARCHITECTURE Structure OF Morse IS
 	SIGNAL clk_15: std_logic := '0';
 	SIGNAL reset: std_logic := '0';
 	SIGNAL reset_s: std_logic := '0';
-	SIGNAL A_s: std_logic;
-	SIGNAL B_s: std_logic;
-	SIGNAL C_s: std_logic;
-	SIGNAL D_s: std_logic;
-	SIGNAL E_s: std_logic;
-	SIGNAL F_s: std_logic;
-	SIGNAL G_s: std_logic;
-	SIGNAL H_s: std_logic;
-	SIGNAL end_bit: std_logic;
-	SIGNAL end_bitA: std_logic;
-	SIGNAL end_bitB: std_logic;
-	SIGNAL end_bitC: std_logic;
-	SIGNAL end_bitD: std_logic;
-	SIGNAL end_bitE: std_logic;
-	SIGNAL end_bitF: std_logic;
-	SIGNAL end_bitG: std_logic;
-	SIGNAL end_bitH: std_logic;
+	SIGNAL start: std_logic;
+	SIGNAL data: std_logic_vector(13 downto 0);
 	
 	
 BEGIN
@@ -118,6 +103,10 @@ BEGIN
 			end_char => end_bitA
 		);
 
+	start <= key(1);
+
+	with sw select
+		data <= "" when 
 	
 	ledG(0) <= not end_bit;
 
