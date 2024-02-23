@@ -34,12 +34,15 @@ BEGIN
 	END PROCESS;
 	
 	
-	with reset select
-		half_counter <= half_counter_s when '0',
-							 counter(size - 1 downto 1) when others;
+--	with reset select
+--		half_counter <= half_counter_s when '0',
+--							 counter(size - 1 downto 1) when others;
 
-	with reset select
-		clk <= clk_s when '0',
-				 '0' when others;
+	half_counter <= half_counter_s;
+
+--	with reset select
+--		clk <= clk_s when '0',
+--				 '0' when others;
+	clk <= clk_s;
 	
 END Structure;
