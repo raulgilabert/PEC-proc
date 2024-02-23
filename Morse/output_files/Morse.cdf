@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP2C20F484) Path("C:/Users/pec01/Documents/GitHub/PEC-proc/Morse/output_files/") File("Morse.sof") MfrSpec(OpMask(1));
+		Device PartName(EP2C20F484) Path("/home/pol/Documents/Uni/Q6/PEC/PEC-proc/Morse/output_files/") File("Morse.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 
