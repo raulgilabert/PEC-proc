@@ -27,8 +27,8 @@ ARCHITECTURE Structure OF MorseChar IS
 	SIGNAL counter: std_logic_vector(3 downto 0);
 	SIGNAL counter_s: std_logic_vector(3 downto 0);
 	SIGNAL working: std_logic;
-	SIGNAL end_char_s: std_logic;
-	SIGNAL end_char_s2: std_logic;
+	SIGNAL end_char_s: std_logic := '0';
+	SIGNAL end_char_s2: std_logic := '0';
 
 BEGIN
 	
