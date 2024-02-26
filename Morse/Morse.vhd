@@ -32,7 +32,6 @@ ARCHITECTURE Structure of Morse IS
 		PORT (
 			CLOCK_50: IN std_logic;
 			counter: IN std_logic_vector(size - 1 downto 0);
-			reset: IN std_logic;
 			clk: OUT std_logic			
 		);
 	END COMPONENT;
@@ -87,7 +86,6 @@ BEGIN
 		GENERIC map(25)
 		PORT map(
 			CLOCK_50 => CLOCK_50,
-			reset => (not key(0) or not key(1)),
 			counter => std_logic_vector(to_unsigned(25_000_000, 25)),
 			clk => clk
 		);
