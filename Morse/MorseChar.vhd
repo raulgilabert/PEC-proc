@@ -10,6 +10,7 @@ ENTITY MorseChar IS
 		data: IN std_logic_vector(11 downto 0);
 		len: IN std_logic_vector(3 downto 0);
 		working: IN std_logic;
+		kill: IN std_logic;
 		led: OUT std_logic;
 		end_char: OUT std_logic
 	);

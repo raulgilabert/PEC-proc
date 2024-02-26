@@ -10,8 +10,8 @@ ENTITY Morse IS
 		CLOCK_50: IN std_logic;
 		SW: IN std_logic_vector(2 downto 0);
 		KEY: IN std_logic_vector(1 downto 0);
-		LEDR: OUT std_logic_vector(0 downto 0);
-		LEDG: OUT std_logic_vector(0 downto 0);
+		LEDR: OUT std_logic_vector(3 downto 0);
+		LEDG: OUT std_logic_vector(3 downto 0);
 		HEX0: OUT std_logic_vector(6 downto 0)
 	);
 END Morse;
@@ -59,6 +59,12 @@ ARCHITECTURE Structure of Morse IS
 	SIGNAL data: std_logic_vector(11 downto 0);
 	
 	SIGNAL state: std_logic := '0'; -- 0->repos, 1->morse
+	
+	SIGNAL actual_s: std_logic_vector (3 downto 0):= "0000";
+	SIGNAL actual: std_logic_vector (3 downto 0):= "0000";
+	SIGNAL s: std_logic_vector (3 downto 0) := "0000";
+	SIGNAL str: std_logic_vector (3 downto 0) := "0000";
+	SIGNAL led: std_logic;
 BEGIN
 
 
@@ -88,7 +94,7 @@ BEGIN
 			data => data,
 			len => len,
 			working => state,
-			led => ledr(0),
+			led => led,
 			end_char => end_char
 		);
 					
@@ -110,22 +116,46 @@ BEGIN
 	
 	ledg(0) <= not state;
 
-	PROCESS (clk)
-	BEGIN
-		if rising_edge(clk) then
-			if state = '0' and key(1) = '0' then
-				state <= '1';
-			elsif state = '1' and end_char = '1' then
-				state <= '0';
-			elsif key(0) = '0' then
-				state <= '0';
-			elsif state = '1' and key(0) = '1' then
-				state <= '1';
-			else
-				state <= '0';
-			END if;
-		end if;
-	END PROCESS;
+	--PROCESS (clk)
+	--BEGIN
+	--	if rising_edge(clk) then
+	--		if state = '0' and key(1) = '0' then
+	--			state <= '1';
+	--		elsif state = '1' and end_char = '1' then
+	--			state <= '0';
+	--		elsif key(0) = '0' then
+	--			state <= '0';
+	--		elsif state = '1' and key(0) = '1' then
+	--			state <= '1';
+	--		else
+	--			state <= '0';
+	--		END if;
+	--	end if;
+	--END PROCESS;
+
+	
+	--ledg(2) <= key(0);
+	
+	--ledG(3) <= state;
+	
+	--actual <= s;
+
+	ledr(0) <= s (2);
+
+	state <= s (3);
+
+	actual <= (state or s(3)) & end_char & not key(1) & not key (0);
+	
+	str <= '1' & led & "11";
+	
+	with actual select
+		s <= str when "0010",
+			  str when "0110",
+			  str when "1000",
+			  str when "1010",
+			  "0000" when others;
+		
+
 END Structure;
 
 
