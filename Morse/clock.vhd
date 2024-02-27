@@ -10,7 +10,6 @@ ENTITY clock IS
 
 	PORT( CLOCK_50: IN std_logic;
 			counter: IN std_logic_vector(size - 1 downto 0);
-			reset: in std_logic;
 			clk: OUT std_logic
 	);
 END clock;
@@ -33,16 +32,9 @@ BEGIN
 		END if;
 	END PROCESS;
 	
-	
---	with reset select
---		half_counter <= half_counter_s when '0',
---							 counter(size - 1 downto 1) when others;
 
 	half_counter <= half_counter_s;
-
---	with reset select
---		clk <= clk_s when '0',
---				 '0' when others;
+	
 	clk <= clk_s;
 	
 END Structure;
