@@ -11,15 +11,17 @@ END proc;
 
 ARCHITECTURE Structure OF proc IS
 
-	COMPONENT control_l IS
+	COMPONENT unidad_control IS
 		PORT(
-			ir			: IN	STD_LOGIC_VECTOR(15 downto 0);
-			op			: OUT STD_LOGIC;
-			ldpc		: OUT STD_LOGIC;
-			wrd		: OUT STD_LOGIC;
-			addr_a	: OUT STD_LOGIC_VECTOR(2 downto 0);
-			addr_d	: OUT STD_LOGIC_VECTOR(2 downto 0);
-			immed		: OUT STD_LOGIC_VECTOR(15 downto 0)
+			boot   : IN  STD_LOGIC;
+          clk    : IN  STD_LOGIC;
+          ir     : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+          op     : OUT STD_LOGIC;
+          wrd    : OUT STD_LOGIC;
+          addr_a : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+          addr_d : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+          immed  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+          pc     : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
 		);
 	END COMPONENT;
 
@@ -33,20 +35,38 @@ ARCHITECTURE Structure OF proc IS
 			immed		: IN STD_LOGIC_VECTOR(15 downto 0)
 		);
 	END COMPONENT;
-
-	SIGNAL op		: STD_LOGIC;
-	SIGNAL wrd		: STD_LOGIC;
-	SIGNAL addr_a 	: STD_LOGIC_VECTOR(2 downto 0);
-	SIGNAL addr_d	: STD_LOGIC_VECTOR(2 downto 0);
-	SIGNAL immed	: STD_LOGIC_VECTOR(15 downto 0);
+	
+	SIGNAL op_s		: STD_LOGIC;
+	SIGNAL wrd_s		: STD_LOGIC;
+	SIGNAL addr_a_s 	: STD_LOGIC_VECTOR(2 downto 0);
+	SIGNAL addr_d_s	: STD_LOGIC_VECTOR(2 downto 0);
+	SIGNAL immed_s	: STD_LOGIC_VECTOR(15 downto 0);
+	
 	
 BEGIN
 
-	c0: control_l
-		PORT map(
+	c0 : unidad_control
+		PORT map (
+			boot => boot,
+			clk => clk,
 			ir => datard_m,
-			op => op,
-			ldpc 
+			op => op_s,
+			wrd => wrd_s,
+			addr_a => addr_a_s,
+			addr_d => addr_d_s,
+			immed => immed_s,
+			pc => addr_m
 		);
+		
 
+	e0: datapath
+		PORT map (
+			clk => clk,
+			op => op_s,
+			wrd => wrd_s,
+			addr_a => addr_a_s,
+			addr_d => addr_d_s,
+			immed => immed_s
+		);
+		
 END Structure;

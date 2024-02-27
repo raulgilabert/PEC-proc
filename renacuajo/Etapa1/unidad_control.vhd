@@ -29,13 +29,41 @@ ARCHITECTURE Structure OF unidad_control IS
 		);
 	END COMPONENT;
 
-	SIGNAL pc	: STD_LOGIC_VECTOR(15 downto 0);
+	SIGNAL new_pc	: STD_LOGIC_VECTOR(15 downto 0);
+	SIGNAL ldpc		: STD_LOGIC;
 	
 BEGIN
 
-	with boot select
-		pc <= x"C000" when '1',
-				pc + 2 when others;
+		
+	
+	pc <= new_pc;
+		
+	PROCESS (clk)
+	BEGIN
+	
+		if rising_edge(clk) then
+			if boot = '1' then
+				new_pc <= x"C000";
+			elsif ldpc = '0' then
+				new_pc <= new_pc;
+			else 
+				new_pc <= new_pc + 2;
+			END if;
+		END if;
+	END PROCESS;
+				
+	c0: control_l
+		PORT map(
+			ir => ir,
+			op => op,
+			ldpc => ldpc,
+			wrd => wrd,
+			addr_a => addr_a,
+			addr_d => addr_d,
+			immed => immed
+		);
+			
+	
 	
 
 END Structure;
