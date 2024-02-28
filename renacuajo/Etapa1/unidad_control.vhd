@@ -63,7 +63,5 @@ BEGIN
 			immed => immed
 		);
 			
-	
-	
 
 END Structure;

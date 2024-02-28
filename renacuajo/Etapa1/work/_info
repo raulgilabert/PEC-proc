@@ -1,0 +1,309 @@
+m255
+K3
+13
+cModel Technology
+dC:\altera\13.0sp1\modelsim_ase\win32aloem
+Ealu
+Z0 w1709035694
+Z1 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z2 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z3 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z4 dC:\Users\pec01\Documents\GitHub\PEC-proc\renacuajo\Etapa1
+Z5 8C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa1/alu.vhd
+Z6 FC:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa1/alu.vhd
+l0
+L5
+V5?nQ[Y0^B_z0FNINh`@i_3
+Z7 OV;C;10.1d;51
+32
+Z8 !s108 1709112292.519000
+Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa1/alu.vhd|
+Z10 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa1/alu.vhd|
+Z11 o-work work -2002 -explicit -O0
+Z12 tExplicit 1
+!s100 lfPNoc;T8l_<1g1oSjG8d0
+!i10b 1
+Astructure
+R1
+R2
+R3
+DEx4 work 3 alu 0 22 5?nQ[Y0^B_z0FNINh`@i_3
+l16
+L13
+V3WlX19ac?K36JI9:;nM5V2
+R7
+32
+R8
+R9
+R10
+R11
+R12
+!s100 a9mTBZNILiV_QI1z?`[F42
+!i10b 1
+Econtrol_l
+Z13 w1709038389
+R1
+R2
+R3
+R4
+Z14 8C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa1/control_l.vhd
+Z15 FC:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa1/control_l.vhd
+l0
+L5
+Vo7F:IoFDP;@lML_e9Ccog0
+R7
+32
+Z16 !s108 1709112292.598000
+Z17 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa1/control_l.vhd|
+Z18 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa1/control_l.vhd|
+R11
+R12
+!s100 5QE7QOFOzKW8=n`;?<Ilb3
+!i10b 1
+Astructure
+R1
+R2
+R3
+DEx4 work 9 control_l 0 22 o7F:IoFDP;@lML_e9Ccog0
+l17
+L16
+V_0M9AL=Fo1cHXSPg]7^:S0
+R7
+32
+R16
+R17
+R18
+R11
+R12
+!s100 c_W=eNOa^7aK[jAeC5JEU1
+!i10b 1
+Edatapath
+Z19 w1709035959
+R1
+R2
+R3
+R4
+Z20 8C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa1/datapath.vhd
+Z21 FC:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa1/datapath.vhd
+l0
+L5
+VWd5_lNZzjUmXkY5@`5=T32
+R7
+32
+Z22 !s108 1709112292.648000
+Z23 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa1/datapath.vhd|
+Z24 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa1/datapath.vhd|
+R11
+R12
+!s100 GZ`SS236MKH?nAYk_d:Vj0
+!i10b 1
+Astructure
+R1
+R2
+R3
+DEx4 work 8 datapath 0 22 Wd5_lNZzjUmXkY5@`5=T32
+l35
+L15
+VLzcYR@mM?>5?Fjj5l95fS2
+R7
+32
+R22
+R23
+R24
+R11
+R12
+!s100 1OJdl?jUkNR197o[ZZbn30
+!i10b 1
+Ememory
+Z25 w1709032104
+Z26 DPx4 ieee 16 std_logic_textio 0 22 ?Il0a149GV276[?[UMDWh2
+Z27 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
+Z28 DPx4 ieee 18 std_logic_unsigned 0 22 RYmj;=TK`k=k>D@Cz`zoB3
+R2
+R3
+R4
+Z29 8C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa1/memory.vhd
+Z30 FC:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa1/memory.vhd
+l0
+L8
+VezVj_W<TQA0lnlE844kA:3
+R7
+32
+Z31 !s108 1709112292.698000
+Z32 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa1/memory.vhd|
+Z33 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa1/memory.vhd|
+R11
+R12
+!s100 6`[ncjZncnKIIQlJ;Qz4a2
+!i10b 1
+Acomportament
+R26
+R27
+R28
+R2
+R3
+DEx4 work 6 memory 0 22 ezVj_W<TQA0lnlE844kA:3
+l48
+L20
+VPkAg]G57>]66WXLfTgc2g1
+R7
+32
+R31
+R32
+R33
+R11
+R12
+!s100 ^2]_]@0E]lMjXY_dJce3b3
+!i10b 1
+Eproc
+Z34 w1709044171
+R2
+R3
+R4
+Z35 8C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa1/proc.vhd
+Z36 FC:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa1/proc.vhd
+l0
+L4
+VV[^C@`ZKHFP1Fh1HzI]b=1
+R7
+32
+Z37 !s108 1709112292.757000
+Z38 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa1/proc.vhd|
+Z39 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa1/proc.vhd|
+R11
+R12
+!s100 :DYC`>><kI`Nfe7naBeNJ2
+!i10b 1
+Astructure
+R2
+R3
+DEx4 work 4 proc 0 22 V[^C@`ZKHFP1Fh1HzI]b=1
+l46
+L12
+V[nn@PjdG1j3[?3Ueo^lgH2
+R7
+32
+R37
+R38
+R39
+R11
+R12
+!s100 i??^nJ22DdlbE7Tl>k3J<0
+!i10b 1
+Eregfile
+Z40 w1709034199
+R27
+R28
+R1
+R2
+R3
+R4
+Z41 8C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa1/regfile.vhd
+Z42 FC:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa1/regfile.vhd
+l0
+L6
+V=VQ=@azTK:E71e;a?nWnT3
+R7
+32
+Z43 !s108 1709112292.803000
+Z44 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa1/regfile.vhd|
+Z45 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa1/regfile.vhd|
+R11
+R12
+!s100 hf3maH1YKjXckh6YBfMM71
+!i10b 1
+Astructure
+R27
+R28
+R1
+R2
+R3
+DEx4 work 7 regfile 0 22 =VQ=@azTK:E71e;a?nWnT3
+l20
+L16
+V_d8=Q<gI<LQ1677J;=Pnm2
+R7
+32
+R43
+R44
+R45
+R11
+R12
+!s100 a=[2NI1idX@fIBEM_ZELL2
+!i10b 1
+Etest_sisa
+R25
+R2
+R3
+R4
+Z46 8C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa1/test_sisa.vhd
+Z47 FC:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa1/test_sisa.vhd
+l0
+L5
+VkAdhfn89W5`mY_=KPlfV]3
+R7
+32
+Z48 !s108 1709112292.854000
+Z49 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa1/test_sisa.vhd|
+Z50 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa1/test_sisa.vhd|
+R11
+R12
+!s100 688X_8OZ0BkG::B3fT5kf3
+!i10b 1
+Acomportament
+R2
+R3
+DEx4 work 9 test_sisa 0 22 kAdhfn89W5`mY_=KPlfV]3
+l38
+L8
+V4k4aJ72YP_Wzj`TVJaQ?l2
+R7
+32
+R48
+R49
+R50
+R11
+R12
+!s100 M^2H7oCBH9I:<O?Y4:zDd1
+!i10b 1
+Eunidad_control
+Z51 w1709045479
+R27
+R28
+R1
+R2
+R3
+R4
+Z52 8C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa1/unidad_control.vhd
+Z53 FC:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa1/unidad_control.vhd
+l0
+L6
+V_Y]DBnN:<i[HFb=_4f`Yb0
+!s100 6H_<TKhAoAYfPDmD@`iU40
+R7
+32
+!i10b 1
+Z54 !s108 1709112292.898000
+Z55 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa1/unidad_control.vhd|
+Z56 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa1/unidad_control.vhd|
+R11
+R12
+Astructure
+R27
+R28
+R1
+R2
+R3
+DEx4 work 14 unidad_control 0 22 _Y]DBnN:<i[HFb=_4f`Yb0
+l35
+L18
+V@T0z:X?S6^Rb30o8@72c<2
+!s100 AD`PH5AgL8M`c98^JBX[90
+R7
+32
+!i10b 1
+R54
+R55
+R56
+R11
+R12
