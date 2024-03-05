@@ -20,9 +20,44 @@ architecture Structure of multi is
 
     -- Aqui iria la declaracion de las los estados de la maquina de estados
 
+    SIGNAL state: STD_LOGIC;
+
 begin
 
-    -- Aqui iria la máquina de estados del modelos de Moore que gestiona el multiciclo
+    -- Aqui iria la mï¿½quina de estados del modelos de Moore que gestiona el multiciclo
     -- Aqui irian la generacion de las senales de control que su valor depende del ciclo en que se esta.
+    PROCESS (clk)
+    BEGIN
+        if rising_edge(clk) then 
+            if boot = '1' then 
+                state <= '0';
+            else 
+                state <= not state; 
+            END if;
+        END if;
+    END PROCESS;
+
+    ldir <= not state;
+    ins_dad <= state;
+
+    with state select
+		wrd <= wrd_l when state = '1',
+			   '0' when others;
+	
+	with state select 
+		wr_m <= wr_m_l when state = '1',
+				'0' when others;
+	
+	with state select
+		word_byte <= w_b when state '1',
+					 '0' when others;
+
+	with state select
+		ldpc <= ldpc_l when state = '1';
+				'0' when others; 
+				
+
+        
+
 
 end Structure;

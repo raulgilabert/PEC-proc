@@ -12,12 +12,17 @@ END alu;
 
 ARCHITECTURE Structure OF alu IS
 
+SIGNAL sum: STD_LOGIC_VECTOR(16 downto 0);
+SIGNAL overflow: STD_LOGIC;
 
 BEGIN
+
+	sum <= std_logic_vector(unsigned('0' & x) + unsigned('0' & y));
+	overflow <= sum(16);
 
 	with op select
 		w <= y when "00",
 			  y(7 downto 0) & x(7 downto 0) when "01",
-			  std_logic_vector(to_signed(to_integer(signed(x), 16) + to_integer(signed(y), 16))) when others;
+			  sum(15 downto 0) when others;
 			  
 END Structure;

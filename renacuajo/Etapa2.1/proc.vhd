@@ -2,10 +2,14 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.all;
 
 ENTITY proc IS
-    PORT (boot     : IN  STD_LOGIC;
-          clk      : IN  STD_LOGIC;
-          datard_m : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-          addr_m   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
+	PORT (
+		clk		: IN STD_LOGIC;
+		boot	: IN STD_LOGIC;
+		datard_m: IN STD_LOGIC;
+		addr_m	: OUT STD_LOGIC_VECTOR(15 downto 0);
+		data_wr : OUT STD_LOGIC_VECTOR(15 downto 0);
+		wr_m	: OUT STD_LOGIC;
+		word_byte:OUT STD_LOGIC);
 END proc;
 
 
@@ -16,7 +20,7 @@ ARCHITECTURE Structure OF proc IS
 			boot   : IN  STD_LOGIC;
           clk    : IN  STD_LOGIC;
           ir     : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-          op     : OUT STD_LOGIC;
+          op     : OUT STD_LOGIC_VECTOR(1 downto 0);
           wrd    : OUT STD_LOGIC;
           addr_a : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
           addr_d : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -28,7 +32,7 @@ ARCHITECTURE Structure OF proc IS
 	COMPONENT datapath IS
 		PORT(
 			clk		: IN STD_LOGIC;
-			op			: IN STD_LOGIC;
+			op			: IN STD_LOGIC_VECTOR(1 downto 0);
 			wrd		: IN STD_LOGIC;
 			addr_a	: IN STD_LOGIC_VECTOR(2 downto 0);
 			addr_d	: IN STD_LOGIC_VECTOR(2 downto 0);
@@ -36,7 +40,7 @@ ARCHITECTURE Structure OF proc IS
 		);
 	END COMPONENT;
 	
-	SIGNAL op_s		: STD_LOGIC;
+	SIGNAL op_s		: STD_LOGIC_VECTOR(1 downto 0);
 	SIGNAL wrd_s		: STD_LOGIC;
 	SIGNAL addr_a_s 	: STD_LOGIC_VECTOR(2 downto 0);
 	SIGNAL addr_d_s	: STD_LOGIC_VECTOR(2 downto 0);
