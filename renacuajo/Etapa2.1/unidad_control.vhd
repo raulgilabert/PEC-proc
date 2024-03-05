@@ -54,66 +54,73 @@ ARCHITECTURE Structure OF unidad_control IS
 				ins_dad   : OUT STD_LOGIC;
 				word_byte : OUT STD_LOGIC
 		);
+	END COMPONENT;
 
-	SIGNAL new_pc	: STD_LOGIC_VECTOR(15 downto 0);
-	SIGNAL ldpc_c	: STD_LOGIC;
-	SIGNAL ldpc_s	: STD_LOGIC;
-	SIGNAL ir_reg	: STD_LOGIC_VECTOR(15 downto 0);
-	SIGNAL ldir		: STD_LOGIC;
-BEGIN
 
-		
+	SIGNAL ir: std_logic_vector(15 downto 0);
+	SIGNAL pc_s: std_logic_vector(15 downto 0);
+	SIGNAL ldpc: std_logic;
+	SIGNAL ldir: std_logic;
+	SIGNAL ldpc_s: std_logic;
+	SIGNAL wrd_s: std_logic;
+	SIGNAL wr_m_s: std_logic;
+	SIGNAL word_byte_s: std_logic;
 	
-	pc <= new_pc;
-		
+BEGIN
 	PROCESS (clk)
 	BEGIN
-	
 		if rising_edge(clk) then
 			if boot = '1' then
-				new_pc <= x"C000";
+				pc_s <= x"C000";
 				ir <= x"0000";
-			elsif ldpc = '0' then
-				new_pc <= new_pc;
-			else 
-				new_pc <= new_pc + 2;
+			END if;
+			
+			if ldpc = '1' then
+				pc_s <= pc_s + 2;
+			else
+				pc_s <= pc_s;
+			END if;
+
+			if ldir = '1' then
+				ir <= datard_m;
+			else
+				ir <= ir;
 			END if;
 		END if;
 	END PROCESS;
 
-	PROCESS (clk)
-	BEGIN
-		if rising_edge(clk) then 
-			ir_reg <= ;
-			ir <= ir_reg;
-		END if;
-	END PROCESS;
-				
-	c0: control_l
-		PORT map(
-			ir => ir,
-			op => op,
-			ldpc => ldpc_c,
-			wrd => wrd,
-			addr_a => addr_a,
-			addr_b => addr_b,
-			addr_d => addr_d,
-			immed => immed
-		);
-
-	m0: multi
+	pc <= pc_s;
+	
+	m: multi
 		PORT map(
 			clk => clk,
 			boot => boot,
-			ldpc_l => ldpc_c,
-			wrd_l => wrd,
-			w_b => word_byte,
-			wr_m_l => wr_m,
-			ins_dad => ins_dad,
+			ldpc_l => ldpc_s,
+			wrd_l => wrd_s,
+			wr_m_l => wr_m_s,
+			w_b => word_byte_s,
+			ldpc => ldpc,
+			wrd => wrd,
+			wr_m => wr_m,
 			ldir => ldir,
-			ldpc => ldpc_s,
-
+			ins_dad => ins_dad,
+			word_byte => word_byte
 		);
-			
-
+	
+	c_l: control_l
+		PORT map(
+			ir => ir,
+			op => op,
+			ldpc => ldpc_s,
+			wrd => wrd_s,
+			addr_a => addr_a,
+			addr_b => addr_b,
+			addr_d => addr_d,
+			immed => immed,
+			wr_m => wr_m_s,
+			in_d => in_d,
+			immed_x2 => immed_x2,
+			word_byte => word_byte_s
+		);
+	
 END Structure;
