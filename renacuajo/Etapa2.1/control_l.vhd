@@ -50,9 +50,24 @@ BEGIN
 		wr_m <= '1' when "0100",
 				  '1' when "1110",
 				  '0' when others;
-				 
+				  
+	with ir(15 downto 12) select
+		word_byte <= '1' when "1101",
+						 '1' when "1110",
+						 '0' when others;
 	
 	with (ir) select
 		ldpc <= '0' when x"FFFF",
 				  '1' when others;
+				  
+	with ir(15 downto 12) select
+		immed_x2 <= '1' when "0011",
+						'1' when "0100",
+						'0' when others;
+						
+	with ir(15 downto 12) select
+		in_d <= '1' when "0100",
+				  '1' when "1110",
+				  '0' when others;
+	
 END Structure;

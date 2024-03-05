@@ -58,6 +58,7 @@ ARCHITECTURE Structure OF unidad_control IS
 
 
 	SIGNAL ir: std_logic_vector(15 downto 0);
+	SIGNAL ir_reg: std_logic_vector(15 downto 0);
 	SIGNAL pc_s: std_logic_vector(15 downto 0);
 	SIGNAL ldpc: std_logic;
 	SIGNAL ldir: std_logic;
@@ -72,16 +73,15 @@ BEGIN
 		if rising_edge(clk) then
 			if boot = '1' then
 				pc_s <= x"C000";
-				ir <= x"0000";
+			elsif ldpc = '0' then
+				pc_s <= pc_s;
+			else
+				pc_s <= pc_s + 2;
 			END if;
 			
-			if ldpc = '1' then
-				pc_s <= pc_s + 2;
-			else
-				pc_s <= pc_s;
-			END if;
-
-			if ldir = '1' then
+			if boot = '1' then 
+				ir <= x"0000";
+			elsif ldir = '1' then
 				ir <= datard_m;
 			else
 				ir <= ir;
