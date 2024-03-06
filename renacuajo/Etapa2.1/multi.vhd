@@ -20,7 +20,7 @@ architecture Structure of multi is
 
     -- Aqui iria la declaracion de las los estados de la maquina de estados
 
-    SIGNAL state: STD_LOGIC;
+    SIGNAL state: STD_LOGIC; -- 0 = FETCH, 1 = DEMW
 
 begin
 

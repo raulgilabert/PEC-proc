@@ -42,8 +42,8 @@ BEGIN
 
 	with ir(15 downto 12) select
 		wrd <= '0' when "1111",
-			    '0' when "0011",
-				 '0' when "1101",
+			    '0' when "0100",
+				 '0' when "1110",
 				 '1' when others;
 
 	 with ir(15 downto 12) select
@@ -66,8 +66,8 @@ BEGIN
 						'0' when others;
 						
 	with ir(15 downto 12) select
-		in_d <= '1' when "0100",
-				  '1' when "1110",
+		in_d <= '1' when "0011",
+				  '1' when "1101",
 				  '0' when others;
 	
 END Structure;

@@ -43,6 +43,7 @@ ARCHITECTURE Structure OF datapath IS
 	SIGNAL ra: std_logic_vector(15 downto 0);	
 	SIGNAL rb: std_logic_vector(15 downto 0);	
 	SIGNAL rd: std_logic_vector(15 downto 0);
+	SIGNAL d: std_logic_vector(15 downto 0);
 	SIGNAL rd_alu: std_logic_vector(15 downto 0);
 	SIGNAL rd_mem: std_logic_vector(15 downto 0);
 	SIGNAL immed_out: std_logic_vector(15 downto 0);
@@ -52,7 +53,7 @@ BEGIN
 		PORT map(
 			clk => clk,
 			wrd => wrd,
-			d => rd,
+			d => d,
 			addr_a => addr_a,
 			addr_b => addr_b,
 			addr_d => addr_d,
@@ -79,6 +80,11 @@ BEGIN
 	with immed_x2 select
 		immed_out <= immed when '0',
 						 immed(14 downto 0) & '0' when others;
-				
-		
+	
+	data_wr <= rb;
+
+	with in_d select
+		d <= rd when '0',
+			  datard_m when others;
+	
 END Structure;
