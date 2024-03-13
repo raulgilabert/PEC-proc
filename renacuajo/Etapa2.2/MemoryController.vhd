@@ -10,7 +10,7 @@ entity MemoryController is
           rd_data   : out std_logic_vector(15 downto 0);
           we        : in  std_logic;
           byte_m    : in  std_logic;
-          -- señales para la placa de desarrollo
+          -- seÃ±ales para la placa de desarrollo
           SRAM_ADDR : out   std_logic_vector(17 downto 0);
           SRAM_DQ   : inout std_logic_vector(15 downto 0);
           SRAM_UB_N : out   std_logic;
@@ -40,7 +40,7 @@ architecture comportament of MemoryController is
     );
   END COMPONENT;
 
-  SIGNAL write: std_logic;
+  SIGNAL write_s: std_logic;
 
 begin
 
@@ -58,12 +58,12 @@ begin
       address       => addr,
       dataReaded    => rd_data,
       dataToWrite   => wr_data,
-      WR            => write,
+      WR            => write_s,
       byte_m        => byte_m
     );
 
-    with (address < 0)
-      write <= we when '1',
-               0  when others;
+    with (addr < x"C000") select
+      write_s <= we  when true,
+                 '0' when others;
 
 end comportament;

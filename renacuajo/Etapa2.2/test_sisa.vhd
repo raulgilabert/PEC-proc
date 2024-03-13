@@ -6,84 +6,102 @@ entity test_sisa is
 end test_sisa;
 
 architecture comportament of test_sisa is
-   component memory is
-      port (
-         clk          : in std_logic;
-         addr         : in std_logic_vector(15 downto 0);
-         wr_data      : in std_logic_vector(15 downto 0);
-         rd_data      : out std_logic_vector(15 downto 0);
-         we           : in std_logic;
-         byte_m       : in std_logic;
-		 boot         : in std_logic
-		 );
+   component async_64Kx16 is
+		generic
+			(ADDR_BITS		: integer := 16;
+			DATA_BITS		: integer := 16;
+			depth 			: integer := 65536;
+			
+			TimingInfo		: BOOLEAN := TRUE;
+			TimingChecks	: std_logic := '1'
+			);
+		Port (
+			CE_b    : IN Std_Logic;	                                                -- Chip Enable CE#
+			WE_b  	: IN Std_Logic;	                                                -- Write Enable WE#
+			OE_b  	: IN Std_Logic;                                                 -- Output Enable OE#
+			BHE_b	: IN std_logic;                                                 -- Byte Enable High BHE#
+			BLE_b   : IN std_logic;                                                 -- Byte Enable Low BLE#
+			A 		: IN Std_Logic_Vector(addr_bits-1 downto 0);                    -- Address Inputs A
+			DQ		: INOUT Std_Logic_Vector(DATA_BITS-1 downto 0):=(others=>'Z');   -- Read/Write Data IO
+			boot    : in std_logic
+			); 
    end component;
    
-   component proc is
-      port (
-         clk          : in std_logic;
-         boot         : in std_logic;
-         datard_m     : in std_logic_vector(15 downto 0);
-         addr_m       : out std_logic_vector(15 downto 0);
-         data_wr       : out std_logic_vector(15 downto 0);
-         wr_m         : out std_logic;
-         word_byte    : out std_logic
-      );
+   component sisa IS 
+	PORT (	CLOCK_50		: IN	STD_LOGIC;
+				SRAM_ADDR 	: out std_logic_vector(17 downto 0);
+				SRAM_DQ 		: inout std_logic_vector(15 downto 0);
+				SRAM_UB_N 	: out std_logic;
+				SRAM_LB_N 	: out std_logic;
+				SRAM_CE_N 	: out std_logic := '1';
+				SRAM_OE_N 	: out std_logic := '1';
+				SRAM_WE_N 	: out std_logic := '1';
+								
+				SW : in std_logic_vector(9 downto 9)
+				);
    end component;
+
    
    -- Registres (entrades) i cables
-   signal clk          : std_logic := '0';
-   signal addr         : std_logic_vector(15 downto 0);
-   signal rd_data      : std_logic_vector(15 downto 0);
-   signal wr_data      : std_logic_vector(15 downto 0);
-   signal reset_ram    : std_logic := '0';
-   signal reset_proc   : std_logic := '1';
-   signal we               : std_logic;
-   signal byte_m           : std_logic;
+   signal clk           : std_logic := '0';
+   signal reset_ram    	: std_logic := '0';
+   signal reset_proc    : std_logic := '0';
+
+   signal addr_SoC      : std_logic_vector(17 downto 0);
+   signal addr_mem      : std_logic_vector(15 downto 0);
+   signal data_mem      : std_logic_vector(15 downto 0);
+
+   signal ub_m           : std_logic;
+   signal lb_m           : std_logic;
+   signal ce_m           : std_logic;
+   signal oe_m           : std_logic;
+   signal we_m           : std_logic;
+   signal ce_m2           : std_logic;
+
+   signal botones      : std_logic_vector(9 downto 9);
+
 	
 begin
    
+   ce_m2 <= '1', ce_m after 100ns;
    -- Instanciacions de moduls
-   proc0 : proc
+   SoC : sisa
       port map (
-         clk        => clk,
-         boot       => reset_proc,
-         datard_m   => rd_data,
-         addr_m     => addr,
-         
-         data_wr     => wr_data,
-         wr_m       => we,
-         word_byte  => byte_m
+         CLOCK_50   => clk,
+         SW        => botones,
+
+         SRAM_ADDR  => addr_SoC,
+         SRAM_DQ    => data_mem,
+			SRAM_UB_N 	=> ub_m,
+			SRAM_LB_N 	=> lb_m,
+			SRAM_CE_N 	=> ce_m,
+			SRAM_OE_N 	=> oe_m,
+			SRAM_WE_N 	=> we_m
       );
 
-   mem0 : memory
+   mem0 : async_64Kx16
       port map (
-         clk      => clk,
-         addr     => addr,
-         wr_data  => wr_data,
-         rd_data  => rd_data,
-         we       => we,
-         byte_m   => byte_m,
-         boot     => reset_ram
+				A 	 => addr_mem,
+				DQ  => data_mem,
+				
+				--CE_b => ce_m,
+				CE_b => ce_m2,
+				OE_b => oe_m,
+				WE_b => we_m,
+				BLE_b => lb_m,
+				BHE_b => ub_m,
+
+				boot     => reset_ram
       );
-   
-   -- De moment no escrivim
-   
+	  
+
+		addr_mem (15 downto 0) <= addr_SOC (15 downto 0);
+		botones(9) <= reset_proc;
+		
    -- Descripcio del comportament
 	clk <= not clk after 10 ns;
-	reset_ram <= '1' after 5 ns, '0' after 15 ns;    -- reseteamos la Ram en el primer ciclo
-	reset_proc <= '1' after 25 ns, '0' after 35 ns;  -- reseteamos el procesador en el segundo ciclo
-	
---    process
---	begin
---		reset_ram <= '1' after 5 ns, '0' after 15 ns;    -- reseteamos la Ram en el primer ciclo
---		reset_proc <= '1' after 25 ns, '0' after 35 ns;  -- reseteamos el procesador en el segundo ciclo
---      wait for 40 ns;
---		for i in 0 to 255 loop
---            read_en <= '1' after 5 ns, '0' after 15 ns;
---            wait for 20 ns;
---        end loop;
---    end process;
-
+	reset_ram <= '1' after 15 ns, '0' after 50 ns;    -- reseteamos la RAm en el primer ciclo
+	reset_proc <= '1' after 25 ns, '0' after 320 ns;  -- reseteamos el procesador en el segundo ciclo
 
 	
 end comportament;
