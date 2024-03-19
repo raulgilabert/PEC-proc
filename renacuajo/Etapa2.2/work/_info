@@ -16,7 +16,7 @@ L5
 V342dKO42oZ]KSj]gR757T2
 Z7 OV;C;10.1d;51
 32
-Z8 !s108 1710850299.644000
+Z8 !s108 1710852671.157000
 Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/alu.vhd|
 Z10 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/alu.vhd|
 Z11 o-work work -2002 -explicit -O0
@@ -57,7 +57,7 @@ L22
 Vz7=:g106kSL^?zZa1_k1i2
 R7
 32
-Z21 !s108 1710850299.690000
+Z21 !s108 1710852671.201000
 Z22 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:\Users\pec01\Documents\GitHub\PEC-proc\renacuajo\Etapa2.2\async_64Kx16.vhd|
 Z23 !s107 C:\Users\pec01\Documents\GitHub\PEC-proc\renacuajo\Etapa2.2\async_64Kx16.vhd|
 R11
@@ -98,7 +98,7 @@ L5
 VLT2J2dSfT6[?TbJe1J;7P2
 R7
 32
-Z27 !s108 1710850299.742000
+Z27 !s108 1710852671.249000
 Z28 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/control_l.vhd|
 Z29 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/control_l.vhd|
 R11
@@ -135,7 +135,7 @@ L5
 V<KkCMdkNEo@PzeR[Uaa_;2
 R7
 32
-Z33 !s108 1710850299.785000
+Z33 !s108 1710852671.293000
 Z34 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/datapath.vhd|
 Z35 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/datapath.vhd|
 R11
@@ -174,7 +174,7 @@ L8
 VezVj_W<TQA0lnlE844kA:3
 R7
 32
-Z39 !s108 1710850299.837000
+Z39 !s108 1710852671.336000
 Z40 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/memory.vhd|
 Z41 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/memory.vhd|
 R11
@@ -214,7 +214,7 @@ L6
 VPLoMf0oj;RB<P=VUa6jkS2
 R7
 32
-Z45 !s108 1710850299.894000
+Z45 !s108 1710852671.379000
 Z46 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/MemoryController.vhd|
 Z47 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/MemoryController.vhd|
 R11
@@ -251,7 +251,7 @@ L4
 V14NBh5f7z`nUY<]C1Om_?2
 R7
 32
-Z51 !s108 1710850299.946000
+Z51 !s108 1710852671.423000
 Z52 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/multi.vhd|
 Z53 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/multi.vhd|
 R11
@@ -289,7 +289,7 @@ L17
 V]QljGNTG0EJQ?X:f3a>TX1
 R7
 32
-Z56 !s108 1710850299.988000
+Z56 !s108 1710852671.463000
 Z57 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/package_timing.vhd|
 Z58 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/package_timing.vhd|
 R11
@@ -331,7 +331,7 @@ VabW^FY0na:iFW@RR:Fofg0
 R7
 32
 b1
-Z61 !s108 1710850300.041000
+Z61 !s108 1710852671.508000
 Z62 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/package_utility.vhd|
 Z63 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/package_utility.vhd|
 R11
@@ -369,7 +369,7 @@ L4
 VE07>PX[gFbcoX5M:Gg6jG0
 R7
 32
-Z67 !s108 1710850300.086000
+Z67 !s108 1710852671.552000
 Z68 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/proc.vhd|
 Z69 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/proc.vhd|
 R11
@@ -405,7 +405,7 @@ L6
 V6MT]lB<ER9a2`P@NaHQCY1
 R7
 32
-Z73 !s108 1710850300.131000
+Z73 !s108 1710852671.592000
 Z74 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/regfile.vhd|
 Z75 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/regfile.vhd|
 R11
@@ -443,7 +443,7 @@ L6
 V]?dIDgGAC;a^66WmSeQE?1
 R7
 32
-Z79 !s108 1710850300.177000
+Z79 !s108 1710852671.634000
 Z80 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/sisa.vhd|
 Z81 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/sisa.vhd|
 R11
@@ -469,7 +469,7 @@ R12
 !s100 Z78]g@;LaNYcV`:EF_7L_2
 !i10b 1
 Esramcontroller
-Z82 w1710850288
+Z82 w1710852666
 R18
 R17
 R2
@@ -482,7 +482,7 @@ L6
 VGcO;aQ;:`3U]KdNz<9__72
 R7
 32
-Z85 !s108 1710850300.221000
+Z85 !s108 1710852671.677000
 Z86 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/SRAMController.vhd|
 Z87 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/SRAMController.vhd|
 R11
@@ -497,7 +497,7 @@ R3
 DEx4 work 14 sramcontroller 0 22 GcO;aQ;:`3U]KdNz<9__72
 l26
 L24
-VzKG:oC`aLXN>`FZfSlSm?1
+VP[?@o<C:A0YL^MIAGaiFW3
 R7
 32
 R85
@@ -505,7 +505,7 @@ R86
 R87
 R11
 R12
-!s100 :V8=<oiDDSD_G7VakzXii2
+!s100 R39k2OU[37]>ZoF3G`C`X2
 !i10b 1
 Etest_sisa
 Z88 w1710326170
@@ -519,7 +519,7 @@ L5
 VkAdhfn89W5`mY_=KPlfV]3
 R7
 32
-Z91 !s108 1710850300.267000
+Z91 !s108 1710852671.726000
 Z92 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/test_sisa.vhd|
 Z93 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/test_sisa.vhd|
 R11
@@ -559,7 +559,7 @@ VckeOI?8oP7Uk^obI8;0a[3
 R7
 32
 !i10b 1
-Z97 !s108 1710850301.062000
+Z97 !s108 1710852671.771000
 Z98 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/unidad_control.vhd|
 Z99 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/unidad_control.vhd|
 R11

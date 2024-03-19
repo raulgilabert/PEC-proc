@@ -33,6 +33,10 @@ begin
 				SRAM_WE_N <= '1';
 				SRAM_OE_N <= '0';
 				SRAM_DQ <= "ZZZZZZZZZZZZZZZZ";
+			else
+				SRAM_WE_N <= '0';
+				SRAM_OE_N <= '0';
+				SRAM_DQ <= dataToWrite;
 			END if;
 		END if;
 	
@@ -40,11 +44,11 @@ begin
 	
 	with byte_m select
 		SRAM_LB_N <= '0' when '0',
-					  not address(0) when others;
+					not address(0) when others;
 						 
 	with byte_m select
 		SRAM_UB_N <= '0' when '0',
-					 address(0) when others;
+					address(0) when others;
 
 	dataReaded <= SRAM_DQ;
 	SRAM_CE_N <= '0';
