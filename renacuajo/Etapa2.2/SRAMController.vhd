@@ -27,22 +27,25 @@ begin
 	PROCESS (clk)
 	BEGIN
 		if rising_edge(clk) then
+			SRAM_ADDR <= "000" & address(15 downto 1);
+
 			if WR = '0' then
-				SRAM_ADDR <= address(15 downto 1) & "000";
-				SRAM_WE_N <= '0';
-				SRAM_OE_N <= '1';
+				SRAM_WE_N <= '1';
+				SRAM_OE_N <= '0';
+				SRAM_DQ <= "ZZZZZZZZZZZZZZZZ";
 			END if;
-			dataReaded <= SRAM_DQ after 10 ns;
 		END if;
 	
 	END PROCESS;
 	
 	with byte_m select
-		SRAM_LB_N <= '1' when '0',
-						 address(0) when others;
+		SRAM_LB_N <= '0' when '0',
+					  not address(0) when others;
 						 
 	with byte_m select
-		SRAM_UB_N <= '1' when '0',
-						 address(0) when others;
+		SRAM_UB_N <= '0' when '0',
+					 address(0) when others;
 
+	dataReaded <= SRAM_DQ;
+	SRAM_CE_N <= '0';
 end comportament;

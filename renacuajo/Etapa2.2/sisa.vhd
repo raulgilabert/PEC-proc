@@ -54,17 +54,17 @@ ARCHITECTURE Structure OF sisa IS
 	SIGNAL we_s : STD_LOGIC;
 	SIGNAL byte_m_s : STD_LOGIC;
 	SIGNAL clk_neg : STD_LOGIC;
-	SIGNAL counter : STD_LOGIC_VECTOR(2 downto 0):="000";
+	SIGNAL counter : STD_LOGIC_VECTOR(2 downto 0):="111";
 BEGIN
 
 	PROCESS (CLOCK_50)
 	BEGIN
 		if rising_edge(CLOCK_50) then 
-			counter <= counter + 1;
+			counter <= counter - 1;
 		END if;
 	END PROCESS;
 	
-	clk_neg <= not counter(2);
+	clk_neg <= counter(2);
 
 	pro0: proc
 		PORT map (

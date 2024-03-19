@@ -41,6 +41,7 @@ architecture comportament of MemoryController is
   END COMPONENT;
 
   SIGNAL write_s: std_logic;
+  SIGNAL addr_sub: std_logic_vector(15 downto 0);
 
 begin
 
@@ -62,8 +63,11 @@ begin
       byte_m        => byte_m
     );
 
-    with (addr < x"C000") select
-      write_s <= we  when true,
+    addr_sub <= addr - x"C000";
+
+
+    with (addr_sub(15)) select
+      write_s <= we  when '0',
                  '0' when others;
 
 end comportament;
