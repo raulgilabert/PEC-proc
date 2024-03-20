@@ -22,26 +22,40 @@ entity SRAMController is
 end SRAMController;
 
 architecture comportament of SRAMController is
-	
+	SIGNAL state: std_logic_vector(1 downto 0) := "00"; -- S1
 begin
 	PROCESS (clk)
 	BEGIN
 		if rising_edge(clk) then
-			SRAM_ADDR <= "000" & address(15 downto 1);
+			if state = "00" then
 
-			if WR = '0' then
 				SRAM_WE_N <= '1';
-				SRAM_OE_N <= '0';
-				SRAM_DQ <= "ZZZZZZZZZZZZZZZZ";
-			else
+				if WR = '0' then
+					SRAM_DQ <= "ZZZZZZZZZZZZZZZZ";
+					state <= "00";
+				else
+					state <= "01";
+				end if;
+			elsif state = "01" then
+				state <= "10";
 				SRAM_WE_N <= '0';
-				SRAM_OE_N <= '0';
-				SRAM_DQ <= dataToWrite;
-			END if;
+			else
+				SRAM_WE_N <= '1';
+				if WR = '0' then
+					state <= "00";
+				else
+					state <= "10";
+				end if;
+				
+
+			end if;
 		END if;
-	
 	END PROCESS;
-	
+
+	SRAM_OE_N <= not WR;
+
+	SRAM_ADDR <= "000" & address(15 downto 1);
+
 	with byte_m select
 		SRAM_LB_N <= '0' when '0',
 					not address(0) when others;
