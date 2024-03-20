@@ -15,6 +15,7 @@ ENTITY datapath IS
           ins_dad  : IN  STD_LOGIC;
           pc       : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
           in_d     : IN  STD_LOGIC;
+		  Rb_N     : IN  STD_LOGIC;
           addr_m   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           data_wr  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
 END datapath;
@@ -47,6 +48,7 @@ ARCHITECTURE Structure OF datapath IS
 	SIGNAL rd_alu: std_logic_vector(15 downto 0);
 	SIGNAL rd_mem: std_logic_vector(15 downto 0);
 	SIGNAL immed_out: std_logic_vector(15 downto 0);
+	SIGNAL rb_out: std_logic_vector(15 downto 0);
 BEGIN
 
 	reg0: regfile
@@ -64,10 +66,11 @@ BEGIN
 	alu0: alu
 		PORT map(
 			x => ra,
-			y => immed_out,
+			y => rb_out,
 			op => op,
 			w => rd_alu
 		);
+
 
 	with in_d select
 		rd <= rd_alu when '0',
@@ -82,6 +85,10 @@ BEGIN
 						 immed(14 downto 0) & '0' when others;
 	
 	data_wr <= rb;
+
+	with Rb_N select
+		rb_out <= rb when '1',
+				  immed_out when others; 
 
 	with in_d select
 		d <= rd when '0',

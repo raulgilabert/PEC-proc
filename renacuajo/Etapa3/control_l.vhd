@@ -14,7 +14,8 @@ ENTITY control_l IS
           wr_m      : OUT STD_LOGIC;
           in_d      : OUT STD_LOGIC;
           immed_x2  : OUT STD_LOGIC;
-          word_byte : OUT STD_LOGIC);
+          word_byte : OUT STD_LOGIC;
+		    Rb_N      : OUT STD_LOGIC);
 END control_l; 
 
 ARCHITECTURE Structure OF control_l IS
@@ -43,6 +44,14 @@ BEGIN
 			  "10011" when "1000101",        --DIVU
 			  "XXXXX" when others;    
 
+	with ir(15 downto 12) select
+		Rb_N <= '1' when "0010", --ADDI
+				'1' when "0011", --LD	
+				'1' when "0100", --ST
+				'1' when "0101", --MOVI i MOVHI
+				'1' when "1101", --LDB
+				'1' when "1110", --STB
+				'0' when others;
 
 	with ir(15 downto 12) select
 		addr_a <= ir(11 downto 9) when "0101",
