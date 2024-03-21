@@ -8,6 +8,8 @@ ENTITY unidad_control IS
     PORT (boot      : IN  STD_LOGIC;
           clk       : IN  STD_LOGIC;
           datard_m  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+		  tknbr		: IN  STD_LOGIC_VECTOR(1 DOWNTO 0);
+		  aluout	: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
           op        : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
           wrd       : OUT STD_LOGIC;
           addr_a    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -16,7 +18,7 @@ ENTITY unidad_control IS
           immed     : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           pc        : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           ins_dad   : OUT STD_LOGIC;
-          in_d      : OUT STD_LOGIC;
+          in_d      : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
           immed_x2  : OUT STD_LOGIC;
           wr_m      : OUT STD_LOGIC;
           word_byte : OUT STD_LOGIC;
@@ -35,7 +37,7 @@ ARCHITECTURE Structure OF unidad_control IS
 				addr_d    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
 				immed     : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 				wr_m      : OUT STD_LOGIC;
-				in_d      : OUT STD_LOGIC;
+				in_d      : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
 				immed_x2  : OUT STD_LOGIC;
 				word_byte : OUT STD_LOGIC;
 				Rb_N	  : OUT STD_LOGIC
@@ -68,6 +70,8 @@ ARCHITECTURE Structure OF unidad_control IS
 	SIGNAL wrd_s: std_logic;
 	SIGNAL wr_m_s: std_logic;
 	SIGNAL word_byte_s: std_logic;
+	SIGNAL pc_des: std_logic_vector(15 downto 0);
+	SIGNAL immed_des: std_logic_vector(15 downto 0);
 	
 BEGIN
 	PROCESS (clk)
@@ -91,7 +95,14 @@ BEGIN
 		END if;
 	END PROCESS;
 
-	pc <= pc_s;
+
+	immed_des <= "0000000" & ir(7 downto 0) & '0'; --immed x 2
+	pc_des <= std_logic_vector(unsigned(pc_s) + unsigned(immed_des)); --immed x + pc
+
+	with tknbr select
+		pc <= aluout when "10",
+			  pc_des when "11",
+			  pc_s when others;
 	
 	m: multi
 		PORT map(

@@ -12,36 +12,43 @@ ENTITY control_l IS
           addr_d    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
           immed     : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           wr_m      : OUT STD_LOGIC;
-          in_d      : OUT STD_LOGIC;
+          in_d      : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
           immed_x2  : OUT STD_LOGIC;
           word_byte : OUT STD_LOGIC;
 		    Rb_N      : OUT STD_LOGIC);
 END control_l; 
 
 ARCHITECTURE Structure OF control_l IS
-
+	
+	SIGNAL jal: std_logic;
+	
 BEGIN
 
-	with ir(15 DOWNTO 12) & ir(5 DOWNTO 3) select
-		op <= "0000" & ir(8) when "0101---", --MOVI i MOVHI
-			  "00010" when "0000000",        --AND
-			  "00011" when "0000001",		 --OR
-			  "00100" when "0000010",        --XOR
-			  "00101" when "0000011",        --NOT
-			  "00110" when "0000100", 		 --ADD
-			  "00111" when "0000101",        --SUB
-			  "01000" when "0000110",        --SHA
-			  "01001" when "0000111",        --SHL
-			  "01010" when "0001000",        --CMPLT
-			  "01011" when "0001001",        --CMPLE
-			  "01100" when "0001011",        --CMPEQ
-			  "01101" when "0001100",        --CMPLTU
-			  "01110" when "0001101",        --CMPLEU
-			  "01111" when "1000000",        --MUL
-			  "10000" when "1000001",        --MULH
-			  "10001" when "1000010",        --MULHU
-			  "10010" when "1000100",        --DIV
-			  "10011" when "1000101",        --DIVU
+	with ir(15 DOWNTO 12) & ir(5 DOWNTO 0) select
+		op <= "0000" & ir(8) when "0101------", --MOVI o MOVHI
+			  "00010" when "0000000---",        --AND
+			  "00011" when "0000001---",		 --OR
+			  "00100" when "0000010---",        --XOR
+			  "00101" when "0000011---",        --NOT
+			  "00110" when "0000100---", 		--ADD
+			  "00111" when "0000101---",        --SUB
+			  "01000" when "0000110---",        --SHA
+			  "01001" when "0000111---",        --SHL
+			  "01010" when "0001000---",        --CMPLT
+			  "01011" when "0001001---",        --CMPLE
+			  "01100" when "0001011---",        --CMPEQ
+			  "01101" when "0001100---",        --CMPLTU
+			  "01110" when "0001101---",        --CMPLEU
+			  "01111" when "1000000---",        --MUL
+			  "10000" when "1000001---",        --MULH
+			  "10001" when "1000010---",        --MULHU
+			  "10010" when "1000100---",        --DIV
+			  "10011" when "1000101---",        --DIVU
+			  "1010" & ir(8) when "0110------", --BZ o BNZ
+			  "10110" when "1010000000",        --JZ
+			  "10111" when "1010000001",        --JNZ
+			  "11000" when "1010000011",        --JMP
+			  "11001" when "1010000100",        --JAL 
 			  "XXXXX" when others;    
 
 	with ir(15 downto 12) select
@@ -51,6 +58,8 @@ BEGIN
 				'1' when "0101", --MOVI i MOVHI
 				'1' when "1101", --LDB
 				'1' when "1110", --STB
+				--'1' when "0110", --BZ i BNZ	   --aqui no ha de passar el immed
+				--'1' when "1010", --JZ, JNZ i JAL
 				'0' when others;
 
 	with ir(15 downto 12) select
@@ -67,12 +76,17 @@ BEGIN
 		immed <= ir(7) & ir(7) & ir(7) & ir(7) & ir(7) & ir(7) & ir(7) & ir(7) & ir(7 downto 0) when "0101",
 					ir(5) & ir(5) & ir(5) & ir(5) & ir(5) & ir(5) & ir(5) & ir(5) & ir(5) & ir(5) & ir(5 downto 0) when others;
 
+	jal <= '1' when ir(2 downto 0) = "100" else '0';
 
-	with ir(15 downto 12) select --potser es millor activar quan toca
-		wrd <= '0' when "1111",
-			    '0' when "0100",
-				 '0' when "1110",
-				 '1' when others;
+	with ir(15 downto 12) select
+		wrd <= '1' when "0000", 						--op arit
+			   '1' when "0001", 						--comparacions
+			   '1' when "0010", 						--addi
+			   '1' when "0011", 						--ld
+			   '1' when "0101", 						--movi i movhi
+			   '0' when "1010", 	--jal
+			   '1' when "1101",							--ldb
+			   '0' when others;
 
 	 with ir(15 downto 12) select
 		wr_m <= '1' when "0100",
@@ -93,9 +107,10 @@ BEGIN
 						'1' when "0110",
 						'0' when others;
 						
-	with ir(15 downto 12) select
-		in_d <= '1' when "0011",
-				  '1' when "1101",
-				  '0' when others;
+	with ir(15 downto 12) select -- ara in_d te dos bits
+		in_d <= "01" when "0011",   --st
+				  "01" when "1101", --stb
+				  "10" when "1010", --jal
+				  "00" when others;
 	
 END Structure;

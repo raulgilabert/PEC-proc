@@ -81,9 +81,12 @@ BEGIN
              mulhu when "10001",
              div when "10010",
              divu when "10011",
+             x when "1011-",
              "XXXXXXXXXXXXXXXX" when others;             
         
-	z <= '1' when res = x"0000" else '0';
+	z <= res(0) xor res(1) xor res(2) xor res(3) xor res(4) xor res(5) xor res(6) 
+             xor res(7) xor res(8) xor res(9) xor res(10) xor res(11) xor res(12) xor res(13)
+             xor res(14) xor res(15);
 
 	w <= res;
 	

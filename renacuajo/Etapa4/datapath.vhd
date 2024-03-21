@@ -14,10 +14,12 @@ ENTITY datapath IS
           datard_m : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
           ins_dad  : IN  STD_LOGIC;
           pc       : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-          in_d     : IN  STD_LOGIC;
+          in_d     : IN  STD_LOGIC_VECTOR(1 DOWNTO 0);
 		  Rb_N     : IN  STD_LOGIC;
           addr_m   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-          data_wr  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
+          data_wr  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		  aluout   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		  tknbr    : OUT STD_LOGIC_VECTOR(1 DOWNTO 0));
 END datapath;
 
 
@@ -38,17 +40,19 @@ ARCHITECTURE Structure OF datapath IS
 		 PORT (x  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 				 y  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 				 op : IN  STD_LOGIC_VECTOR(4 downto 0);
-				 w  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
+				 w  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+				 z  : OUT STD_LOGIC);
 	END COMPONENT;
 			
 	SIGNAL ra: std_logic_vector(15 downto 0);	
 	SIGNAL rb: std_logic_vector(15 downto 0);	
-	SIGNAL rd: std_logic_vector(15 downto 0);
+	--SIGNAL rd: std_logic_vector(15 downto 0);
 	SIGNAL d: std_logic_vector(15 downto 0);
 	SIGNAL rd_alu: std_logic_vector(15 downto 0);
-	SIGNAL rd_mem: std_logic_vector(15 downto 0);
+	--SIGNAL rd_mem: std_logic_vector(15 downto 0);
 	SIGNAL immed_out: std_logic_vector(15 downto 0);
 	SIGNAL rb_out: std_logic_vector(15 downto 0);
+	SIGNAL z: std_logic;
 BEGIN
 
 	reg0: regfile
@@ -68,13 +72,14 @@ BEGIN
 			x => ra,
 			y => rb_out,
 			op => op,
-			w => rd_alu
+			w => rd_alu,
+			z => z
 		);
 
-
 	with in_d select
-		rd <= rd_alu when '0',
-				rd_mem when others;
+		d <= rd_alu when "00",
+			  pc when "10",
+			  datard_m  when others;
 				
 	with ins_dad select
 		addr_m <= pc when '0',
@@ -90,8 +95,15 @@ BEGIN
 		rb_out <= rb when '1',
 				  immed_out when others; 
 
-	with in_d select
-		d <= rd when '0',
-			  datard_m when others;
+	aluout <= rd_alu;
+	
+	with op select
+		tknbr(1) <= z when "10100",
+					not z when "10101",
+					z when "10110",
+					not z when "10111",
+					'0' when others;
+
+	tknbr(0) <= '1' when op = "1010-" else '0';
 	
 END Structure;
