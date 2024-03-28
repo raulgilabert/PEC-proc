@@ -1,3 +1,8 @@
+-------------------------------------------------------
+--! @file
+--! @brief Unitat de control
+-------------------------------------------------------
+
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
 USE ieee.numeric_std.all;
@@ -95,9 +100,10 @@ BEGIN
 		END if;
 	END PROCESS;
 
-
-	immed_des <= "0000000" & ir(7 downto 0) & '0'; --immed x 2
-	pc_des <= std_logic_vector(unsigned(pc_s) + unsigned(immed_des)); --immed x + pc
+    --! Immediat x 2
+	immed_des <= "0000000" & ir(7 downto 0) & '0'; 
+	--! Immeditat x 2 + PC
+	pc_des <= std_logic_vector(unsigned(pc_s) + unsigned(immed_des));
 
 	with tknbr select
 		pc <= aluout when "10",

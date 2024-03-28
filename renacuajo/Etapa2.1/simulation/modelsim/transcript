@@ -1,0 +1,21 @@
+# Compile of alu.vhd was successful.
+# Compile of control_l.vhd was successful.
+# Compile of datapath.vhd was successful.
+# Compile of memory.vhd was successful.
+# Compile of multi.vhd was successful.
+# Compile of proc.vhd was successful.
+# Compile of regfile.vhd was successful.
+# Compile of test_sisa.vhd was successful.
+# Compile of unidad_control.vhd was successful.
+# 9 compiles, 0 failed with no errors. 
+# Compile of alu.vhd was successful.
+# Compile of control_l.vhd was successful.
+# Compile of datapath.vhd was successful.
+# Compile of memory.vhd was successful.
+# Compile of multi.vhd was successful.
+# Compile of proc.vhd was successful.
+# Compile of regfile.vhd was successful.
+# Compile of test_sisa.vhd was successful.
+# Compile of unidad_control.vhd was successful.
+# 9 compiles, 0 failed with no errors. 
+vsim -do proc_run_msim_rtl_vhdl.do -l msim_transcript -i test_sisa

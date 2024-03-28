@@ -1,0 +1,340 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/home/usuari/PEC-proc/renacuajo/Etapa2.1/simulation/modelsim
+Ealu
+Z1 w1709546163
+Z2 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z3 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z4 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z5 d/home/usuari/PEC-proc/renacuajo/Etapa2.1/simulation/modelsim
+Z6 8/home/usuari/PEC-proc/renacuajo/Etapa2.1/alu.vhd
+Z7 F/home/usuari/PEC-proc/renacuajo/Etapa2.1/alu.vhd
+l0
+L5
+V342dKO42oZ]KSj]gR757T2
+Z8 OV;C;10.1d;51
+32
+Z9 !s108 1711542320.813823
+Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/usuari/PEC-proc/renacuajo/Etapa2.1/alu.vhd|
+Z11 !s107 /home/usuari/PEC-proc/renacuajo/Etapa2.1/alu.vhd|
+Z12 o-work work -2002 -explicit -O0
+Z13 tExplicit 1
+!s100 g[G[>>`H=nigkoYe<eeWV2
+!i10b 1
+Astructure
+R2
+R3
+R4
+DEx4 work 3 alu 0 22 342dKO42oZ]KSj]gR757T2
+l18
+L13
+VmHWagPK<1@80CdQQEGG?E3
+R8
+32
+R9
+R10
+R11
+R12
+R13
+!s100 AoIBaRQF];EH370b4;jNc1
+!i10b 1
+Econtrol_l
+Z14 w1710926378
+R2
+R3
+R4
+R5
+Z15 8/home/usuari/PEC-proc/renacuajo/Etapa2.1/control_l.vhd
+Z16 F/home/usuari/PEC-proc/renacuajo/Etapa2.1/control_l.vhd
+l0
+L5
+VLT2J2dSfT6[?TbJe1J;7P2
+R8
+32
+Z17 !s108 1711542320.838503
+Z18 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/usuari/PEC-proc/renacuajo/Etapa2.1/control_l.vhd|
+Z19 !s107 /home/usuari/PEC-proc/renacuajo/Etapa2.1/control_l.vhd|
+R12
+R13
+!s100 AK;ZYlc^akan@LIUh11oH0
+!i10b 1
+Astructure
+R2
+R3
+R4
+DEx4 work 9 control_l 0 22 LT2J2dSfT6[?TbJe1J;7P2
+l24
+L20
+V:dz5A1UamcQD8]6^nF4bF0
+R8
+32
+R17
+R18
+R19
+R12
+R13
+!s100 7>S@We^]^oGHQERbYFL1c0
+!i10b 1
+Edatapath
+Z20 w1710264658
+R2
+R3
+R4
+R5
+Z21 8/home/usuari/PEC-proc/renacuajo/Etapa2.1/datapath.vhd
+Z22 F/home/usuari/PEC-proc/renacuajo/Etapa2.1/datapath.vhd
+l0
+L5
+V<KkCMdkNEo@PzeR[Uaa_;2
+R8
+32
+Z23 !s108 1711542320.862824
+Z24 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/usuari/PEC-proc/renacuajo/Etapa2.1/datapath.vhd|
+Z25 !s107 /home/usuari/PEC-proc/renacuajo/Etapa2.1/datapath.vhd|
+R12
+R13
+!s100 n`2^O48n@_8L7ITPSc73W1
+!i10b 1
+Astructure
+R2
+R3
+R4
+DEx4 work 8 datapath 0 22 <KkCMdkNEo@PzeR[Uaa_;2
+l50
+L23
+VGfIHP=UGelzAGM[=cKG@11
+R8
+32
+R23
+R24
+R25
+R12
+R13
+!s100 m8FWb6cg:BCDnPmhc>7zd3
+!i10b 1
+Ememory
+Z26 w1709647634
+Z27 DPx4 ieee 16 std_logic_textio 0 22 ?Il0a149GV276[?[UMDWh2
+Z28 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
+Z29 DPx4 ieee 18 std_logic_unsigned 0 22 RYmj;=TK`k=k>D@Cz`zoB3
+R3
+R4
+R5
+Z30 8/home/usuari/PEC-proc/renacuajo/Etapa2.1/memory.vhd
+Z31 F/home/usuari/PEC-proc/renacuajo/Etapa2.1/memory.vhd
+l0
+L8
+VezVj_W<TQA0lnlE844kA:3
+R8
+32
+Z32 !s108 1711542320.887024
+Z33 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/usuari/PEC-proc/renacuajo/Etapa2.1/memory.vhd|
+Z34 !s107 /home/usuari/PEC-proc/renacuajo/Etapa2.1/memory.vhd|
+R12
+R13
+!s100 6`[ncjZncnKIIQlJ;Qz4a2
+!i10b 1
+Acomportament
+R27
+R28
+R29
+R3
+R4
+DEx4 work 6 memory 0 22 ezVj_W<TQA0lnlE844kA:3
+l48
+L20
+VPkAg]G57>]66WXLfTgc2g1
+R8
+32
+R32
+R33
+R34
+R12
+R13
+!s100 ^2]_]@0E]lMjXY_dJce3b3
+!i10b 1
+Emulti
+R20
+R3
+R4
+R5
+Z35 8/home/usuari/PEC-proc/renacuajo/Etapa2.1/multi.vhd
+Z36 F/home/usuari/PEC-proc/renacuajo/Etapa2.1/multi.vhd
+l0
+L4
+V14NBh5f7z`nUY<]C1Om_?2
+R8
+32
+Z37 !s108 1711542320.911111
+Z38 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/usuari/PEC-proc/renacuajo/Etapa2.1/multi.vhd|
+Z39 !s107 /home/usuari/PEC-proc/renacuajo/Etapa2.1/multi.vhd|
+R12
+R13
+!s100 Vdh>l=a_@F>fVk^7NLZ710
+!i10b 1
+Astructure
+R3
+R4
+DEx4 work 5 multi 0 22 14NBh5f7z`nUY<]C1Om_?2
+l25
+L19
+VGWb[1im3R[_EBjPYX2Y]21
+R8
+32
+R37
+R38
+R39
+R12
+R13
+!s100 OTD@eGA[l`bWg?X[keOLm1
+!i10b 1
+Eproc
+R26
+R3
+R4
+R5
+Z40 8/home/usuari/PEC-proc/renacuajo/Etapa2.1/proc.vhd
+Z41 F/home/usuari/PEC-proc/renacuajo/Etapa2.1/proc.vhd
+l0
+L4
+VE07>PX[gFbcoX5M:Gg6jG0
+R8
+32
+Z42 !s108 1711542320.932662
+Z43 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/usuari/PEC-proc/renacuajo/Etapa2.1/proc.vhd|
+Z44 !s107 /home/usuari/PEC-proc/renacuajo/Etapa2.1/proc.vhd|
+R12
+R13
+!s100 dI10RdUmVDK`d_3[E1jPB2
+!i10b 1
+Astructure
+R3
+R4
+DEx4 work 4 proc 0 22 E07>PX[gFbcoX5M:Gg6jG0
+l65
+L16
+VBQkF_@4zc1>ZT]TFiklXz3
+R8
+32
+R42
+R43
+R44
+R12
+R13
+!s100 aCc=bmnaP9OX1LLL7AXgg3
+!i10b 1
+Eregfile
+Z45 w1709138623
+R2
+R3
+R4
+R5
+Z46 8/home/usuari/PEC-proc/renacuajo/Etapa2.1/regfile.vhd
+Z47 F/home/usuari/PEC-proc/renacuajo/Etapa2.1/regfile.vhd
+l0
+L6
+V6MT]lB<ER9a2`P@NaHQCY1
+R8
+32
+Z48 !s108 1711542320.954272
+Z49 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/usuari/PEC-proc/renacuajo/Etapa2.1/regfile.vhd|
+Z50 !s107 /home/usuari/PEC-proc/renacuajo/Etapa2.1/regfile.vhd|
+R12
+R13
+!s100 I7O>bLhCU6h;N_c>mB?Nc0
+!i10b 1
+Astructure
+R2
+R3
+R4
+DEx4 work 7 regfile 0 22 6MT]lB<ER9a2`P@NaHQCY1
+l23
+L19
+V@ZH4BALF[nV_QP_G?FNoT3
+R8
+32
+R48
+R49
+R50
+R12
+R13
+!s100 P[PSOUQ9JAA<ZT:6<f0cE0
+!i10b 1
+Etest_sisa
+R26
+R3
+R4
+R5
+Z51 8/home/usuari/PEC-proc/renacuajo/Etapa2.1/test_sisa.vhd
+Z52 F/home/usuari/PEC-proc/renacuajo/Etapa2.1/test_sisa.vhd
+l0
+L5
+VkAdhfn89W5`mY_=KPlfV]3
+R8
+32
+Z53 !s108 1711542320.979569
+Z54 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/usuari/PEC-proc/renacuajo/Etapa2.1/test_sisa.vhd|
+Z55 !s107 /home/usuari/PEC-proc/renacuajo/Etapa2.1/test_sisa.vhd|
+R12
+R13
+!s100 688X_8OZ0BkG::B3fT5kf3
+!i10b 1
+Acomportament
+R3
+R4
+DEx4 work 9 test_sisa 0 22 kAdhfn89W5`mY_=KPlfV]3
+l43
+L8
+VLd_@hjJdKdB_B:Z451_3;1
+!s100 ]b?:JEO9n;bIzX3F>gCKB0
+R8
+32
+R53
+R54
+R55
+R12
+R13
+!i10b 1
+Eunidad_control
+Z56 w1710926383
+R28
+R29
+R2
+R3
+R4
+R5
+Z57 8/home/usuari/PEC-proc/renacuajo/Etapa2.1/unidad_control.vhd
+Z58 F/home/usuari/PEC-proc/renacuajo/Etapa2.1/unidad_control.vhd
+l0
+L7
+VckeOI?8oP7Uk^obI8;0a[3
+!s100 ;P[ViQAVP[Ud:iz@R@Dn41
+R8
+32
+!i10b 1
+Z59 !s108 1711542321.000398
+Z60 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/usuari/PEC-proc/renacuajo/Etapa2.1/unidad_control.vhd|
+Z61 !s107 /home/usuari/PEC-proc/renacuajo/Etapa2.1/unidad_control.vhd|
+R12
+R13
+Astructure
+R28
+R29
+R2
+R3
+R4
+Z62 DEx4 work 14 unidad_control 0 22 ckeOI?8oP7Uk^obI8;0a[3
+l70
+L25
+Z63 VSQba4VQ?>@M8Xh;2cUW]L1
+Z64 !s100 fTliod;bDe`4fNz?V9bB]3
+R8
+32
+!i10b 1
+R59
+R60
+R61
+R12
+R13

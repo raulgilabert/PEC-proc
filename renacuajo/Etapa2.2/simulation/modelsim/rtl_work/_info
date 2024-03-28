@@ -1,0 +1,381 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/home/usuari/PEC-proc/renacuajo/Etapa2.2/simulation/modelsim
+Ealu
+Z1 w1710932882
+Z2 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z3 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z4 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z5 d/home/usuari/PEC-proc/renacuajo/Etapa2.2/simulation/modelsim
+Z6 8/home/usuari/PEC-proc/renacuajo/Etapa2.2/alu.vhd
+Z7 F/home/usuari/PEC-proc/renacuajo/Etapa2.2/alu.vhd
+l0
+L5
+V7Id5GFQ3lAdL8bo@oB0V`3
+!s100 g[G[>>`H=nigkoYe<eeWV2
+Z8 OV;C;10.1d;51
+31
+!i10b 1
+Z9 !s108 1711542081.724609
+Z10 !s90 -reportprogress|300|-93|-work|work|/home/usuari/PEC-proc/renacuajo/Etapa2.2/alu.vhd|
+Z11 !s107 /home/usuari/PEC-proc/renacuajo/Etapa2.2/alu.vhd|
+Z12 o-93 -work work -O0
+Z13 tExplicit 1
+Astructure
+R2
+R3
+R4
+DEx4 work 3 alu 0 22 7Id5GFQ3lAdL8bo@oB0V`3
+l18
+L13
+V^`76^EXjbEDBAQebXfa6a0
+!s100 AoIBaRQF];EH370b4;jNc1
+R8
+31
+!i10b 1
+R9
+R10
+R11
+R12
+R13
+Econtrol_l
+Z14 w1710264658
+R2
+R3
+R4
+R5
+Z15 8/home/usuari/PEC-proc/renacuajo/Etapa2.2/control_l.vhd
+Z16 F/home/usuari/PEC-proc/renacuajo/Etapa2.2/control_l.vhd
+l0
+L5
+V9@=bV7gR``bomOodN9^5>3
+R8
+31
+Z17 !s108 1711542081.696075
+Z18 !s90 -reportprogress|300|-93|-work|work|/home/usuari/PEC-proc/renacuajo/Etapa2.2/control_l.vhd|
+Z19 !s107 /home/usuari/PEC-proc/renacuajo/Etapa2.2/control_l.vhd|
+R12
+R13
+!s100 AK;ZYlc^akan@LIUh11oH0
+!i10b 1
+Astructure
+R2
+R3
+R4
+DEx4 work 9 control_l 0 22 9@=bV7gR``bomOodN9^5>3
+l24
+L20
+VGQlXc]Y_j@NMXc@0C`c4g1
+R8
+31
+R17
+R18
+R19
+R12
+R13
+!s100 7>S@We^]^oGHQERbYFL1c0
+!i10b 1
+Edatapath
+R14
+R2
+R3
+R4
+R5
+Z20 8/home/usuari/PEC-proc/renacuajo/Etapa2.2/datapath.vhd
+Z21 F/home/usuari/PEC-proc/renacuajo/Etapa2.2/datapath.vhd
+l0
+L5
+V0=JH^;1MD5@XKZe5hLz9Z0
+R8
+31
+Z22 !s108 1711542081.666969
+Z23 !s90 -reportprogress|300|-93|-work|work|/home/usuari/PEC-proc/renacuajo/Etapa2.2/datapath.vhd|
+Z24 !s107 /home/usuari/PEC-proc/renacuajo/Etapa2.2/datapath.vhd|
+R12
+R13
+!s100 n`2^O48n@_8L7ITPSc73W1
+!i10b 1
+Astructure
+R2
+R3
+R4
+DEx4 work 8 datapath 0 22 0=JH^;1MD5@XKZe5hLz9Z0
+l50
+L23
+Vo[odo>z[l[Qzf8PQIOogU2
+R8
+31
+R22
+R23
+R24
+R12
+R13
+!s100 m8FWb6cg:BCDnPmhc>7zd3
+!i10b 1
+Ememorycontroller
+Z25 w1710867821
+Z26 DPx4 ieee 18 std_logic_unsigned 0 22 RYmj;=TK`k=k>D@Cz`zoB3
+Z27 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
+R3
+R4
+R5
+Z28 8/home/usuari/PEC-proc/renacuajo/Etapa2.2/MemoryController.vhd
+Z29 F/home/usuari/PEC-proc/renacuajo/Etapa2.2/MemoryController.vhd
+l0
+L6
+VY;NcTLT84g`Zc@DF8?3^G2
+R8
+31
+Z30 !s108 1711542081.630166
+Z31 !s90 -reportprogress|300|-93|-work|work|/home/usuari/PEC-proc/renacuajo/Etapa2.2/MemoryController.vhd|
+Z32 !s107 /home/usuari/PEC-proc/renacuajo/Etapa2.2/MemoryController.vhd|
+R12
+R13
+!s100 :K4;^k=AgYVOh=G_LZCm[3
+!i10b 1
+Acomportament
+R26
+R27
+R3
+R4
+DEx4 work 16 memorycontroller 0 22 Y;NcTLT84g`Zc@DF8?3^G2
+l46
+L23
+VKcS<8:IbmJI:MU:V_kOnM3
+R8
+31
+R30
+R31
+R32
+R12
+R13
+!s100 g17BmkD:fR24G9MX1?g3e2
+!i10b 1
+Emulti
+R14
+R3
+R4
+R5
+Z33 8/home/usuari/PEC-proc/renacuajo/Etapa2.2/multi.vhd
+Z34 F/home/usuari/PEC-proc/renacuajo/Etapa2.2/multi.vhd
+l0
+L4
+V6`X;7V7^fWbBYgjmZJ5M32
+R8
+31
+Z35 !s108 1711542081.607917
+Z36 !s90 -reportprogress|300|-93|-work|work|/home/usuari/PEC-proc/renacuajo/Etapa2.2/multi.vhd|
+Z37 !s107 /home/usuari/PEC-proc/renacuajo/Etapa2.2/multi.vhd|
+R12
+R13
+!s100 Vdh>l=a_@F>fVk^7NLZ710
+!i10b 1
+Astructure
+R3
+R4
+DEx4 work 5 multi 0 22 6`X;7V7^fWbBYgjmZJ5M32
+l25
+L19
+V=20HiSN56S`EEKbfC<g2k2
+R8
+31
+R35
+R36
+R37
+R12
+R13
+!s100 OTD@eGA[l`bWg?X[keOLm1
+!i10b 1
+Eproc
+R14
+R3
+R4
+R5
+Z38 8/home/usuari/PEC-proc/renacuajo/Etapa2.2/proc.vhd
+Z39 F/home/usuari/PEC-proc/renacuajo/Etapa2.2/proc.vhd
+l0
+L4
+VgaoWBmMHINj]:k^OXO5l90
+R8
+31
+Z40 !s108 1711542081.581682
+Z41 !s90 -reportprogress|300|-93|-work|work|/home/usuari/PEC-proc/renacuajo/Etapa2.2/proc.vhd|
+Z42 !s107 /home/usuari/PEC-proc/renacuajo/Etapa2.2/proc.vhd|
+R12
+R13
+!s100 dI10RdUmVDK`d_3[E1jPB2
+!i10b 1
+Astructure
+R3
+R4
+DEx4 work 4 proc 0 22 gaoWBmMHINj]:k^OXO5l90
+l65
+L16
+V4TF4Yk1Be<6Ngc1A7Da?R0
+R8
+31
+R40
+R41
+R42
+R12
+R13
+!s100 aCc=bmnaP9OX1LLL7AXgg3
+!i10b 1
+Eregfile
+R14
+R2
+R3
+R4
+R5
+Z43 8/home/usuari/PEC-proc/renacuajo/Etapa2.2/regfile.vhd
+Z44 F/home/usuari/PEC-proc/renacuajo/Etapa2.2/regfile.vhd
+l0
+L6
+VTY^X2nzFDDzTDohQA46L<2
+R8
+31
+Z45 !s108 1711542081.552527
+Z46 !s90 -reportprogress|300|-93|-work|work|/home/usuari/PEC-proc/renacuajo/Etapa2.2/regfile.vhd|
+Z47 !s107 /home/usuari/PEC-proc/renacuajo/Etapa2.2/regfile.vhd|
+R12
+R13
+!s100 I7O>bLhCU6h;N_c>mB?Nc0
+!i10b 1
+Astructure
+R2
+R3
+R4
+DEx4 work 7 regfile 0 22 TY^X2nzFDDzTDohQA46L<2
+l23
+L19
+VHno7P4[=NRmmN4A20l_H93
+R8
+31
+R45
+R46
+R47
+R12
+R13
+!s100 P[PSOUQ9JAA<ZT:6<f0cE0
+!i10b 1
+Esisa
+R25
+R26
+R27
+R3
+R4
+R5
+Z48 8/home/usuari/PEC-proc/renacuajo/Etapa2.2/sisa.vhd
+Z49 F/home/usuari/PEC-proc/renacuajo/Etapa2.2/sisa.vhd
+l0
+L6
+Vl>4ZFEX7G0K9SJ>R8AMX53
+R8
+31
+Z50 !s108 1711542081.526389
+Z51 !s90 -reportprogress|300|-93|-work|work|/home/usuari/PEC-proc/renacuajo/Etapa2.2/sisa.vhd|
+Z52 !s107 /home/usuari/PEC-proc/renacuajo/Etapa2.2/sisa.vhd|
+R12
+R13
+!s100 nilQ`j3cP3H9IL5fb^dZN0
+!i10b 1
+Astructure
+R26
+R27
+R3
+R4
+DEx4 work 4 sisa 0 22 l>4ZFEX7G0K9SJ>R8AMX53
+l58
+L18
+VO=D]^VW[>[kO]B@RhhSRl1
+R8
+31
+R50
+R51
+R52
+R12
+R13
+!s100 Z78]g@;LaNYcV`:EF_7L_2
+!i10b 1
+Esramcontroller
+Z53 w1711542061
+R26
+R27
+R3
+R4
+R5
+Z54 8/home/usuari/PEC-proc/renacuajo/Etapa2.2/SRAMController.vhd
+Z55 F/home/usuari/PEC-proc/renacuajo/Etapa2.2/SRAMController.vhd
+l0
+L6
+VVdnDjml`16UoM]@eFgflX3
+R8
+31
+Z56 !s108 1711542081.489959
+Z57 !s90 -reportprogress|300|-93|-work|work|/home/usuari/PEC-proc/renacuajo/Etapa2.2/SRAMController.vhd|
+Z58 !s107 /home/usuari/PEC-proc/renacuajo/Etapa2.2/SRAMController.vhd|
+R12
+R13
+!s100 eQD5m8Tgd2Om?R:?b1YF>2
+!i10b 1
+Acomportament
+R26
+R27
+R3
+R4
+DEx4 work 14 sramcontroller 0 22 VdnDjml`16UoM]@eFgflX3
+l26
+L24
+VLY;nLO@QZUS47YJUo86_A0
+R8
+31
+R56
+R57
+R58
+R12
+R13
+!s100 XUTg3nLhSYBbLao_IK^o40
+!i10b 1
+Eunidad_control
+R14
+R27
+R26
+R2
+R3
+R4
+R5
+Z59 8/home/usuari/PEC-proc/renacuajo/Etapa2.2/unidad_control.vhd
+Z60 F/home/usuari/PEC-proc/renacuajo/Etapa2.2/unidad_control.vhd
+l0
+L7
+V=oH1DIXi^Tbn@S:iGd<4N0
+R8
+31
+Z61 !s108 1711542081.438487
+Z62 !s90 -reportprogress|300|-93|-work|work|/home/usuari/PEC-proc/renacuajo/Etapa2.2/unidad_control.vhd|
+Z63 !s107 /home/usuari/PEC-proc/renacuajo/Etapa2.2/unidad_control.vhd|
+R12
+R13
+!s100 ;P[ViQAVP[Ud:iz@R@Dn41
+!i10b 1
+Astructure
+R27
+R26
+R2
+R3
+R4
+DEx4 work 14 unidad_control 0 22 =oH1DIXi^Tbn@S:iGd<4N0
+l70
+L25
+V>?VeVT^7mPOhk:Vcz[7DU3
+R8
+31
+R61
+R62
+R63
+R12
+R13
+!s100 fTliod;bDe`4fNz?V9bB]3
+!i10b 1

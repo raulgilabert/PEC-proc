@@ -1,0 +1,124 @@
+# vsim -do proc_run_msim_rtl_vhdl.do -l msim_transcript -i test_sisa 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.test_sisa(comportament)
+# Loading work.proc(structure)
+# Loading ieee.numeric_std(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.unidad_control(structure)
+# Loading work.multi(structure)
+# Loading work.control_l(structure)
+# Loading work.datapath(structure)
+# Loading work.regfile(structure)
+# Loading work.alu(structure)
+# Loading ieee.std_logic_textio(body)
+# Loading work.memory(comportament)
+# do proc_run_msim_rtl_vhdl.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Modifying /home/usuari/PEC-proc/renacuajo/Etapa2.1/simulation/modelsim/sisa.mpf
+# 
+# vcom -93 -work work {/home/usuari/PEC-proc/renacuajo/Etapa2.1/unidad_control.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity unidad_control
+# -- Compiling architecture Structure of unidad_control
+# vcom -93 -work work {/home/usuari/PEC-proc/renacuajo/Etapa2.1/regfile.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity regfile
+# -- Compiling architecture Structure of regfile
+# vcom -93 -work work {/home/usuari/PEC-proc/renacuajo/Etapa2.1/proc.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity proc
+# -- Compiling architecture Structure of proc
+# vcom -93 -work work {/home/usuari/PEC-proc/renacuajo/Etapa2.1/multi.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity multi
+# -- Compiling architecture Structure of multi
+# vcom -93 -work work {/home/usuari/PEC-proc/renacuajo/Etapa2.1/datapath.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity datapath
+# -- Compiling architecture Structure of datapath
+# vcom -93 -work work {/home/usuari/PEC-proc/renacuajo/Etapa2.1/control_l.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity control_l
+# -- Compiling architecture Structure of control_l
+# vcom -93 -work work {/home/usuari/PEC-proc/renacuajo/Etapa2.1/alu.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity alu
+# -- Compiling architecture Structure of alu
+# 
+add wave sim:/test_sisa/*
+run 1000 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/mem0
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/mem0
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/mem0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/proc0/e0/reg0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/proc0/e0/reg0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /test_sisa/mem0
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 1  Instance: /test_sisa/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /test_sisa/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /test_sisa/mem0
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 3  Instance: /test_sisa/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /test_sisa/mem0
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 3  Instance: /test_sisa/mem0
+# ** Error: (vsim-7) Failed to open VHDL file "contingut.memoria.hexa.rom" in r mode.
+# No such file or directory. (errno = ENOENT)
+#    Time: 10 ns  Iteration: 0  Instance: /test_sisa/mem0
+# ** Fatal: (vsim-7) Failed to open VHDL file "contingut.memoria.hexa.rom" in r mode.
+# No such file or directory. (errno = ENOENT)
+#    Time: 10 ns  Iteration: 0  Process: /test_sisa/mem0/line__61 File: /home/usuari/PEC-proc/renacuajo/Etapa2.1/memory.vhd
+# Fatal error in Process line__61 at /home/usuari/PEC-proc/renacuajo/Etapa2.1/memory.vhd line 38
+# 
+# HDL call sequence:
+# Stopped at /home/usuari/PEC-proc/renacuajo/Etapa2.1/memory.vhd 38 Subprogram Load_FitxerDadesMemoria
+# called from  /home/usuari/PEC-proc/renacuajo/Etapa2.1/memory.vhd 66 Process line__61
+# 
