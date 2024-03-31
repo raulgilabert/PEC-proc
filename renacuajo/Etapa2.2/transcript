@@ -1,0 +1,197 @@
+# Loading project test_sisa
+# reading /home/raulg/intelFPGA/20.1/modelsim_ase/linuxaloem/../modelsim.ini
+# Loading project test_sisa
+# 0 compiles, 9 failed with no errors.
+# Compile of alu.vhd was successful.
+# Compile of control_l.vhd was successful.
+# Compile of datapath.vhd was successful.
+# Compile of memory.vhd was successful.
+# Compile of multi.vhd was successful.
+# Compile of proc.vhd was successful.
+# Compile of regfile.vhd was successful.
+# Compile of test_sisa.vhd was successful.
+# Compile of unidad_control.vhd was successful.
+# 9 compiles, 0 failed with no errors.
+# Compile of alu.vhd was successful.
+# Compile of control_l.vhd was successful.
+# Compile of datapath.vhd was successful.
+# Compile of memory.vhd was successful.
+# Compile of multi.vhd was successful.
+# Compile of proc.vhd was successful.
+# Compile of regfile.vhd was successful.
+# Compile of test_sisa.vhd was successful.
+# Compile of unidad_control.vhd was successful.
+# 9 compiles, 0 failed with no errors.
+vsim work.test_sisa
+# vsim work.test_sisa 
+# Start time: 20:01:39 on Mar 31,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.test_sisa(comportament)
+# Loading work.proc(structure)
+# Loading ieee.numeric_std(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.unidad_control(structure)
+# Loading work.multi(structure)
+# Loading work.control_l(structure)
+# Loading work.datapath(structure)
+# Loading work.regfile(structure)
+# Loading work.alu(structure)
+# Loading ieee.std_logic_textio(body)
+# Loading work.memory(comportament)
+add wave -position insertpoint  \
+sim:/test_sisa/proc0/clk \
+sim:/test_sisa/proc0/boot \
+sim:/test_sisa/proc0/datard_m \
+sim:/test_sisa/proc0/addr_m \
+sim:/test_sisa/proc0/data_wr \
+sim:/test_sisa/proc0/wr_m \
+sim:/test_sisa/proc0/word_byte \
+sim:/test_sisa/proc0/immed_x2 \
+sim:/test_sisa/proc0/in_d \
+sim:/test_sisa/proc0/ins_dad \
+sim:/test_sisa/proc0/wrd \
+sim:/test_sisa/proc0/op \
+sim:/test_sisa/proc0/addr_a \
+sim:/test_sisa/proc0/addr_b \
+sim:/test_sisa/proc0/addr_d \
+sim:/test_sisa/proc0/immed \
+sim:/test_sisa/proc0/pc
+add wave -position insertpoint  \
+sim:/test_sisa/proc0/e0/reg0/regs
+run 1000ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/mem0
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/mem0
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/mem0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/proc0/e0/reg0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/proc0/e0/reg0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /test_sisa/mem0
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 1  Instance: /test_sisa/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /test_sisa/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /test_sisa/mem0
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 3  Instance: /test_sisa/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /test_sisa/mem0
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 3  Instance: /test_sisa/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 1  Instance: /test_sisa/mem0
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 10 ns  Iteration: 1  Instance: /test_sisa/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 1  Instance: /test_sisa/mem0
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 10 ns  Iteration: 1  Instance: /test_sisa/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'# Compile of alu.vhd was successful.
+# Compile of async_64Kx16.vhd was successful.
+# Compile of control_l.vhd was successful.
+# Compile of datapath.vhd was successful.
+# Compile of memory.vhd was successful.
+# Compile of MemoryController.vhd was successful.
+# Compile of multi.vhd was successful.
+# Compile of package_timing.vhd was successful.
+# Compile of package_utility.vhd was successful.
+# Compile of proc.vhd was successful.
+# Compile of regfile.vhd was successful.
+# Compile of sisa.vhd was successful.
+# Compile of SRAMController.vhd was successful.
+# Compile of test_sisa.vhd was successful with warnings.
+# Compile of unidad_control.vhd was successful.
+# 15 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.test_sisa(comportament)
+# Loading work.sisa(structure)
+# Loading work.proc(structure)
+# Loading work.unidad_control(structure)
+# Loading work.multi(structure)
+# Loading work.control_l(structure)
+# Loading work.datapath(structure)
+# Loading work.regfile(structure)
+# Loading work.alu(structure)
+# Loading work.memorycontroller(comportament)
+# Loading work.sramcontroller(comportament)
+# Loading work.package_timing(body)
+# Loading work.package_utility(body)
+# Loading work.async_64kx16(behave_arch)
+run 5000ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/mem0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/reg0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/reg0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 470 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+run 5000ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 9110 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+run 5000ns
+# Compile of alu.vhd was successful.
+# Compile of async_64Kx16.vhd was successful.
+# Compile of control_l.vhd was successful.
+# Compile of datapath.vhd was successful.
+# Compile of memory.vhd was successful.
+# Compile of MemoryController.vhd was successful.
+# Compile of multi.vhd was successful.
+# Compile of package_timing.vhd was successful.
+# Compile of package_utility.vhd was successful.
+# Compile of proc.vhd was successful.
+# Compile of regfile.vhd was successful.
+# Compile of sisa.vhd was successful.
+# Compile of SRAMController.vhd was successful.
+# Compile of test_sisa.vhd was successful with warnings.
+# Compile of unidad_control.vhd was successful.
+# 15 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.test_sisa(comportament)
+# Loading work.sisa(structure)
+# Loading work.proc(structure)
+# Loading work.unidad_control(structure)
+# Loading work.multi(structure)
+# Loading work.control_l(structure)
+# Loading work.datapath(structure)
+# Loading work.regfile(structure)
+# Loading work.alu(structure)
+# Loading work.memorycontroller(comportament)
+# Loading work.sramcontroller(comportament)
+# Loading work.package_timing(body)
+# Loading work.package_utility(body)
+# Loading work.async_64kx16(behave_arch)
+restart
+run 5000ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/mem0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/reg0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/reg0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 470 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+run 5000ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 9110 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+run 5000ns
+# End time: 00:18:45 on Apr 01,2024, Elapsed time: 5:02:12
+# Errors: 0, Warnings: 7
