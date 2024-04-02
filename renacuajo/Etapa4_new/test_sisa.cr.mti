@@ -1,0 +1,280 @@
+/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa4_new/async_64Kx16.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa4_new/async_64Kx16.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package std_logic_textio
+-- Loading package package_timing
+-- Loading package package_utility
+-- Compiling entity async_64Kx16
+-- Compiling architecture behave_arch of async_64Kx16
+
+} {} {}} /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa4_new/memory.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa4_new/memory.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package std_logic_textio
+-- Compiling entity memory
+-- Compiling architecture comportament of memory
+
+} {} {}} /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa3/package_timing.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa3/package_timing.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package std_logic_textio
+-- Compiling package package_timing
+-- Compiling package body package_timing
+-- Loading package package_timing
+
+} {} {}} /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa4_new/alu.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa4_new/alu.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity alu
+-- Compiling architecture Structure of alu
+
+} {} {}} /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa4_new/multi.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa4_new/multi.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity multi
+-- Compiling architecture Structure of multi
+
+} {} {}} /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa3/unidad_control.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa3/unidad_control.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity unidad_control
+-- Compiling architecture Structure of unidad_control
+
+} {} {}} /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa4_new/control_l.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa4_new/control_l.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity control_l
+-- Compiling architecture Structure of control_l
+
+} {} {}} /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa4_new/proc.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa4_new/proc.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity proc
+-- Compiling architecture Structure of proc
+
+} {} {}} /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa4_new/MemoryController.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa4_new/MemoryController.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity MemoryController
+-- Compiling architecture comportament of MemoryController
+
+} {} {}} /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa3/datapath.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa3/datapath.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity datapath
+-- Compiling architecture Structure of datapath
+
+} {} {}} /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa3/SRAMController.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa3/SRAMController.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Compiling entity SRAMController
+-- Compiling architecture comportament of SRAMController
+
+} {} {}} /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa3/package_utility.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa3/package_utility.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package std_logic_textio
+-- Compiling package package_utility
+-- Compiling package body package_utility
+-- Loading package package_utility
+
+} {} {}} /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa4_new/regfile.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa4_new/regfile.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity regfile
+-- Compiling architecture Structure of regfile
+
+} {} {}} /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa4_new/test_sisa.vhd {2 {vcom -work work -2002 -explicit -stats=none /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa4_new/test_sisa.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity test_sisa
+-- Compiling architecture comportament of test_sisa
+** Warning: /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa4_new/test_sisa.vhd(66): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+
+} {} {}} /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa3/memory.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa3/memory.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package std_logic_textio
+-- Compiling entity memory
+-- Compiling architecture comportament of memory
+
+} {} {}} /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa4_new/sisa.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa4_new/sisa.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity sisa
+-- Compiling architecture Structure of sisa
+
+} {} {}} /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa3/alu.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa3/alu.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity alu
+-- Compiling architecture Structure of alu
+
+} {} {}} /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa3/multi.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa3/multi.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity multi
+-- Compiling architecture Structure of multi
+
+} {} {}} /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa3/control_l.vhd {2 {vcom -work work -2002 -explicit -stats=none /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa3/control_l.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity control_l
+-- Compiling architecture Structure of control_l
+** Warning: /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa3/control_l.vhd(24): (vcom-1014) Array type selected signal assignment expression must be of a locally static subtype.
+
+} {} {}} /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa3/proc.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa3/proc.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity proc
+-- Compiling architecture Structure of proc
+
+} {} {}} /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa4_new/package_timing.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa4_new/package_timing.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package std_logic_textio
+-- Compiling package package_timing
+-- Compiling package body package_timing
+-- Loading package package_timing
+
+} {} {}} /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa3/MemoryController.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa3/MemoryController.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity MemoryController
+-- Compiling architecture comportament of MemoryController
+
+} {} {}} /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa3/regfile.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa3/regfile.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity regfile
+-- Compiling architecture Structure of regfile
+
+} {} {}} /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa4_new/unidad_control.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa4_new/unidad_control.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity unidad_control
+-- Compiling architecture Structure of unidad_control
+
+} {} {}} /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa3/test_sisa.vhd {2 {vcom -work work -2002 -explicit -stats=none /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa3/test_sisa.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity test_sisa
+-- Compiling architecture comportament of test_sisa
+** Warning: /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa3/test_sisa.vhd(66): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+
+} {} {}} /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa3/sisa.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa3/sisa.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity sisa
+-- Compiling architecture Structure of sisa
+
+} {} {}} /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa4_new/SRAMController.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa4_new/SRAMController.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Compiling entity SRAMController
+-- Compiling architecture comportament of SRAMController
+
+} {} {}} /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa4_new/package_utility.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa4_new/package_utility.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package std_logic_textio
+-- Compiling package package_utility
+-- Compiling package body package_utility
+-- Loading package package_utility
+
+} {} {}}
