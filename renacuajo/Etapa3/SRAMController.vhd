@@ -27,7 +27,6 @@ architecture comportament of SRAMController is
 	SIGNAL state: state_t;
 	SIGNAL data_wr: std_logic_vector(15 downto 0);
 	SIGNAL condition_byte_select: std_logic;
-	SIGNAL waiting: std_logic;
 	SIGNAL condition_byte_read: std_logic_vector(1 downto 0);
 	
 	begin
@@ -73,17 +72,12 @@ architecture comportament of SRAMController is
 	BEGIN
 		if (WR = '0') then
 			state <= WRITE_0;
-			waiting <= '0';
 
 		-- we only access here when clk changes and we are writing
 		elsif rising_edge(clk) then
 			case state is
 				when WRITE_0 =>
-					if (waiting = '1') then
-						waiting <= '0';
-					else
-						state <= WRITE_1;
-					end if;
+					state <= WRITE_1;
 				when WRITE_1 =>
 					state <= WRITE_2;
 				when others =>
