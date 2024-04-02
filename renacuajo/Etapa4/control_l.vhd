@@ -25,8 +25,6 @@ END control_l;
 
 ARCHITECTURE Structure OF control_l IS
 	
-	SIGNAL jal: std_logic;
-	
 BEGIN
 
 	with ir(15 DOWNTO 12) & ir(5 DOWNTO 0) select
@@ -81,7 +79,6 @@ BEGIN
 		immed <= ir(7) & ir(7) & ir(7) & ir(7) & ir(7) & ir(7) & ir(7) & ir(7) & ir(7 downto 0) when "0101",
 					ir(5) & ir(5) & ir(5) & ir(5) & ir(5) & ir(5) & ir(5) & ir(5) & ir(5) & ir(5) & ir(5 downto 0) when others;
 
-	jal <= '1' when ir(2 downto 0) = "100" else '0';
 
 	with ir(15 downto 12) select
 		wrd <= '1' when "0000", 						--op arit
