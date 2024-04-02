@@ -1,7 +1,8 @@
 library ieee;
 use ieee.std_logic_1164.all;
-use ieee.std_logic_arith.all;
+
 use ieee.std_logic_unsigned.all;
+use ieee.numeric_std.all;
 
 entity SRAMController is
     port (clk         : in    std_logic;
@@ -22,34 +23,70 @@ entity SRAMController is
 end SRAMController;
 
 architecture comportament of SRAMController is
+	TYPE state_t is (WRITE_0, WRITE_1);
+	SIGNAL state: state_t;
+	SIGNAL data_wr: std_logic_vector(15 downto 0);
+	SIGNAL condition_byte_select: std_logic;
+	SIGNAL waiting: std_logic;
+	SIGNAL condition_byte_read: std_logic_vector(1 downto 0);
 	
-begin
-	PROCESS (clk)
-	BEGIN
-		if rising_edge(clk) then
-			SRAM_ADDR <= "000" & address(15 downto 1);
-			
-			if WR = '0' then
-				SRAM_WE_N <= '1';
-				SRAM_OE_N <= '0';
-				SRAM_DQ <= "ZZZZZZZZZZZZZZZZ";
-			else
-				SRAM_WE_N <= '0';
-				SRAM_OE_N <= '0';
-				SRAM_DQ <= dataToWrite;
-			END if;
-		END if;
+	begin
+	-- combinational assignation
+	SRAM_CE_N <= '0'; -- always downto
+	SRAM_OE_N <= '0'; -- 0 on read, X on write => 0
+	SRAM_ADDR <= "000" & address(15 downto 1);
 	
-	END PROCESS;
+	condition_byte_read <= byte_m & address(0);
 	
-	with byte_m select
-		SRAM_LB_N <= '0' when '0',
-					not address(0) when others;
-						 
-	with byte_m select
-		SRAM_UB_N <= '0' when '0',
-					address(0) when others;
+	-- if byte access fill with Z the word space not used
+	with condition_byte_read select
+		data_wr <= "ZZZZZZZZ" & dataToWrite(7 downto 0) when "10",
+					  dataToWrite(7 downto 0) & "ZZZZZZZZ" when "11",
+		           dataToWrite when others;
+	-- if write send data_wr if read set all Z
+	with WR select
+		SRAM_DQ <= "ZZZZZZZZZZZZZZZZ" when '0',
+					  data_wr when others;
 
-	dataReaded <= SRAM_DQ;
-	SRAM_CE_N <= '0';
+	 with condition_byte_read select
+		dataReaded <= std_logic_vector(resize(signed(SRAM_DQ(7 downto 0)), 16)) when "10",
+						  std_logic_vector(resize(signed(SRAM_DQ(15 downto 8)), 16)) when "11",
+						  SRAM_DQ when others;
+	
+	-- write only enabled afther first cycle of write instruction
+	with state select
+		SRAM_WE_N <= '0' when WRITE_1,
+						 '1' when others;
+	
+	-- byte selected only on write, when reading we read the full word and select the byte
+	condition_byte_select <= WR and byte_m;
+	
+	with condition_byte_select select
+		SRAM_LB_N <= address(0) when '1',
+						 '0' when others;
+
+	with condition_byte_select select
+		SRAM_UB_N <= not address(0) when '1',
+						 '0' when others;
+ 
+	PROCESS (WR, clk)
+	BEGIN
+		if (WR = '0') then
+			state <= WRITE_0;
+			waiting <= '0';
+
+		-- we only access here when clk changes and we are writing
+		elsif rising_edge(clk) then
+			case state is
+				when WRITE_0 =>
+					if (waiting = '1') then
+						waiting <= '0';
+					else
+						state <= WRITE_1;
+					end if;
+				when others =>
+					state <= state;
+			end case;
+		end if;
+	END PROCESS;
 end comportament;

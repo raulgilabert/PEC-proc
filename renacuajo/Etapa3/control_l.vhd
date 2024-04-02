@@ -19,11 +19,17 @@ ENTITY control_l IS
 END control_l; 
 
 ARCHITECTURE Structure OF control_l IS
-
 BEGIN
 
 	with ir(15 DOWNTO 12) & ir(5 DOWNTO 3) select
-		op <= "0000" & ir(8) when "0101---", --MOVI i MOVHI
+		op <= "0000" & ir(8) when "0101000", --MOVI i MOVHI
+		     "0000" & ir(8) when "0101001", --MOVI i MOVHI
+			  "0000" & ir(8) when "0101010", --MOVI i MOVHI
+			  "0000" & ir(8) when "0101011", --MOVI i MOVHI
+			  "0000" & ir(8) when "0101100", --MOVI i MOVHI
+			  "0000" & ir(8) when "0101101", --MOVI i MOVHI
+			  "0000" & ir(8) when "0101110", --MOVI i MOVHI
+			  "0000" & ir(8) when "0101111", --MOVI i MOVHI
 			  "00010" when "0000000",        --AND
 			  "00011" when "0000001",		 --OR
 			  "00100" when "0000010",        --XOR
@@ -42,7 +48,49 @@ BEGIN
 			  "10001" when "1000010",        --MULHU
 			  "10010" when "1000100",        --DIV
 			  "10011" when "1000101",        --DIVU
+			  "00110" when "0011000", --LD
+			  "00110" when "0011001", --LD
+			  "00110" when "0011010", --LD
+			  "00110" when "0011011", --LD
+			  "00110" when "0011100", --LD
+			  "00110" when "0011101", --LD
+			  "00110" when "0011110", --LD
+			  "00110" when "0011111", --LD
+			  "00110" when "0100000", -- ST
+			  "00110" when "0100001", -- ST
+			  "00110" when "0100010", -- ST
+			  "00110" when "0100011", -- ST
+			  "00110" when "0100100", -- ST
+			  "00110" when "0100101", -- ST
+			  "00110" when "0100110", -- ST
+			  "00110" when "0100111", -- ST
+			  "00110" when "1011000", --LDB
+			  "00110" when "1011001", --LDB
+			  "00110" when "1011010", --LDB
+			  "00110" when "1011011", --LDB
+			  "00110" when "1011100", --LDB
+			  "00110" when "1011101", --LDB
+			  "00110" when "1011110", --LDB
+			  "00110" when "1011111", --LDB
+			  "00110" when "1100000", -- STB
+			  "00110" when "1100001", -- STB
+			  "00110" when "1100010", -- STB
+			  "00110" when "1100011", -- STB
+			  "00110" when "1100100", -- STB
+			  "00110" when "1100101", -- STB
+			  "00110" when "1100110", -- STB
+			  "00110" when "1100111", -- STB
+			  "00110" when "0010000", -- ADDI
+			  "00110" when "0010001", -- ADDI
+			  "00110" when "0010010", -- ADDI
+			  "00110" when "0010011", -- ADDI
+			  "00110" when "0010100", -- ADDI
+			  "00110" when "0010101", -- ADDI
+			  "00110" when "0010110", -- ADDI
+			  "00110" when "0010111", -- ADDI
 			  "XXXXX" when others;    
+		
+
 
 	with ir(15 downto 12) select
 		Rb_N <= '1' when "0010", --ADDI

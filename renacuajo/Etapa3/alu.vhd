@@ -30,7 +30,7 @@ SIGNAL movi : STD_LOGIC_VECTOR(15 DOWNTO 0);
 SIGNAL movhi : STD_LOGIC_VECTOR(15 DOWNTO 0);
 SIGNAL mul : STD_LOGIC_VECTOR(31 DOWNTO 0);
 SIGNAL mulh : STD_LOGIC_VECTOR(15 DOWNTO 0);
-SIGNAL mulhu : STD_LOGIC_VECTOR(15 DOWNTO 0);
+SIGNAL mulu : STD_LOGIC_VECTOR(31 DOWNTO 0);
 SIGNAL div : STD_LOGIC_VECTOR(15 DOWNTO 0);
 SIGNAL divu : STD_LOGIC_VECTOR(15 DOWNTO 0);
 SIGNAL res : STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -43,10 +43,10 @@ BEGIN
     no <= not x;
 	 suma <= std_logic_vector(unsigned(x) + unsigned(y));
     sub <= std_logic_vector(unsigned(x) - unsigned(y));
-    sha <= std_logic_vector(shift_left(signed(x), to_integer(unsigned(y)))) when y(15) = '1'
-            else std_logic_vector(shift_right(signed(x), to_integer(unsigned(y))));
-    shl <= std_logic_vector(shift_left(unsigned(x), to_integer(unsigned(y)))) when y(15) = '1'
-            else std_logic_vector(shift_right(unsigned(x), to_integer(unsigned(y))));
+    sha <= std_logic_vector(shift_right(signed(x), -to_integer(signed(y)))) when y(15) = '1'
+            else std_logic_vector(shift_left(signed(x), to_integer(signed(y))));
+    shl <= std_logic_vector(shift_right(unsigned(x), -to_integer(signed(y)))) when y(15) = '1'
+            else std_logic_vector(shift_left(unsigned(x), to_integer(signed(y))));
     cmplt <= x"0001" when signed(x) < signed(y) else x"0000";
     cmple <= x"0001" when signed(x) = signed(y) or signed(x) < signed(y) else x"0000";
     cmpeq <= x"0001" when signed(x) = signed(y) else x"0000";
@@ -56,9 +56,9 @@ BEGIN
     movhi <= y(7 downto 0) & x(7 downto 0);
     mul <= std_logic_vector(signed(x)*signed(y));
     mulh <= mul(31 downto 16);
-    mulhu <= std_logic_vector(unsigned(mul))(31 downto 16);
-    div <= std_logic_vector(signed(x)/signed(y));
-    divu <= std_logic_vector(unsigned(x)/unsigned(y));
+    mulu <= std_logic_vector(unsigned(x)*unsigned(y));
+    div <= std_logic_vector(signed(x)/signed(y)) when op = "10010" else x"0000";
+    divu <= std_logic_vector(unsigned(x)/unsigned(y)) when op = "10011" else x"0000";
 
     with op select
         res <= movi when "00000",
@@ -78,7 +78,7 @@ BEGIN
              cmpleu when "01110",
              mul(15 downto 0) when "01111",
              mulh when "10000",
-             mulhu when "10001",
+             mulu(31 downto 16) when "10001",
              div when "10010",
              divu when "10011",
              "XXXXXXXXXXXXXXXX" when others;             

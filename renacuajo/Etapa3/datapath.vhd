@@ -87,7 +87,7 @@ BEGIN
 	data_wr <= rb;
 
 	with Rb_N select
-		rb_out <= rb when '1',
+		rb_out <= rb when '0',
 				  immed_out when others; 
 
 	with in_d select
