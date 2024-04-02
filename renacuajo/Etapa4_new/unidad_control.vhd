@@ -81,12 +81,14 @@ BEGIN
 				pc_s <= x"C000";
 			elsif ldpc = '0' then
 				pc_s <= pc_s;
-			elsif tknbr = "10" then
-				pc_s <= aluout;
-			elsif tknbr = "11" then
-				pc_s <= pc_des;
 			else
-				pc_s <= pc_s + 2;
+				if tknbr = "10" then
+					pc_s <= aluout;
+				elsif tknbr = "11" then
+					pc_s <= pc_des + 2;
+				else
+					pc_s <= pc_s + 2;
+				end if;
 			END if;
 			
 			if boot = '1' then 

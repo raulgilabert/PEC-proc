@@ -89,6 +89,7 @@ BEGIN
 	with ir(15 downto 12) select
 		addr_b <= ir(11 downto 9) when "0100",
 					 ir(11 downto 9) when "1110",
+					 ir(11 downto 9) when "0110",
 					 ir(2 downto 0) when others;
 
 	with ir(15 downto 12) select
@@ -107,6 +108,7 @@ BEGIN
 			   '1' when "0010", 						--addi
 			   '1' when "0011", 						--ld
 			   '1' when "0101", 						--movi i movhi
+				'1' when "1000",						-- mul & div
 			   jump_wd when "1010", 	--jal
 			   '1' when "1101",							--ldb
 			   '0' when others;
@@ -127,6 +129,7 @@ BEGIN
 				  
 	with ir(15 downto 12) select
 		immed_x2 <= '1' when "0011",
+						'1' when "0100",
 						'1' when "0110",
 						'0' when others;
 						
