@@ -12,8 +12,13 @@ ENTITY sisa IS
           SRAM_CE_N : out   std_logic := '1';
           SRAM_OE_N : out   std_logic := '1';
           SRAM_WE_N : out   std_logic := '1';
-          SW        : in std_logic_vector(9 downto 9));
-END sisa;
+          SW        : in std_logic_vector(9 downto 9);
+			 HEX0		  : out   std_logic_vector(6 downto 0);
+			 HEX1		  : out   std_logic_vector(6 downto 0);
+			 HEX2		  : out   std_logic_vector(6 downto 0);
+			 HEX3		  : out   std_logic_vector(6 downto 0)
+		);
+	 END sisa;
 
 ARCHITECTURE Structure OF sisa IS
 
@@ -25,7 +30,11 @@ ARCHITECTURE Structure OF sisa IS
 			addr_m : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 			data_wr : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 			wr_m : OUT STD_LOGIC;
-			word_byte : OUT STD_LOGIC
+			word_byte : OUT STD_LOGIC;
+			 HEX0		  : out   std_logic_vector(6 downto 0);
+			 HEX1		  : out   std_logic_vector(6 downto 0);
+			 HEX2		  : out   std_logic_vector(6 downto 0);
+			 HEX3		  : out   std_logic_vector(6 downto 0)
 		);
 	END COMPONENT;
 	
@@ -74,7 +83,11 @@ BEGIN
 			addr_m => addr_s,
 			data_wr => wr_data_s,
 			wr_m => we_s,
-			word_byte => byte_m_s
+			word_byte => byte_m_s,
+			HEX0 => HEX0,
+			HEX1 => HEX1,
+			HEX2 => HEX2,
+			HEX3 => HEX3
 		);
 		
 	mem0: MemoryController

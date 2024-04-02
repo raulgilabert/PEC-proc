@@ -8,7 +8,11 @@ ENTITY proc IS
 			addr_m : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 			data_wr : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 			wr_m : OUT STD_LOGIC;
-			word_byte : OUT STD_LOGIC
+			word_byte : OUT STD_LOGIC;
+			 HEX0		  : out   std_logic_vector(6 downto 0);
+			 HEX1		  : out   std_logic_vector(6 downto 0);
+			 HEX2		  : out   std_logic_vector(6 downto 0);
+			 HEX3		  : out   std_logic_vector(6 downto 0)
 	);
 END proc;
 
@@ -56,6 +60,16 @@ ARCHITECTURE Structure OF proc IS
 				 aluout	 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 				 tknbr    : OUT STD_LOGIC_VECTOR(1 DOWNTO 0)
 		 );	
+	END COMPONENT;
+	
+	COMPONENT dataVisualizer IS
+		PORT (
+			num: IN std_logic_vector(15 downto 0);
+			HEX0 : OUT std_logic_vector(6 downto 0);
+			HEX1 : OUT std_logic_vector(6 downto 0);
+			HEX2 : OUT std_logic_vector(6 downto 0);
+			HEX3 : OUT std_logic_vector(6 downto 0)
+		);
 	END COMPONENT;
 
 		SIGNAL immed_x2: std_logic;
@@ -115,4 +129,13 @@ BEGIN
 				aluout => aluout,
 				tknbr => tknbr
 			);
+			
+			display: dataVisualizer
+				PORT map(
+					num => pc,
+					HEX0 => HEX0,
+					HEX1 => HEX1,
+					HEX2 => HEX2,
+					HEX3 => HEX3
+				);
 END Structure;

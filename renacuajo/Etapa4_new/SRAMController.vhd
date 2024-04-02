@@ -23,7 +23,7 @@ entity SRAMController is
 end SRAMController;
 
 architecture comportament of SRAMController is
-	TYPE state_t is (WRITE_0, WRITE_1);
+	TYPE state_t is (WRITE_0, WRITE_1, WRITE_2);
 	SIGNAL state: state_t;
 	SIGNAL data_wr: std_logic_vector(15 downto 0);
 	SIGNAL condition_byte_select: std_logic;
@@ -84,6 +84,8 @@ architecture comportament of SRAMController is
 					else
 						state <= WRITE_1;
 					end if;
+				when WRITE_1 =>
+					state <= WRITE_2;
 				when others =>
 					state <= state;
 			end case;

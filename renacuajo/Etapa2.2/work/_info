@@ -1,80 +1,70 @@
 m255
 K3
-z0
-!s11e MIXED_VERSIONS
 13
 cModel Technology
 dC:\Users\pec01\Documents\GitHub\PEC-proc\renacuajo\Etapa2.1
+!s11e MIXED_VERSIONS
 Ealu
-Z0 w1711886000
-Z1 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
-Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 44
-Z4 d/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2
-Z5 8/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/alu.vhd
-Z6 F/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/alu.vhd
+Z0 w1709636414
+Z1 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z2 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z3 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z4 dC:\Users\pec01\Documents\GitHub\PEC-proc\renacuajo\Etapa2.2
+Z5 8C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/alu.vhd
+Z6 FC:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/alu.vhd
 l0
-L5 1
-VRJ@7@JPoUJLKSYHdAedmE1
-!s100 TW5Z?B9YD42c`G]1J@S611
-Z7 OV;C;2020.1;71
+L5
+V342dKO42oZ]KSj]gR757T2
+Z7 OV;C;10.1d;51
 32
-Z8 !s110 1711908843
+Z8 !s108 1712057281.230000
+Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/alu.vhd|
+Z10 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/alu.vhd|
+Z11 o-work work -2002 -explicit -O0
+Z12 tExplicit 1
+!s100 g[G[>>`H=nigkoYe<eeWV2
 !i10b 1
-Z9 !s108 1711908843.000000
-Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/alu.vhd|
-Z11 !s107 /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/alu.vhd|
-!i113 1
-Z12 o-work work -2002 -explicit
-Z13 tExplicit 1 CvgOpt 0
 Astructure
 R1
 R2
 R3
-DEx4 work 3 alu 0 22 RJ@7@JPoUJLKSYHdAedmE1
-!i122 44
+DEx4 work 3 alu 0 22 342dKO42oZ]KSj]gR757T2
 l18
-L13 16
-VDLbQ1PlVclb53aEl1i`Zj1
-!s100 H9P:6f5bCgKT:o6ZXSbiV1
+L13
+VmHWagPK<1@80CdQQEGG?E3
 R7
 32
 R8
-!i10b 1
 R9
 R10
 R11
-!i113 1
 R12
-R13
+!s100 AoIBaRQF];EH370b4;jNc1
+!i10b 1
 Easync_64kx16
-R0
-Z14 DPx4 work 15 package_utility 0 22 ?:b]?a0>n7X>QKK>_h]Ob3
-Z15 DPx4 work 14 package_timing 0 22 ZQ8=mN4edFMf_>kE[5n0D1
-Z16 DPx4 ieee 16 std_logic_textio 0 22 ^l:n6VFdg74Q?CKDhjD]D3
-Z17 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
-Z18 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z13 w1710329764
+Z14 DPx4 work 15 package_utility 0 22 abW^FY0na:iFW@RR:Fofg0
+Z15 DPx4 work 14 package_timing 0 22 ]QljGNTG0EJQ?X:f3a>TX1
+Z16 DPx4 ieee 16 std_logic_textio 0 22 ?Il0a149GV276[?[UMDWh2
+Z17 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
+Z18 DPx4 ieee 18 std_logic_unsigned 0 22 RYmj;=TK`k=k>D@Cz`zoB3
 R2
 R3
-!i122 45
 R4
-Z19 8/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/async_64Kx16.vhd
-Z20 F/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/async_64Kx16.vhd
+Z19 8C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/async_64Kx16.vhd
+Z20 FC:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/async_64Kx16.vhd
 l0
-Z21 L22 1
-VeDAAc^ZGn@Ob`HGIG`cIW2
-!s100 nEajT=YNND9PXbm77CFKX2
+L22
+Vz7=:g106kSL^?zZa1_k1i2
 R7
 32
-R8
-!i10b 1
-R9
-Z22 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/async_64Kx16.vhd|
-Z23 !s107 /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/async_64Kx16.vhd|
-!i113 1
+Z21 !s108 1712057281.272000
+Z22 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/async_64Kx16.vhd|
+Z23 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/async_64Kx16.vhd|
+R11
 R12
-R13
+!s100 >mUGlnEO[;>2_SQSo6jO>0
+!i10b 1
 Abehave_arch
 R14
 R15
@@ -83,266 +73,230 @@ R17
 R18
 R2
 R3
-DEx4 work 12 async_64kx16 0 22 eDAAc^ZGn@Ob`HGIG`cIW2
-!i122 45
+DEx4 work 12 async_64kx16 0 22 z7=:g106kSL^?zZa1_k1i2
 l86
-L50 597
-V@2fA6o^Tk3_TinSz6:Q^32
-!s100 6KAdWzB8LQXKchEbGF@0U2
+L50
+VAJ7N2U7Oz?8b=Rk:ei_Pn2
 R7
 32
-R8
-!i10b 1
-R9
+R21
 R22
 R23
-!i113 1
+R11
 R12
-R13
+!s100 ;PMTN0Wle:CWX6W[Y:e7_2
+!i10b 1
 Econtrol_l
-R0
+Z24 w1709724486
 R1
 R2
 R3
-!i122 46
 R4
-Z24 8/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/control_l.vhd
-Z25 F/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/control_l.vhd
+Z25 8C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/control_l.vhd
+Z26 FC:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/control_l.vhd
 l0
-L5 1
-VJJbfN<k`OL8d95f5cI]3D3
-!s100 :P8A6zmRMb?d;C[8e>zJ81
+L5
+VLT2J2dSfT6[?TbJe1J;7P2
 R7
 32
-R8
-!i10b 1
-R9
-Z26 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/control_l.vhd|
-Z27 !s107 /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/control_l.vhd|
-!i113 1
+Z27 !s108 1712057281.318000
+Z28 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/control_l.vhd|
+Z29 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/control_l.vhd|
+R11
 R12
-R13
+!s100 AK;ZYlc^akan@LIUh11oH0
+!i10b 1
 Astructure
 R1
 R2
 R3
-DEx4 work 9 control_l 0 22 JJbfN<k`OL8d95f5cI]3D3
-!i122 46
+DEx4 work 9 control_l 0 22 LT2J2dSfT6[?TbJe1J;7P2
 l24
-L20 54
-V1AXUAS;f^KX?mBzi23T2^2
-!s100 7246H1Fi3_Jf23;_8JXgj0
+L20
+V:dz5A1UamcQD8]6^nF4bF0
 R7
 32
-R8
-!i10b 1
-R9
-R26
 R27
-!i113 1
+R28
+R29
+R11
 R12
-R13
+!s100 7>S@We^]^oGHQERbYFL1c0
+!i10b 1
 Edatapath
-R0
+Z30 w1709723411
 R1
 R2
 R3
-!i122 47
 R4
-Z28 8/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/datapath.vhd
-Z29 F/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/datapath.vhd
+Z31 8C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/datapath.vhd
+Z32 FC:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/datapath.vhd
 l0
-L5 1
-V0df0m_goe^0m_^L4Ih:<^2
-!s100 PF40gW2DJHV<Cf3WUnPbl3
+L5
+V<KkCMdkNEo@PzeR[Uaa_;2
 R7
 32
-R8
-!i10b 1
-R9
-Z30 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/datapath.vhd|
-Z31 !s107 /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/datapath.vhd|
-!i113 1
+Z33 !s108 1712057281.360000
+Z34 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/datapath.vhd|
+Z35 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/datapath.vhd|
+R11
 R12
-R13
+!s100 n`2^O48n@_8L7ITPSc73W1
+!i10b 1
 Astructure
 R1
 R2
 R3
-DEx4 work 8 datapath 0 22 0df0m_goe^0m_^L4Ih:<^2
-!i122 47
+DEx4 work 8 datapath 0 22 <KkCMdkNEo@PzeR[Uaa_;2
 l50
-L23 68
-VMR5:>IT=QQS?IU^R2Wfdm3
-!s100 Ke4ER>C^R=RB@bV[P;EnU3
+L23
+VGfIHP=UGelzAGM[=cKG@11
 R7
 32
-R8
-!i10b 1
-R9
-R30
-R31
-!i113 1
-R12
-R13
-Ememory
-R0
-R16
-R17
-R18
-R2
-R3
-!i122 48
-R4
-Z32 8/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/memory.vhd
-Z33 F/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/memory.vhd
-l0
-L8 1
-Vm;X;_NaJ4@VBIKScIbORU0
-!s100 ^``UR]YLGkD;7<`U=`9WS0
-R7
-32
-R8
-!i10b 1
-R9
-Z34 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/memory.vhd|
-Z35 !s107 /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/memory.vhd|
-!i113 1
-R12
-R13
-Acomportament
-R16
-R17
-R18
-R2
-R3
-DEx4 work 6 memory 0 22 m;X;_NaJ4@VBIKScIbORU0
-!i122 48
-l48
-L20 61
-VUKLaoYJ^mTP^SIFZl>Z8^0
-!s100 _@F@3C>V7@S36Oe5EbaPF1
-R7
-32
-R8
-!i10b 1
-R9
+R33
 R34
 R35
-!i113 1
+R11
 R12
-R13
+!s100 m8FWb6cg:BCDnPmhc>7zd3
+!i10b 1
+Ememory
+Z36 w1709116860
+R16
+R17
+R18
+R2
+R3
+R4
+Z37 8C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/memory.vhd
+Z38 FC:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/memory.vhd
+l0
+L8
+VezVj_W<TQA0lnlE844kA:3
+R7
+32
+Z39 !s108 1712057281.401000
+Z40 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/memory.vhd|
+Z41 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/memory.vhd|
+R11
+R12
+!s100 6`[ncjZncnKIIQlJ;Qz4a2
+!i10b 1
+Acomportament
+R16
+R17
+R18
+R2
+R3
+DEx4 work 6 memory 0 22 ezVj_W<TQA0lnlE844kA:3
+l48
+L20
+VPkAg]G57>]66WXLfTgc2g1
+R7
+32
+R39
+R40
+R41
+R11
+R12
+!s100 ^2]_]@0E]lMjXY_dJce3b3
+!i10b 1
 Ememorycontroller
-R0
+Z42 w1710853048
 R18
 R17
 R2
 R3
-!i122 49
 R4
-Z36 8/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/MemoryController.vhd
-Z37 F/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/MemoryController.vhd
+Z43 8C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/MemoryController.vhd
+Z44 FC:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/MemoryController.vhd
 l0
-L6 1
-VacMdAlXi_dAkZfQiPokD`0
-!s100 1l@h_n_BnW?V?=`@Ui@K>0
+L6
+VPLoMf0oj;RB<P=VUa6jkS2
 R7
 32
-R8
-!i10b 1
-R9
-Z38 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/MemoryController.vhd|
-Z39 !s107 /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/MemoryController.vhd|
-!i113 1
+Z45 !s108 1712057281.444000
+Z46 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/MemoryController.vhd|
+Z47 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/MemoryController.vhd|
+R11
 R12
-R13
+!s100 :K4;^k=AgYVOh=G_LZCm[3
+!i10b 1
 Acomportament
 R18
 R17
 R2
 R3
-DEx4 work 16 memorycontroller 0 22 acMdAlXi_dAkZfQiPokD`0
-!i122 49
+DEx4 work 16 memorycontroller 0 22 PLoMf0oj;RB<P=VUa6jkS2
 l46
-L23 51
-VTE>HSMgFDSXna>F4eo:QB3
-!s100 DZf1ZkPJQ7^Sm=O@C]oQQ2
+L23
+VE:MOd<<flY=>TMDMBDS;@1
 R7
 32
-R8
-!i10b 1
-R9
-R38
-R39
-!i113 1
+R45
+R46
+R47
+R11
 R12
-R13
+!s100 g17BmkD:fR24G9MX1?g3e2
+!i10b 1
 Emulti
-R0
+Z48 w1709721137
 R2
 R3
-!i122 50
 R4
-Z40 8/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/multi.vhd
-Z41 F/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/multi.vhd
+Z49 8C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/multi.vhd
+Z50 FC:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/multi.vhd
 l0
-L4 1
-VnjI[C^DjE_DBkV8^=DLNT0
-!s100 G?mQ?U;A6_0=C?^TG_2Qo1
+L4
+V14NBh5f7z`nUY<]C1Om_?2
 R7
 32
-R8
-!i10b 1
-R9
-Z42 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/multi.vhd|
-Z43 !s107 /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/multi.vhd|
-!i113 1
+Z51 !s108 1712057281.486000
+Z52 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/multi.vhd|
+Z53 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/multi.vhd|
+R11
 R12
-R13
+!s100 Vdh>l=a_@F>fVk^7NLZ710
+!i10b 1
 Astructure
 R2
 R3
-DEx4 work 5 multi 0 22 njI[C^DjE_DBkV8^=DLNT0
-!i122 50
+DEx4 work 5 multi 0 22 14NBh5f7z`nUY<]C1Om_?2
 l25
-L19 45
-VaKC>7ol1B97XTVBJDOAf]1
-!s100 G8UCR=Uo9dE?NWoW3A3C@0
+L19
+VGWb[1im3R[_EBjPYX2Y]21
 R7
 32
-R8
-!i10b 1
-R9
-R42
-R43
-!i113 1
+R51
+R52
+R53
+R11
 R12
-R13
+!s100 OTD@eGA[l`bWg?X[keOLm1
+!i10b 1
 Ppackage_timing
 R16
 R18
 R17
 R2
 R3
-!i122 51
-R0
+R13
 R4
-Z44 8/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/package_timing.vhd
-Z45 F/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/package_timing.vhd
+Z54 8C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/package_timing.vhd
+Z55 FC:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/package_timing.vhd
 l0
-L17 1
-VZQ8=mN4edFMf_>kE[5n0D1
-!s100 5`DO3edQTNlNT3YUZm9<m3
+L17
+V]QljGNTG0EJQ?X:f3a>TX1
 R7
 32
-R8
-!i10b 1
-R9
-Z46 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/package_timing.vhd|
-Z47 !s107 /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/package_timing.vhd|
-!i113 1
+Z56 !s108 1712057281.526000
+Z57 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/package_timing.vhd|
+Z58 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/package_timing.vhd|
+R11
 R12
-R13
+!s100 7[5MEfJ`HFPK=zP7G66<i1
+!i10b 1
 Bbody
 R15
 R16
@@ -350,328 +304,284 @@ R18
 R17
 R2
 R3
-!i122 51
 l0
-L59 1
-Vm:<[51895IZ1Z;P?LJMc;1
-!s100 [loaKLo4iS34oeTN_naiH3
+L59
+VfeQXi[8kmeXD5NlH1A^G91
 R7
 32
-R8
-!i10b 1
-R9
-R46
-R47
-!i113 1
+R56
+R57
+R58
+R11
 R12
-R13
+nbody
+!s100 [;aAVGm330N:B:ZYX350a1
+!i10b 1
 Ppackage_utility
 R16
 R17
 R2
 R3
-!i122 52
-R0
+R13
 R4
-Z48 8/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/package_utility.vhd
-Z49 F/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/package_utility.vhd
+Z59 8C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/package_utility.vhd
+Z60 FC:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/package_utility.vhd
 l0
-L15 1
-V?:b]?a0>n7X>QKK>_h]Ob3
-!s100 [kM5G34mohFfdLm@OnaEn3
+L15
+VabW^FY0na:iFW@RR:Fofg0
 R7
 32
 b1
-R8
-!i10b 1
-R9
-Z50 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/package_utility.vhd|
-Z51 !s107 /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/package_utility.vhd|
-!i113 1
+Z61 !s108 1712057281.572000
+Z62 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/package_utility.vhd|
+Z63 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/package_utility.vhd|
+R11
 R12
-R13
+!s100 n9b5dM?H5oLDz7geaYPkN1
+!i10b 1
 Bbody
 R14
 R16
 R17
 R2
 R3
-!i122 52
 l0
-R21
-Vk13jU[Po:0M96]0:3B?dJ3
-!s100 <>QD`JQWBT_l9f7[QZPT61
+L22
+V1dAT5_E6[=Q4>0kGEF5@]3
 R7
 32
-R8
-!i10b 1
-R9
-R50
-R51
-!i113 1
-R12
-R13
-Eproc
-R0
-R2
-R3
-!i122 53
-R4
-Z52 8/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/proc.vhd
-Z53 F/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/proc.vhd
-l0
-L4 1
-V[5jMa?]nAnI6T`9DE3Z?H2
-!s100 HLk0e9D4KXHDi]H_ehRa83
-R7
-32
-R8
-!i10b 1
-R9
-Z54 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/proc.vhd|
-Z55 !s107 /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/proc.vhd|
-!i113 1
-R12
-R13
-Astructure
-R2
-R3
-DEx4 work 4 proc 0 22 [5jMa?]nAnI6T`9DE3Z?H2
-!i122 53
-l65
-L16 88
-VY8n^nK3gVZTPEcYBZgiZf0
-!s100 cmV2T3eb;c`Lmm7nzh0di2
-R7
-32
-R8
-!i10b 1
-R9
-R54
-R55
-!i113 1
-R12
-R13
-Eregfile
-R0
-R1
-R2
-R3
-!i122 54
-R4
-Z56 8/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/regfile.vhd
-Z57 F/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/regfile.vhd
-l0
-L6 1
-VDPXRNz6W`?1K>_cnU`X=o0
-!s100 >X_K[KK5?zV^ZjhChFX7i2
-R7
-32
-R8
-!i10b 1
-R9
-Z58 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/regfile.vhd|
-Z59 !s107 /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/regfile.vhd|
-!i113 1
-R12
-R13
-Astructure
-R1
-R2
-R3
-DEx4 work 7 regfile 0 22 DPXRNz6W`?1K>_cnU`X=o0
-!i122 54
-l23
-L19 17
-V91^5cYB8g8^?5Tol>5hF00
-!s100 RhO0b]YKB]8O=z5QOUlWE1
-R7
-32
-R8
-!i10b 1
-R9
-R58
-R59
-!i113 1
-R12
-R13
-Esisa
-R0
-R18
-R17
-R2
-R3
-!i122 55
-R4
-Z60 8/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/sisa.vhd
-Z61 F/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/sisa.vhd
-l0
-L6 1
-Vf<0;]T?c<zz91ZV:U1F9>3
-!s100 d9=]e[m7<GHT^d?4IF86N3
-R7
-32
-R8
-!i10b 1
-R9
-Z62 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/sisa.vhd|
-Z63 !s107 /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/sisa.vhd|
-!i113 1
-R12
-R13
-Astructure
-R18
-R17
-R2
-R3
-DEx4 work 4 sisa 0 22 f<0;]T?c<zz91ZV:U1F9>3
-!i122 55
-l58
-L18 80
-Vhb1;7Ig2mkhgUn9cX2TJB2
-!s100 j_P8RZJJ_4bZk><_o72e_2
-R7
-32
-R8
-!i10b 1
-R9
+R61
 R62
 R63
-!i113 1
+R11
 R12
-R13
-Esramcontroller
-Z64 w1711908826
-R1
-R17
-R18
+!s100 =i4<XdWXU:J]Ih;Vo<NgP3
+!i10b 1
+Eproc
+Z64 w1709640425
 R2
 R3
-!i122 56
 R4
-Z65 8/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/SRAMController.vhd
-Z66 F/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/SRAMController.vhd
+Z65 8C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/proc.vhd
+Z66 FC:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/proc.vhd
 l0
-L7 1
-VP]kB8ej9`eeG_9<h9AgCg1
-!s100 ]W3`MYMZknfG0MZ0kcLia3
+L4
+VE07>PX[gFbcoX5M:Gg6jG0
 R7
 32
-R8
-!i10b 1
-R9
-Z67 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/SRAMController.vhd|
-Z68 !s107 /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/SRAMController.vhd|
-!i113 1
+Z67 !s108 1712057281.615000
+Z68 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/proc.vhd|
+Z69 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/proc.vhd|
+R11
 R12
-R13
-Acomportament
-R1
-R17
-R18
+!s100 dI10RdUmVDK`d_3[E1jPB2
+!i10b 1
+Astructure
 R2
 R3
-DEx4 work 14 sramcontroller 0 22 P]kB8ej9`eeG_9<h9AgCg1
-!i122 56
-l33
-L25 72
-VgGXT]HN^4A2G@o9Mf1LC70
-!s100 HZ@zk9@>M62Z68jYGFQKn2
+DEx4 work 4 proc 0 22 E07>PX[gFbcoX5M:Gg6jG0
+l65
+L16
+VBQkF_@4zc1>ZT]TFiklXz3
 R7
 32
-R8
-!i10b 1
-R9
 R67
 R68
-!i113 1
+R69
+R11
 R12
-R13
-Etest_sisa
-R0
+!s100 aCc=bmnaP9OX1LLL7AXgg3
+!i10b 1
+Eregfile
+Z70 w1709117285
+R1
 R2
 R3
-!i122 57
 R4
-Z69 8/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/test_sisa.vhd
-Z70 F/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/test_sisa.vhd
+Z71 8C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/regfile.vhd
+Z72 FC:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/regfile.vhd
 l0
-L5 1
-Vd0YSz;BaK`z<B74^cLbNa2
-!s100 6P4kkjl``H>@UMQX;kCgn0
+L6
+V6MT]lB<ER9a2`P@NaHQCY1
 R7
 32
-R8
-!i10b 1
-R9
-Z71 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/test_sisa.vhd|
-Z72 !s107 /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/test_sisa.vhd|
-!i113 1
+Z73 !s108 1712057281.656000
+Z74 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/regfile.vhd|
+Z75 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/regfile.vhd|
+R11
 R12
-R13
+!s100 I7O>bLhCU6h;N_c>mB?Nc0
+!i10b 1
+Astructure
+R1
+R2
+R3
+DEx4 work 7 regfile 0 22 6MT]lB<ER9a2`P@NaHQCY1
+l23
+L19
+V@ZH4BALF[nV_QP_G?FNoT3
+R7
+32
+R73
+R74
+R75
+R11
+R12
+!s100 P[PSOUQ9JAA<ZT:6<f0cE0
+!i10b 1
+Esisa
+Z76 w1710851893
+R18
+R17
+R2
+R3
+R4
+Z77 8C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/sisa.vhd
+Z78 FC:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/sisa.vhd
+l0
+L6
+V]?dIDgGAC;a^66WmSeQE?1
+R7
+32
+Z79 !s108 1712057281.701000
+Z80 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/sisa.vhd|
+Z81 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/sisa.vhd|
+R11
+R12
+!s100 nilQ`j3cP3H9IL5fb^dZN0
+!i10b 1
+Astructure
+R18
+R17
+R2
+R3
+DEx4 work 4 sisa 0 22 ]?dIDgGAC;a^66WmSeQE?1
+l58
+L18
+VdO5cON4HQaZIKGnLM[ojP2
+R7
+32
+R79
+R80
+R81
+R11
+R12
+!s100 Z78]g@;LaNYcV`:EF_7L_2
+!i10b 1
+Esramcontroller
+Z82 w1712057137
+R1
+R17
+R18
+R2
+R3
+R4
+Z83 8C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/SRAMController.vhd
+Z84 FC:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/SRAMController.vhd
+l0
+L7
+V_D=ioFa8g4o001]mzaoH]0
+R7
+32
+Z85 !s108 1712057281.743000
+Z86 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/SRAMController.vhd|
+Z87 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/SRAMController.vhd|
+R11
+R12
+!s100 l<E>[8h5CIiDii?W_:;h]0
+!i10b 1
+Acomportament
+R1
+R17
+R18
+R2
+R3
+DEx4 work 14 sramcontroller 0 22 _D=ioFa8g4o001]mzaoH]0
+l33
+L25
+VJ[0aGdHC?iXOASeD6R3Wj2
+R7
+32
+R85
+R86
+R87
+R11
+R12
+!s100 ?OXc;Dd`WH4IQMC55bI<M0
+!i10b 1
+Etest_sisa
+Z88 w1710329770
+R2
+R3
+R4
+Z89 8C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/test_sisa.vhd
+Z90 FC:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/test_sisa.vhd
+l0
+L5
+VkAdhfn89W5`mY_=KPlfV]3
+R7
+32
+Z91 !s108 1712057281.787000
+Z92 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/test_sisa.vhd|
+Z93 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/test_sisa.vhd|
+R11
+R12
+!s100 688X_8OZ0BkG::B3fT5kf3
+!i10b 1
 Acomportament
 R2
 R3
-DEx4 work 9 test_sisa 0 22 d0YSz;BaK`z<B74^cLbNa2
-!i122 57
+DEx4 work 9 test_sisa 0 22 kAdhfn89W5`mY_=KPlfV]3
 l64
-L8 100
-VF>m;[3a<DZ]:CHeeYa<@A3
-!s100 FHAgERNY7ocAS_zHhUX[B0
+L8
+V576VBR9h2?HGXLVMC^Jh03
+!s100 XXGF@>=RbSKKJ5V169il^3
 R7
 32
-R8
-!i10b 1
-R9
-R71
-R72
-!i113 1
+R91
+R92
+R93
+R11
 R12
-R13
+!i10b 1
 Eunidad_control
-R0
+Z94 w1709715917
 R17
 R18
 R1
 R2
 R3
-!i122 58
 R4
-Z73 8/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/unidad_control.vhd
-Z74 F/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/unidad_control.vhd
+Z95 8C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/unidad_control.vhd
+Z96 FC:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/unidad_control.vhd
 l0
-L7 1
-VI1ADLAzJEN3BY5^eOhz=h1
-!s100 cII2F1ceiVFlPOHGEQ[BB0
+L7
+VckeOI?8oP7Uk^obI8;0a[3
+!s100 ;P[ViQAVP[Ud:iz@R@Dn41
 R7
 32
-R8
 !i10b 1
-R9
-Z75 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/unidad_control.vhd|
-Z76 !s107 /home/raulg/universidad/Q6/PEC/lab/renacuajo/Etapa2.2/unidad_control.vhd|
-!i113 1
+Z97 !s108 1712057281.828000
+Z98 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/unidad_control.vhd|
+Z99 !s107 C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa2.2/unidad_control.vhd|
+R11
 R12
-R13
 Astructure
 R17
 R18
 R1
 R2
 R3
-Z77 DEx4 work 14 unidad_control 0 22 I1ADLAzJEN3BY5^eOhz=h1
-!i122 58
+Z100 DEx4 work 14 unidad_control 0 22 ckeOI?8oP7Uk^obI8;0a[3
 l70
-Z78 L25 102
-Z79 VJE`LG?Ji^QdEcM6b6lTG^0
-Z80 !s100 <9U5iPRP@2BmgUUg[1?_F3
+L25
+Z101 VSQba4VQ?>@M8Xh;2cUW]L1
+Z102 !s100 fTliod;bDe`4fNz?V9bB]3
 R7
 32
-R8
 !i10b 1
-R9
-R75
-R76
-!i113 1
+R97
+R98
+R99
+R11
 R12
-R13
