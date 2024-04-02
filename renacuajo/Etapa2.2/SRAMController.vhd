@@ -36,10 +36,6 @@ architecture comportament of SRAMController is
 	SRAM_OE_N <= '0'; -- 0 on read, X on write => 0
 	SRAM_ADDR <= "000" & address(15 downto 1);
 	
-	with state select
-		SRAM_WE_N <= '0' when WRITE_1,
-						 '1' when others;
-	
 	condition_byte_read <= byte_m & address(0);
 	
 	-- if byte access fill with Z the word space not used
