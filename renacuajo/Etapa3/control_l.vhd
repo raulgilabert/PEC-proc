@@ -138,6 +138,7 @@ BEGIN
 				  
 	with ir(15 downto 12) select
 		immed_x2 <= '1' when "0011",
+            '1' when "0100",
 						'1' when "0110",
 						'0' when others;
 						
