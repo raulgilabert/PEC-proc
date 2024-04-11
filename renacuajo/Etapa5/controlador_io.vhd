@@ -20,6 +20,26 @@ ENTITY controladores_io IS
 END controladores_io;
 
 ARCHITECTURE Structure of controladores_io is
+
+	TYPE t_io is array(0 to 255) of std_logic_vector(15 downto 0);
+	SIGNAL io_mem: t_io;
+
 BEGIN
+
+	PROCESS (CLOCK_50)
+	BEGIN
+		if rising_edge(CLOCK_50) then
+			if (wr_out = '1') then
+				io_mem(to_integer(unsigned(addr_io))) <= wr_io;
+			END if;
+			
+			if (rd_in = '1') then
+				rd_io <= io_mem(to_integer(unsigned(addr_io)));
+			END if;
+		END if;
+	END PROCESS;
+	
+	led_verdes <= io_mem(5)(7 downto 0);
+	led_rojos <= io_mem(6)(7 downto 0);
 	
 END Structure;

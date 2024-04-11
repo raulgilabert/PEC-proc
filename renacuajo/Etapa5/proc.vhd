@@ -6,17 +6,18 @@ USE work.renacuajo_pkg.all;
 
 
 ENTITY proc IS
-	PORT (clk : IN STD_LOGIC;
-			boot : IN STD_LOGIC;
-			datard_m : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-			addr_m : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-			data_wr : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-			wr_m : OUT STD_LOGIC;
-			word_byte : OUT STD_LOGIC;
-			 HEX0		  : out   std_logic_vector(6 downto 0);
-			 HEX1		  : out   std_logic_vector(6 downto 0);
-			 HEX2		  : out   std_logic_vector(6 downto 0);
-			 HEX3		  : out   std_logic_vector(6 downto 0)
+	PORT (clk 			: IN STD_LOGIC;
+			boot 			: IN STD_LOGIC;
+			datard_m 	: IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+			addr_m 		: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			data_wr		: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			wr_m 			: OUT STD_LOGIC;
+			word_byte 	: OUT STD_LOGIC;
+			addr_io	  	: out std_LOGIC_VECTOR(7 DOWNTO 0);
+			rd_io			: in std_LOGIC_vector(15 DOWNTO 0);
+			wr_io			: out std_LOGIC_VECTOR(15 downto 0);
+			rd_in			: out std_LOGIC;
+			wr_out 		: out std_logic
 	);
 END proc;
 
@@ -47,7 +48,7 @@ ARCHITECTURE Structure OF proc IS
 	
 	COMPONENT datapath IS
 		 PORT (clk      : IN  STD_LOGIC;
-          op        : IN INST;
+				 op       : IN INST;
 				 wrd      : IN  STD_LOGIC;
 				 addr_a   : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
 				 addr_b   : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -59,21 +60,12 @@ ARCHITECTURE Structure OF proc IS
 				 pc       : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 				 in_d     : IN  STD_LOGIC_VECTOR(1 DOWNTO 0);
 				 Rb_N     : IN STD_LOGIC;
+				 rd_io	 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
 				 addr_m   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 				 data_wr  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 				 aluout	 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 				 tknbr    : OUT STD_LOGIC_VECTOR(1 DOWNTO 0)
 		 );	
-	END COMPONENT;
-	
-	COMPONENT dataVisualizer IS
-		PORT (
-			num: IN std_logic_vector(15 downto 0);
-			HEX0 : OUT std_logic_vector(6 downto 0);
-			HEX1 : OUT std_logic_vector(6 downto 0);
-			HEX2 : OUT std_logic_vector(6 downto 0);
-			HEX3 : OUT std_logic_vector(6 downto 0)
-		);
 	END COMPONENT;
 
 		SIGNAL immed_x2: std_logic;
@@ -131,15 +123,8 @@ BEGIN
 				data_wr => data_wr,
 				Rb_N => Rb_N,
 				aluout => aluout,
-				tknbr => tknbr
+				tknbr => tknbr,
+				rd_io => rd_io
 			);
 			
-			display: dataVisualizer
-				PORT map(
-					num => pc,
-					HEX0 => HEX0,
-					HEX1 => HEX1,
-					HEX2 => HEX2,
-					HEX3 => HEX3
-				);
 END Structure;

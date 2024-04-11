@@ -19,7 +19,8 @@ ENTITY datapath IS
           ins_dad  : IN  STD_LOGIC;
           pc       : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
           in_d     : IN  STD_LOGIC_VECTOR(1 DOWNTO 0);
-		  Rb_N     : IN  STD_LOGIC;
+			 Rb_N     : IN  STD_LOGIC;
+			 rd_io	 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);	
           addr_m   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           data_wr  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 		  aluout   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -86,6 +87,7 @@ BEGIN
 	with in_d select
 		d <= rd_alu when "00",
 			  new_pc when "10",
+			  rd_io	when "11",
 			  datard_m  when others;
 				
 	with ins_dad select

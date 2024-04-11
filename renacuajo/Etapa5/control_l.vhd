@@ -19,7 +19,7 @@ ENTITY control_l IS
           immed_x2   : OUT STD_LOGIC;
           word_byte  : OUT STD_LOGIC;
 		    Rb_N       : OUT STD_LOGIC;
-			 addr_io	   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 addr_io	   : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 			 wr_out		: OUT STD_LOGIC;
 			 rd_in		: OUT STD_LOGIC
 		 );
@@ -156,17 +156,23 @@ BEGIN
 						'1' when "0100",
 						'1' when "0110",
 						'0' when others;
-						
-	with ir(15 downto 12) select -- ara in_d te dos bits
-		in_d <= "01" when "0011",   --st
-				  "01" when "1101", --stb
-				  "10" when "1010", --jal
-				  "00" when others;
+		
+	in_d <= "01" when ir(15 downto 12) = "0011" else --st
+			  "01" when ir(15 downto 12) = "1101" else --stb
+			  "10" when ir(15 downto 12) = "1010" else --jal
+			  "11" when ir(15 downto 12) = "0111" and ir(8) = '0' else --in
+			  "00";
+		
+	--with ir(15 downto 12) select -- ara in_d te dos bits
+		--in_d <= "01" when "0011",   --st
+			--	  "01" when "1101", --stb
+				--  "10" when "1010", --jal
+				  --"00" when others;
 	
-	wr_out <= '1' when op = OUT_I else
+	wr_out <= '1' when ir(15 downto 12) = "0111" and ir(8) = '1'  else
 				 '0';
 
-	rd_in <= '1' when op = IN_I else
+	rd_in <= '1' when ir(15 downto 12) = "0111" and ir(8) = '0' else
 				'0';
 	
 	addr_io <= ir(7 downto 0);

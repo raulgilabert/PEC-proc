@@ -31,7 +31,6 @@ architecture comportament of MemoryController is
       SRAM_CE_N:    out     std_logic := '1';
       SRAM_OE_N:    out     std_logic := '1';
       SRAM_WE_N:    out     std_logic := '1';
-
       address:      in      std_logic_vector(15 downto 0) := x"0000";
       dataReaded:   out     std_logic_vector(15 downto 0);
       dataToWrite:  in      std_logic_vector(15 downto 0);
@@ -53,7 +52,6 @@ begin
       SRAM_CE_N     => SRAM_CE_N,
       SRAM_OE_N     => SRAM_OE_N,
       SRAM_WE_N     => SRAM_WE_N,
-
       address       => addr,
       dataReaded    => rd_data,
       dataToWrite   => wr_data,
