@@ -1,0 +1,484 @@
+# Compile of alu.vhd was successful.
+# Compile of async_64Kx16.vhd was successful.
+# Compile of control_l.vhd was successful.
+# Compile of controlador_io.vhd was successful.
+# Compile of datapath.vhd was successful.
+# Compile of dataVisualizer.vhd was successful.
+# Compile of driver7display.vhd was successful.
+# Compile of memory.vhd was successful.
+# Compile of MemoryController.vhd was successful.
+# Compile of multi.vhd was successful.
+# Compile of package_timing.vhd was successful.
+# Compile of package_utility.vhd was successful.
+# Compile of proc.vhd was successful.
+# Compile of regfile.vhd was successful.
+# Compile of renacuajo.vhd was successful.
+# Compile of sisa.vhd was successful.
+# Compile of SRAMController.vhd was successful.
+# Compile of test_sisa.vhd was successful with warnings.
+# Compile of unidad_control.vhd was successful.
+# 19 compiles, 0 failed with no errors.
+vsim -gui work.test_sisa
+# vsim -gui work.test_sisa 
+# Start time: 11:02:48 on Apr 12,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.test_sisa(comportament)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.sisa(structure)
+# Loading work.renacuajo_pkg(body)
+# Loading work.proc(structure)
+# Loading ieee.numeric_std(body)
+# Loading work.unidad_control(structure)
+# Loading work.multi(structure)
+# Loading work.control_l(structure)
+# Loading work.datapath(structure)
+# Loading work.regfile(structure)
+# Loading work.alu(structure)
+# ** Warning: (vsim-3473) Component instance "addsub_inst : addsub" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/alu0 File: C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu.vhd
+# ** Warning: (vsim-3473) Component instance "cmp_inst : cmp" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/alu0 File: C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu.vhd
+# ** Warning: (vsim-3473) Component instance "div_inst : div" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/alu0 File: C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu.vhd
+# ** Warning: (vsim-3473) Component instance "mul_inst : mul" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/alu0 File: C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu.vhd
+# ** Warning: (vsim-3473) Component instance "shift_inst : shift" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/alu0 File: C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu.vhd
+# Loading work.memorycontroller(comportament)
+# Loading work.sramcontroller(comportament)
+# Loading work.controladores_io(structure)
+# Loading ieee.std_logic_textio(body)
+# Loading work.package_timing(body)
+# Loading work.package_utility(body)
+# Loading work.async_64kx16(behave_arch)
+add wave -position insertpoint sim:/test_sisa/SoC/*
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/mem0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/reg0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/reg0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 470 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 790 ns  Iteration: 6  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1110 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1430 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1430 ns  Iteration: 6  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1430 ns  Iteration: 7  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1750 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1750 ns  Iteration: 6  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 2070 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 2390 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 2710 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 3030 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 3350 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 3670 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 3990 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4310 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4630 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4950 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+add wave -position insertpoint sim:/test_sisa/SoC/pro0/c0/c_l/*
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Warning: (vsim-3473) Component instance "addsub_inst : addsub" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/alu0 File: C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu.vhd
+# ** Warning: (vsim-3473) Component instance "cmp_inst : cmp" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/alu0 File: C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu.vhd
+# ** Warning: (vsim-3473) Component instance "div_inst : div" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/alu0 File: C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu.vhd
+# ** Warning: (vsim-3473) Component instance "mul_inst : mul" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/alu0 File: C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu.vhd
+# ** Warning: (vsim-3473) Component instance "shift_inst : shift" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/alu0 File: C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu.vhd
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/mem0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/reg0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/reg0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 470 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 790 ns  Iteration: 6  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1110 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1430 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1430 ns  Iteration: 6  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1430 ns  Iteration: 7  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1750 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1750 ns  Iteration: 6  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 2070 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 2390 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 2710 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 3030 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 3350 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 3670 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 3990 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4310 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4630 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4950 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+quit -sim
+# ** Error: Acs sdne.
+# 
+#        Unable to replace existing ini file (C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/test_sisa.mpf).  File can not be renamed.
+# ** Error: Acs sdne.
+# 
+#        Unable to replace existing ini file (C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/test_sisa.mpf).  File can not be renamed.
+# End time: 11:11:22 on Apr 12,2024, Elapsed time: 0:08:34
+# Errors: 2, Warnings: 29
+# Compile of alu.vhd was successful.
+# Compile of async_64Kx16.vhd was successful.
+# Compile of control_l.vhd was successful.
+# Compile of controlador_io.vhd was successful.
+# Compile of datapath.vhd was successful.
+# Compile of dataVisualizer.vhd was successful.
+# Compile of driver7display.vhd was successful.
+# Compile of memory.vhd was successful.
+# Compile of MemoryController.vhd was successful.
+# Compile of multi.vhd was successful.
+# Compile of package_timing.vhd was successful.
+# Compile of package_utility.vhd was successful.
+# Compile of proc.vhd was successful.
+# Compile of regfile.vhd was successful.
+# Compile of renacuajo.vhd was successful.
+# Compile of sisa.vhd was successful.
+# Compile of SRAMController.vhd was successful.
+# Compile of test_sisa.vhd was successful with warnings.
+# Compile of unidad_control.vhd was successful.
+# 19 compiles, 0 failed with no errors.
+vsim -gui work.test_sisa
+# vsim -gui work.test_sisa 
+# Start time: 11:11:45 on Apr 12,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.test_sisa(comportament)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.sisa(structure)
+# Loading work.renacuajo_pkg(body)
+# Loading work.proc(structure)
+# Loading ieee.numeric_std(body)
+# Loading work.unidad_control(structure)
+# Loading work.multi(structure)
+# Loading work.control_l(structure)
+# Loading work.datapath(structure)
+# Loading work.regfile(structure)
+# Loading work.alu(structure)
+# ** Warning: (vsim-3473) Component instance "addsub_inst : addsub" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/alu0 File: C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu.vhd
+# ** Warning: (vsim-3473) Component instance "cmp_inst : cmp" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/alu0 File: C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu.vhd
+# ** Warning: (vsim-3473) Component instance "div_inst : div" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/alu0 File: C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu.vhd
+# ** Warning: (vsim-3473) Component instance "mul_inst : mul" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/alu0 File: C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu.vhd
+# ** Warning: (vsim-3473) Component instance "shift_inst : shift" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/alu0 File: C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu.vhd
+# Loading work.memorycontroller(comportament)
+# Loading work.sramcontroller(comportament)
+# Loading work.controladores_io(structure)
+# Loading ieee.std_logic_textio(body)
+# Loading work.package_timing(body)
+# Loading work.package_utility(body)
+# Loading work.async_64kx16(behave_arch)
+add wave -position insertpoint sim:/test_sisa/SoC/*
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/mem0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/reg0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/reg0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 470 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 790 ns  Iteration: 6  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1110 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1430 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1430 ns  Iteration: 7  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1750 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1750 ns  Iteration: 6  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 2070 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 2390 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 2710 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 3030 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 3350 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 3670 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 3990 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4310 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4630 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4950 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# WARNING: No extended dataflow license exists
+add wave -position insertpoint sim:/test_sisa/SoC/pro0/e0/*
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 5270 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 5590 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 5910 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 6230 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 6550 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 6870 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 7190 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 7510 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 7830 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 8150 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 8470 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 8790 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 9110 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 9430 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 9750 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Warning: (vsim-3473) Component instance "addsub_inst : addsub" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/alu0 File: C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu.vhd
+# ** Warning: (vsim-3473) Component instance "cmp_inst : cmp" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/alu0 File: C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu.vhd
+# ** Warning: (vsim-3473) Component instance "div_inst : div" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/alu0 File: C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu.vhd
+# ** Warning: (vsim-3473) Component instance "mul_inst : mul" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/alu0 File: C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu.vhd
+# ** Warning: (vsim-3473) Component instance "shift_inst : shift" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/alu0 File: C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu.vhd
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/mem0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/reg0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/reg0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 470 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 790 ns  Iteration: 6  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1110 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1430 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1430 ns  Iteration: 7  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1750 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1750 ns  Iteration: 6  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 2070 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 2390 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 2710 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 3030 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 3350 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 3670 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 3990 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4310 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4630 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4950 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+add wave -position insertpoint sim:/test_sisa/SoC/pro0/e0/reg0/*
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+radix --hexadecimal
+# ** UI-Msg: (vish-4016) Invalid radix value: -hexadecimal.
+# Usage: radix [-binary | -octal | -decimal | -hexadecimal | -unsigned | -ascii | -time] [-enumnumeric | -enumsymbolic | -showbase | -symbolic]
+radix -hexadecimal
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# hexadecimal
+radix -hexadecimal
+# hexadecimal
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+add wave -position insertpoint sim:/test_sisa/SoC/pro0/c0/c_l/*
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Warning: (vsim-3473) Component instance "addsub_inst : addsub" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/alu0 File: C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu.vhd
+# ** Warning: (vsim-3473) Component instance "cmp_inst : cmp" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/alu0 File: C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu.vhd
+# ** Warning: (vsim-3473) Component instance "div_inst : div" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/alu0 File: C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu.vhd
+# ** Warning: (vsim-3473) Component instance "mul_inst : mul" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/alu0 File: C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu.vhd
+# ** Warning: (vsim-3473) Component instance "shift_inst : shift" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/alu0 File: C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu.vhd
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/mem0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/reg0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /test_sisa/SoC/pro0/e0/reg0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 3  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 470 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 790 ns  Iteration: 6  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1110 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1430 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1430 ns  Iteration: 7  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1750 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 1750 ns  Iteration: 6  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 2070 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 2390 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 2710 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 3030 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 3350 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 3670 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 3990 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4310 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4630 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4950 ns  Iteration: 5  Instance: /test_sisa/SoC/mem0
+# ** Error: Acs sdne.
+# 
+#        Unable to replace existing ini file (C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/test_sisa.mpf).  File can not be renamed.
+# ** Error: Acs sdne.
+# 
+#        Unable to replace existing ini file (C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/test_sisa.mpf).  File can not be renamed.
+# ** Error: Acs sdne.
+# 
+#        Unable to replace existing ini file (C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/test_sisa.mpf).  File can not be renamed.
+# ** Error: Acs sdne.
+# 
+#        Unable to replace existing ini file (C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/test_sisa.mpf).  File can not be renamed.
+# ** Error: Acs sdne.
+# 
+#        Unable to replace existing ini file (C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/test_sisa.mpf).  File can not be renamed.
+# ** Error: Acs sdne.
+# 
+#        Unable to replace existing ini file (C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/test_sisa.mpf).  File can not be renamed.
+# ** Error: Acs sdne.
+# 
+#        Unable to replace existing ini file (C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/test_sisa.mpf).  File can not be renamed.
+# ** Error: Acs sdne.
+# 
+#        Unable to replace existing ini file (C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/test_sisa.mpf).  File can not be renamed.
+# ** Error: Acs sdne.
+# 
+#        Unable to replace existing ini file (C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/test_sisa.mpf).  File can not be renamed.
+# ** Error: Acs sdne.
+# 
+#        Unable to replace existing ini file (C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/test_sisa.mpf).  File can not be renamed.
+# ** Error: Acs sdne.
+# 
+#        Unable to replace existing ini file (C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/test_sisa.mpf).  File can not be renamed.
+# ** Error: Acs sdne.
+# 
+#        Unable to replace existing ini file (C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/test_sisa.mpf).  File can not be renamed.
+quit -sim
+# ** Error: Acs sdne.
+# 
+#        Unable to replace existing ini file (C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/test_sisa.mpf).  File can not be renamed.
+# ** Error: Acs sdne.
+# 
+#        Unable to replace existing ini file (C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/test_sisa.mpf).  File can not be renamed.
+# ** Error: Acs sdne.
+# 
+#        Unable to replace existing ini file (C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/test_sisa.mpf).  File can not be renamed.
+# End time: 11:41:28 on Apr 12,2024, Elapsed time: 0:29:43
+# Errors: 15, Warnings: 32

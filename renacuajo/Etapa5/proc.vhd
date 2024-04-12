@@ -42,7 +42,10 @@ ARCHITECTURE Structure OF proc IS
           immed_x2  : OUT STD_LOGIC;
           wr_m      : OUT STD_LOGIC;
           word_byte : OUT STD_LOGIC;
-			 Rb_N		  : OUT STD_LOGIC
+			 Rb_N		  : OUT STD_LOGIC;
+			 rd_in	  : OUT STD_LOGIC;
+			 wr_out	  : OUT STD_LOGIC;
+			 addr_io   : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
 		 );
 	END COMPONENT;
 	
@@ -64,7 +67,8 @@ ARCHITECTURE Structure OF proc IS
 				 addr_m   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 				 data_wr  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 				 aluout	 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-				 tknbr    : OUT STD_LOGIC_VECTOR(1 DOWNTO 0)
+				 tknbr    : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+				 wr_io    : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
 		 );	
 	END COMPONENT;
 
@@ -102,7 +106,10 @@ BEGIN
 				immed_x2 => immed_x2,
 				wr_m => wr_m,
 				word_byte => word_byte,
-				Rb_N => Rb_N
+				Rb_N => Rb_N,
+				rd_in => rd_in,
+				wr_out => wr_out,
+				addr_io => addr_io
 			);
 		
 		e0: datapath
@@ -124,7 +131,8 @@ BEGIN
 				Rb_N => Rb_N,
 				aluout => aluout,
 				tknbr => tknbr,
-				rd_io => rd_io
+				rd_io => rd_io,
+				wr_io => wr_io
 			);
 			
 END Structure;

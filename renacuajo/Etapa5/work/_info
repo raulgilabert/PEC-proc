@@ -1,0 +1,859 @@
+m255
+K4
+z2
+!s11e vcom 2021.1 2021.02, Feb  3 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/intelFPGA_pro/21.1
+Ealu
+Z0 w1712757096
+Z1 DPx4 work 13 renacuajo_pkg 0 22 :=HO6o1NY0@BYjkH<Z3Ab0
+Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 241
+Z5 dC:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5
+Z6 8C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu.vhd
+Z7 FC:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu.vhd
+l0
+L9 1
+V_F5ECbGLI>lkonQ:=3ZWn2
+!s100 SifT=DdNN3oScCGHLEhWf0
+Z8 OV;C;2021.1;73
+32
+Z9 !s110 1712913087
+!i10b 1
+Z10 !s108 1712913087.000000
+Z11 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu.vhd|
+Z12 !s107 C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu.vhd|
+!i113 1
+Z13 o-work work -2002 -explicit
+Z14 tExplicit 1 CvgOpt 0
+Astructure
+R1
+R2
+R3
+R4
+DEx4 work 3 alu 0 22 _F5ECbGLI>lkonQ:=3ZWn2
+!i122 241
+l64
+L18 71
+VA5l]_dkbk413]bbO?T^UX1
+!s100 ggX4`<9Tmna8l8]]@kDQ^2
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Easync_64kx16
+Z15 w1712839426
+Z16 DPx4 work 15 package_utility 0 22 ?:b]?a0>n7X>QKK>_h]Ob3
+Z17 DPx4 work 14 package_timing 0 22 ZQ8=mN4edFMf_>kE[5n0D1
+Z18 DPx4 ieee 16 std_logic_textio 0 22 8]8<fKiYoHe;_IDO3kmNH2
+Z19 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z20 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+R3
+R4
+!i122 242
+R5
+Z21 8C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/async_64Kx16.vhd
+Z22 FC:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/async_64Kx16.vhd
+l0
+Z23 L22 1
+VeDAAc^ZGn@Ob`HGIG`cIW2
+!s100 nEajT=YNND9PXbm77CFKX2
+R8
+32
+R9
+!i10b 1
+R10
+Z24 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/async_64Kx16.vhd|
+Z25 !s107 C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/async_64Kx16.vhd|
+!i113 1
+R13
+R14
+Abehave_arch
+R16
+R17
+R18
+R19
+R20
+R3
+R4
+DEx4 work 12 async_64kx16 0 22 eDAAc^ZGn@Ob`HGIG`cIW2
+!i122 242
+l86
+L50 597
+VeG6?fBPHHgh^eW8;G57P:2
+!s100 3mCl:dIVehCZgGa?JGi@B3
+R8
+32
+R9
+!i10b 1
+R10
+R24
+R25
+!i113 1
+R13
+R14
+Econtrol_l
+Z26 w1712912449
+R1
+R2
+R3
+R4
+!i122 243
+R5
+Z27 8C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/control_l.vhd
+Z28 FC:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/control_l.vhd
+l0
+L8 1
+Vg[]j9o=W6<oagGj6l7F]I0
+!s100 Fh@:243T5ZU_e6QXBMiPJ2
+R8
+32
+R9
+!i10b 1
+R10
+Z29 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/control_l.vhd|
+Z30 !s107 C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/control_l.vhd|
+!i113 1
+R13
+R14
+Astructure
+R1
+R2
+R3
+R4
+DEx4 work 9 control_l 0 22 g[]j9o=W6<oagGj6l7F]I0
+!i122 243
+l37
+L28 164
+VfKKfBz988c][4g`zGH:m`2
+!s100 ZL:eBmaXeU1hLXH:KGVeH0
+R8
+32
+R9
+!i10b 1
+R10
+R29
+R30
+!i113 1
+R13
+R14
+Econtroladores_io
+Z31 w1712912468
+R1
+R2
+R3
+R4
+!i122 244
+R5
+Z32 8C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/controlador_io.vhd
+Z33 FC:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/controlador_io.vhd
+l0
+L8 1
+VFijTzI0bAB`=QQNboLb`E0
+!s100 oj0n4<G`n3Bg?eOL5^VF02
+R8
+32
+R9
+!i10b 1
+R10
+Z34 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/controlador_io.vhd|
+Z35 !s107 C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/controlador_io.vhd|
+!i113 1
+R13
+R14
+Astructure
+R1
+R2
+R3
+R4
+DEx4 work 16 controladores_io 0 22 FijTzI0bAB`=QQNboLb`E0
+!i122 244
+l27
+L22 26
+VR<8FS>NLWcakHl86dzW6X3
+!s100 BFlj@fS[mRCfHaM56eBlM1
+R8
+32
+R9
+!i10b 1
+R10
+R34
+R35
+!i113 1
+R13
+R14
+Edatapath
+Z36 w1712913058
+R1
+R2
+R3
+R4
+!i122 245
+R5
+Z37 8C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/datapath.vhd
+Z38 FC:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/datapath.vhd
+l0
+L9 1
+V=;D^<zgT>E`nJdT?Gk10`1
+!s100 >R4@7J8QoP[IagoV0dBa<1
+R8
+32
+R9
+!i10b 1
+R10
+Z39 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/datapath.vhd|
+Z40 !s107 C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/datapath.vhd|
+!i113 1
+R13
+R14
+Astructure
+R1
+R2
+R3
+R4
+DEx4 work 8 datapath 0 22 =;D^<zgT>E`nJdT?Gk10`1
+!i122 245
+l63
+L32 88
+VBk:B8`66]oo5B39Ufn^291
+!s100 @H@GQe3iRnzJ=g<EnSgcZ3
+R8
+32
+R9
+!i10b 1
+R10
+R39
+R40
+!i113 1
+R13
+R14
+Edatavisualizer
+R0
+R20
+R19
+R3
+R4
+!i122 246
+R5
+Z41 8C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/dataVisualizer.vhd
+Z42 FC:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/dataVisualizer.vhd
+l0
+L6 1
+VW7@PG:T3KT5;EYXZeTkYg2
+!s100 MW<>;_7=>2WQVbATC[iZe1
+R8
+32
+R9
+!i10b 1
+R10
+Z43 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/dataVisualizer.vhd|
+Z44 !s107 C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/dataVisualizer.vhd|
+!i113 1
+R13
+R14
+Astructure
+R20
+R19
+R3
+R4
+DEx4 work 14 datavisualizer 0 22 W7@PG:T3KT5;EYXZeTkYg2
+!i122 246
+l25
+L17 26
+VLbL]@4X<WDVI:_jcMnLgf3
+!s100 EITB<5016ES`7QeYX14SY0
+R8
+32
+R9
+!i10b 1
+R10
+R43
+R44
+!i113 1
+R13
+R14
+Edriver7display
+R0
+R3
+R4
+!i122 247
+R5
+Z45 8C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/driver7display.vhd
+Z46 FC:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/driver7display.vhd
+l0
+L4 1
+Vn01STQE>RFFbZ_bXNCk^63
+!s100 CRFk?_i`i[6Vib^GeO@_a2
+R8
+32
+R9
+!i10b 1
+R10
+Z47 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/driver7display.vhd|
+Z48 !s107 C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/driver7display.vhd|
+!i113 1
+R13
+R14
+Astructure
+R3
+R4
+DEx4 work 14 driver7display 0 22 n01STQE>RFFbZ_bXNCk^63
+!i122 247
+l10
+L9 20
+V08jY_bTBCY;H^`lbXS]kB1
+!s100 ;f^E0a[Y27E1dALcEFWfe1
+R8
+32
+R9
+!i10b 1
+R10
+R47
+R48
+!i113 1
+R13
+R14
+Ememory
+R0
+R18
+R19
+R20
+R3
+R4
+!i122 248
+R5
+Z49 8C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/memory.vhd
+Z50 FC:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/memory.vhd
+l0
+L8 1
+Vm;X;_NaJ4@VBIKScIbORU0
+!s100 ^``UR]YLGkD;7<`U=`9WS0
+R8
+32
+R9
+!i10b 1
+R10
+Z51 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/memory.vhd|
+Z52 !s107 C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/memory.vhd|
+!i113 1
+R13
+R14
+Acomportament
+R18
+R19
+R20
+R3
+R4
+DEx4 work 6 memory 0 22 m;X;_NaJ4@VBIKScIbORU0
+!i122 248
+l48
+L20 61
+VUKLaoYJ^mTP^SIFZl>Z8^0
+!s100 _@F@3C>V7@S36Oe5EbaPF1
+R8
+32
+R9
+!i10b 1
+R10
+R51
+R52
+!i113 1
+R13
+R14
+Ememorycontroller
+Z53 w1712822606
+R20
+R19
+R3
+R4
+!i122 249
+R5
+Z54 8C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/MemoryController.vhd
+Z55 FC:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/MemoryController.vhd
+l0
+L6 1
+VacMdAlXi_dAkZfQiPokD`0
+!s100 1l@h_n_BnW?V?=`@Ui@K>0
+R8
+32
+R9
+!i10b 1
+R10
+Z56 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/MemoryController.vhd|
+Z57 !s107 C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/MemoryController.vhd|
+!i113 1
+R13
+R14
+Acomportament
+R20
+R19
+R3
+R4
+DEx4 work 16 memorycontroller 0 22 acMdAlXi_dAkZfQiPokD`0
+!i122 249
+l43
+L23 43
+VNP8ie`TRcZMcE0:QKkBo=1
+!s100 XDhdT^76N5RE`7<BEkL]K1
+R8
+32
+R9
+!i10b 1
+R10
+R56
+R57
+!i113 1
+R13
+R14
+Emulti
+R0
+R3
+R4
+!i122 250
+R5
+Z58 8C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/multi.vhd
+Z59 FC:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/multi.vhd
+l0
+L4 1
+VnjI[C^DjE_DBkV8^=DLNT0
+!s100 G?mQ?U;A6_0=C?^TG_2Qo1
+R8
+32
+R9
+!i10b 1
+R10
+Z60 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/multi.vhd|
+Z61 !s107 C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/multi.vhd|
+!i113 1
+R13
+R14
+Astructure
+R3
+R4
+DEx4 work 5 multi 0 22 njI[C^DjE_DBkV8^=DLNT0
+!i122 250
+l25
+L19 45
+VaKC>7ol1B97XTVBJDOAf]1
+!s100 G8UCR=Uo9dE?NWoW3A3C@0
+R8
+32
+R9
+!i10b 1
+R10
+R60
+R61
+!i113 1
+R13
+R14
+Ppackage_timing
+R18
+R20
+R19
+R3
+R4
+!i122 251
+R0
+R5
+Z62 8C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/package_timing.vhd
+Z63 FC:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/package_timing.vhd
+l0
+L17 1
+VZQ8=mN4edFMf_>kE[5n0D1
+!s100 5`DO3edQTNlNT3YUZm9<m3
+R8
+32
+Z64 !s110 1712913088
+!i10b 1
+Z65 !s108 1712913088.000000
+Z66 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/package_timing.vhd|
+Z67 !s107 C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/package_timing.vhd|
+!i113 1
+R13
+R14
+Bbody
+R17
+R18
+R20
+R19
+R3
+R4
+!i122 251
+l0
+L59 1
+Vm:<[51895IZ1Z;P?LJMc;1
+!s100 [loaKLo4iS34oeTN_naiH3
+R8
+32
+R64
+!i10b 1
+R65
+R66
+R67
+!i113 1
+R13
+R14
+Ppackage_utility
+R18
+R19
+R3
+R4
+!i122 252
+R0
+R5
+Z68 8C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/package_utility.vhd
+Z69 FC:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/package_utility.vhd
+l0
+L15 1
+V?:b]?a0>n7X>QKK>_h]Ob3
+!s100 [kM5G34mohFfdLm@OnaEn3
+R8
+32
+b1
+R64
+!i10b 1
+R65
+Z70 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/package_utility.vhd|
+Z71 !s107 C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/package_utility.vhd|
+!i113 1
+R13
+R14
+Bbody
+R16
+R18
+R19
+R3
+R4
+!i122 252
+l0
+R23
+Vk13jU[Po:0M96]0:3B?dJ3
+!s100 <>QD`JQWBT_l9f7[QZPT61
+R8
+32
+R64
+!i10b 1
+R65
+R70
+R71
+!i113 1
+R13
+R14
+Eproc
+Z72 w1712907697
+R1
+R3
+R4
+!i122 253
+R5
+Z73 8C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/proc.vhd
+Z74 FC:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/proc.vhd
+l0
+L8 1
+V899ojgDVABK^OTMk3R0_V2
+!s100 NQQidj8?=n9gf1dhHk9`l0
+R8
+32
+R64
+!i10b 1
+R65
+Z75 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/proc.vhd|
+Z76 !s107 C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/proc.vhd|
+!i113 1
+R13
+R14
+Astructure
+R1
+R3
+R4
+DEx4 work 4 proc 0 22 899ojgDVABK^OTMk3R0_V2
+!i122 253
+l88
+L25 114
+VoDHe:zO0G:N@2Oji?PiLC3
+!s100 b;RUXX=>VVDGXPXc9C6Qc1
+R8
+32
+R64
+!i10b 1
+R65
+R75
+R76
+!i113 1
+R13
+R14
+Eregfile
+R0
+R2
+R3
+R4
+!i122 254
+R5
+Z77 8C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/regfile.vhd
+Z78 FC:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/regfile.vhd
+l0
+L6 1
+VDPXRNz6W`?1K>_cnU`X=o0
+!s100 >X_K[KK5?zV^ZjhChFX7i2
+R8
+32
+R64
+!i10b 1
+R65
+Z79 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/regfile.vhd|
+Z80 !s107 C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/regfile.vhd|
+!i113 1
+R13
+R14
+Astructure
+R2
+R3
+R4
+DEx4 work 7 regfile 0 22 DPXRNz6W`?1K>_cnU`X=o0
+!i122 254
+l23
+L19 17
+V91^5cYB8g8^?5Tol>5hF00
+!s100 RhO0b]YKB]8O=z5QOUlWE1
+R8
+32
+R64
+!i10b 1
+R65
+R79
+R80
+!i113 1
+R13
+R14
+Prenacuajo_pkg
+!i122 255
+R0
+R5
+Z81 8C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/renacuajo.vhd
+Z82 FC:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/renacuajo.vhd
+l0
+L1 1
+V:=HO6o1NY0@BYjkH<Z3Ab0
+!s100 Oml=2>LJ`XoZ`H?9NRoSc2
+R8
+32
+R64
+!i10b 1
+R65
+Z83 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/renacuajo.vhd|
+Z84 !s107 C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/renacuajo.vhd|
+!i113 1
+R13
+R14
+Bbody
+R1
+!i122 255
+l0
+L21 1
+Vi>:=;f@jQ>GGJh<ZYl1dg1
+!s100 IWnOz<Uza:MI2dBiT=KDk1
+R8
+32
+R64
+!i10b 1
+R65
+R83
+R84
+!i113 1
+R13
+R14
+Esisa
+Z85 w1712821314
+R20
+R19
+R3
+R4
+!i122 256
+R5
+Z86 8C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/sisa.vhd
+Z87 FC:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/sisa.vhd
+l0
+L6 1
+VI;]OE5knDEkH][`j<PZ6Z1
+!s100 z8X1HKb`30^_]?RNOXcNb2
+R8
+32
+R64
+!i10b 1
+R65
+Z88 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/sisa.vhd|
+Z89 !s107 C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/sisa.vhd|
+!i113 1
+R13
+R14
+Astructure
+R20
+R19
+R3
+R4
+DEx4 work 4 sisa 0 22 I;]OE5knDEkH][`j<PZ6Z1
+!i122 256
+l86
+L21 124
+V<MZMKQ?hf1HFP8>:[3zWe0
+!s100 N9SF_05mSXB<ELX_[5JbL3
+R8
+32
+R64
+!i10b 1
+R65
+R88
+R89
+!i113 1
+R13
+R14
+Esramcontroller
+R0
+R2
+R19
+R20
+R3
+R4
+!i122 257
+R5
+Z90 8C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/SRAMController.vhd
+Z91 FC:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/SRAMController.vhd
+l0
+L7 1
+VP]kB8ej9`eeG_9<h9AgCg1
+!s100 ]W3`MYMZknfG0MZ0kcLia3
+R8
+32
+R64
+!i10b 1
+R65
+Z92 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/SRAMController.vhd|
+Z93 !s107 C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/SRAMController.vhd|
+!i113 1
+R13
+R14
+Acomportament
+R2
+R19
+R20
+R3
+R4
+DEx4 work 14 sramcontroller 0 22 P]kB8ej9`eeG_9<h9AgCg1
+!i122 257
+l32
+L25 64
+VzJ`8KXTK[m^UR5]gLP]_X3
+!s100 K^2YGBJB00J1hW2Co@X=62
+R8
+32
+R64
+!i10b 1
+R65
+R92
+R93
+!i113 1
+R13
+R14
+Etest_sisa
+R0
+R3
+R4
+!i122 258
+R5
+Z94 8C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/test_sisa.vhd
+Z95 FC:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/test_sisa.vhd
+l0
+L5 1
+Vd0YSz;BaK`z<B74^cLbNa2
+!s100 6P4kkjl``H>@UMQX;kCgn0
+R8
+32
+R64
+!i10b 1
+R65
+Z96 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/test_sisa.vhd|
+Z97 !s107 C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/test_sisa.vhd|
+!i113 1
+R13
+R14
+Acomportament
+R3
+R4
+DEx4 work 9 test_sisa 0 22 d0YSz;BaK`z<B74^cLbNa2
+!i122 258
+l64
+L8 100
+VF>m;[3a<DZ]:CHeeYa<@A3
+!s100 FHAgERNY7ocAS_zHhUX[B0
+R8
+32
+R64
+!i10b 1
+R65
+R96
+R97
+!i113 1
+R13
+R14
+Eunidad_control
+Z98 w1712907337
+R1
+R19
+R20
+R2
+R3
+R4
+!i122 259
+R5
+Z99 8C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/unidad_control.vhd
+Z100 FC:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/unidad_control.vhd
+l0
+L11 1
+V5CEjmSH^zhbdY[ng2QmXz2
+!s100 JULG>KMal_U=i<jJNQM`S0
+R8
+32
+R64
+!i10b 1
+R65
+Z101 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/unidad_control.vhd|
+Z102 !s107 C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/unidad_control.vhd|
+!i113 1
+R13
+R14
+Astructure
+R1
+R19
+R20
+R2
+R3
+R4
+Z103 DEx4 work 14 unidad_control 0 22 5CEjmSH^zhbdY[ng2QmXz2
+!i122 259
+l87
+Z104 L36 123
+Z105 VHD`5]c91e<eomDfc=m=ek0
+Z106 !s100 LP^e8zPLhi6N:>`Tm2?9E0
+R8
+32
+R64
+!i10b 1
+R65
+R101
+R102
+!i113 1
+R13
+R14

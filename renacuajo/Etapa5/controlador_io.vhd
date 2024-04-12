@@ -33,11 +33,13 @@ BEGIN
 				io_mem(to_integer(unsigned(addr_io))) <= wr_io;
 			END if;
 			
-			if (rd_in = '1') then
-				rd_io <= io_mem(to_integer(unsigned(addr_io)));
-			END if;
+			--if (rd_in = '1') then
+				--rd_io <= io_mem(to_integer(unsigned(addr_io)));
+			--END if;
 		END if;
 	END PROCESS;
+	
+	rd_io <= io_mem(to_integer(unsigned(addr_io))) when rd_in = '1' else "XXXXXXXXXXXXXXXX"; --per provar sense process
 	
 	led_verdes <= io_mem(5)(7 downto 0);
 	led_rojos <= io_mem(6)(7 downto 0);

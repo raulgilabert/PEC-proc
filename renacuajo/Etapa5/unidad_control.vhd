@@ -26,7 +26,11 @@ ENTITY unidad_control IS
           immed_x2  : OUT STD_LOGIC;
           wr_m      : OUT STD_LOGIC;
           word_byte : OUT STD_LOGIC;
-		  Rb_N      : OUT STD_LOGIC);
+			 Rb_N 	  : OUT STD_LOGIC;
+			 rd_in	  : OUT STD_LOGIC;
+			 wr_out	  : OUT STD_LOGIC;
+			 addr_io	  : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+		  );
 END unidad_control;
 
 ARCHITECTURE Structure OF unidad_control IS
@@ -44,7 +48,10 @@ ARCHITECTURE Structure OF unidad_control IS
 				in_d      : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
 				immed_x2  : OUT STD_LOGIC;
 				word_byte : OUT STD_LOGIC;
-				Rb_N	  : OUT STD_LOGIC
+				Rb_N	  : OUT STD_LOGIC;
+				rd_in   : OUT STD_LOGIC;
+				wr_out  : OUT STD_LOGIC;
+				addr_io : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
 		);
 	END COMPONENT;
 
@@ -142,7 +149,10 @@ BEGIN
 			in_d => in_d,
 			immed_x2 => immed_x2,
 			word_byte => word_byte_s,
-			Rb_N => Rb_N
+			Rb_N => Rb_N,
+			rd_in => rd_in,
+			wr_out => wr_out,
+			addr_io => addr_io
 		);
 	
 END Structure;

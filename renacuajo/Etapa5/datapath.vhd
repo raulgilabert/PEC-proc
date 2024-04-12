@@ -24,7 +24,8 @@ ENTITY datapath IS
           addr_m   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           data_wr  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 		  aluout   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-		  tknbr    : OUT STD_LOGIC_VECTOR(1 DOWNTO 0));
+		  tknbr    : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+		  wr_io 	  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
 END datapath;
 
 
@@ -112,5 +113,7 @@ BEGIN
 				'0';
 
 	tknbr(0) <= '1' when (op = BZ_I or op = BNZ_I) else '0';
+	
+	wr_io <= rb;
 	
 END Structure;

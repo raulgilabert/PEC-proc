@@ -126,16 +126,27 @@ BEGIN
 					  '0' when others;
 					
 
-	with ir(15 downto 12) select
-		wrd <= '1' when "0000", 						--op arit
-			   '1' when "0001", 						--comparacions
-			   '1' when "0010", 						--addi
-			   '1' when "0011", 						--ld
-			   '1' when "0101", 						--movi i movhi
-				'1' when "1000",						-- mul & div
-			   jump_wd when "1010", 	--jal
-			   '1' when "1101",							--ldb
-			   '0' when others;
+	wrd <= '1' when ir(15 downto 12) = "0000" else --op arit
+			 '1' when ir(15 downto 12) = "0001" else --cmp
+			 '1' when ir(15 downto 12) = "0010" else --addi
+			 '1' when ir(15 downto 12) = "0011" else --ld
+			 '1' when ir(15 downto 12) = "0101" else --movi movhiº
+			 '1' when ir(15 downto 12) = "1000" else -- mul & div
+			 jump_wd when ir(15 downto 12) = "1010" else --jal
+			 '1' when ir(15 downto 12) = "1101" else --ldb
+			 '1' when ir(15 downto 12) = "0111" and ir(8) = '0' else --in
+			 '0';
+					
+	--with ir(15 downto 12) select
+		--wrd <= '1' when "0000", 						--op arit
+			--   '1' when "0001", 						--comparacions
+			  -- '1' when "0010", 						--addi
+			   --'1' when "0011", 						--ld
+			  -- '1' when "0101", 						--movi i movhi
+				--'1' when "1000",						-- mul & div
+			   --jump_wd when "1010", 	--jal
+			   --'1' when "1101",			--ldb
+			   --'0' when others;
 
 	 with ir(15 downto 12) select
 		wr_m <= '1' when "0100",
@@ -169,10 +180,10 @@ BEGIN
 				--  "10" when "1010", --jal
 				  --"00" when others;
 	
-	wr_out <= '1' when ir(15 downto 12) = "0111" and ir(8) = '1'  else
+	wr_out <= '1' when ir(15 downto 12) = "0111" and ir(8) = '1'  else --OUT
 				 '0';
 
-	rd_in <= '1' when ir(15 downto 12) = "0111" and ir(8) = '0' else
+	rd_in <= '1' when ir(15 downto 12) = "0111" and ir(8) = '0' else --IN
 				'0';
 	
 	addr_io <= ir(7 downto 0);
