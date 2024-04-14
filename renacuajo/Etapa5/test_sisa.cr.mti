@@ -10,6 +10,16 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb 
 -- Compiling entity unidad_control
 -- Compiling architecture Structure of unidad_control
 
+} {} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu_modules/shift.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu_modules/shift.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package renacuajo_pkg
+-- Compiling entity shift
+-- Compiling architecture Structural of shift
+
 } {} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/datapath.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/datapath.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
 -- Loading package STANDARD
@@ -101,6 +111,16 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb 
 -- Compiling entity multi
 -- Compiling architecture Structure of multi
 
+} {} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu_modules/addsub.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu_modules/addsub.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package renacuajo_pkg
+-- Compiling entity addsub
+-- Compiling architecture Structural of addsub
+
 } {} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/control_l.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/control_l.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
 -- Loading package STANDARD
@@ -139,6 +159,16 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb 
 -- Compiling entity regfile
 -- Compiling architecture Structure of regfile
 
+} {} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/controlador_io.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/controlador_io.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package renacuajo_pkg
+-- Compiling entity controladores_io
+-- Compiling architecture Structure of controladores_io
+
 } {} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/test_sisa.vhd {2 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/test_sisa.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
 -- Loading package STANDARD
@@ -147,6 +177,16 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb 
 -- Compiling entity test_sisa
 -- Compiling architecture comportament of test_sisa
 ** Warning: C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/test_sisa.vhd(66): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+
+} {} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu_modules/mul.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu_modules/mul.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package renacuajo_pkg
+-- Compiling entity mul
+-- Compiling architecture Structural of mul
 
 } {} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/sisa.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/sisa.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
@@ -158,13 +198,15 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb 
 -- Compiling entity sisa
 -- Compiling architecture Structure of sisa
 
-} {} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/driver7display.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/driver7display.vhd
+} {} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu_modules/cmp.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu_modules/cmp.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Compiling entity driver7display
--- Compiling architecture Structure of driver7display
+-- Loading package NUMERIC_STD
+-- Loading package renacuajo_pkg
+-- Compiling entity cmp
+-- Compiling architecture Structural of cmp
 
 } {} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/package_timing.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/package_timing.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
@@ -177,5 +219,15 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb 
 -- Compiling package package_timing
 -- Compiling package body package_timing
 -- Loading package package_timing
+
+} {} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu_modules/div.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa5/alu_modules/div.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package renacuajo_pkg
+-- Compiling entity div
+-- Compiling architecture Structural of div
 
 } {} {}}

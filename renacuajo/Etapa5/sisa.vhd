@@ -14,7 +14,12 @@ ENTITY sisa IS
           SRAM_WE_N : out   std_logic := '1';
 			 LEDG		  : OUT	 std_LOGIC_VECTOR(7 DOWNTO 0);
 			 LEDR		  : OUT	 std_LOGIC_VECTOR(7 DOWNTO 0);
-          SW        : in std_logic_vector(9 downto 9)
+			 HEX0 	  : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+			 HEX1 	  : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+			 HEX2		  : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+			 HEX3		  : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+			 SW 		  : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+			 KEY		  : IN STD_LOGIC_VECTOR(3 DOWNTO 0)
 		);
 	 END sisa;
 
@@ -66,10 +71,24 @@ ARCHITECTURE Structure OF sisa IS
 			wr_out		: IN std_LOGIC;
 			rd_in			: IN STD_LOGIC;
 			led_verdes  : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-			led_rojos	: OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+			led_rojos	: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+			hex			: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			n_hex			: OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+			SW				: IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+			KEY			: IN STD_LOGIC_VECTOR(3 DOWNTO 0)
 		);
 	END COMPONENT;
 	
+	COMPONENT driver7display IS 
+		PORT (
+			hex		: IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+			n_hex		: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+			HEX0 	  	: OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+			HEX1 	  	: OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+			HEX2		: OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+			HEX3		: OUT STD_LOGIC_VECTOR(6 DOWNTO 0)
+		);
+	END COMPONENT;
 	
 	SIGNAL rd_data_s 	: std_LOGIC_VECTOR(15 downto 0);
 	SIGNAL addr_s 		: STD_LOGIC_VECTOR(15 downto 0);
@@ -83,6 +102,8 @@ ARCHITECTURE Structure OF sisa IS
 	SIGNAL wr_io_s		: STD_LOGIC_VECTOR(15 downto 0);
 	SIGNAL rd_in_s		: STD_LOGIC;
 	SIGNAL wr_out_s	: STD_LOGIC;
+	SIGNAL hex_s		: STD_LOGIC_VECTOR(15 DOWNTO 0);
+	SIGNAL n_hex_s		: STD_LOGIC_VECTOR(3 DOWNTO 0);
 BEGIN
 
 	PROCESS (CLOCK_50)
@@ -137,7 +158,21 @@ BEGIN
 				wr_out => wr_out_s,
 				rd_in => rd_in_s,
 				led_verdes => LEDG,
-				led_rojos => LEDR
+				led_rojos => LEDR, 
+				hex => hex_s,
+				n_hex => n_hex_s,
+				KEY => KEY,
+				SW => SW
+			);
+			
+		disp: driver7display
+			PORT map (
+				hex => hex_s,
+				n_hex => n_hex_s,
+				HEX0 => HEX0,
+				HEX1 => HEX1,
+				HEX2 => HEX2,
+				HEX3 => HEX3
 			);
 		
 

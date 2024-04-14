@@ -1,28 +1,102 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.all;
+
+LIBRARY work;
+USE work.renacuajo_pkg.all;
 
 ENTITY driver7display IS
-	PORT( codigoCaracter : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-			bitsCaracter : OUT STD_LOGIC_VECTOR(6 DOWNTO 0));
+	PORT( hex		: IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+			n_hex		: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+			HEX0 	  	: OUT STD_LOGIC_VECTOR(6 DOWNTO 0) := "0000000";
+			HEX1 	  	: OUT STD_LOGIC_VECTOR(6 DOWNTO 0) := "0000000";
+			HEX2		: OUT STD_LOGIC_VECTOR(6 DOWNTO 0) := "0000000";
+			HEX3		: OUT STD_LOGIC_VECTOR(6 DOWNTO 0) := "0000000");
 END driver7display;
 
 ARCHITECTURE Structure OF driver7display IS
+	SIGNAL HEX0_S	: STD_LOGIC_VECTOR(6 DOWNTO 0);
+	SIGNAL HEX1_S	: STD_LOGIC_VECTOR(6 DOWNTO 0);
+	SIGNAL HEX2_S	: STD_LOGIC_VECTOR(6 DOWNTO 0);
+	SIGNAL HEX3_S	: STD_LOGIC_VECTOR(6 DOWNTO 0);
 BEGIN
-	with codigoCaracter select
-		bitsCaracter <=   "1000000" when "0000", -- 0
-								"1111001" when "0001", -- 1
-								"0100100" when "0010", -- 2
-								"0110000" when "0011", -- 3
-								"0011001" when "0100", -- 4
-								"0010010" when "0101", -- 5
-								"0000010" when "0110", -- 6
-								"1111000" when "0111", -- 7
-								"0000000" when "1000", -- 8
-								"0010000" when "1001", -- 9
-								"0001000" when "1010", -- A
-								"0000011" when "1011", -- B
-								"0100111" when "1100", -- C
-								"0100001" when "1101", -- D
-								"0000110" when "1110", -- E
-								"0001110" when others; -- F
+	HEX0_S <= "1000000" when hex(3 DOWNTO 0) = x"0" else
+				 "1111001" when hex(3 DOWNTO 0) = x"1" else
+				 "0100100" when hex(3 DOWNTO 0) = x"2" else
+				 "0110000" when hex(3 DOWNTO 0) = x"3" else
+				 "0011001" when hex(3 DOWNTO 0) = x"4" else
+				 "0010010" when hex(3 DOWNTO 0) = x"5" else
+				 "0000010" when hex(3 DOWNTO 0) = x"6" else
+				 "1111000" when hex(3 DOWNTO 0) = x"7" else
+				 "0000000" when hex(3 DOWNTO 0) = x"8" else
+				 "0111111" when hex(3 DOWNTO 0) = x"9" else
+				 "0001000" when hex(3 DOWNTO 0) = x"A" else
+				 "0000011" when hex(3 DOWNTO 0) = x"B" else
+				 "0100111" when hex(3 DOWNTO 0) = x"C" else
+				 "0100001" when hex(3 DOWNTO 0) = x"D" else
+				 "0000110" when hex(3 DOWNTO 0) = x"E" else
+				 "0001110" when hex(3 DOWNTO 0) = x"F" else
+				 "XXXXXXX";
+
+	HEX1_S <= "1000000" when hex(7 DOWNTO 4) = x"0" else
+				 "1111001" when hex(7 DOWNTO 4) = x"1" else
+				 "0100100" when hex(7 DOWNTO 4) = x"2" else
+				 "0110000" when hex(7 DOWNTO 4) = x"3" else
+				 "0011001" when hex(7 DOWNTO 4) = x"4" else
+				 "0010010" when hex(7 DOWNTO 4) = x"5" else
+				 "0000010" when hex(7 DOWNTO 4) = x"6" else
+				 "1111000" when hex(7 DOWNTO 4) = x"7" else
+				 "0000000" when hex(7 DOWNTO 4) = x"8" else
+				 "0111111" when hex(7 DOWNTO 4) = x"9" else
+				 "0001000" when hex(7 DOWNTO 4) = x"A" else
+				 "0000011" when hex(7 DOWNTO 4) = x"B" else
+				 "0100111" when hex(7 DOWNTO 4) = x"C" else
+				 "0100001" when hex(7 DOWNTO 4) = x"D" else
+				 "0000110" when hex(7 DOWNTO 4) = x"E" else
+				 "0001110" when hex(7 DOWNTO 4) = x"F" else
+				 "XXXXXXX";
+				 
+	HEX2_S <= "1000000" when hex(11 DOWNTO 8) = x"0" else
+				 "1111001" when hex(11 DOWNTO 8) = x"1" else
+				 "0100100" when hex(11 DOWNTO 8) = x"2" else
+				 "0110000" when hex(11 DOWNTO 8) = x"3" else
+				 "0011001" when hex(11 DOWNTO 8) = x"4" else
+				 "0010010" when hex(11 DOWNTO 8) = x"5" else
+				 "0000010" when hex(11 DOWNTO 8) = x"6" else
+				 "1111000" when hex(11 DOWNTO 8) = x"7" else
+				 "0000000" when hex(11 DOWNTO 8) = x"8" else
+				 "0111111" when hex(11 DOWNTO 8) = x"9" else
+				 "0001000" when hex(11 DOWNTO 8) = x"A" else
+				 "0000011" when hex(11 DOWNTO 8) = x"B" else
+				 "0100111" when hex(11 DOWNTO 8) = x"C" else
+				 "0100001" when hex(11 DOWNTO 8) = x"D" else
+				 "0000110" when hex(11 DOWNTO 8) = x"E" else
+				 "0001110" when hex(11 DOWNTO 8) = x"F" else
+				 "XXXXXXX";
+				 
+	HEX3_S <= "1000000" when hex(15 DOWNTO 12) = x"0" else
+				 "1111001" when hex(15 DOWNTO 12) = x"1" else
+				 "0100100" when hex(15 DOWNTO 12) = x"2" else
+				 "0110000" when hex(15 DOWNTO 12) = x"3" else
+				 "0011001" when hex(15 DOWNTO 12) = x"4" else
+				 "0010010" when hex(15 DOWNTO 12) = x"5" else
+				 "0000010" when hex(15 DOWNTO 12) = x"6" else
+				 "1111000" when hex(15 DOWNTO 12) = x"7" else
+				 "0000000" when hex(15 DOWNTO 12) = x"8" else
+				 "0111111" when hex(15 DOWNTO 12) = x"9" else
+				 "0001000" when hex(15 DOWNTO 12) = x"A" else
+				 "0000011" when hex(15 DOWNTO 12) = x"B" else
+				 "0100111" when hex(15 DOWNTO 12) = x"C" else
+				 "0100001" when hex(15 DOWNTO 12) = x"D" else
+				 "0000110" when hex(15 DOWNTO 12) = x"E" else
+				 "0001110" when hex(15 DOWNTO 12) = x"F" else
+				 "XXXXXXX";
+				 
+	HEX0 <= HEX0_S when n_hex(0) = '1' else "1111111";
+	HEX1 <= HEX1_S when n_hex(1) = '1' else "1111111";
+	HEX2 <= HEX2_S when n_hex(2) = '1' else "1111111";
+	HEX3 <= HEX3_S when n_hex(3) = '1' else "1111111";
+	
+				 
+	
 END Structure;
