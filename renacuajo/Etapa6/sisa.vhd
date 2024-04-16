@@ -19,7 +19,12 @@ ENTITY sisa IS
 			 HEX2		  : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 			 HEX3		  : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 			 SW 		  : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-			 KEY		  : IN STD_LOGIC_VECTOR(3 DOWNTO 0)
+			 KEY		  : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+			 VGA_R     : out std_logic_vector(7 downto 0); -- vga red pixel value
+			 VGA_G     : out std_logic_vector(7 downto 0); -- vga green pixel value
+          VGA_B     : out std_logic_vector(7 downto 0); -- vga blue pixel value
+			 VGA_HS 	  : out std_logic; -- vga control signal
+          VGA_VS    : out std_logic -- vga control signal
 		);
 	 END sisa;
 
@@ -88,6 +93,26 @@ ARCHITECTURE Structure OF sisa IS
 			HEX2		: OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 			HEX3		: OUT STD_LOGIC_VECTOR(6 DOWNTO 0)
 		);
+	END COMPONENT;
+	
+	COMPONENT vga_controller IS
+		PORT (
+			clk_50mhz      : in  std_logic; -- system clock signal
+         reset          : in  std_logic; -- system reset
+         blank_out      : out std_logic; -- vga control signal
+         csync_out      : out std_logic; -- vga control signal
+         red_out        : out std_logic_vector(7 downto 0); -- vga red pixel value
+         green_out      : out std_logic_vector(7 downto 0); -- vga green pixel value
+         blue_out       : out std_logic_vector(7 downto 0); -- vga blue pixel value
+         horiz_sync_out : out std_logic; -- vga control signal
+         vert_sync_out  : out std_logic; -- vga control signal
+         --
+         addr_vga          : in std_logic_vector(12 downto 0);
+         we                : in std_logic;
+         wr_data           : in std_logic_vector(15 downto 0);
+         rd_data           : out std_logic_vector(15 downto 0);
+         byte_m            : in std_logic
+		);	
 	END COMPONENT;
 	
 	SIGNAL rd_data_s 	: std_LOGIC_VECTOR(15 downto 0);
@@ -174,6 +199,21 @@ BEGIN
 				HEX2 => HEX2,
 				HEX3 => HEX3
 			);
-		
+			
+		vga_con: vga_controller
+			PORT map (
+				clk_50mhz => CLOCK_50,
+				reset => SW(9), 
+				red_out => VGA_R,
+				green_out => VGA_G,
+				blue_out => VGA_B,
+				horiz_sync_out => VGA_HS,
+				vert_sync_out => VGA_VS,
+				addr_vga => addr_s(12 downto 0),     
+				we => we_s,
+				wr_data => SRAM_DQ,
+				rd_data => SRAM_DQ,
+				byte_m => byte_m_s
+			);
 
 END Structure;
