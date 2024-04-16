@@ -18,6 +18,12 @@ ENTITY controladores_io IS
 		led_rojos	: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 		hex			: OUT STD_LOGIC_VECTOR(15 DOWNTO 0) := x"0000"; -- numero en 16 bits per codificar en els 4 7seg
 		n_hex			: OUT STD_LOGIC_VECTOR(3 DOWNTO 0) := "0000"; --indica quin hex es vol mostrar
+		-- PS2
+		-----------------------------------------------
+		read_char	: IN STD_LOGIC_VECTOR(7 downto 0);
+		clear_char	: OUT std_logic;
+		data_ready	: IN std_logic;
+		-----------------------------------------------
 		SW 		  	: IN STD_LOGIC_VECTOR(9 DOWNTO 0);
 		KEY		  	: IN STD_LOGIC_VECTOR(3 DOWNTO 0)
 	);

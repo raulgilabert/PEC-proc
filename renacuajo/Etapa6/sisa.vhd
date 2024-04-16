@@ -19,7 +19,9 @@ ENTITY sisa IS
 			 HEX2		  : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 			 HEX3		  : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 			 SW 		  : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-			 KEY		  : IN STD_LOGIC_VECTOR(3 DOWNTO 0)
+			 KEY		  : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+			 PS2_CLK	  : IN std_logic;
+			 PS2_DAT	  : IN std_logic
 		);
 	 END sisa;
 
@@ -89,6 +91,19 @@ ARCHITECTURE Structure OF sisa IS
 			HEX3		: OUT STD_LOGIC_VECTOR(6 DOWNTO 0)
 		);
 	END COMPONENT;
+
+	COMPONENT keyboard_controller IS
+		PORT (
+			clk			: IN std_logic;
+			reset			: IN std_logic;
+			ps2_clk		: INOUT std_logic;
+			ps2_data		: INOUT std_logic;
+			read_char	: OUT std_logic_vector(7 downto 0);
+			clear_char	: IN std_logic;
+			data_ready	: out std_logic
+		);
+	END COMPONENT;
+
 	
 	SIGNAL rd_data_s 	: std_LOGIC_VECTOR(15 downto 0);
 	SIGNAL addr_s 		: STD_LOGIC_VECTOR(15 downto 0);
@@ -102,8 +117,14 @@ ARCHITECTURE Structure OF sisa IS
 	SIGNAL wr_io_s		: STD_LOGIC_VECTOR(15 downto 0);
 	SIGNAL rd_in_s		: STD_LOGIC;
 	SIGNAL wr_out_s	: STD_LOGIC;
+	-- HEX
 	SIGNAL hex_s		: STD_LOGIC_VECTOR(15 DOWNTO 0);
 	SIGNAL n_hex_s		: STD_LOGIC_VECTOR(3 DOWNTO 0);
+	
+	-- PS2
+	signal ps2_char_s		: std_logic_vector(7 downto 0);
+	SIGNAL clear_char_s	: std_logic;
+	SIGNAL data_ready_s	: std_logic;
 BEGIN
 
 	PROCESS (CLOCK_50)
@@ -173,6 +194,17 @@ BEGIN
 				HEX1 => HEX1,
 				HEX2 => HEX2,
 				HEX3 => HEX3
+			);
+		
+		kb: keyboard_controller
+			PORT map(
+				clk => CLOCK_50,
+				reset => boot,
+				ps2_clk => PS2_CLK,
+				ps2_data => PS2_DAT,
+				read_char => ps2_char_s,
+				clear_char => clear_char_s,
+				data_ready => data_ready_s
 			);
 		
 
