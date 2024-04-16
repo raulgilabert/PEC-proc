@@ -39,7 +39,8 @@ begin
 
     ldir <= not state;
     ins_dad <= state;
-
+---------------------------------------
+-- millor a graf d'estats
     with state select
 		wrd <= wrd_l when '1',
 			   '0' when others;
@@ -47,7 +48,7 @@ begin
 	with state select 
 		wr_m <= wr_m_l when '1',
 				'0' when others;
-	
+---------------------------------------
 	with state select
 		word_byte <= w_b when '1',
 					 '0' when others;
