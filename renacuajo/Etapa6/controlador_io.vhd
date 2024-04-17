@@ -19,7 +19,12 @@ ENTITY controladores_io IS
 		hex			: OUT STD_LOGIC_VECTOR(15 DOWNTO 0) := x"0000"; -- numero en 16 bits per codificar en els 4 7seg
 		n_hex			: OUT STD_LOGIC_VECTOR(3 DOWNTO 0) := "0000"; --indica quin hex es vol mostrar
 		SW 		  	: IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-		KEY		  	: IN STD_LOGIC_VECTOR(3 DOWNTO 0)
+		KEY		  	: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+		addr_mem		: IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		addr_VGA		: OUT STD_LOGIC_VECTOR(12 DOWNTO 0);
+		we_VGA		: OUT STD_LOGIC;
+		wr_data_VGA	: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		rd_data_VGA	: IN STD_LOGIC_VECTOR(15 DOWNTO 0)
 	);
 END controladores_io;
 
@@ -48,5 +53,8 @@ BEGIN
 	led_rojos <= io_mem(6)(7 downto 0);
 	n_hex <= io_mem(9)(3 downto 0);
 	hex <= io_mem(10);
+	 
+	addr_VGA <= std_LOGIC_VECTOR(unsigned(addr_mem) - x"A000")(12 downto 0) when addr_mem >= x"A000" and addr_mem <= x"B2BE" else "XXXXXXXXXXXXX";
+	we_VGA <= '1' when addr_mem >= x"A000" and addr_mem <= x"B2BE" else '0';
 	
 END Structure;

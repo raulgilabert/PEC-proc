@@ -80,7 +80,12 @@ ARCHITECTURE Structure OF sisa IS
 			hex			: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 			n_hex			: OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 			SW				: IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-			KEY			: IN STD_LOGIC_VECTOR(3 DOWNTO 0)
+			KEY			: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+			addr_mem		: IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+			addr_VGA		: OUT STD_LOGIC_VECTOR(12 DOWNTO 0);
+			we_VGA		: OUT STD_LOGIC;
+			wr_data_VGA	: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			rd_data_VGA	: IN STD_LOGIC_VECTOR(15 DOWNTO 0)
 		);
 	END COMPONENT;
 	
@@ -115,20 +120,24 @@ ARCHITECTURE Structure OF sisa IS
 		);	
 	END COMPONENT;
 	
-	SIGNAL rd_data_s 	: std_LOGIC_VECTOR(15 downto 0);
-	SIGNAL addr_s 		: STD_LOGIC_VECTOR(15 downto 0);
-	SIGNAL wr_data_s 	: STD_LOGIC_VECTOR(15 downto 0);
-	SIGNAL we_s 		: STD_LOGIC;
-	SIGNAL byte_m_s 	: STD_LOGIC;
-	SIGNAL clk_neg 	: STD_LOGIC;
-	SIGNAL counter 	: STD_LOGIC_VECTOR(2 downto 0):="111";
-	SIGNAL addr_io_s	: STD_LOGIC_VECTOR(7 downto 0);
-	SIGNAL rd_io_s		: STD_LOGIC_VECTOR(15 downto 0);
-	SIGNAL wr_io_s		: STD_LOGIC_VECTOR(15 downto 0);
-	SIGNAL rd_in_s		: STD_LOGIC;
-	SIGNAL wr_out_s	: STD_LOGIC;
-	SIGNAL hex_s		: STD_LOGIC_VECTOR(15 DOWNTO 0);
-	SIGNAL n_hex_s		: STD_LOGIC_VECTOR(3 DOWNTO 0);
+	SIGNAL rd_data_s 		: std_LOGIC_VECTOR(15 downto 0);
+	SIGNAL addr_s 			: STD_LOGIC_VECTOR(15 downto 0);
+	SIGNAL wr_data_s 		: STD_LOGIC_VECTOR(15 downto 0);
+	SIGNAL we_s 			: STD_LOGIC;
+	SIGNAL byte_m_s 		: STD_LOGIC;
+	SIGNAL clk_neg 		: STD_LOGIC;
+	SIGNAL counter 		: STD_LOGIC_VECTOR(2 downto 0):="111";
+	SIGNAL addr_io_s		: STD_LOGIC_VECTOR(7 downto 0);
+	SIGNAL rd_io_s			: STD_LOGIC_VECTOR(15 downto 0);
+	SIGNAL wr_io_s			: STD_LOGIC_VECTOR(15 downto 0);
+	SIGNAL rd_in_s			: STD_LOGIC;
+	SIGNAL wr_out_s		: STD_LOGIC;
+	SIGNAL hex_s			: STD_LOGIC_VECTOR(15 DOWNTO 0);
+	SIGNAL n_hex_s			: STD_LOGIC_VECTOR(3 DOWNTO 0);
+	SIGNAL addr_VGA_s		: STD_LOGIC_VECTOR(12 DOWNTO 0);
+	SIGNAL we_VGA_s		: STD_LOGIC;
+	SIGNAL wr_data_VGA_s	: STD_LOGIC_VECTOR(15 DOWNTO 0);
+	SIGNAL rd_data_VGA_s	: STD_LOGIC_VECTOR(15 DOWNTO 0);
 BEGIN
 
 	PROCESS (CLOCK_50)
@@ -187,7 +196,12 @@ BEGIN
 				hex => hex_s,
 				n_hex => n_hex_s,
 				KEY => KEY,
-				SW => SW
+				SW => SW,
+				addr_mem => addr_s,
+				addr_VGA => addr_VGA_s,
+				we_VGA => we_VGA_s,
+				wr_data_VGA => wr_data_VGA_s,
+				rd_data_VGA => rd_data_VGA_s
 			);
 			
 		disp: driver7display
@@ -209,10 +223,10 @@ BEGIN
 				blue_out => VGA_B,
 				horiz_sync_out => VGA_HS,
 				vert_sync_out => VGA_VS,
-				addr_vga => addr_s(12 downto 0),     
-				we => we_s,
-				wr_data => SRAM_DQ,
-				rd_data => SRAM_DQ,
+				addr_vga => addr_VGA_s,     
+				we => we_VGA_s,
+				wr_data => wr_data_VGA_s,
+				rd_data => rd_data_VGA_s,
 				byte_m => byte_m_s
 			);
 
