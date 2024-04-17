@@ -61,6 +61,6 @@ BEGIN
 	----------------------------------------------
 
 	-- temp
-	clear_char_s <= '0';
+	clear_char <= '0';
 	
 END Structure;

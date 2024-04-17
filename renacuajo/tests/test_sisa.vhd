@@ -36,9 +36,16 @@ architecture comportament of test_sisa is
 				SRAM_CE_N 	: out std_logic := '1';
 				SRAM_OE_N 	: out std_logic := '1';
 				SRAM_WE_N 	: out std_logic := '1';
-								
-				SW : in std_logic_vector(9 downto 9)
-				);
+			LEDG		  : OUT	 std_LOGIC_VECTOR(7 DOWNTO 0);
+			 LEDR		  : OUT	 std_LOGIC_VECTOR(7 DOWNTO 0);
+			 HEX0 	  : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+			 HEX1 	  : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+			 HEX2		  : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+			 HEX3		  : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+			 SW 		  : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+			 KEY		  : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+			 PS2_CLK	  : INOUT std_logic;
+			 PS2_DAT	  : INOUT std_logic);
    end component;
 
    
@@ -58,8 +65,8 @@ architecture comportament of test_sisa is
    signal we_m           : std_logic;
    signal ce_m2           : std_logic;
 
-   signal botones      : std_logic_vector(9 downto 9);
-
+   signal botones      : std_logic_vector(9 downto 0);
+   signal keys		: std_logic_vector(3 downto 0);
 	
 begin
    
@@ -69,6 +76,7 @@ begin
       port map (
          CLOCK_50   => clk,
          SW        => botones,
+		 KEY		=> keys,
 
          SRAM_ADDR  => addr_SoC,
          SRAM_DQ    => data_mem,

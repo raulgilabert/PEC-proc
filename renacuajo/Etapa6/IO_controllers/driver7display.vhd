@@ -29,14 +29,14 @@ BEGIN
 				 "0000010" when hex(3 DOWNTO 0) = x"6" else
 				 "1111000" when hex(3 DOWNTO 0) = x"7" else
 				 "0000000" when hex(3 DOWNTO 0) = x"8" else
-				 "0111111" when hex(3 DOWNTO 0) = x"9" else
+				 "0010000" when hex(3 DOWNTO 0) = x"9" else
 				 "0001000" when hex(3 DOWNTO 0) = x"A" else
 				 "0000011" when hex(3 DOWNTO 0) = x"B" else
 				 "0100111" when hex(3 DOWNTO 0) = x"C" else
 				 "0100001" when hex(3 DOWNTO 0) = x"D" else
 				 "0000110" when hex(3 DOWNTO 0) = x"E" else
 				 "0001110" when hex(3 DOWNTO 0) = x"F" else
-				 "XXXXXXX";
+				 "1111111";
 
 	HEX1_S <= "1000000" when hex(7 DOWNTO 4) = x"0" else
 				 "1111001" when hex(7 DOWNTO 4) = x"1" else
@@ -47,14 +47,14 @@ BEGIN
 				 "0000010" when hex(7 DOWNTO 4) = x"6" else
 				 "1111000" when hex(7 DOWNTO 4) = x"7" else
 				 "0000000" when hex(7 DOWNTO 4) = x"8" else
-				 "0111111" when hex(7 DOWNTO 4) = x"9" else
+				 "0010000" when hex(7 DOWNTO 4) = x"9" else
 				 "0001000" when hex(7 DOWNTO 4) = x"A" else
 				 "0000011" when hex(7 DOWNTO 4) = x"B" else
 				 "0100111" when hex(7 DOWNTO 4) = x"C" else
 				 "0100001" when hex(7 DOWNTO 4) = x"D" else
 				 "0000110" when hex(7 DOWNTO 4) = x"E" else
 				 "0001110" when hex(7 DOWNTO 4) = x"F" else
-				 "XXXXXXX";
+				 "1111111";
 				 
 	HEX2_S <= "1000000" when hex(11 DOWNTO 8) = x"0" else
 				 "1111001" when hex(11 DOWNTO 8) = x"1" else
@@ -65,14 +65,14 @@ BEGIN
 				 "0000010" when hex(11 DOWNTO 8) = x"6" else
 				 "1111000" when hex(11 DOWNTO 8) = x"7" else
 				 "0000000" when hex(11 DOWNTO 8) = x"8" else
-				 "0111111" when hex(11 DOWNTO 8) = x"9" else
+				 "0010000" when hex(11 DOWNTO 8) = x"9" else
 				 "0001000" when hex(11 DOWNTO 8) = x"A" else
 				 "0000011" when hex(11 DOWNTO 8) = x"B" else
 				 "0100111" when hex(11 DOWNTO 8) = x"C" else
 				 "0100001" when hex(11 DOWNTO 8) = x"D" else
 				 "0000110" when hex(11 DOWNTO 8) = x"E" else
 				 "0001110" when hex(11 DOWNTO 8) = x"F" else
-				 "XXXXXXX";
+				 "1111111";
 				 
 	HEX3_S <= "1000000" when hex(15 DOWNTO 12) = x"0" else
 				 "1111001" when hex(15 DOWNTO 12) = x"1" else
@@ -83,14 +83,14 @@ BEGIN
 				 "0000010" when hex(15 DOWNTO 12) = x"6" else
 				 "1111000" when hex(15 DOWNTO 12) = x"7" else
 				 "0000000" when hex(15 DOWNTO 12) = x"8" else
-				 "0111111" when hex(15 DOWNTO 12) = x"9" else
+				 "0010000" when hex(15 DOWNTO 12) = x"9" else
 				 "0001000" when hex(15 DOWNTO 12) = x"A" else
 				 "0000011" when hex(15 DOWNTO 12) = x"B" else
 				 "0100111" when hex(15 DOWNTO 12) = x"C" else
 				 "0100001" when hex(15 DOWNTO 12) = x"D" else
 				 "0000110" when hex(15 DOWNTO 12) = x"E" else
 				 "0001110" when hex(15 DOWNTO 12) = x"F" else
-				 "XXXXXXX";
+				 "1111111";
 				 
 	HEX0 <= HEX0_S when n_hex(0) = '1' else "1111111";
 	HEX1 <= HEX1_S when n_hex(1) = '1' else "1111111";

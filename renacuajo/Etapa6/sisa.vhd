@@ -20,8 +20,8 @@ ENTITY sisa IS
 			 HEX3		  : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 			 SW 		  : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
 			 KEY		  : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-			 PS2_CLK	  : IN std_logic;
-			 PS2_DAT	  : IN std_logic
+			 PS2_CLK	  : INOUT std_logic;
+			 PS2_DAT	  : INOUT std_logic
 		);
 	 END sisa;
 
@@ -52,7 +52,7 @@ ARCHITECTURE Structure OF sisa IS
           rd_data   	: out std_logic_vector(15 downto 0);
           we        	: in  std_logic;
           byte_m    	: in  std_logic;
-          -- se�ales para la placa de desarrollo
+          -- seï¿½ales para la placa de desarrollo
           SRAM_ADDR 	: out   std_logic_vector(17 downto 0);
           SRAM_DQ   	: inout std_logic_vector(15 downto 0);
           SRAM_UB_N 	: out   std_logic;
@@ -205,7 +205,7 @@ BEGIN
 		kb: keyboard_controller
 			PORT map(
 				clk => CLOCK_50,
-				reset => boot,
+				reset => SW(9),
 				ps2_clk => PS2_CLK,
 				ps2_data => PS2_DAT,
 				read_char => ps2_char_s,
