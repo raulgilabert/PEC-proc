@@ -44,6 +44,8 @@ BEGIN
 			else 
 				io_mem(7)(3 downto 0) <= KEY;
 				io_mem(8)(7 downto 0) <= SW(7 downto 0);
+				io_mem(15)(7 downto 0) <= read_char;
+				io_mem(16)(0) <= data_ready;
 			END if;
 		END if;
 	END PROCESS;
@@ -54,5 +56,11 @@ BEGIN
 	led_rojos <= io_mem(6)(7 downto 0);
 	n_hex <= io_mem(9)(3 downto 0);
 	hex <= io_mem(10);
+
+
+	----------------------------------------------
+
+	-- temp
+	clear_char_s <= '0';
 	
 END Structure;

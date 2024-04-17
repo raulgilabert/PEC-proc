@@ -76,6 +76,9 @@ ARCHITECTURE Structure OF sisa IS
 			led_rojos	: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 			hex			: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 			n_hex			: OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+			read_char	: IN STD_LOGIC_VECTOR(7 downto 0);
+			clear_char	: OUT std_logic;
+			data_ready	: IN std_logic;
 			SW				: IN STD_LOGIC_VECTOR(9 DOWNTO 0);
 			KEY			: IN STD_LOGIC_VECTOR(3 DOWNTO 0)
 		);
@@ -182,6 +185,9 @@ BEGIN
 				led_rojos => LEDR, 
 				hex => hex_s,
 				n_hex => n_hex_s,
+				read_char => ps2_char_s,
+				clear_char => clear_char_s,
+				data_ready => data_ready_s,
 				KEY => KEY,
 				SW => SW
 			);
