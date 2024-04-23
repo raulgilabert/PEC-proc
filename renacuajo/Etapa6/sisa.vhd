@@ -116,7 +116,9 @@ ARCHITECTURE Structure OF sisa IS
          we                : in std_logic;
          wr_data           : in std_logic_vector(15 downto 0);
          rd_data           : out std_logic_vector(15 downto 0);
-         byte_m            : in std_logic
+         byte_m            : in std_logic;
+		 vga_cursor        : in std_logic_vector(15 downto 0);  -- simplemente lo ignoramos, este controlador no lo tiene implementado
+         vga_cursor_enable : in std_logic
 		);	
 	END COMPONENT;
 	
@@ -227,7 +229,9 @@ BEGIN
 				we => we_VGA_s,
 				wr_data => wr_data_VGA_s,
 				rd_data => rd_data_VGA_s,
-				byte_m => byte_m_s
+				byte_m => byte_m_s,
+				vga_cursor => x"0000",
+				vga_cursor_enable => '0'
 			);
 
 END Structure;

@@ -3,10 +3,10 @@
 
 echo "Ensamblando ..."
 #compila el ensamblador
-sisa-as test_vga_mini.s -o test_vga_mini.o
+../../../../eines-sisa/bin/sisa-as test_vga_mini.s -o test_vga_mini.o
 
 #desensamblamos el codigo
-sisa-objdump -d -z test_vga_mini.o > test_vga_mini.code
+../../../../eines-sisa/bin/sisa-objdump -d -z test_vga_mini.o > test_vga_mini.code
 
 
 #a partir del codigo generamos los ficheros fuente con el formato adecuado para poder 
@@ -14,7 +14,7 @@ sisa-objdump -d -z test_vga_mini.o > test_vga_mini.code
 ./limpiar.pl codigo test_vga_mini.code
 
 #desensamblamos
-sisa-objdump -x -w test_vga_mini.o >test_vga_mini.dis
-sisa-objdump -d -w test_vga_mini.o >>test_vga_mini.dis
+../../../../eines-sisa/bin/sisa-objdump -x -w test_vga_mini.o >test_vga_mini.dis
+../../../../eines-sisa/bin/sisa-objdump -d -w test_vga_mini.o >>test_vga_mini.dis
 
 rm test_vga_mini.o test_vga_mini.code
