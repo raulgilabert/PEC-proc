@@ -19,7 +19,9 @@ ENTITY sisa IS
 			 HEX2		  : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 			 HEX3		  : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 			 SW 		  : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-			 KEY		  : IN STD_LOGIC_VECTOR(3 DOWNTO 0)
+			 KEY		  : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+			 PS2_CLK	  : INOUT std_logic;
+			 PS2_DAT	  : INOUT std_logic
 		);
 	 END sisa;
 
@@ -50,7 +52,7 @@ ARCHITECTURE Structure OF sisa IS
           rd_data   	: out std_logic_vector(15 downto 0);
           we        	: in  std_logic;
           byte_m    	: in  std_logic;
-          -- se�ales para la placa de desarrollo
+          -- seï¿½ales para la placa de desarrollo
           SRAM_ADDR 	: out   std_logic_vector(17 downto 0);
           SRAM_DQ   	: inout std_logic_vector(15 downto 0);
           SRAM_UB_N 	: out   std_logic;
@@ -74,6 +76,9 @@ ARCHITECTURE Structure OF sisa IS
 			led_rojos	: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 			hex			: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 			n_hex			: OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+			read_char	: IN STD_LOGIC_VECTOR(7 downto 0);
+			clear_char	: OUT std_logic;
+			data_ready	: IN std_logic;
 			SW				: IN STD_LOGIC_VECTOR(9 DOWNTO 0);
 			KEY			: IN STD_LOGIC_VECTOR(3 DOWNTO 0)
 		);
@@ -81,6 +86,7 @@ ARCHITECTURE Structure OF sisa IS
 	
 	COMPONENT driver7display IS 
 		PORT (
+			reset		: IN std_logic;
 			hex		: IN STD_LOGIC_VECTOR(15 DOWNTO 0);
 			n_hex		: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 			HEX0 	  	: OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
@@ -89,6 +95,19 @@ ARCHITECTURE Structure OF sisa IS
 			HEX3		: OUT STD_LOGIC_VECTOR(6 DOWNTO 0)
 		);
 	END COMPONENT;
+
+	COMPONENT keyboard_controller IS
+		PORT (
+			clk			: IN std_logic;
+			reset			: IN std_logic;
+			ps2_clk		: INOUT std_logic;
+			ps2_data		: INOUT std_logic;
+			read_char	: OUT std_logic_vector(7 downto 0);
+			clear_char	: IN std_logic;
+			data_ready	: out std_logic
+		);
+	END COMPONENT;
+
 	
 	SIGNAL rd_data_s 	: std_LOGIC_VECTOR(15 downto 0);
 	SIGNAL addr_s 		: STD_LOGIC_VECTOR(15 downto 0);
@@ -102,8 +121,14 @@ ARCHITECTURE Structure OF sisa IS
 	SIGNAL wr_io_s		: STD_LOGIC_VECTOR(15 downto 0);
 	SIGNAL rd_in_s		: STD_LOGIC;
 	SIGNAL wr_out_s	: STD_LOGIC;
+	-- HEX
 	SIGNAL hex_s		: STD_LOGIC_VECTOR(15 DOWNTO 0);
 	SIGNAL n_hex_s		: STD_LOGIC_VECTOR(3 DOWNTO 0);
+	
+	-- PS2
+	signal ps2_char_s		: std_logic_vector(7 downto 0);
+	SIGNAL clear_char_s	: std_logic;
+	SIGNAL data_ready_s	: std_logic;
 BEGIN
 
 	PROCESS (CLOCK_50)
@@ -161,18 +186,33 @@ BEGIN
 				led_rojos => LEDR, 
 				hex => hex_s,
 				n_hex => n_hex_s,
+				read_char => ps2_char_s,
+				clear_char => clear_char_s,
+				data_ready => data_ready_s,
 				KEY => KEY,
 				SW => SW
 			);
 			
 		disp: driver7display
 			PORT map (
+				reset => SW(9),
 				hex => hex_s,
 				n_hex => n_hex_s,
 				HEX0 => HEX0,
 				HEX1 => HEX1,
 				HEX2 => HEX2,
 				HEX3 => HEX3
+			);
+		
+		kb: keyboard_controller
+			PORT map(
+				clk => CLOCK_50,
+				reset => SW(9),
+				ps2_clk => PS2_CLK,
+				ps2_data => PS2_DAT,
+				read_char => ps2_char_s,
+				clear_char => clear_char_s,
+				data_ready => data_ready_s
 			);
 		
 
