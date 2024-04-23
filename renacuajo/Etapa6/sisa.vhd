@@ -21,7 +21,12 @@ ENTITY sisa IS
 			 SW 		  : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
 			 KEY		  : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 			 PS2_CLK	  : INOUT std_logic;
-			 PS2_DAT	  : INOUT std_logic
+			 PS2_DAT	  : INOUT std_logic;
+			 VGA_R     : out std_logic_vector(7 downto 0); -- vga red pixel value
+			 VGA_G     : out std_logic_vector(7 downto 0); -- vga green pixel value
+             VGA_B     : out std_logic_vector(7 downto 0); -- vga blue pixel value
+			 VGA_HS 	  : out std_logic; -- vga control signal
+             VGA_VS    : out std_logic -- vga control signal
 		);
 	 END sisa;
 
@@ -52,7 +57,7 @@ ARCHITECTURE Structure OF sisa IS
           rd_data   	: out std_logic_vector(15 downto 0);
           we        	: in  std_logic;
           byte_m    	: in  std_logic;
-          -- seï¿½ales para la placa de desarrollo
+          -- seÃ¯Â¿Â½ales para la placa de desarrollo
           SRAM_ADDR 	: out   std_logic_vector(17 downto 0);
           SRAM_DQ   	: inout std_logic_vector(15 downto 0);
           SRAM_UB_N 	: out   std_logic;
@@ -80,7 +85,12 @@ ARCHITECTURE Structure OF sisa IS
 			clear_char	: OUT std_logic;
 			data_ready	: IN std_logic;
 			SW				: IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-			KEY			: IN STD_LOGIC_VECTOR(3 DOWNTO 0)
+			KEY			: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+			addr_mem		: IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+			addr_VGA		: OUT STD_LOGIC_VECTOR(12 DOWNTO 0);
+			we_VGA		: OUT STD_LOGIC;
+			wr_data_VGA	: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			rd_data_VGA	: IN STD_LOGIC_VECTOR(15 DOWNTO 0)
 		);
 	END COMPONENT;
 	
@@ -108,6 +118,27 @@ ARCHITECTURE Structure OF sisa IS
 		);
 	END COMPONENT;
 
+	COMPONENT vga_controller IS
+		PORT (
+			clk_50mhz      : in  std_logic; -- system clock signal
+         reset          : in  std_logic; -- system reset
+         blank_out      : out std_logic; -- vga control signal
+         csync_out      : out std_logic; -- vga control signal
+         red_out        : out std_logic_vector(7 downto 0); -- vga red pixel value
+         green_out      : out std_logic_vector(7 downto 0); -- vga green pixel value
+         blue_out       : out std_logic_vector(7 downto 0); -- vga blue pixel value
+         horiz_sync_out : out std_logic; -- vga control signal
+         vert_sync_out  : out std_logic; -- vga control signal
+         --
+         addr_vga          : in std_logic_vector(12 downto 0);
+         we                : in std_logic;
+         wr_data           : in std_logic_vector(15 downto 0);
+         rd_data           : out std_logic_vector(15 downto 0);
+         byte_m            : in std_logic;
+		 vga_cursor        : in std_logic_vector(15 downto 0);  -- simplemente lo ignoramos, este controlador no lo tiene implementado
+         vga_cursor_enable : in std_logic
+		);	
+	END COMPONENT;
 	
 	SIGNAL rd_data_s 	: std_LOGIC_VECTOR(15 downto 0);
 	SIGNAL addr_s 		: STD_LOGIC_VECTOR(15 downto 0);
@@ -129,6 +160,12 @@ ARCHITECTURE Structure OF sisa IS
 	signal ps2_char_s		: std_logic_vector(7 downto 0);
 	SIGNAL clear_char_s	: std_logic;
 	SIGNAL data_ready_s	: std_logic;
+
+	-- VGA
+	SIGNAL addr_VGA_s		: STD_LOGIC_VECTOR(12 DOWNTO 0);
+	SIGNAL we_VGA_s		: STD_LOGIC;
+	SIGNAL wr_data_VGA_s	: STD_LOGIC_VECTOR(15 DOWNTO 0);
+	SIGNAL rd_data_VGA_s	: STD_LOGIC_VECTOR(15 DOWNTO 0);
 BEGIN
 
 	PROCESS (CLOCK_50)
@@ -190,7 +227,12 @@ BEGIN
 				clear_char => clear_char_s,
 				data_ready => data_ready_s,
 				KEY => KEY,
-				SW => SW
+				SW => SW,
+				addr_mem => addr_s,
+				addr_VGA => addr_VGA_s,
+				we_VGA => we_VGA_s,
+				wr_data_VGA => wr_data_VGA_s,
+				rd_data_VGA => rd_data_VGA_s
 			);
 			
 		disp: driver7display
@@ -215,5 +257,21 @@ BEGIN
 				data_ready => data_ready_s
 			);
 		
-
+		vga_con: vga_controller
+			PORT map (
+				clk_50mhz => CLOCK_50,
+				reset => SW(9), 
+				red_out => VGA_R,
+				green_out => VGA_G,
+				blue_out => VGA_B,
+				horiz_sync_out => VGA_HS,
+				vert_sync_out => VGA_VS,
+				addr_vga => addr_VGA_s,     
+				we => we_VGA_s,
+				wr_data => wr_data_VGA_s,
+				rd_data => rd_data_VGA_s,
+				byte_m => byte_m_s,
+				vga_cursor => x"0000",
+				vga_cursor_enable => '0'
+			);
 END Structure;

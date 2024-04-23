@@ -25,7 +25,15 @@ ENTITY controladores_io IS
 		data_ready	: IN std_logic;
 		-----------------------------------------------
 		SW 		  	: IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-		KEY		  	: IN STD_LOGIC_VECTOR(3 DOWNTO 0)
+		KEY		  	: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+		-- VGA
+		-----------------------------------------------
+		addr_mem		: IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		addr_VGA		: OUT STD_LOGIC_VECTOR(12 DOWNTO 0);
+		we_VGA		: OUT STD_LOGIC;
+		wr_data_VGA	: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		rd_data_VGA	: IN STD_LOGIC_VECTOR(15 DOWNTO 0)
+		-----------------------------------------------
 	);
 END controladores_io;
 
@@ -33,6 +41,7 @@ ARCHITECTURE Structure of controladores_io is
 
 	TYPE t_io is array(0 to 255) of std_logic_vector(15 downto 0);
 	SIGNAL io_mem: t_io;
+	SIGNAL VGA_addr_s : STD_LOGIC_VECTOR(15 DOWNTO 0);
 BEGIN
 
 	PROCESS (CLOCK_50)
@@ -64,7 +73,10 @@ BEGIN
 
 
 	----------------------------------------------
-
-	-- temp
+	-- VGA
+	VGA_addr_s <= std_LOGIC_VECTOR(unsigned(addr_mem) - x"A000");
+	 
+	addr_VGA <= VGA_addr_s(12 downto 0) when addr_mem >= x"A000" and addr_mem <= x"B2BE" else "XXXXXXXXXXXXX";
+	we_VGA <= '1' when addr_mem >= x"A000" and addr_mem <= x"B2BE" else '0';
 	
 END Structure;
