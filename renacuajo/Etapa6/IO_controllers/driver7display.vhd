@@ -6,7 +6,9 @@ LIBRARY work;
 USE work.renacuajo_pkg.all;
 
 ENTITY driver7display IS
-	PORT( hex		: IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+	PORT(
+			reset		: IN std_logic; 
+			hex		: IN STD_LOGIC_VECTOR(15 DOWNTO 0);
 			n_hex		: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 			HEX0 	  	: OUT STD_LOGIC_VECTOR(6 DOWNTO 0) := "0000000";
 			HEX1 	  	: OUT STD_LOGIC_VECTOR(6 DOWNTO 0) := "0000000";
@@ -92,10 +94,10 @@ BEGIN
 				 "0001110" when hex(15 DOWNTO 12) = x"F" else
 				 "1111111";
 				 
-	HEX0 <= HEX0_S when n_hex(0) = '1' else "1111111";
-	HEX1 <= HEX1_S when n_hex(1) = '1' else "1111111";
-	HEX2 <= HEX2_S when n_hex(2) = '1' else "1111111";
-	HEX3 <= HEX3_S when n_hex(3) = '1' else "1111111";
+	HEX0 <= "1111111" when n_hex(0) = '0' or reset = '1' else HEX0_S;
+	HEX1 <= "1111111" when n_hex(1) = '0' or reset = '1' else HEX1_S;
+	HEX2 <= "1111111" when n_hex(2) = '0' or reset = '1' else HEX2_S;
+	HEX3 <= "1111111" when n_hex(3) = '0' or reset = '1' else HEX3_S;
 	
 				 
 	

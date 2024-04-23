@@ -33,14 +33,19 @@ ARCHITECTURE Structure of controladores_io is
 
 	TYPE t_io is array(0 to 255) of std_logic_vector(15 downto 0);
 	SIGNAL io_mem: t_io;
-
 BEGIN
 
 	PROCESS (CLOCK_50)
 	BEGIN
 		if rising_edge(CLOCK_50) then
+			clear_char <= '0';
 			if (wr_out = '1') then
-				io_mem(to_integer(unsigned(addr_io))) <= wr_io;
+				if (addr_io = x"10") then
+					clear_char <= '1';
+					io_mem(to_integer(unsigned(addr_io))) <= x"0000";
+				else
+					io_mem(to_integer(unsigned(addr_io))) <= wr_io;
+				end if;
 			else 
 				io_mem(7)(3 downto 0) <= KEY;
 				io_mem(8)(7 downto 0) <= SW(7 downto 0);
@@ -61,6 +66,5 @@ BEGIN
 	----------------------------------------------
 
 	-- temp
-	clear_char <= '0';
 	
 END Structure;
