@@ -86,6 +86,7 @@ ARCHITECTURE Structure OF sisa IS
 	
 	COMPONENT driver7display IS 
 		PORT (
+			reset		: IN std_logic;
 			hex		: IN STD_LOGIC_VECTOR(15 DOWNTO 0);
 			n_hex		: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 			HEX0 	  	: OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
@@ -194,6 +195,7 @@ BEGIN
 			
 		disp: driver7display
 			PORT map (
+				reset => SW(9),
 				hex => hex_s,
 				n_hex => n_hex_s,
 				HEX0 => HEX0,
