@@ -64,7 +64,12 @@ ARCHITECTURE Structure OF sisa IS
           SRAM_LB_N 	: out   std_logic;
           SRAM_CE_N 	: out   std_logic := '1';
           SRAM_OE_N 	: out   std_logic := '1';
-          SRAM_WE_N 	: out   std_logic := '1'
+          SRAM_WE_N 	: out   std_logic := '1';
+		addr_VGA		: OUT STD_LOGIC_VECTOR(12 DOWNTO 0);
+		we_VGA		: OUT STD_LOGIC;
+		wr_data_VGA	: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		rd_data_VGA	: IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		vga_byte_m	: OUT std_logic
 		);
 	END COMPONENT;
 	
@@ -85,12 +90,7 @@ ARCHITECTURE Structure OF sisa IS
 			clear_char	: OUT std_logic;
 			data_ready	: IN std_logic;
 			SW				: IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-			KEY			: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-			addr_mem		: IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-			addr_VGA		: OUT STD_LOGIC_VECTOR(12 DOWNTO 0);
-			we_VGA		: OUT STD_LOGIC;
-			wr_data_VGA	: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-			rd_data_VGA	: IN STD_LOGIC_VECTOR(15 DOWNTO 0)
+			KEY			: IN STD_LOGIC_VECTOR(3 DOWNTO 0)
 		);
 	END COMPONENT;
 	
@@ -166,6 +166,7 @@ ARCHITECTURE Structure OF sisa IS
 	SIGNAL we_VGA_s		: STD_LOGIC;
 	SIGNAL wr_data_VGA_s	: STD_LOGIC_VECTOR(15 DOWNTO 0);
 	SIGNAL rd_data_VGA_s	: STD_LOGIC_VECTOR(15 DOWNTO 0);
+	SIGNAL vga_byte_m_s		: std_logic;
 BEGIN
 
 	PROCESS (CLOCK_50)
@@ -207,7 +208,12 @@ BEGIN
 			SRAM_LB_N => SRAM_LB_N,
 			SRAM_CE_N => SRAM_CE_N,
 			SRAM_OE_N => SRAM_OE_N,
-			SRAM_WE_N => SRAM_WE_N
+			SRAM_WE_N => SRAM_WE_N,
+			addr_VGA => addr_VGA_s,
+			we_VGA => we_VGA_s,
+			wr_data_VGA => wr_data_VGA_s,
+			rd_data_VGA => rd_data_VGA_s,
+			vga_byte_m  => vga_byte_m_s
 		);
 		
 		io0: controladores_io
@@ -227,12 +233,7 @@ BEGIN
 				clear_char => clear_char_s,
 				data_ready => data_ready_s,
 				KEY => KEY,
-				SW => SW,
-				addr_mem => addr_s,
-				addr_VGA => addr_VGA_s,
-				we_VGA => we_VGA_s,
-				wr_data_VGA => wr_data_VGA_s,
-				rd_data_VGA => rd_data_VGA_s
+				SW => SW
 			);
 			
 		disp: driver7display
@@ -270,7 +271,7 @@ BEGIN
 				we => we_VGA_s,
 				wr_data => wr_data_VGA_s,
 				rd_data => rd_data_VGA_s,
-				byte_m => byte_m_s,
+				byte_m => vga_byte_m_s,
 				vga_cursor => x"0000",
 				vga_cursor_enable => '0'
 			);

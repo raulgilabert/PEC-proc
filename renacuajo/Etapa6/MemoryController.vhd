@@ -1,7 +1,9 @@
-library ieee;
-use ieee.std_logic_1164.all;
-use ieee.std_logic_arith.all;
-use ieee.std_logic_unsigned.all;
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.all;
+
+LIBRARY work;
+USE work.renacuajo_pkg.all;
 
 entity MemoryController is
     port (CLOCK_50  : in  std_logic;
@@ -17,7 +19,16 @@ entity MemoryController is
           SRAM_LB_N : out   std_logic;
           SRAM_CE_N : out   std_logic := '1';
           SRAM_OE_N : out   std_logic := '1';
-          SRAM_WE_N : out   std_logic := '1');
+          SRAM_WE_N : out   std_logic := '1';
+        -- VGA
+        -----------------------------------------------
+        addr_VGA		: OUT STD_LOGIC_VECTOR(12 DOWNTO 0);
+        we_VGA		: OUT STD_LOGIC;
+        wr_data_VGA	: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+        rd_data_VGA	: IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+        vga_byte_m : out std_logic
+	
+          );
 end MemoryController;
 
 architecture comportament of MemoryController is
@@ -40,13 +51,15 @@ architecture comportament of MemoryController is
   END COMPONENT;
 
   SIGNAL write_s: std_logic;
+  SIGNAL data: std_logic_vector(15 downto 0);
+  SIGNAL VGA_addr_s: std_logic_vector(15 downto 0);
 begin
 
   sram_c: SRAMController
     PORT map(
       clk           => CLOCK_50,
       SRAM_ADDR     => SRAM_ADDR,
-      SRAM_DQ       => SRAM_DQ,
+      SRAM_DQ       => data,
       SRAM_UB_N     => SRAM_UB_N,
       SRAM_LB_N     => SRAM_LB_N,
       SRAM_CE_N     => SRAM_CE_N,
@@ -61,5 +74,14 @@ begin
 
 	write_s <= we when addr < x"C000" else
 			   '0';
+	----------------------------------------------
+	-- VGA
+	VGA_addr_s <= std_LOGIC_VECTOR(unsigned(addr) - x"A000");
+	 
+	addr_VGA <= VGA_addr_s(12 downto 0) when addr >= x"A000" and addr <= x"B2BE" else "XXXXXXXXXXXXX";
+	we_VGA <= '1' when addr >= x"A000" and addr <= x"B2BE" else '0';
+  wr_data_VGA <= data;
 
+  SRAM_DQ <= data;
+	
 end comportament;
