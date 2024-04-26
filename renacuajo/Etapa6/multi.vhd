@@ -19,43 +19,44 @@ end entity;
 architecture Structure of multi is
 
     -- Aqui iria la declaracion de las los estados de la maquina de estados
-
-    SIGNAL state: STD_LOGIC; -- 0 = FETCH, 1 = DEMW
+		TYPE state_t is (F, DEMW);
+    SIGNAL state: state_t;
 
 begin
 
-    -- Aqui iria la m�quina de estados del modelos de Moore que gestiona el multiciclo
+    -- Aqui iria la mï¿½quina de estados del modelos de Moore que gestiona el multiciclo
     -- Aqui irian la generacion de las senales de control que su valor depende del ciclo en que se esta.
     PROCESS (clk)
     BEGIN
         if rising_edge(clk) then 
             if boot = '1' then 
-                state <= '0';
-            else 
-                state <= not state; 
+                state <= F;
+            elsif state = F then 
+					state <= DEMW;
+				else 
+					state <= F;
             END if;
         END if;
     END PROCESS;
-
-    ldir <= not state;
-    ins_dad <= state;
----------------------------------------
--- millor a graf d'estats
-    with state select
-		wrd <= wrd_l when '1',
-			   '0' when others;
 	
-	with state select 
-		wr_m <= wr_m_l when '1',
-				'0' when others;
----------------------------------------
-	with state select
-		word_byte <= w_b when '1',
-					 '0' when others;
-
-	with state select
-		ldpc <= ldpc_l when '1',
-				'0' when others; 
+	PROCESS (state)
+	BEGIN
+		case state is
+            when F =>   
+                ldpc <= '0';
+                ldir <= '1';
+                wrd <= '0';
+                wr_m <= '0';
+                word_byte <= '0';
+            when DEMW =>
+                ldir <= '0';
+                ins_dad <= '1';
+                wrd <= wrd_l;
+                wr_m <= wr_m_l;
+                word_byte <= w_b;
+                ldpc <= ldpc_l;
+		END case;
+	END PROCESS;
 				
 
         

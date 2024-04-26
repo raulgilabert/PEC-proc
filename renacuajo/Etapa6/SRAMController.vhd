@@ -53,9 +53,20 @@ architecture comportament of SRAMController is
 						  SRAM_DQ when others;
 	
 	-- write only enabled afther first cycle of write instruction
-	with state select
-		SRAM_WE_N <= '0' when WRITE_1,
-						 '1' when others;
+	
+	
+	PROCESS (state) 
+	BEGIN 
+		if (state = WRITE_1) then 
+			SRAM_WE_N <= '0';
+		else 
+			SRAM_WE_N <= '1';
+		END if;
+	END PROCESS;
+	
+	--with state select
+		--SRAM_WE_N <= '0' when WRITE_1,
+			--			 '1' when others;
 	
 	-- byte selected only on write, when reading we read the full word and select the byte
 	condition_byte_select <= WR and byte_m;
