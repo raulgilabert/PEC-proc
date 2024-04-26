@@ -60,7 +60,7 @@ begin
     PORT map(
       clk           => CLOCK_50,
       SRAM_ADDR     => SRAM_ADDR,
-      SRAM_DQ       => data,
+      SRAM_DQ       => SRAM_DQ,
       SRAM_UB_N     => SRAM_UB_N,
       SRAM_LB_N     => SRAM_LB_N,
       SRAM_CE_N     => SRAM_CE_N,
@@ -81,11 +81,11 @@ begin
 	-- VGA
 	VGA_addr_s <= addr(12 downto 0);--std_LOGIC_VECTOR(unsigned(addr) - x"A000");
 	 
-	addr_VGA <= VGA_addr_s(12 downto 0) when addr >= x"A000" and addr <= x"B2BE" else "0000000000000";
+	addr_VGA <= VGA_addr_s when addr >= x"A000" and addr <= x"B2BE" else "0000000000000";
 	we_VGA <= '1' when addr >= x"A000" and addr <= x"B2BE" else '0';
   wr_data_VGA <= wr_data;
   vga_byte_m <= byte_m;
 
-  SRAM_DQ <= data;
+  --SRAM_DQ <= data;
 	
 end comportament;

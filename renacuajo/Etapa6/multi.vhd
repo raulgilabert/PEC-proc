@@ -48,6 +48,7 @@ begin
                 wrd <= '0';
                 wr_m <= '0';
                 word_byte <= '0';
+					 ins_dad <= '0';
             when DEMW =>
                 ldir <= '0';
                 ins_dad <= '1';

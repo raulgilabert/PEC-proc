@@ -22,9 +22,9 @@ ENTITY sisa IS
 			 KEY		  : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 			 PS2_CLK	  : INOUT std_logic;
 			 PS2_DAT	  : INOUT std_logic;
-			 VGA_R     : out std_logic_vector(7 downto 0); -- vga red pixel value
-			 VGA_G     : out std_logic_vector(7 downto 0); -- vga green pixel value
-             VGA_B     : out std_logic_vector(7 downto 0); -- vga blue pixel value
+			 VGA_R     : out std_logic_vector(3 downto 0); -- vga red pixel value
+			 VGA_G     : out std_logic_vector(3 downto 0); -- vga green pixel value
+             VGA_B     : out std_logic_vector(3 downto 0); -- vga blue pixel value
 			 VGA_HS 	  : out std_logic; -- vga control signal
              VGA_VS    : out std_logic -- vga control signal
 		);
@@ -57,7 +57,7 @@ ARCHITECTURE Structure OF sisa IS
           rd_data   	: out std_logic_vector(15 downto 0);
           we        	: in  std_logic;
           byte_m    	: in  std_logic;
-          -- seÃ¯Â¿Â½ales para la placa de desarrollo
+          -- seÃƒÂ¯Ã‚Â¿Ã‚Â½ales para la placa de desarrollo
           SRAM_ADDR 	: out   std_logic_vector(17 downto 0);
           SRAM_DQ   	: inout std_logic_vector(15 downto 0);
           SRAM_UB_N 	: out   std_logic;
@@ -166,7 +166,9 @@ ARCHITECTURE Structure OF sisa IS
 	SIGNAL we_VGA_s		: STD_LOGIC;
 	SIGNAL wr_data_VGA_s	: STD_LOGIC_VECTOR(15 DOWNTO 0);
 	SIGNAL rd_data_VGA_s	: STD_LOGIC_VECTOR(15 DOWNTO 0);
-	SIGNAL vga_byte_m_s		: std_logic;
+	SIGNAL vga_byte_m_s	: std_logic;
+	SIGNAL red, green, blue : std_LOGIC_VECTOR (7 downto 0);
+	
 BEGIN
 
 	PROCESS (CLOCK_50)
@@ -262,9 +264,9 @@ BEGIN
 			PORT map (
 				clk_50mhz => CLOCK_50,
 				reset => SW(9), 
-				red_out => VGA_R,
-				green_out => VGA_G,
-				blue_out => VGA_B,
+				red_out => red,
+				green_out => green,
+				blue_out => blue,
 				horiz_sync_out => VGA_HS,
 				vert_sync_out => VGA_VS,
 				addr_vga => addr_VGA_s,     
@@ -275,4 +277,9 @@ BEGIN
 				vga_cursor => x"0000",
 				vga_cursor_enable => '0'
 			);
+			
+	VGA_R <= red(3 downto 0);
+	VGA_G <= green(3 downto 0);
+	VGA_B <= blue(3 DOWNTO 0);
+	
 END Structure;
