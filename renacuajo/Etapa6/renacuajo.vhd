@@ -48,22 +48,22 @@ package renacuajo_pkg is
 -- FUNCTION CODES CMP
     constant F_CMPLT    : STD_LOGIC_VECTOR(2 DOWNTO 0) := "000";
     constant F_CMPLE    : STD_LOGIC_VECTOR(2 DOWNTO 0) := "001";
-    constant F_CMPEQ    : STD_LOGIC_VECTOR(2 DOWNTO 0) := "010";
-    constant F_CMPLTU   : STD_LOGIC_VECTOR(2 DOWNTO 0) := "011";
-    constant F_CMPLEU   : STD_LOGIC_VECTOR(2 DOWNTO 0) := "100";
+    constant F_CMPEQ    : STD_LOGIC_VECTOR(2 DOWNTO 0) := "011";
+    constant F_CMPLTU   : STD_LOGIC_VECTOR(2 DOWNTO 0) := "100";
+    constant F_CMPLEU   : STD_LOGIC_VECTOR(2 DOWNTO 0) := "101";
 
 -- FUNCTION CODES MUL/DIV
     constant F_MUL      : STD_LOGIC_VECTOR(2 DOWNTO 0) := "000";
     constant F_MULH     : STD_LOGIC_VECTOR(2 DOWNTO 0) := "001";
     constant F_MULHU    : STD_LOGIC_VECTOR(2 DOWNTO 0) := "010";
-    constant F_DIV      : STD_LOGIC_VECTOR(2 DOWNTO 0) := "011";
-    constant F_DIVU     : STD_LOGIC_VECTOR(2 DOWNTO 0) := "100";
+    constant F_DIV      : STD_LOGIC_VECTOR(2 DOWNTO 0) := "100";
+    constant F_DIVU     : STD_LOGIC_VECTOR(2 DOWNTO 0) := "101";
 
 -- FUNCTION CODES JUMP
     constant F_JZ       : STD_LOGIC_VECTOR(2 DOWNTO 0) := "000";
     constant F_JNZ      : STD_LOGIC_VECTOR(2 DOWNTO 0) := "001";
-    constant F_JMP      : STD_LOGIC_VECTOR(2 DOWNTO 0) := "010";
-    constant F_JAL      : STD_LOGIC_VECTOR(2 DOWNTO 0) := "011";
+    constant F_JMP      : STD_LOGIC_VECTOR(2 DOWNTO 0) := "011";
+    constant F_JAL      : STD_LOGIC_VECTOR(2 DOWNTO 0) := "100";
 
 end package renacuajo_pkg;
 
