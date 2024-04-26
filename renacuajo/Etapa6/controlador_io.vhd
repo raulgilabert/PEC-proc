@@ -26,6 +26,7 @@ ENTITY controladores_io IS
 		-----------------------------------------------
 		SW 		  	: IN STD_LOGIC_VECTOR(9 DOWNTO 0);
 		KEY		  	: IN STD_LOGIC_VECTOR(3 DOWNTO 0)
+	-----------------------------------------------
 	);
 END controladores_io;
 
@@ -62,12 +63,4 @@ BEGIN
 	n_hex <= io_mem(9)(3 downto 0);
 	hex <= io_mem(10);
 
-
-	----------------------------------------------
-	-- VGA
-	VGA_addr_s <= std_LOGIC_VECTOR(unsigned(addr_mem) - x"A000");
-	 
-	addr_VGA <= VGA_addr_s(12 downto 0) when addr_mem >= x"A000" and addr_mem <= x"B2BE" else "XXXXXXXXXXXXX";
-	we_VGA <= '1' when addr_mem >= x"A000" and addr_mem <= x"B2BE" else '0';
-	
 END Structure;
