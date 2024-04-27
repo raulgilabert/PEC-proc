@@ -1,0 +1,17 @@
+/* Script for ld -Ur: link w/out relocation, do create constructors */
+OUTPUT_FORMAT("elf32-sisa","elf32-sisa","elf32-sisa")
+OUTPUT_ARCH(sisa:1)
+MEMORY
+{
+	rom (rx) : ORIGIN = 0, LENGTH = 64K
+	ram (rw!x) : ORIGIN = 0x80000000, LENGTH = 64K
+}
+SECTIONS
+{                         
+  .text : {
+  	*(.text)
+  	*(.rodata) } 
+  .data : {
+  	*(.data)
+  	*(.bss) } 
+}
