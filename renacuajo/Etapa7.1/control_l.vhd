@@ -122,8 +122,8 @@ BEGIN
 				'1' when OP_STB, --STB
 				'0' when others;
 
-	addr_a <= ir(11 downto 9) when ir(15 downto 0) = OP_MOV else
-			  "001" when ir(15 downto 0) = OP_SPECIAL and special = RETI_I else --hardcodegem que baixi el registre s1
+	addr_a <= ir(11 downto 9) when ir(15 downto 12) = OP_MOV else
+			  "001" when ir(15 downto 12) = OP_SPECIAL and special = RETI_I else --hardcodegem que baixi el registre s1
 			  ir(8 downto 6);
 
 	addr_d <= ir(11 downto 9);

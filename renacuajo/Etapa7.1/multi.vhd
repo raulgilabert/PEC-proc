@@ -39,28 +39,35 @@ begin
         END if;
     END PROCESS;
 	
-	PROCESS (state)
-	BEGIN
-		case state is
-            when F =>   
-                ldpc <= '0';
-                ldir <= '1';
-                wrd <= '0';
-                wr_m <= '0';
-                word_byte <= '0';
-					 ins_dad <= '0';
-            when DEMW =>
-                ldir <= '0';
-                ins_dad <= '1';
-                wrd <= wrd_l;
-                wr_m <= wr_m_l;
-                word_byte <= w_b;
-                ldpc <= ldpc_l;
-				when SYSTEM => 
+--	PROCESS (state)
+--	BEGIN
+--		case state is
+--            when F =>   
+--                ldpc <= '0';
+--                ldir <= '1';
+--                wrd <= '0';
+--                wr_m <= '0';
+--                word_byte <= '0';
+--					 ins_dad <= '0';
+--            when DEMW =>
+--                ldir <= '0';
+--                ins_dad <= '1';
+--                wrd <= wrd_l;
+--                wr_m <= wr_m_l;
+--                word_byte <= w_b;
+--                ldpc <= ldpc_l;
+--				when SYSTEM => 
 					--res
-		END case;
-	END PROCESS;
-				
+--		END case;
+--	END PROCESS;
+	
+    ldir <= '1' when state = F else '0';
+    ins_dad <= '0' when state = F else '1';
+
+    wrd <= wrd_l when state = DEMW else '0';
+    wr_m <= wr_m_l when state = DEMW else '0';
+    word_byte <= w_b when state = DEMW else '0';
+    ldpc <= ldpc_l when state = DEMW else '0';
 
         
 
