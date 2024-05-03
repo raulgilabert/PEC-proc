@@ -97,6 +97,25 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity MemoryController
 -- Compiling architecture comportament of MemoryController
 
+} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/controlador_io.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/controlador_io.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package renacuajo_pkg
+-- Compiling entity controladores_io
+-- Compiling architecture Structure of controladores_io
+
+} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/regfile.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/regfile.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity regfile
+-- Compiling architecture Structure of regfile
+
 } {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/vga_font_rom.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/vga_font_rom.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
@@ -117,34 +136,15 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity vga_controller
 -- Compiling architecture vga_controller_rtl of vga_controller
 
-} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/regfile.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/regfile.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity regfile
--- Compiling architecture Structure of regfile
-
-} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/controlador_io.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/controlador_io.vhd
+} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/alu_modules/mul.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/alu_modules/mul.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package NUMERIC_STD
 -- Loading package renacuajo_pkg
--- Compiling entity controladores_io
--- Compiling architecture Structure of controladores_io
-
-} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/vga_sync.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/vga_sync.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Compiling entity vga_sync
--- Compiling architecture vga_sync_arch of vga_sync
+-- Compiling entity mul
+-- Compiling architecture Structural of mul
 
 } {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/vga_ram_dual.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/vga_ram_dual.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -157,15 +157,23 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity vga_ram_dual
 -- Compiling architecture vga_ram_dual_arch of vga_ram_dual
 
-} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/alu_modules/mul.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/alu_modules/mul.vhd
+} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/vga_sync.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/vga_sync.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Loading package renacuajo_pkg
--- Compiling entity mul
--- Compiling architecture Structural of mul
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity vga_sync
+-- Compiling architecture vga_sync_arch of vga_sync
+
+} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/interrupt_controller.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/interrupt_controller.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity interrupt_controller
+-- Compiling architecture Structure of interrupt_controller
 
 } {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/sisa.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/sisa.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -177,13 +185,15 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity sisa
 -- Compiling architecture Structure of sisa
 
-} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/interrupt_controller.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/interrupt_controller.vhd
+} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/alu_modules/cmp.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/alu_modules/cmp.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Compiling entity interrupt_controller
--- Compiling architecture Structure of interrupt_controller
+-- Loading package NUMERIC_STD
+-- Loading package renacuajo_pkg
+-- Compiling entity cmp
+-- Compiling architecture Structural of cmp
 
 } {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/tests/package_utility.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/tests/package_utility.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -196,16 +206,6 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling package body package_utility
 -- Loading package package_utility
 
-} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/alu_modules/cmp.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/alu_modules/cmp.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Loading package renacuajo_pkg
--- Compiling entity cmp
--- Compiling architecture Structural of cmp
-
 } {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/ps2_keyboard.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/ps2_keyboard.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
@@ -215,30 +215,6 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STD_LOGIC_UNSIGNED
 -- Compiling entity ps2_keyboard_interface
 -- Compiling architecture trans of ps2_keyboard_interface
-
-} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/tests/memory.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/tests/memory.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Loading package std_logic_textio
--- Compiling entity memory
--- Compiling architecture comportament of memory
-
-} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/tests/async_64Kx16.vhd {1 {vcom -work work -2002 -explicit {C:\Users\pec01\Documents\GitHub\PEC-proc\renacuajo\tests\async_64Kx16.vhd}
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Loading package std_logic_textio
--- Loading package package_timing
--- Loading package package_utility
--- Compiling entity async_64Kx16
--- Compiling architecture behave_arch of async_64Kx16
 
 } {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/package_timing.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/package_timing.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -251,6 +227,17 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling package package_timing
 -- Compiling package body package_timing
 -- Loading package package_timing
+
+} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/tests/memory.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/tests/memory.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package std_logic_textio
+-- Compiling entity memory
+-- Compiling architecture comportament of memory
 
 } {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/alu_modules/div.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/alu_modules/div.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -284,26 +271,15 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity driver7display
 -- Compiling architecture Structure of driver7display
 
-} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/SRAMController.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/SRAMController.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Loading package NUMERIC_STD
--- Compiling entity SRAMController
--- Compiling architecture comportament of SRAMController
-
-} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/alu_modules/shift.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/alu_modules/shift.vhd
+} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/datapath.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/datapath.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package NUMERIC_STD
 -- Loading package renacuajo_pkg
--- Compiling entity shift
--- Compiling architecture Structural of shift
+-- Compiling entity datapath
+-- Compiling architecture Structure of datapath
 
 } {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/package_utility.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/package_utility.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -315,6 +291,27 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling package package_utility
 -- Compiling package body package_utility
 -- Loading package package_utility
+
+} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/alu_modules/shift.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/alu_modules/shift.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package renacuajo_pkg
+-- Compiling entity shift
+-- Compiling architecture Structural of shift
+
+} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/SRAMController.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/SRAMController.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Compiling entity SRAMController
+-- Compiling architecture comportament of SRAMController
 
 } {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/renacuajo.vhd {1 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/renacuajo.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012

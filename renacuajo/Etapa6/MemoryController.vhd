@@ -51,8 +51,7 @@ architecture comportament of MemoryController is
   END COMPONENT;
 
   SIGNAL write_s: std_logic;
-  SIGNAL data: std_logic_vector(15 downto 0);
-  SIGNAL VGA_addr_s: std_logic_vector(12 downto 0);
+
 
 begin
 
@@ -79,13 +78,10 @@ begin
 	
 	----------------------------------------------
 	-- VGA
-	VGA_addr_s <= addr(12 downto 0);--std_LOGIC_VECTOR(unsigned(addr) - x"A000");
 	 
-	addr_VGA <= VGA_addr_s when addr >= x"A000" and addr <= x"B2BE" else "0000000000000";
-	we_VGA <= '1' when addr >= x"A000" and addr <= x"B2BE" else '0';
+	addr_VGA <= addr(12 downto 0) when addr >= x"A000" and addr <= x"B2BE" else "0000000000000";
+	we_VGA <= we when addr >= x"A000" and addr < x"C000" else '0';
   wr_data_VGA <= wr_data;
   vga_byte_m <= byte_m;
-
-  --SRAM_DQ <= data;
 	
 end comportament;
