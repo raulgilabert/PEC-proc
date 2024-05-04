@@ -1,100 +1,51 @@
-C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/keyboard_controller.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/keyboard_controller.vhd
+C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/IO_controllers/driver7display.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/IO_controllers/driver7display.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package renacuajo_pkg
+-- Compiling entity driver7display
+-- Compiling architecture Structure of driver7display
+
+} {} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/alu_modules/shift.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/alu_modules/shift.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package renacuajo_pkg
+-- Compiling entity shift
+-- Compiling architecture Structural of shift
+
+} {} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/package_utility.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/package_utility.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package std_logic_textio
+-- Compiling package package_utility
+-- Compiling package body package_utility
+-- Loading package package_utility
+
+} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/MemoryController.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/MemoryController.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 ** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
 
 ** Error: VHDL Compiler exiting
 
-} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/tests/test_sisa.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/tests/test_sisa.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
-** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
+} {3.0 4.0 5.0 6.0} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/sisa.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/sisa.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity sisa
+-- Compiling architecture Structure of sisa
 
-** Error: VHDL Compiler exiting
-
-} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/alu.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/alu.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
-** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
-
-** Error: VHDL Compiler exiting
-
-} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/multi.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/multi.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
-** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
-
-** Error: VHDL Compiler exiting
-
-} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/alu_modules/addsub.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/alu_modules/addsub.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
-** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
-
-** Error: VHDL Compiler exiting
-
-} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/proc.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/proc.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
-** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
-
-** Error: VHDL Compiler exiting
-
-} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/control_l.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/control_l.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
-** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
-
-** Error: VHDL Compiler exiting
-
-} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/dataVisualizer.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/dataVisualizer.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
-** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
-
-** Error: VHDL Compiler exiting
-
-} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/tests/package_timing.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/tests/package_timing.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
-** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
-
-** Error: VHDL Compiler exiting
-
-} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/MemoryController.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/MemoryController.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
-** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
-
-** Error: VHDL Compiler exiting
-
-} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/controlador_io.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/controlador_io.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
-** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
-
-** Error: VHDL Compiler exiting
-
-} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/regfile.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/regfile.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
-** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
-
-** Error: VHDL Compiler exiting
-
-} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/vga_font_rom.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/vga_font_rom.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
-** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
-
-** Error: VHDL Compiler exiting
-
-} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/vga_controller.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/vga_controller.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
-** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
-
-** Error: VHDL Compiler exiting
-
-} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/vga_ram_dual.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/vga_ram_dual.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
-** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
-
-** Error: VHDL Compiler exiting
-
-} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/vga_sync.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/vga_sync.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
-** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
-
-** Error: VHDL Compiler exiting
-
-} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/alu_modules/mul.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/alu_modules/mul.vhd
+} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/vga_ram_dual.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/vga_ram_dual.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 ** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
 
@@ -106,7 +57,143 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 
 ** Error: VHDL Compiler exiting
 
-} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/sisa.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/sisa.vhd
+} {3.0 4.0 5.0 6.0} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/multi.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/multi.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity multi
+-- Compiling architecture Structure of multi
+
+} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/alu_modules/cmp.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/alu_modules/cmp.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
+
+** Error: VHDL Compiler exiting
+
+} {3.0 4.0 5.0 6.0} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/tests/package_timing.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/tests/package_timing.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package std_logic_textio
+-- Compiling package package_timing
+-- Compiling package body package_timing
+-- Loading package package_timing
+
+} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/ps2_keyboard.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/ps2_keyboard.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
+
+** Error: VHDL Compiler exiting
+
+} {3.0 4.0 5.0 6.0} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/IO_controllers/vga_controller.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/IO_controllers/vga_controller.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Compiling entity vga_controller
+-- Compiling architecture vga_controller_rtl of vga_controller
+
+} {} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/datapath.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/datapath.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package renacuajo_pkg
+-- Compiling entity datapath
+-- Compiling architecture Structure of datapath
+
+} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/unidad_control.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/unidad_control.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
+
+** Error: VHDL Compiler exiting
+
+} {3.0 4.0 5.0 6.0} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/alu_modules/cmp.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/alu_modules/cmp.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package renacuajo_pkg
+-- Compiling entity cmp
+-- Compiling architecture Structural of cmp
+
+} {} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/tests/test_sisa.vhd {2 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/tests/test_sisa.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity test_sisa
+-- Compiling architecture comportament of test_sisa
+** Warning: C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/tests/test_sisa.vhd(79): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+
+} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/driver7display.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/driver7display.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
+
+** Error: VHDL Compiler exiting
+
+} {3.0 4.0 5.0 6.0} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/tests/memory.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/tests/memory.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package std_logic_textio
+-- Compiling entity memory
+-- Compiling architecture comportament of memory
+
+} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/alu.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/alu.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
+
+** Error: VHDL Compiler exiting
+
+} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/multi.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/multi.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
+
+** Error: VHDL Compiler exiting
+
+} {3.0 4.0 5.0 6.0} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/interrupt_controller.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/interrupt_controller.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity interrupt_controller
+-- Compiling architecture Structure of interrupt_controller
+
+} {} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/renacuajo.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/renacuajo.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling package renacuajo_pkg
+-- Compiling package body renacuajo_pkg
+-- Loading package renacuajo_pkg
+
+} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/vga_font_rom.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/vga_font_rom.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
+
+** Error: VHDL Compiler exiting
+
+} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/vga_controller.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/vga_controller.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
+
+** Error: VHDL Compiler exiting
+
+} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/controlador_io.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/controlador_io.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 ** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
 
@@ -118,31 +205,17 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 
 ** Error: VHDL Compiler exiting
 
-} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/alu_modules/cmp.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/alu_modules/cmp.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
-** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
+} {3.0 4.0 5.0 6.0} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/IO_controllers/dataVisualizer.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/IO_controllers/dataVisualizer.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity dataVisualizer
+-- Compiling architecture Structure of dataVisualizer
 
-** Error: VHDL Compiler exiting
-
-} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/ps2_keyboard.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/ps2_keyboard.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
-** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
-
-** Error: VHDL Compiler exiting
-
-} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/package_timing.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/package_timing.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
-** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
-
-** Error: VHDL Compiler exiting
-
-} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/tests/async_64Kx16.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/tests/async_64Kx16.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
-** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
-
-** Error: VHDL Compiler exiting
-
-} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/tests/memory.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/tests/memory.vhd
+} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/package_timing.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/package_timing.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 ** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
 
@@ -154,37 +227,288 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 
 ** Error: VHDL Compiler exiting
 
-} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/unidad_control.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/unidad_control.vhd
+} {3.0 4.0 5.0 6.0} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/SRAMController.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/SRAMController.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Compiling entity SRAMController
+-- Compiling architecture comportament of SRAMController
+
+} {} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/IO_controllers/keyboard_controller.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/IO_controllers/keyboard_controller.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity keyboard_controller
+-- Compiling architecture Behavioral of keyboard_controller
+
+} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/datapath.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/datapath.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 ** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
 
 ** Error: VHDL Compiler exiting
 
-} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/driver7display.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/driver7display.vhd
+} {3.0 4.0 5.0 6.0} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/alu_modules/div.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/alu_modules/div.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package renacuajo_pkg
+-- Compiling entity div
+-- Compiling architecture Structural of div
+
+} {} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/alu_modules/addsub.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/alu_modules/addsub.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package renacuajo_pkg
+-- Compiling entity addsub
+-- Compiling architecture Structural of addsub
+
+} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/keyboard_controller.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/keyboard_controller.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 ** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
 
 ** Error: VHDL Compiler exiting
 
-} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/datapath.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/datapath.vhd
+} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/control_l.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/control_l.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
+
+** Error: VHDL Compiler exiting
+
+} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/proc.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/proc.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
+
+** Error: VHDL Compiler exiting
+
+} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/alu_modules/addsub.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/alu_modules/addsub.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
+
+** Error: VHDL Compiler exiting
+
+} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/tests/package_timing.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/tests/package_timing.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
+
+** Error: VHDL Compiler exiting
+
+} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/dataVisualizer.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/dataVisualizer.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
+
+** Error: VHDL Compiler exiting
+
+} {3.0 4.0 5.0 6.0} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/tests/package_utility.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/tests/package_utility.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package std_logic_textio
+-- Compiling package package_utility
+-- Compiling package body package_utility
+-- Loading package package_utility
+
+} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/regfile.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/regfile.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
+
+** Error: VHDL Compiler exiting
+
+} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/vga_sync.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/IO_controllers/vga_sync.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
+
+** Error: VHDL Compiler exiting
+
+} {3.0 4.0 5.0 6.0} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/unidad_control.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/unidad_control.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package renacuajo_pkg
+-- Compiling entity unidad_control
+-- Compiling architecture Structure of unidad_control
+
+} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/tests/memory.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/tests/memory.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
+
+** Error: VHDL Compiler exiting
+
+} {3.0 4.0 5.0 6.0} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/regfile.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/regfile.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity regfile
+-- Compiling architecture Structure of regfile
+
+} {} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/IO_controllers/vga_sync.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/IO_controllers/vga_sync.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity vga_sync
+-- Compiling architecture vga_sync_arch of vga_sync
+
+} {} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/IO_controllers/vga_ram_dual.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/IO_controllers/vga_ram_dual.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity vga_ram_dual
+-- Compiling architecture vga_ram_dual_arch of vga_ram_dual
+
+} {} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/IO_controllers/ps2_keyboard.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/IO_controllers/ps2_keyboard.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity ps2_keyboard_interface
+-- Compiling architecture trans of ps2_keyboard_interface
+
+} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/alu_modules/shift.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/alu_modules/shift.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
+
+** Error: VHDL Compiler exiting
+
+} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/tests/test_sisa.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/tests/test_sisa.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
+
+** Error: VHDL Compiler exiting
+
+} {3.0 4.0 5.0 6.0} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/proc.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/proc.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package renacuajo_pkg
+-- Compiling entity proc
+-- Compiling architecture Structure of proc
+
+} {} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/MemoryController.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/MemoryController.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package renacuajo_pkg
+-- Compiling entity MemoryController
+-- Compiling architecture comportament of MemoryController
+
+} {} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/controlador_io.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/controlador_io.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package renacuajo_pkg
+-- Compiling entity controladores_io
+-- Compiling architecture Structure of controladores_io
+
+} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/alu_modules/mul.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/alu_modules/mul.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
+
+** Error: VHDL Compiler exiting
+
+} {3.0 4.0 5.0 6.0} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/alu.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/alu.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package renacuajo_pkg
+-- Compiling entity alu
+-- Compiling architecture Structure of alu
+
+} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/sisa.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/sisa.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
+
+** Error: VHDL Compiler exiting
+
+} {3.0 4.0 5.0 6.0} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/package_timing.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/package_timing.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package std_logic_textio
+-- Compiling package package_timing
+-- Compiling package body package_timing
+-- Loading package package_timing
+
+} {} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/control_l.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/control_l.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package renacuajo_pkg
+-- Compiling entity control_l
+-- Compiling architecture Structure of control_l
+
+} {} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/IO_controllers/vga_font_rom.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/IO_controllers/vga_font_rom.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity vga_font_rom
+-- Compiling architecture vga_font_rom_arch of vga_font_rom
+
+} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/tests/async_64Kx16.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/tests/async_64Kx16.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
+
+** Error: VHDL Compiler exiting
+
+} {3.0 4.0 5.0 6.0} {}} C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/alu_modules/mul.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Pol/OneDrive/Escritorio/Uni/Q6/PEC-proc/renacuajo/Etapa7.1/alu_modules/mul.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package renacuajo_pkg
+-- Compiling entity mul
+-- Compiling architecture Structural of mul
+
+} {} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/SRAMController.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/SRAMController.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 ** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
 
 ** Error: VHDL Compiler exiting
 
 } {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/package_utility.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/package_utility.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
-** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
-
-** Error: VHDL Compiler exiting
-
-} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/SRAMController.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/SRAMController.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
-** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
-
-** Error: VHDL Compiler exiting
-
-} {3.0 4.0 5.0 6.0} {}} C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/alu_modules/shift.vhd {0 {vcom -work work -2002 -explicit C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa7.1/alu_modules/shift.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 ** Error: (vcom-42) Unsupported ModelSim library format for "C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/work". (Format: 4)
 

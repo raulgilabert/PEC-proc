@@ -90,7 +90,9 @@ ARCHITECTURE Structure OF sisa IS
 			clear_char	: OUT std_logic;
 			data_ready	: IN std_logic;
 			SW				: IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-			KEY			: IN STD_LOGIC_VECTOR(3 DOWNTO 0)
+			KEY			: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+			comptador_cicles : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+			comptador_milisegons : IN STD_LOGIC_VECTOR(15 DOWNTO 0)
 		);
 	END COMPONENT;
 	
@@ -139,6 +141,14 @@ ARCHITECTURE Structure OF sisa IS
          vga_cursor_enable : in std_logic
 		);	
 	END COMPONENT;
+
+	COMPONENT Timer IS
+		PORT (
+			CLOCK_50 	: IN STD_LOGIC;
+			comptador_cicles : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			comptador_milisegons : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+		);
+	END COMPONENT;
 	
 	SIGNAL rd_data_s 	: std_LOGIC_VECTOR(15 downto 0);
 	SIGNAL addr_s 		: STD_LOGIC_VECTOR(15 downto 0);
@@ -168,6 +178,10 @@ ARCHITECTURE Structure OF sisa IS
 	SIGNAL rd_data_VGA_s	: STD_LOGIC_VECTOR(15 DOWNTO 0);
 	SIGNAL vga_byte_m_s	: std_logic;
 	SIGNAL red, green, blue : std_LOGIC_VECTOR (7 downto 0);
+
+	-- Timer
+	SIGNAL comptador_cicles_s : std_logic_vector(15 downto 0);
+	SIGNAL comptador_milisegons_s : std_logic_vector(15 downto 0);
 	
 BEGIN
 
@@ -235,7 +249,9 @@ BEGIN
 				clear_char => clear_char_s,
 				data_ready => data_ready_s,
 				KEY => KEY,
-				SW => SW
+				SW => SW,
+				comptador_milisegons => comptador_milisegons_s,
+				comptador_cicles => comptador_cicles_s
 			);
 			
 		disp: driver7display
@@ -281,5 +297,12 @@ BEGIN
 	VGA_R <= red(3 downto 0);
 	VGA_G <= green(3 downto 0);
 	VGA_B <= blue(3 DOWNTO 0);
+
+	tim : timer
+		PORT map (
+			CLOCK_50 => CLOCK_50,
+			comptador_cicles => comptador_cicles_s,
+			comptador_milisegons => comptador_milisegons_s
+		);
 	
 END Structure;

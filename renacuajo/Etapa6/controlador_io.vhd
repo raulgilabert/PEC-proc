@@ -25,8 +25,11 @@ ENTITY controladores_io IS
 		data_ready	: IN std_logic;
 		-----------------------------------------------
 		SW 		  	: IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-		KEY		  	: IN STD_LOGIC_VECTOR(3 DOWNTO 0)
+		KEY		  	: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 	-----------------------------------------------
+		comptador_cicles : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		comptador_milisegons : IN STD_LOGIC_VECTOR(15 DOWNTO 0)
+
 	);
 END controladores_io;
 
@@ -52,6 +55,8 @@ BEGIN
 				io_mem(8)(7 downto 0) <= SW(7 downto 0);
 				io_mem(15)(7 downto 0) <= read_char;
 				io_mem(16)(0) <= data_ready;
+				io_mem(20) <= comptador_cicles;
+				io_mem(21) <= comptador_milisegons;
 			END if;
 		END if;
 	END PROCESS;
