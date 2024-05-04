@@ -179,7 +179,7 @@ BEGIN
 		word_byte <= '1' when OP_LDB,
 						 '1' when OP_STB,
 						 '0' when others;
-	
+
 	with (ir) select
 		ldpc <= '0' when x"FFFF",
 				  '1' when others;
