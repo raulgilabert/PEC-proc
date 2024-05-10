@@ -33,9 +33,9 @@ begin
             state <= F;
         elsif rising_edge(clk) then 
             case state is
-                F =>
+                when F =>
                     state <= DEMW;
-                DEMW => 
+                when DEMW => 
                     state <= F;
             END case;
         END if;

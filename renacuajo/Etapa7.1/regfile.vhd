@@ -16,6 +16,7 @@ ENTITY regfile IS
 		ei 		: IN  STD_LOGIC;
 		di		: IN  STD_LOGIC;
 		reti	: IN  STD_LOGIC;
+		boot	: IN  STD_LOGIC;
         a      	: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 		b		: OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
 	);
@@ -29,6 +30,13 @@ BEGIN
 	PROCESS (clk)
 	BEGIN
 		if rising_edge(clk) then
+
+			if boot = '1' then 
+				sys_regs(2) <= x"0000";
+				sys_regs(5) <= x"0000";
+				sys_regs(7) <= x"0000";
+			END if;
+
 			if (wrd = '1') then
 				regs(to_integer(unsigned(addr_d))) <= d;
 			END if;

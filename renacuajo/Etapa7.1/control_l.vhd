@@ -190,11 +190,11 @@ BEGIN
 						'1' when OP_BRANCH,
 						'0' when others;
 		
-	in_d <= "01" when ir(15 downto 12) = OP_ST else --st
-			  "01" when ir(15 downto 12) = OP_STB else --stb
-			  "10" when ir(15 downto 12) = OP_JUMP else --jal i reti entra el pc al regfile
-			  "11" when ir(15 downto 12) = OP_IO and ir(8) = '0' else --in entra de io
-			  "00";
+						in_d <= "01" when ir(15 downto 12) = OP_LD else --st
+						"01" when ir(15 downto 12) = OP_LDB else --stb
+						"10" when ir(15 downto 12) = OP_JUMP else --jal
+						"11" when ir(15 downto 12) = OP_IO and ir(8) = '0' else --in
+						"00";
 		
 	--with ir(15 downto 12) select -- ara in_d te dos bits
 		--in_d <= "01" when "0011",   --st

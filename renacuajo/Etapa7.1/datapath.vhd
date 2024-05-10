@@ -26,6 +26,7 @@ ENTITY datapath IS
 		  di 	   : IN  STD_LOGIC;
 		  reti	   : IN  STD_LOGIC;
 		  rd_io	   : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);	
+		  boot	   : IN  STD_LOGIC;
           addr_m   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           data_wr  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 		  aluout   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -48,6 +49,7 @@ ARCHITECTURE Structure OF datapath IS
 				 ei 	: IN  STD_LOGIC;
 				 di		: IN  STD_LOGIC;
 				 reti	: IN  STD_LOGIC;
+				 boot	: IN  STD_LOGIC;
 				 a      : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 				 b      : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
 	END COMPONENT;
@@ -86,7 +88,8 @@ BEGIN
 			a_sys => a_sys,
 			ei => ei,
 			di => di,
-			reti => reti
+			reti => reti,
+			boot => boot
 		);
 		
 	alu0: alu

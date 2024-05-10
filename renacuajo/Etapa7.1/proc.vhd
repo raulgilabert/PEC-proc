@@ -74,6 +74,7 @@ ARCHITECTURE Structure OF proc IS
 				 ei 	 : IN STD_LOGIC;
 				 di 	 : IN STD_LOGIC;
 				 reti	 : IN STD_LOGIC;
+				 boot	 : IN STD_LOGIC;
 				 addr_m   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 				 data_wr  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 				 aluout	 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -157,7 +158,8 @@ BEGIN
 				a_sys => a_sys_s, 
 				ei => ei_s,
 				di => di_s,
-				reti => reti_s
+				reti => reti_s,
+				boot => boot
 			);
 			
 END Structure;
