@@ -69,6 +69,7 @@ package renacuajo_pkg is
     constant F_EI       : STD_LOGIC_VECTOR(5 DOWNTO 0) := "100000";
     constant F_DI       : STD_LOGIC_VECTOR(5 DOWNTO 0) := "100001";
     constant F_RETI     : STD_LOGIC_VECTOR(5 DOWNTO 0) := "100100";
+    constant F_GETIID   : STD_LOGIC_VECTOR(5 DOWNTO 0) := "101000";
     constant F_RDS      : STD_LOGIC_VECTOR(5 DOWNTO 0) := "101100";
     constant F_WRS      : STD_LOGIC_VECTOR(5 DOWNTO 0) := "110000";
 

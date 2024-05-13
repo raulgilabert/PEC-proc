@@ -17,7 +17,9 @@ ENTITY proc IS
 			rd_io			: in std_LOGIC_vector(15 DOWNTO 0);
 			wr_io			: out std_LOGIC_VECTOR(15 downto 0);
 			rd_in			: out std_LOGIC;
-			wr_out 		: out std_logic
+			wr_out 		: out std_logic;
+			intr		: in std_logic;
+			inta		: out std_logic
 	);
 END proc;
 
@@ -30,6 +32,7 @@ ARCHITECTURE Structure OF proc IS
           datard_m  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 aluout    : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
 		    tknbr     : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+			intr	: IN  STD_LOGIC;
           op        : OUT INST;
           wrd       : OUT STD_LOGIC;
           addr_a    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -50,7 +53,8 @@ ARCHITECTURE Structure OF proc IS
 			 a_sys	   : OUT STD_LOGIC;
 			 ei 	   : OUT STD_LOGIC;
 			 di		   : OUT STD_LOGIC;
-			 reti	   : OUT STD_LOGIC
+			 reti	   : OUT STD_LOGIC;
+			 inta	   : OUT STD_LOGIC
 		 );
 	END COMPONENT;
 	
@@ -75,11 +79,13 @@ ARCHITECTURE Structure OF proc IS
 				 di 	 : IN STD_LOGIC;
 				 reti	 : IN STD_LOGIC;
 				 boot	 : IN STD_LOGIC;
+				 intr	 : IN STD_LOGIC;
 				 addr_m   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 				 data_wr  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 				 aluout	 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 				 tknbr    : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
-				 wr_io    : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+				 wr_io    : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+				 inta	  : OUT STD_LOGIC;
 		 );	
 	END COMPONENT;
 

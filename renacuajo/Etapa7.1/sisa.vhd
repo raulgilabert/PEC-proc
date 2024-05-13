@@ -45,7 +45,9 @@ ARCHITECTURE Structure OF sisa IS
 			rd_io			: IN std_LOGIC_vector(15 downto 0);
 			wr_io			: out std_LOGIC_vector(15 downto 0);
 			rd_in			: out std_LOGIC;
-			wr_out 		: out std_logic
+			wr_out 		: out std_logic;
+			intr		: in std_logic;
+			inta		: out std_logic;
 		);
 	END COMPONENT;
 	
@@ -139,7 +141,56 @@ ARCHITECTURE Structure OF sisa IS
          vga_cursor_enable : in std_logic
 		);	
 	END COMPONENT;
-	
+
+	COMPONENT interrupt_controller IS
+		PORT (
+			boot		: IN  STD_LOGIC;
+			clk			: IN  STD_LOGIC;
+			inta		: IN  STD_LOGIC;
+			key_intr	: IN  STD_LOGIC;
+			ps2_intr	: IN  STD_LOGIC;
+			switch_intr	: IN  STD_LOGIC;
+			timer_intr	: IN  STD_LOGIC;
+			intr		: OUT STD_LOGIC;
+			key_inta	: OUT STD_LOGIC;
+			ps2_inta	: OUT STD_LOGIC;
+			switch_inta	: OUT STD_LOGIC;
+			timer_inta	: OUT STD_LOGIC;
+			iid			: OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+		);
+	END COMPONENT;
+
+	COMPONENT interruptors IS
+		PORT (
+			boot        : IN  STD_LOGIC;
+			clk         : IN  STD_LOGIC;
+			inta        : IN  STD_LOGIC;
+			switches    : IN  STD_LOGIC_VECTOR(7 DOWNTO 0);
+			intr        : OUT STD_LOGIC;
+			rd_switch   : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+		);
+	END COMPONENT;
+
+	COMPONENT pulsadors IS
+		PORT (
+			boot        : IN  STD_LOGIC;
+			clk         : IN  STD_LOGIC;
+			inta        : IN  STD_LOGIC;
+			keys        : IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
+			intr        : OUT STD_LOGIC;
+			read_key    : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+		);
+	END COMPONENT;
+
+	COMPONENT timer IS
+		PORT (
+			boot        : IN  STD_LOGIC;
+			clk         : IN  STD_LOGIC;
+			inta        : IN  STD_LOGIC;
+			intr        : OUT STD_LOGIC
+		);
+	END COMPONENT;
+		
 	SIGNAL rd_data_s 	: std_LOGIC_VECTOR(15 downto 0);
 	SIGNAL addr_s 		: STD_LOGIC_VECTOR(15 downto 0);
 	SIGNAL wr_data_s 	: STD_LOGIC_VECTOR(15 downto 0);
@@ -168,6 +219,20 @@ ARCHITECTURE Structure OF sisa IS
 	SIGNAL rd_data_VGA_s	: STD_LOGIC_VECTOR(15 DOWNTO 0);
 	SIGNAL vga_byte_m_s	: std_logic;
 	SIGNAL red, green, blue : std_LOGIC_VECTOR (7 downto 0);
+
+	-- Timer
+	SIGNAL timer_inta_s : std_logic;
+	SIGNAL timer_intr_s : std_logic;
+
+	-- Interruptors
+	SIGNAL switch_intr_s : std_logic;
+	SIGNAL switch_inta_s : std_logic;
+	SIGNAL rd_switch_s : std_logic;
+
+	-- Pulsadors
+	SIGNAL key_inta_s : std_logic;
+	SIGNAL key_intr_s : std_logic;
+	SIGNAL read_key_s : std_logic;
 	
 BEGIN
 
@@ -193,7 +258,9 @@ BEGIN
 			rd_io => rd_io_s,
 			wr_io => wr_io_s,
 			rd_in => rd_in_s,
-			wr_out => wr_out_s
+			wr_out => wr_out_s,
+			intr => intr_s,
+			inta => inta_s
 		);
 		
 	mem0: MemoryController
@@ -277,9 +344,55 @@ BEGIN
 				vga_cursor => x"0000",
 				vga_cursor_enable => '0'
 			);
-			
-	VGA_R <= red(3 downto 0);
-	VGA_G <= green(3 downto 0);
-	VGA_B <= blue(3 DOWNTO 0);
+
+			VGA_R <= red(3 downto 0);
+		VGA_G <= green(3 downto 0);
+		VGA_B <= blue(3 DOWNTO 0);
+
+		intr_con: interrupt_controller
+			PORT map (
+				boot => SW(9),
+				clk => clk_neg,
+				inta => inta_s,
+				key_intr => key_intr_s,
+				ps2_intr => ps2_intr_s,
+				switch_intr => switch_intr_s,
+				timer_intr => timer_intr_s,
+				intr => intr_s,
+				key_inta => key_inta_s,
+				ps2_inta => ps2_inta_s,
+				switch_inta => switch_inta_s,
+				timer_inta => timer_inta_s,
+				iid => iid_s
+			);
+
+		keys: pulsadors
+			PORT map (
+				boot => SW(9),
+				clk => clk_neg,
+				inta => key_inta_s,
+				keys => KEY,
+				intr => key_inta_s,
+				read_key => read_key_s
+			);
+		
+		tim: timer
+			PORT map (
+				boot => SW(9),
+				clk => CLOCK_50,
+				inta => timer_inta_s,
+				intr => timer_intr_s
+			);
+
+		swi: interruptors 
+			PORT map (
+				boot => SW(9),
+				clk => clk_neg,
+				intr => switch_intr_s
+				inta => switch_inta_s,
+				switches => SW(7 downto 0),
+				rd_switch => rd_switch_s
+			);
+		
 	
 END Structure;

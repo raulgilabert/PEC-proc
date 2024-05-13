@@ -18,7 +18,8 @@ ENTITY regfile IS
 		reti	: IN  STD_LOGIC;
 		boot	: IN  STD_LOGIC;
         a      	: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-		b		: OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+		b		: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		int_e	: OUT STD_LOGIC 					-- interrupt enable
 	);
 END regfile;
 ARCHITECTURE Structure OF regfile IS
@@ -41,7 +42,7 @@ BEGIN
 				regs(to_integer(unsigned(addr_d))) <= d;
 			END if;
 
-			if (d_sys = '1') then 
+			if (d_sys = '1' and wrd = '1') then 
 				sys_regs(to_integer(unsigned(addr_d))) <= d;
 			END if;
 
@@ -57,4 +58,6 @@ BEGIN
 	
 	a <= regs(to_integer(unsigned(addr_a))) when a_sys = '0' else sys_regs(to_integer(unsigned(addr_a)));
 	b <= regs(to_integer(unsigned(addr_b)));
+
+	int_e <= sys_regs(7)(1);
 END Structure;
