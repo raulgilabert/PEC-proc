@@ -19,7 +19,8 @@ ENTITY proc IS
 			rd_in			: out std_LOGIC;
 			wr_out 		: out std_logic;
 			intr		: in std_logic;
-			inta		: out std_logic
+			inta		: out std_logic;
+			int_e		: out std_logic
 	);
 END proc;
 
@@ -84,7 +85,8 @@ ARCHITECTURE Structure OF proc IS
 				 data_wr  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 				 aluout	 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 				 tknbr    : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
-				 wr_io    : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+				 wr_io    : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+				 int_e	  : OUT STD_LOGIC
 		 );	
 	END COMPONENT;
 
@@ -136,7 +138,8 @@ BEGIN
 				ei => ei_s,
 				di => di_s,
 				reti => reti_s,
-				intr => intr
+				intr => intr,
+				inta => inta
 			);
 		
 		e0: datapath
@@ -166,7 +169,8 @@ BEGIN
 				di => di_s,
 				reti => reti_s,
 				boot => boot,
-				intr => intr
+				intr => intr,
+				int_e => int_e
 			);
 			
 END Structure;

@@ -26,9 +26,13 @@ ENTITY controladores_io IS
 		-----------------------------------------------
 		-- switches i keys
 		SW 		  	: IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-		KEY		  	: IN STD_LOGIC_VECTOR(3 DOWNTO 0)
+		KEY		  	: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 		-----------------------------------------------
 		-- interrupcions
+		iid			: IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+		rd_switch	: IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+		read_key	: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+		int_e		: IN STD_LOGIC
 		
 	);
 END controladores_io;
@@ -37,7 +41,13 @@ ARCHITECTURE Structure of controladores_io is
 
 	TYPE t_io is array(0 to 255) of std_logic_vector(15 downto 0);
 	SIGNAL io_mem: t_io;
+	SIGNAL butons: std_logic_vector(3 downto 0);
+	SIGNAL interruptors: std_logic_vector(7 downto 0);
+
 BEGIN
+
+	butons <= KEY when int_e = '0' else read_key;
+	interruptors <= SW(7 downto 0) when int_e = '0' else rd_switch;
 
 	PROCESS (CLOCK_50)
 	BEGIN
@@ -51,8 +61,8 @@ BEGIN
 					io_mem(to_integer(unsigned(addr_io))) <= wr_io;
 				end if;
 			else 
-				io_mem(7)(3 downto 0) <= KEY;
-				io_mem(8)(7 downto 0) <= SW(7 downto 0);
+				io_mem(7)(3 downto 0) <= butons;
+				io_mem(8)(7 downto 0) <= interruptors;
 				io_mem(15)(7 downto 0) <= read_char;
 				io_mem(16)(0) <= data_ready;
 			END if;

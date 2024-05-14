@@ -64,7 +64,8 @@ ARCHITECTURE Structure OF unidad_control IS
 				d_sys	: OUT STD_LOGIC;
 				ei 		: OUT STD_LOGIC;
 				di		: OUT STD_LOGIC;
-				reti	: OUT STD_LOGIC
+				reti	: OUT STD_LOGIC;
+				inta  : OUT STD_LOGIC
 		);
 	END COMPONENT;
 
@@ -217,7 +218,8 @@ BEGIN
 			d_sys => d_sys_s,
 			ei => ei_s,
 			di => di_s, 
-			reti => reti_s
+			reti => reti_s,
+			inta => inta_s
 		);
 	
 		reti <= reti_s;

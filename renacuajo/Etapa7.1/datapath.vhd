@@ -32,7 +32,9 @@ ENTITY datapath IS
 		  aluout   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 		  tknbr    : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
 		  wr_io    : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-		  intr		: IN STD_LOGIC);
+		  intr		: IN STD_LOGIC;
+		  int_e		: OUT STD_LOGIC
+		  );
 END datapath;
 
 
@@ -53,7 +55,9 @@ ARCHITECTURE Structure OF datapath IS
 				 boot	: IN  STD_LOGIC;
 				 intr : IN STD_LOGIC;
 				 a      : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-				 b      : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
+				 b      : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+				 int_e	: OUT STD_LOGIC
+			);
 	END COMPONENT;
 	
 	COMPONENT alu IS
@@ -92,7 +96,8 @@ BEGIN
 			di => di,
 			reti => reti,
 			boot => boot,
-			intr => intr
+			intr => intr,
+			int_e => int_e
 		);
 		
 	alu0: alu

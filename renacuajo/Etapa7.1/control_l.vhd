@@ -26,8 +26,9 @@ ENTITY control_l IS
 		  d_sys 	 : OUT STD_LOGIC;
 		  ei 		 : OUT STD_LOGIC;
 		  di		 : OUT STD_LOGIC;
-		  reti	 : OUT STD_LOGIC;
-		  geti		 : OUT STD_LOGIC
+		  reti	 	 : OUT STD_LOGIC;
+		  geti		 : OUT STD_LOGIC;
+		  inta		 : OUT STD_LOGIC
 		 );
 END control_l; 
 
@@ -209,6 +210,8 @@ BEGIN
 				'0';
 	
 	addr_io <= x"00" when ir(15 downto 12) = OP_SPECIAL and special = GETIID_I else ir(7 downto 0);
+
+	inta <= '1' when ir(15 downto 12) = OP_SPECIAL and special = GETIID_I else '0';
 
 	a_sys <= '1' when ir(15 downto 12) = OP_SPECIAL and (special = RDS_I or special = RETI_I) else --en reti activem pq el pc pugui sortir
 			 '0';

@@ -47,7 +47,8 @@ ARCHITECTURE Structure OF sisa IS
 			rd_in			: out std_LOGIC;
 			wr_out 		: out std_logic;
 			intr		: in std_logic;
-			inta		: out std_logic
+			inta		: out std_logic;
+			int_e		: out std_logic
 		);
 	END COMPONENT;
 	
@@ -59,7 +60,7 @@ ARCHITECTURE Structure OF sisa IS
           rd_data   	: out std_logic_vector(15 downto 0);
           we        	: in  std_logic;
           byte_m    	: in  std_logic;
-          -- seÃƒÂ¯Ã‚Â¿Ã‚Â½ales para la placa de desarrollo
+          -- seÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ales para la placa de desarrollo
           SRAM_ADDR 	: out   std_logic_vector(17 downto 0);
           SRAM_DQ   	: inout std_logic_vector(15 downto 0);
           SRAM_UB_N 	: out   std_logic;
@@ -92,7 +93,11 @@ ARCHITECTURE Structure OF sisa IS
 			clear_char	: OUT std_logic;
 			data_ready	: IN std_logic;
 			SW				: IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-			KEY			: IN STD_LOGIC_VECTOR(3 DOWNTO 0)
+			KEY			: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+			IID			: IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+			rd_switch	: IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+			read_key	: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+			int_e		: IN STD_LOGIC
 		);
 	END COMPONENT;
 	
@@ -239,6 +244,7 @@ ARCHITECTURE Structure OF sisa IS
 	SIGNAL intr_s : std_logic;
 	SIGNAL inta_s : std_logic;
 	SIGNAL iid_s : std_logic_vector(7 downto 0);
+	SIGNAL int_e_s : std_logic;
 	
 	SIGNAL ps2_inta_s : std_logic;
 	SIGNAL ps2_intr_s : std_logic;
@@ -269,7 +275,8 @@ BEGIN
 			rd_in => rd_in_s,
 			wr_out => wr_out_s,
 			intr => intr_s,
-			inta => inta_s
+			inta => inta_s,
+			int_e => int_e_s
 		);
 		
 	mem0: MemoryController
@@ -311,7 +318,11 @@ BEGIN
 				clear_char => clear_char_s,
 				data_ready => data_ready_s,
 				KEY => KEY,
-				SW => SW
+				SW => SW,
+				iid => iid_s,
+				rd_switch => rd_switch_s,
+				read_key => read_key_s,
+				int_e => int_e_s
 			);
 			
 		disp: driver7display
@@ -384,7 +395,7 @@ BEGIN
 				clk => clk_neg,
 				inta => key_inta_s,
 				keys => KEY,
-				intr => key_inta_s,
+				intr => key_intr_s,
 				read_key => read_key_s
 			);
 		
