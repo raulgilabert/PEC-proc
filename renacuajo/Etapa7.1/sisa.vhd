@@ -47,7 +47,7 @@ ARCHITECTURE Structure OF sisa IS
 			rd_in			: out std_LOGIC;
 			wr_out 		: out std_logic;
 			intr		: in std_logic;
-			inta		: out std_logic;
+			inta		: out std_logic
 		);
 	END COMPONENT;
 	
@@ -210,6 +210,7 @@ ARCHITECTURE Structure OF sisa IS
 	-- PS2
 	signal ps2_char_s		: std_logic_vector(7 downto 0);
 	SIGNAL clear_char_s	: std_logic;
+	SIGNAL clear_char_s2	: std_logic;
 	SIGNAL data_ready_s	: std_logic;
 
 	-- VGA
@@ -227,12 +228,20 @@ ARCHITECTURE Structure OF sisa IS
 	-- Interruptors
 	SIGNAL switch_intr_s : std_logic;
 	SIGNAL switch_inta_s : std_logic;
-	SIGNAL rd_switch_s : std_logic;
+	SIGNAL rd_switch_s : std_logic_vector(7 downto 0);
 
 	-- Pulsadors
 	SIGNAL key_inta_s : std_logic;
 	SIGNAL key_intr_s : std_logic;
-	SIGNAL read_key_s : std_logic;
+	SIGNAL read_key_s : std_logic_vector(3 downto 0);
+	
+	-- Interrupcions
+	SIGNAL intr_s : std_logic;
+	SIGNAL inta_s : std_logic;
+	SIGNAL iid_s : std_logic_vector(7 downto 0);
+	
+	SIGNAL ps2_inta_s : std_logic;
+	SIGNAL ps2_intr_s : std_logic;
 	
 BEGIN
 
@@ -323,9 +332,12 @@ BEGIN
 				ps2_clk => PS2_CLK,
 				ps2_data => PS2_DAT,
 				read_char => ps2_char_s,
-				clear_char => clear_char_s,
+				clear_char => clear_char_s2,
 				data_ready => data_ready_s
 			);
+
+			clear_char_s2 <= clear_char_s or ps2_inta_s;
+			ps2_intr_s <= data_ready_s;
 		
 		vga_con: vga_controller
 			PORT map (
@@ -345,7 +357,7 @@ BEGIN
 				vga_cursor_enable => '0'
 			);
 
-			VGA_R <= red(3 downto 0);
+		VGA_R <= red(3 downto 0);
 		VGA_G <= green(3 downto 0);
 		VGA_B <= blue(3 DOWNTO 0);
 
@@ -388,7 +400,7 @@ BEGIN
 			PORT map (
 				boot => SW(9),
 				clk => clk_neg,
-				intr => switch_intr_s
+				intr => switch_intr_s,
 				inta => switch_inta_s,
 				switches => SW(7 downto 0),
 				rd_switch => rd_switch_s

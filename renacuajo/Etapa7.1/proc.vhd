@@ -84,8 +84,7 @@ ARCHITECTURE Structure OF proc IS
 				 data_wr  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 				 aluout	 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 				 tknbr    : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
-				 wr_io    : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-				 inta	  : OUT STD_LOGIC;
+				 wr_io    : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
 		 );	
 	END COMPONENT;
 
@@ -136,7 +135,8 @@ BEGIN
 				a_sys => a_sys_s, 
 				ei => ei_s,
 				di => di_s,
-				reti => reti_s
+				reti => reti_s,
+				intr => intr
 			);
 		
 		e0: datapath
@@ -165,7 +165,8 @@ BEGIN
 				ei => ei_s,
 				di => di_s,
 				reti => reti_s,
-				boot => boot
+				boot => boot,
+				intr => intr
 			);
 			
 END Structure;

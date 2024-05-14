@@ -190,11 +190,11 @@ BEGIN
 						'1' when OP_BRANCH,
 						'0' when others;
 		
-						in_d <= "01" when ir(15 downto 12) = OP_LD else --st
-						"01" when ir(15 downto 12) = OP_LDB else --stb
-						"10" when ir(15 downto 12) = OP_JUMP else --jal
-						"11" when ir(15 downto 12) = OP_IO and ir(8) = '0' else --in
-						"00";
+	in_d <= "01" when ir(15 downto 12) = OP_LD else --ld
+	"01" when ir(15 downto 12) = OP_LDB else --ldb
+	"10" when ir(15 downto 12) = OP_JUMP else --jal
+	"11" when ir(15 downto 12) = OP_IO and ir(8) = '0' else --in
+	"00";
 		
 	--with ir(15 downto 12) select -- ara in_d te dos bits
 		--in_d <= "01" when "0011",   --st
@@ -208,11 +208,12 @@ BEGIN
 	rd_in <= '1' when ir(15 downto 12) = OP_IO and ir(8) = '0' else --IN
 				'0';
 	
-	addr_io <= ir(7 downto 0);
+	addr_io <= x"00" when ir(15 downto 12) = OP_SPECIAL and special = GETIID_I else ir(7 downto 0);
 
 	a_sys <= '1' when ir(15 downto 12) = OP_SPECIAL and (special = RDS_I or special = RETI_I) else --en reti activem pq el pc pugui sortir
 			 '0';
 	
-	d_sys <= '1' when ir(15 downto 12) = OP_SPECIAL and special = WRS_I else '0';
-
+	d_sys <= '1' when ir(15 downto 12) = OP_SPECIAL and special = WRS_I else 
+			 '0';
+-- si salta un halt desactiva interrupcions
 END Structure;

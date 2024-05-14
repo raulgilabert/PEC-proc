@@ -14,6 +14,8 @@ ENTITY unidad_control IS
           datard_m  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 		  tknbr		: IN  STD_LOGIC_VECTOR(1 DOWNTO 0);
 		  aluout	: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+		  intr		: IN  STD_LOGIC;
+		  int_e		: IN  STD_LOGIC;
           op        : OUT INST;
           wrd       : OUT STD_LOGIC;
           addr_a    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -32,9 +34,10 @@ ENTITY unidad_control IS
 		  addr_io   : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 		  a_sys		: OUT STD_LOGIC;
 		  d_sys		: OUT STD_LOGIC;
-		  ei			: OUT STD_LOGIC;
-		  di			: OUT STD_LOGIC;
-		  reti		: OUT STD_LOGIC
+		  ei		: OUT STD_LOGIC;
+		  di		: OUT STD_LOGIC;
+		  reti		: OUT STD_LOGIC;
+		  inta		: OUT STD_LOGIC
 		  );
 END unidad_control;
 
@@ -66,19 +69,37 @@ ARCHITECTURE Structure OF unidad_control IS
 	END COMPONENT;
 
 	COMPONENT multi IS 
-		PORT (  clk       : IN  STD_LOGIC;
-				boot      : IN  STD_LOGIC;
-				ldpc_l    : IN  STD_LOGIC;
-				wrd_l     : IN  STD_LOGIC;
-				wr_m_l    : IN  STD_LOGIC;
-				w_b       : IN  STD_LOGIC;
-				ldpc      : OUT STD_LOGIC;
-				wrd       : OUT STD_LOGIC;
-				wr_m      : OUT STD_LOGIC;
-				ldir      : OUT STD_LOGIC;
-				ins_dad   : OUT STD_LOGIC;
-				word_byte : OUT STD_LOGIC
-		);
+    port(clk       : IN  STD_LOGIC;
+         boot      : IN  STD_LOGIC;
+         ldpc_l    : IN  STD_LOGIC;
+         wrd_l     : IN  STD_LOGIC;
+         wr_m_l    : IN  STD_LOGIC;
+         w_b       : IN  STD_LOGIC;
+         intr      : IN  STD_LOGIC;
+         inta_l    : IN  STD_LOGIC;
+         ei_l      : IN  STD_LOGIC;
+         di_l      : IN  STD_LOGIC;
+         int_e     : IN  STD_LOGIC; -- interupt enable
+		 in_d_l	   : IN  STD_LOGIC_VECTOR(1 DOWNTO 0);
+         addr_d_l  : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
+         addr_a_l  : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
+		 op_l	   : IN  INST;
+		 d_sys_l : IN STD_LOGIC;
+         ldpc      : OUT STD_LOGIC;
+         wrd       : OUT STD_LOGIC;
+         wr_m      : OUT STD_LOGIC;
+         ldir      : OUT STD_LOGIC;
+         ins_dad   : OUT STD_LOGIC;
+         word_byte : OUT STD_LOGIC;
+         ei        : OUT STD_LOGIC;
+         di        : OUT STD_LOGIC;
+         inta      : OUT STD_LOGIC;
+         in_d      : OUT STD_LOGIC_vector(1 downto 0);
+         addr_d    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+         addr_a    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+		 op		   : OUT INST;
+		 d_sys		: OUT STD_LOGIC
+ 	);
 	END COMPONENT;
 
 
@@ -94,6 +115,14 @@ ARCHITECTURE Structure OF unidad_control IS
 	SIGNAL pc_des: std_logic_vector(15 downto 0);
 	SIGNAL immed_des: std_logic_vector(15 downto 0);
 	SIGNAL reti_s : std_logic;
+	SIGNAL inta_s : std_logic;
+	SIGNAL ei_s : std_logic;
+	SIGNAL di_s : std_logic;
+	SIGNAL addr_a_s : STD_LOGIC_VECTOR(2 DOWNTO 0);
+	SIGNAL addr_d_s : STD_LOGIC_VECTOR(2 DOWNTO 0);
+	SIGNAL op_s : INST;
+	SIGNAL in_d_s : std_logic_vector(1 downto 0);
+	SIGNAL d_sys_s : STD_LOGIC;
 	
 BEGIN
 	PROCESS (clk)
@@ -140,26 +169,44 @@ BEGIN
 			wrd_l => wrd_s,
 			wr_m_l => wr_m_s,
 			w_b => word_byte_s,
+			intr => intr,
+			inta_l => inta_s,
+			ei_l => ei_s,
+			di_l => di_s,
+			int_e => int_e,
+			in_d_l => in_d_s,
+			addr_d_l => addr_d_s,
+			addr_a_l => addr_a_s,
+			op_l => op_s,
+			d_sys_l => d_sys_s,
 			ldpc => ldpc,
 			wrd => wrd,
 			wr_m => wr_m,
 			ldir => ldir,
 			ins_dad => ins_dad,
-			word_byte => word_byte
+			word_byte => word_byte,
+			ei => ei,
+			di => di,
+			inta => inta,
+			in_d => in_d,
+			addr_a => addr_a,
+			addr_d => addr_d,
+			op => op,
+			d_sys => d_sys
 		);
 	
 	c_l: control_l
 		PORT map(
 			ir => ir,
-			op => op,
+			op => op_s,
 			ldpc => ldpc_s,
 			wrd => wrd_s,
-			addr_a => addr_a,
+			addr_a => addr_a_s,
 			addr_b => addr_b,
-			addr_d => addr_d,
+			addr_d => addr_d_s,
 			immed => immed,
 			wr_m => wr_m_s,
-			in_d => in_d,
+			in_d => in_d_s,
 			immed_x2 => immed_x2,
 			word_byte => word_byte_s,
 			Rb_N => Rb_N,
@@ -167,9 +214,9 @@ BEGIN
 			wr_out => wr_out,
 			addr_io => addr_io,
 			a_sys => a_sys,
-			d_sys => d_sys,
-			ei => ei,
-			di => di, 
+			d_sys => d_sys_s,
+			ei => ei_s,
+			di => di_s, 
 			reti => reti_s
 		);
 	

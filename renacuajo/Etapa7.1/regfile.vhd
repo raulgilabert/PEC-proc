@@ -17,6 +17,7 @@ ENTITY regfile IS
 		di		: IN  STD_LOGIC;
 		reti	: IN  STD_LOGIC;
 		boot	: IN  STD_LOGIC;
+		intr	: IN  STD_LOGIC;
         a      	: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 		b		: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 		int_e	: OUT STD_LOGIC 					-- interrupt enable

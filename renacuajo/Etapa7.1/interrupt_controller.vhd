@@ -15,7 +15,7 @@ ENTITY interrupt_controller IS
 		ps2_inta	: OUT STD_LOGIC;
 		switch_inta	: OUT STD_LOGIC;
 		timer_inta	: OUT STD_LOGIC;
-		iid			: OUT STD_LOGIC_VECTOR(8 DOWNTO 0)
+		iid			: OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
 	);
 END interrupt_controller;
 

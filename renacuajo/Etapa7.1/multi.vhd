@@ -1,6 +1,9 @@
 library ieee;
 USE ieee.std_logic_1164.all;
 
+library work;
+USE work.renacuajo_pkg.all;
+
 entity multi is
     port(clk       : IN  STD_LOGIC;
          boot      : IN  STD_LOGIC;
@@ -13,6 +16,11 @@ entity multi is
          ei_l      : IN  STD_LOGIC;
          di_l      : IN  STD_LOGIC;
          int_e     : IN  STD_LOGIC; -- interupt enable
+		 in_d_l	   : IN  STD_LOGIC_VECTOR(1 DOWNTO 0);
+         addr_d_l  : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
+         addr_a_l  : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
+         op_l      : IN  INST;
+			d_sys_l   : IN std_LOGIc;
          ldpc      : OUT STD_LOGIC;
          wrd       : OUT STD_LOGIC;
          wr_m      : OUT STD_LOGIC;
@@ -21,7 +29,12 @@ entity multi is
          word_byte : OUT STD_LOGIC;
          ei        : OUT STD_LOGIC;
          di        : OUT STD_LOGIC;
-         inta      : OUT STD_LOGIC
+         inta      : OUT STD_LOGIC;
+         in_d      : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+         addr_d    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+         addr_a    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+         op        : OUT INST;
+			d_sys		 : OUT STD_LOGIC
      );
 end entity;
 
@@ -40,7 +53,7 @@ begin
     BEGIN
         if boot = '1' then 
             state <= F;
-        END if
+        END if;
 
         if rising_edge(clk) then 
             case state IS
@@ -55,7 +68,9 @@ begin
                 when SYSTEM => 
                     state <= F;
                 END case;
-        END if;
+		 else 
+			state <= state;
+		 END if;
     END PROCESS;
 
     ldir <= '1' when state = F else '0';
@@ -64,11 +79,15 @@ begin
     di <= di_l when state = DEMW else '0';
     inta <= inta_l when state = DEMW else '0';
     d_sys <= '1' when state = SYSTEM else d_sys_l;
-    wrd <= wrd_l when state = DEMW 
+    wrd <= wrd_l when state = DEMW else
             '1' when state = SYSTEM else 
             '0';
     wr_m <= wr_m_l when state = DEMW else '0';
     word_byte <= w_b when state = DEMW else '0';
     ldpc <= ldpc_l when state = DEMW else '0';
+    in_d <= "10" when state = SYSTEM else in_d_l;
+    addr_d <= "001" when state = SYSTEM else addr_d_l;
+    addr_a <= "101" when state = SYSTEM else addr_a_l;
+    op <= WRS_I when state = SYSTEM else op_l;
 
 end Structure;

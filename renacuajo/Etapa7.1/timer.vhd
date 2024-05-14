@@ -14,15 +14,15 @@ END timer;
 
 ARCHITECTURE Structure OF timer IS
 
-    SIGNAL counter STD_LOGIC_VECTOR(21 DOWNTO 0) := 0;
-    SIGNAL intr_s  STD_LOGIC := '0';
+    SIGNAL counter: STD_LOGIC_VECTOR(21 DOWNTO 0) := "0000000000000000000000";
+    SIGNAL intr_s:  STD_LOGIC := '0';
 BEGIN
 
 	PROCESS (clk, boot)
     BEGIN
         if boot = '1' then
             intr_s <= '0';
-            counter <= 0;
+            counter <= "0000000000000000000000";
         elsif rising_edge(clk) then 
     
             if inta = '1' then 
@@ -33,7 +33,7 @@ BEGIN
 
             if counter = 2500000 then
                 intr_s <= '1';
-                counter <= 0;
+                counter <= "0000000000000000000000";
             END if;
 
         END if;

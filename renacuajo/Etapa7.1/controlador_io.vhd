@@ -24,9 +24,12 @@ ENTITY controladores_io IS
 		clear_char	: OUT std_logic;
 		data_ready	: IN std_logic;
 		-----------------------------------------------
+		-- switches i keys
 		SW 		  	: IN STD_LOGIC_VECTOR(9 DOWNTO 0);
 		KEY		  	: IN STD_LOGIC_VECTOR(3 DOWNTO 0)
-	-----------------------------------------------
+		-----------------------------------------------
+		-- interrupcions
+		
 	);
 END controladores_io;
 
