@@ -39,7 +39,7 @@ BEGIN
 				sys_regs(7) <= x"0000";
 			END if;
 
-			if (wrd = '1') then
+			if (d_sys = '0' and wrd = '1') then
 				regs(to_integer(unsigned(addr_d))) <= d;
 			END if;
 
