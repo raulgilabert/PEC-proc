@@ -18,9 +18,11 @@ ENTITY regfile IS
 		reti	: IN  STD_LOGIC;
 		boot	: IN  STD_LOGIC;
 		sys		: IN  STD_LOGIC;
-        a      	: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		PCret		: IN  STD_LOGIC_VECTOR(15 downto 0);
+		a      	: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 		b		: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-		int_e	: OUT STD_LOGIC 					-- interrupt enable
+		int_e	: OUT STD_LOGIC; 					-- interrupt enable
+		PCsys	: OUT STD_LOGIC_VECTOR(15 downto 0)
 	);
 END regfile;
 ARCHITECTURE Structure OF regfile IS
@@ -31,13 +33,7 @@ ARCHITECTURE Structure OF regfile IS
 BEGIN
 	PROCESS (clk)
 	BEGIN
-		if boot = '1' then 
-			sys_regs(2) <= x"0000";
-			sys_regs(5) <= x"0000";
-			sys_regs(7) <= x"0000";
-		END if;
-		if rising_edge(clk) then
-
+		if rising_edge(clk) then		
 			if (d_sys = '0' and wrd = '1') then
 				regs(to_integer(unsigned(addr_d))) <= d;
 			elsif (d_sys = '1' and wrd = '1') then 
@@ -52,9 +48,16 @@ BEGIN
 			
 			if sys = '1' then 
 				sys_regs(0) <= sys_regs(7);
+				sys_regs(1) <= PCret;
 				sys_regs(2) <= x"000F";
 				sys_regs(7)(1) <= '0';
 			END if;
+		END if;
+			
+		if boot = '1' then 
+			sys_regs(2) <= x"0000";
+			sys_regs(5) <= x"0000";
+			sys_regs(7) <= x"0000";
 		END if;
 	END PROCESS;
 	
@@ -62,4 +65,7 @@ BEGIN
 	b <= regs(to_integer(unsigned(addr_b)));
 
 	int_e <= sys_regs(7)(1);
+	
+	PCsys <= sys_regs(5); -- per permetre que es faci l'escriptura en pujada de flanc
+
 END Structure;

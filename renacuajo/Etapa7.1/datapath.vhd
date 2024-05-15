@@ -34,7 +34,8 @@ ENTITY datapath IS
 		  wr_io    : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 		  --intr		: IN STD_LOGIC;
 		  int_e		: OUT STD_LOGIC;
-		  sys		: IN STD_LOGIC
+		  sys		: IN STD_LOGIC;
+		  pc_sys : OUT STD_LOGIC_VECTOR(15 downto 0)
 		  );
 END datapath;
 
@@ -42,23 +43,25 @@ END datapath;
 ARCHITECTURE Structure OF datapath IS
 
 	COMPONENT regfile IS
-		 PORT (clk    : IN  STD_LOGIC;
-				 wrd    : IN  STD_LOGIC;
-				 d      : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-				 addr_a : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
-				 addr_b : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
-				 addr_d : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
-				 d_sys	: IN  STD_LOGIC;
-				 a_sys	: IN  STD_LOGIC;
-				 ei 	: IN  STD_LOGIC;
-				 di		: IN  STD_LOGIC;
-				 reti	: IN  STD_LOGIC;
-				 boot	: IN  STD_LOGIC;
-				 --intr : IN STD_LOGIC;
-				 a      : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-				 b      : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-				 int_e	: OUT STD_LOGIC;
-				 sys	: IN  STD_LOGIC
+   PORT (
+		clk    	: IN  STD_LOGIC;
+        wrd    	: IN  STD_LOGIC;
+        d      	: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+        addr_a 	: IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
+	    addr_b 	: IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
+		addr_d 	: IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
+		d_sys	: IN  STD_LOGIC;					--WrD del banc de sistema
+		a_sys	: IN  STD_LOGIC; 					-- Seleccina el mux
+		ei 		: IN  STD_LOGIC;
+		di		: IN  STD_LOGIC;
+		reti	: IN  STD_LOGIC;
+		boot	: IN  STD_LOGIC;
+		sys		: IN  STD_LOGIC;
+		PCret		: IN  STD_LOGIC_VECTOR(15 downto 0);
+		a      	: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		b		: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		int_e	: OUT STD_LOGIC; 					-- interrupt enable
+		PCsys	: OUT STD_LOGIC_VECTOR(15 downto 0)
 			);
 	END COMPONENT;
 	
@@ -100,7 +103,9 @@ BEGIN
 			boot => boot,
 			--intr => intr,
 			int_e => int_e,
-			sys => sys
+			sys => sys,
+			PCret => pc,
+			PCsys => pc_sys
 		);
 		
 	alu0: alu

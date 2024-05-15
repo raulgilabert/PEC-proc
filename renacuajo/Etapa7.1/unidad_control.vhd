@@ -38,7 +38,8 @@ ENTITY unidad_control IS
 		  di		: OUT STD_LOGIC;
 		  reti		: OUT STD_LOGIC;
 		  inta		: OUT STD_LOGIC;
-		  sys		: OUT STD_LOGIC
+		  sys		: OUT STD_LOGIC;
+		  pc_sys : IN STD_LOGIC_VECTOR(15 downto 0)
 		  );
 END unidad_control;
 
@@ -126,6 +127,7 @@ ARCHITECTURE Structure OF unidad_control IS
 	SIGNAL op_s : INST;
 	SIGNAL in_d_s : std_logic_vector(1 downto 0);
 	SIGNAL d_sys_s : STD_LOGIC;
+	SIGNAL sys_s : STD_LOGIC;
 	
 BEGIN
 	PROCESS (clk)
@@ -136,7 +138,9 @@ BEGIN
 			elsif ldpc = '0' then
 				pc_s <= pc_s;
 			else
-				if tknbr = "10" then
+				if sys_s = '1' then
+					pc_s <= pc_sys;
+				elsif tknbr = "10" then
 					pc_s <= aluout;
 				elsif tknbr = "11" then
 					pc_s <= pc_des + 2;
@@ -196,7 +200,7 @@ BEGIN
 			addr_d => addr_d,
 			op => op,
 			d_sys => d_sys,
-			sys => sys
+			sys => sys_s
 		);
 	
 	c_l: control_l
@@ -226,5 +230,6 @@ BEGIN
 		);
 	
 		reti <= reti_s;
-
+		sys <= sys_s;
+		
 END Structure;
