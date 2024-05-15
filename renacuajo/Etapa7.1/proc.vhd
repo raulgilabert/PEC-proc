@@ -34,6 +34,7 @@ ARCHITECTURE Structure OF proc IS
 			 aluout    : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
 		    tknbr     : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
 			intr	: IN  STD_LOGIC;
+			int_e	: IN STD_LOGIC;
           op        : OUT INST;
           wrd       : OUT STD_LOGIC;
           addr_a    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -55,7 +56,8 @@ ARCHITECTURE Structure OF proc IS
 			 ei 	   : OUT STD_LOGIC;
 			 di		   : OUT STD_LOGIC;
 			 reti	   : OUT STD_LOGIC;
-			 inta	   : OUT STD_LOGIC
+			 inta	   : OUT STD_LOGIC;
+			 sys	: OUT STD_LOGIC
 		 );
 	END COMPONENT;
 	
@@ -80,7 +82,8 @@ ARCHITECTURE Structure OF proc IS
 				 di 	 : IN STD_LOGIC;
 				 reti	 : IN STD_LOGIC;
 				 boot	 : IN STD_LOGIC;
-				 intr	 : IN STD_LOGIC;
+				 --intr	 : IN STD_LOGIC;
+				 sys	: IN STD_LOGIC;
 				 addr_m   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 				 data_wr  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 				 aluout	 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -108,6 +111,8 @@ ARCHITECTURE Structure OF proc IS
 		SIGNAL ei_s : std_logic; 	 
 		SIGNAL di_s : std_logic; 	 
 		SIGNAL reti_s : std_logic;	
+		SIGNAL int_e_s : std_logic;
+		SIGNAL sys_s : STD_LOGIC;
 BEGIN
 
 		c0: unidad_control
@@ -139,7 +144,9 @@ BEGIN
 				di => di_s,
 				reti => reti_s,
 				intr => intr,
-				inta => inta
+				inta => inta,
+				int_e => int_e_s,
+				sys => sys_s
 			);
 		
 		e0: datapath
@@ -169,8 +176,11 @@ BEGIN
 				di => di_s,
 				reti => reti_s,
 				boot => boot,
-				intr => intr,
-				int_e => int_e
+				--intr => intr,
+				int_e => int_e_s,
+				sys => sys_s
 			);
+
+			int_e <= int_e_s;
 			
 END Structure;

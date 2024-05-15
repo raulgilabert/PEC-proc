@@ -34,7 +34,8 @@ entity multi is
          addr_d    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
          addr_a    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
          op        : OUT INST;
-			d_sys		 : OUT STD_LOGIC
+			d_sys		 : OUT STD_LOGIC;
+            sys    : OUT STD_LOGIC
      );
 end entity;
 
@@ -89,5 +90,6 @@ begin
     addr_d <= "001" when state = SYSTEM else addr_d_l;
     addr_a <= "101" when state = SYSTEM else addr_a_l;
     op <= WRS_I when state = SYSTEM else op_l;
+    sys <= '1' when state = SYSTEM else '0';
 
 end Structure;

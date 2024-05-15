@@ -17,7 +17,7 @@ ENTITY regfile IS
 		di		: IN  STD_LOGIC;
 		reti	: IN  STD_LOGIC;
 		boot	: IN  STD_LOGIC;
-		intr	: IN  STD_LOGIC;
+		sys		: IN  STD_LOGIC;
         a      	: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 		b		: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 		int_e	: OUT STD_LOGIC 					-- interrupt enable
@@ -31,31 +31,26 @@ ARCHITECTURE Structure OF regfile IS
 BEGIN
 	PROCESS (clk)
 	BEGIN
+		if boot = '1' then 
+			sys_regs(2) <= x"0000";
+			sys_regs(5) <= x"0000";
+			sys_regs(7) <= x"0000";
+		END if;
 		if rising_edge(clk) then
-
-			if boot = '1' then 
-				sys_regs(2) <= x"0000";
-				sys_regs(5) <= x"0000";
-				sys_regs(7) <= x"0000";
-			END if;
 
 			if (d_sys = '0' and wrd = '1') then
 				regs(to_integer(unsigned(addr_d))) <= d;
-			END if;
-
-			if (d_sys = '1' and wrd = '1') then 
+			elsif (d_sys = '1' and wrd = '1') then 
 				sys_regs(to_integer(unsigned(addr_d))) <= d;
-			END if;
-
-			if (ei = '1') then 
+			elsif (ei = '1') then 
 				sys_regs(7)(1) <= '1';
 			elsif (di = '1') then
 				sys_regs(7)(1) <= '0';
 			elsif (reti = '1') then 
 				sys_regs(7) <= sys_regs(0);
-			END if;
-
-			if intr = '1' then 
+			END if;	
+			
+			if sys = '1' then 
 				sys_regs(0) <= sys_regs(7);
 				sys_regs(2) <= x"000F";
 				sys_regs(7)(1) <= '0';

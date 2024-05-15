@@ -37,7 +37,8 @@ ENTITY unidad_control IS
 		  ei		: OUT STD_LOGIC;
 		  di		: OUT STD_LOGIC;
 		  reti		: OUT STD_LOGIC;
-		  inta		: OUT STD_LOGIC
+		  inta		: OUT STD_LOGIC;
+		  sys		: OUT STD_LOGIC
 		  );
 END unidad_control;
 
@@ -99,7 +100,8 @@ ARCHITECTURE Structure OF unidad_control IS
          addr_d    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
          addr_a    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
 		 op		   : OUT INST;
-		 d_sys		: OUT STD_LOGIC
+		 d_sys		: OUT STD_LOGIC;
+		 sys		: OUT STD_LOGIC
  	);
 	END COMPONENT;
 
@@ -193,7 +195,8 @@ BEGIN
 			addr_a => addr_a,
 			addr_d => addr_d,
 			op => op,
-			d_sys => d_sys
+			d_sys => d_sys,
+			sys => sys
 		);
 	
 	c_l: control_l
