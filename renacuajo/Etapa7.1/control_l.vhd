@@ -84,7 +84,6 @@ BEGIN
 				   RETI_I when F_RETI,
 				   RDS_I when F_RDS,
 				   WRS_I when F_WRS,
-				   GETIID_I when F_GETIID,
 				   HALT_I when others;
 
 	with ir(8) select
@@ -158,7 +157,7 @@ BEGIN
 			 jump_wd when ir(15 downto 12) = OP_JUMP else --jal
 			 '1' when ir(15 downto 12) = OP_LDB else --ldb
 			 '1' when ir(15 downto 12) = OP_IO and ir(8) = '0' else --in
-			 '1' when ir(15 downto 12) = OP_SPECIAL and special = WRS_I else --wrs
+			 '1' when ir(15 downto 12) = OP_SPECIAL and special = RDS_I else --rds
 			 '0';
 					
 	--with ir(15 downto 12) select
@@ -193,10 +192,10 @@ BEGIN
 						'0' when others;
 		
 	in_d <= "01" when ir(15 downto 12) = OP_LD else --ld
-			"01" when ir(15 downto 12) = OP_LDB else --ldb
-			"10" when ir(15 downto 12) = OP_JUMP else --jal
-			"11" when ir(15 downto 12) = OP_IO and ir(8) = '0' else --in
-			"00";
+	"01" when ir(15 downto 12) = OP_LDB else --ldb
+	"10" when ir(15 downto 12) = OP_JUMP else --jal
+	"11" when ir(15 downto 12) = OP_IO and ir(8) = '0' else --in
+	"00";
 		
 	--with ir(15 downto 12) select -- ara in_d te dos bits
 		--in_d <= "01" when "0011",   --st

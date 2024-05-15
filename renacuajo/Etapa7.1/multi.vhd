@@ -85,7 +85,7 @@ begin
             '0';
     wr_m <= wr_m_l when state = DEMW else '0';
     word_byte <= w_b when state = DEMW else '0';
-    ldpc <= ldpc_l when state = DEMW or state = SYSTEM else '0';
+    ldpc <= ldpc_l when state = DEMW else '0';
     in_d <= "10" when state = SYSTEM else in_d_l;
     addr_d <= "001" when state = SYSTEM else addr_d_l;
     addr_a <= "101" when state = SYSTEM else addr_a_l;
