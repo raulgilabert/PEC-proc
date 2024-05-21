@@ -22,7 +22,10 @@ ENTITY regfile IS
 		a      	: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 		b		: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 		int_e	: OUT STD_LOGIC; 					-- interrupt enable
-		PCsys	: OUT STD_LOGIC_VECTOR(15 downto 0)
+		PCsys	: OUT STD_LOGIC_VECTOR(15 downto 0);
+		addr_m	: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+		except	: IN  STD_LOGIC;
+		exc_cod	: IN  STD_LOGIC_VECTOR(3 DOWNTO 0)
 	);
 END regfile;
 ARCHITECTURE Structure OF regfile IS
@@ -31,7 +34,7 @@ ARCHITECTURE Structure OF regfile IS
 	SIGNAL sys_regs: t_regs;
 
 BEGIN
-	PROCESS (clk)
+	PROCESS (clk, boot)
 	BEGIN
 		if rising_edge(clk) then		
 			if (d_sys = '0' and wrd = '1') then
@@ -49,7 +52,8 @@ BEGIN
 			if sys = '1' then 
 				sys_regs(0) <= sys_regs(7);
 				sys_regs(1) <= PCret;
-				sys_regs(2) <= x"000F";
+				sys_regs(2) <= x"000" & exc_cod;
+				sys_regs(3) <= addr_m;
 				sys_regs(7)(1) <= '0';
 			END if;
 		END if;

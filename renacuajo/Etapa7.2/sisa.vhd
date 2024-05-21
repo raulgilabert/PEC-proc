@@ -38,17 +38,22 @@ ARCHITECTURE Structure OF sisa IS
 			boot 			: IN STD_LOGIC;
 			datard_m 	: IN STD_LOGIC_VECTOR(15 DOWNTO 0);
 			addr_m 		: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-			data_wr 		: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			data_wr		: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 			wr_m 			: OUT STD_LOGIC;
-			word_byte	: OUT STD_LOGIC;
+			word_byte 	: OUT STD_LOGIC;
 			addr_io	  	: out std_LOGIC_VECTOR(7 DOWNTO 0);
-			rd_io			: IN std_LOGIC_vector(15 downto 0);
-			wr_io			: out std_LOGIC_vector(15 downto 0);
+			rd_io			: in std_LOGIC_vector(15 DOWNTO 0);
+			wr_io			: out std_LOGIC_VECTOR(15 downto 0);
 			rd_in			: out std_LOGIC;
 			wr_out 		: out std_logic;
 			intr		: in std_logic;
 			inta		: out std_logic;
-			int_e		: out std_logic
+			int_e		: out std_logic;
+			except 		: in  std_logic;
+			exc_cod		: in  std_logic_vector(3 downto 0); 
+			div_zero	: OUT STD_LOGIC;
+			il_inst		: OUT STD_LOGIC;
+			call		: OUT STD_LOGIC
 		);
 	END COMPONENT;
 	
@@ -72,7 +77,8 @@ ARCHITECTURE Structure OF sisa IS
 		we_VGA		: OUT STD_LOGIC;
 		wr_data_VGA	: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 		rd_data_VGA	: IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-		vga_byte_m	: OUT std_logic
+		vga_byte_m	: OUT std_logic;
+		mem_except : OUT STD_LOGIC -- 1 quan adreça no alineada
 		);
 	END COMPONENT;
 	
@@ -195,6 +201,20 @@ ARCHITECTURE Structure OF sisa IS
 			intr        : OUT STD_LOGIC
 		);
 	END COMPONENT;
+
+	COMPONENT exception_controller IS
+		PORT (
+			clk     : IN  STD_LOGIC;
+			boot    : IN  STD_LOGIC;
+			alu_in  : IN  STD_LOGIC; -- div_zero
+			mem_in  : IN  STD_LOGIC; -- alinacio impar
+			con_in  : IN  STD_LOGIC; -- inst ilegal
+			int_in  : IN  STD_LOGIC; -- interrupcio
+			call_in : IN  STD_LOGIC; -- syscall
+			exc_cod : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+			except  : OUT STD_LOGIC
+		);
+	END COMPONENT;
 		
 	SIGNAL rd_data_s 	: std_LOGIC_VECTOR(15 downto 0);
 	SIGNAL addr_s 		: STD_LOGIC_VECTOR(15 downto 0);
@@ -249,6 +269,14 @@ ARCHITECTURE Structure OF sisa IS
 	SIGNAL ps2_inta_s : std_logic;
 	SIGNAL ps2_intr_s : std_logic;
 	
+	-- Excpetions
+	SIGNAL exc_cod_s : std_logic_vector(3 downto 0);
+	SIGNAL except_s : std_logic;
+	SIGNAL div_zero_s : std_logic;
+	SIGNAL mem_except_s : std_logic;
+	SIGNAL il_inst_s : std_logic;
+	SIGNAL call_s : std_logic;
+
 BEGIN
 
 	PROCESS (CLOCK_50)
@@ -276,7 +304,12 @@ BEGIN
 			wr_out => wr_out_s,
 			intr => intr_s,
 			inta => inta_s,
-			int_e => int_e_s
+			int_e => int_e_s,
+			exc_cod => exc_cod_s,
+			except => except_s,
+			div_zero => div_zero_s,
+			il_inst => il_inst_s,
+			call => call_s
 		);
 		
 	mem0: MemoryController
@@ -298,7 +331,8 @@ BEGIN
 			we_VGA => we_VGA_s,
 			wr_data_VGA => wr_data_VGA_s,
 			rd_data_VGA => rd_data_VGA_s,
-			vga_byte_m  => vga_byte_m_s
+			vga_byte_m  => vga_byte_m_s,
+			mem_except => mem_except_s
 		);
 		
 		io0: controladores_io
@@ -417,5 +451,18 @@ BEGIN
 				rd_switch => rd_switch_s
 			);
 		
+
+		exc: exception_controller
+			PORT map (
+				clk => clk_neg,
+				boot => SW(9),
+				alu_in => div_zero_s,
+				mem_in => mem_except_s,
+				con_in => il_inst_s,
+				int_in => intr_s,
+				call_in => call_s,
+				exc_cod => exc_cod_s,
+				except => except_s
+			);
 	
 END Structure;

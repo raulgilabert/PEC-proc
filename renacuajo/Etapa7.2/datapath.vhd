@@ -27,6 +27,8 @@ ENTITY datapath IS
 		  reti	   : IN  STD_LOGIC;
 		  rd_io	   : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);	
 		  boot	   : IN  STD_LOGIC;
+		  except    : IN  STD_LOGIC;
+		  exc_cod   : IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
           addr_m   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           data_wr  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 		  aluout   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -35,7 +37,8 @@ ENTITY datapath IS
 		  --intr		: IN STD_LOGIC;
 		  int_e		: OUT STD_LOGIC;
 		  sys		: IN STD_LOGIC;
-		  pc_sys : OUT STD_LOGIC_VECTOR(15 downto 0)
+		  pc_sys : OUT STD_LOGIC_VECTOR(15 downto 0);
+		  div_zero : OUT STD_LOGIC
 		  );
 END datapath;
 
@@ -57,11 +60,14 @@ ARCHITECTURE Structure OF datapath IS
 		reti	: IN  STD_LOGIC;
 		boot	: IN  STD_LOGIC;
 		sys		: IN  STD_LOGIC;
-		PCret		: IN  STD_LOGIC_VECTOR(15 downto 0);
+		PCret	: IN  STD_LOGIC_VECTOR(15 downto 0);
+		except  : IN  STD_LOGIC;
+		exc_cod : IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
 		a      	: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 		b		: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 		int_e	: OUT STD_LOGIC; 					-- interrupt enable
 		PCsys	: OUT STD_LOGIC_VECTOR(15 downto 0)
+
 			);
 	END COMPONENT;
 	
@@ -70,7 +76,9 @@ ARCHITECTURE Structure OF datapath IS
 				 y  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
           op        : IN INST;
 				 w  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-				 z  : OUT STD_LOGIC);
+				 z  : OUT STD_LOGIC;
+				 div_zero : OUT STD_LOGIC
+				 );
 	END COMPONENT;
 			
 	SIGNAL ra: std_logic_vector(15 downto 0);	
@@ -105,7 +113,9 @@ BEGIN
 			int_e => int_e,
 			sys => sys,
 			PCret => pc,
-			PCsys => pc_sys
+			PCsys => pc_sys,
+			except => except,
+			exc_cod => exc_cod
 		);
 		
 	alu0: alu

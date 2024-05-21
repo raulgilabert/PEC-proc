@@ -20,7 +20,9 @@ entity multi is
          addr_d_l  : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
          addr_a_l  : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
          op_l      : IN  INST;
-			d_sys_l   : IN std_LOGIc;
+		 d_sys_l   : IN  std_LOGIC;
+         except    : IN  STD_LOGIC;
+         exc_cod   : IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
          ldpc      : OUT STD_LOGIC;
          wrd       : OUT STD_LOGIC;
          wr_m      : OUT STD_LOGIC;
@@ -34,8 +36,8 @@ entity multi is
          addr_d    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
          addr_a    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
          op        : OUT INST;
-			d_sys		 : OUT STD_LOGIC;
-            sys    : OUT STD_LOGIC
+		 d_sys	   : OUT STD_LOGIC;
+         sys       : OUT STD_LOGIC
      );
 end entity;
 
@@ -59,9 +61,13 @@ begin
         if rising_edge(clk) then 
             case state IS
                 when F => 
-                    state <= DEMW;
+                    if except = '1' and exc_cod = x"1" then -- adreça no alineada
+                        state <= SYSTEM;
+                    else 
+                        state <= DEMW;
+							END if;
                 when DEMW => 
-                    if intr = '1' and int_e = '1' then 
+                    if (intr = '1' and int_e = '1') or except = '1' then 
                         state <= SYSTEM;
                     else 
                         state <= F;

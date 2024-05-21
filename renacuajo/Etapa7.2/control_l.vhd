@@ -28,7 +28,9 @@ ENTITY control_l IS
 		  di		 : OUT STD_LOGIC;
 		  reti	 	 : OUT STD_LOGIC;
 		  geti		 : OUT STD_LOGIC;
-		  inta		 : OUT STD_LOGIC
+		  inta		 : OUT STD_LOGIC;
+		  call		 : OUT STD_LOGIC;
+		  il_inst	 : OUT STD_LOGIC
 		 );
 END control_l; 
 
@@ -42,6 +44,7 @@ ARCHITECTURE Structure OF control_l IS
 	SIGNAL IO: INST;
 	SIGNAL jump_wd: std_logic;
 	SIGNAL special: INST;
+	SIGNAL op_s: INST;
 BEGIN
 
 	with ir(5 downto 3) select
@@ -53,7 +56,7 @@ BEGIN
 					SUB_I WHEN F_SUB, -- SUB
 					SHA_I WHEN F_SHA, -- SHA
 					SHL_I WHEN F_SHL,
-					NOP_I WHEN others;-- SHL
+					ILLEGAL_I WHEN others;-- SHL
 						
 	with ir(5 downto 3) select
 		cmp <= CMPLT_I when F_CMPLT, -- CMPLT
@@ -61,7 +64,7 @@ BEGIN
 			   CMPEQ_I WHEN F_CMPEQ, -- CMPEQ
 			   CMPLTU_I WHEN F_CMPLTU, -- CMPLTU
 			   CMPLEU_I WHEN F_CMPLEU,-- CMPLEU
-			   NOP_I WHEN others;
+			   ILLEGAL_I WHEN others;
 
 	with ir(5 downto 3) select
 		mul_div <= MUL_I when F_MUL, -- MUL
@@ -69,14 +72,15 @@ BEGIN
 				   MULHU_I WHEN F_MULHU, -- MULHU
 				   DIV_I WHEN F_DIV, -- DIV
 				   DIVU_I WHEN F_DIVU,-- DIVU
-				   NOP_I WHEN others;
+				   ILLEGAL_I WHEN others;
 				 
 	with ir(2 downto 0) select
 		jump <= JZ_I when F_JZ, -- JZ
 				JNZ_I when F_JNZ, -- JNZ
 				JMP_I when F_JMP, -- JMP
 				JAL_I when F_JAL,
-				NOP_I when others;-- JAL
+				CALL_I when F_CALL,
+				ILLEGAL_I when others;-- JAL
 
 	with ir(5 downto 0) select 
 		special <= EI_I when F_EI,
@@ -85,7 +89,8 @@ BEGIN
 				   RDS_I when F_RDS,
 				   WRS_I when F_WRS,
 				   GETIID_I when F_GETIID,
-				   HALT_I when others;
+				   HALT_I when F_HALT,
+				   ILLEGAL_I when others;
 
 	with ir(8) select
 		move <= MOVI_I when '0', -- MOVI
@@ -101,7 +106,7 @@ BEGIN
 				  
 				  
 	with ir(15 DOWNTO 12) select
-		op <= arit_log when OP_ARIT, --ARIT_LOGIC
+		op_s <= arit_log when OP_ARIT, --ARIT_LOGIC
 			  cmp when OP_CMP, --CMP
 			  ADDI_I when OP_ADDI, -- ADDI
 			  LD_I when OP_LD, --LD
@@ -113,7 +118,12 @@ BEGIN
 		      LDB_I when OP_LDB, --LDB
 			  STB_I when OP_STB, -- STB
 			  special when OP_SPECIAL, -- HALT
-			  NOP_I when others;
+			  ILLEGAL_I when others;
+			  
+	op <= op_s;
+
+	il_inst <= '1' when op_s = ILLEGAL_I else '0';
+	call <= '1' when op_s = CALL_I else '0';
 
 	with ir(15 downto 12) select
 		Rb_N <= '1' when OP_ADDI, --ADDI
@@ -131,7 +141,9 @@ BEGIN
 	addr_d <= ir(11 downto 9);
 
 	ei <= '1' when ir(15 downto 12) = OP_SPECIAL and special = EI_I else '0';
-	di <= '1' when ir(15 downto 12) = OP_SPECIAL and special = DI_I else '0';
+	di <= '1' when ir(15 downto 12) = OP_SPECIAL and special = DI_I else
+			'1' when ir(15 downto 12) = OP_SPECIAL and special = HALT_I else
+			'0';
 	reti <= '1' when ir(15 downto 12) = OP_SPECIAL and special = RETI_I else '0';
 
 	with ir(15 downto 12) select
@@ -219,5 +231,5 @@ BEGIN
 	
 	d_sys <= '1' when ir(15 downto 12) = OP_SPECIAL and special = WRS_I else 
 			 '0';
--- si salta un halt desactiva interrupcions
+	
 END Structure;

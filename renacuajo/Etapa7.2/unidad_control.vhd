@@ -16,6 +16,8 @@ ENTITY unidad_control IS
 		  aluout	: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 		  intr		: IN  STD_LOGIC;
 		  int_e		: IN  STD_LOGIC;
+		  except		: IN STD_LOGIC;
+		  exc_cod	: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
           op        : OUT INST;
           wrd       : OUT STD_LOGIC;
           addr_a    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -39,35 +41,41 @@ ENTITY unidad_control IS
 		  reti		: OUT STD_LOGIC;
 		  inta		: OUT STD_LOGIC;
 		  sys		: OUT STD_LOGIC;
-		  pc_sys : IN STD_LOGIC_VECTOR(15 downto 0)
+		  pc_sys : IN STD_LOGIC_VECTOR(15 downto 0);
+		  call	 : OUT STD_LOGIC;
+		  il_inst : OUT STD_LOGIC
+		  
 		  );
 END unidad_control;
 
 ARCHITECTURE Structure OF unidad_control IS
 
 	COMPONENT control_l IS
-		 PORT ( ir        : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-          op        : OUT INST;
-				ldpc      : OUT STD_LOGIC;
-				wrd       : OUT STD_LOGIC;
-				addr_a    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-				addr_b    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-				addr_d    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-				immed     : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-				wr_m      : OUT STD_LOGIC;
-				in_d      : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
-				immed_x2  : OUT STD_LOGIC;
-				word_byte : OUT STD_LOGIC;
-				Rb_N	  : OUT STD_LOGIC;
-				rd_in   : OUT STD_LOGIC;
-				wr_out  : OUT STD_LOGIC;
-				addr_io : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-				a_sys	: OUT STD_LOGIC;
-				d_sys	: OUT STD_LOGIC;
-				ei 		: OUT STD_LOGIC;
-				di		: OUT STD_LOGIC;
-				reti	: OUT STD_LOGIC;
-				inta  : OUT STD_LOGIC
+		 PORT ( ir         : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+				op         : OUT INST;
+				ldpc       : OUT STD_LOGIC;
+				wrd        : OUT STD_LOGIC;
+				addr_a     : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+				addr_b     : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+				addr_d     : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+				immed      : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+				wr_m       : OUT STD_LOGIC;
+				in_d       : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+				immed_x2   : OUT STD_LOGIC;
+				word_byte  : OUT STD_LOGIC;
+				Rb_N       : OUT STD_LOGIC;
+				addr_io	 : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+				wr_out	 : OUT STD_LOGIC;
+				rd_in		 : OUT STD_LOGIC;
+				a_sys		 : OUT STD_LOGIC;
+				d_sys 	 : OUT STD_LOGIC;
+				ei 		 : OUT STD_LOGIC;
+				di		 : OUT STD_LOGIC;
+				reti	 	 : OUT STD_LOGIC;
+				geti		 : OUT STD_LOGIC;
+				inta		 : OUT STD_LOGIC;
+				call		 : OUT STD_LOGIC;
+				il_inst	 : OUT STD_LOGIC
 		);
 	END COMPONENT;
 
@@ -88,6 +96,8 @@ ARCHITECTURE Structure OF unidad_control IS
          addr_a_l  : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
 		 op_l	   : IN  INST;
 		 d_sys_l : IN STD_LOGIC;
+		 except    : IN  STD_LOGIC;
+         exc_cod   : IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
          ldpc      : OUT STD_LOGIC;
          wrd       : OUT STD_LOGIC;
          wr_m      : OUT STD_LOGIC;
@@ -200,7 +210,9 @@ BEGIN
 			addr_d => addr_d,
 			op => op,
 			d_sys => d_sys,
-			sys => sys_s
+			sys => sys_s,
+			except => except,
+			exc_cod => exc_cod
 		);
 	
 	c_l: control_l
@@ -226,7 +238,9 @@ BEGIN
 			ei => ei_s,
 			di => di_s, 
 			reti => reti_s,
-			inta => inta_s
+			inta => inta_s,
+			call => call,
+			il_inst => il_inst
 		);
 	
 		reti <= reti_s;

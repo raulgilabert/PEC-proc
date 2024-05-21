@@ -26,8 +26,10 @@ entity MemoryController is
         we_VGA		: OUT STD_LOGIC;
         wr_data_VGA	: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
         rd_data_VGA	: IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-        vga_byte_m : out std_logic
+        vga_byte_m : out std_logic;
 	
+        -- Exceptions
+        mem_except : OUT STD_LOGIC -- 1 quan adreça no alineada
           );
 end MemoryController;
 
@@ -87,5 +89,9 @@ begin
   vga_byte_m <= byte_m;
 
   --SRAM_DQ <= data;
+
+  -- Exceptions
+
+  mem_except <= '1' when byte_m = '0' and addr(0) = '1' else '0';
 	
 end comportament;

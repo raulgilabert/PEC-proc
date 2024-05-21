@@ -20,7 +20,12 @@ ENTITY proc IS
 			wr_out 		: out std_logic;
 			intr		: in std_logic;
 			inta		: out std_logic;
-			int_e		: out std_logic
+			int_e		: out std_logic;
+			except 		: in  std_logic;
+			exc_cod		: in  std_logic_vector(3 downto 0); 
+			div_zero	: OUT STD_LOGIC;
+			il_inst		: OUT STD_LOGIC;
+			call		: OUT STD_LOGIC
 	);
 END proc;
 
@@ -29,36 +34,40 @@ ARCHITECTURE Structure OF proc IS
 
 	COMPONENT unidad_control IS
 	    PORT (boot      : IN  STD_LOGIC;
-          clk       : IN  STD_LOGIC;
-          datard_m  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-			 aluout    : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-		    tknbr     : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
-			intr	: IN  STD_LOGIC;
-			int_e	: IN STD_LOGIC;
-          op        : OUT INST;
-          wrd       : OUT STD_LOGIC;
-          addr_a    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-          addr_b    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-          addr_d    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-          immed     : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-          pc        : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-          ins_dad   : OUT STD_LOGIC;
-          in_d      : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
-          immed_x2  : OUT STD_LOGIC;
-          wr_m      : OUT STD_LOGIC;
-          word_byte : OUT STD_LOGIC;
-			 Rb_N		  : OUT STD_LOGIC;
-			 rd_in	  : OUT STD_LOGIC;
-			 wr_out	  : OUT STD_LOGIC;
-			 addr_io   : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-			 d_sys	   : OUT STD_LOGIC;
-			 a_sys	   : OUT STD_LOGIC;
-			 ei 	   : OUT STD_LOGIC;
-			 di		: OUT STD_LOGIC;
-			 reti	   : OUT STD_LOGIC;
-			 inta	   : OUT STD_LOGIC;
-			 sys   	: OUT STD_LOGIC;
-			 pc_sys  : IN STD_LOGIC_VECTOR(15 downto 0)
+			clk       : IN  STD_LOGIC;
+			datard_m  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+			tknbr		: IN  STD_LOGIC_VECTOR(1 DOWNTO 0);
+			aluout	: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+			intr		: IN  STD_LOGIC;
+			int_e		: IN  STD_LOGIC;
+			except		: IN STD_LOGIC;
+			exc_cod	: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+			op        : OUT INST;
+			wrd       : OUT STD_LOGIC;
+			addr_a    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+			addr_b    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+			addr_d    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+			immed     : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			pc        : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			ins_dad   : OUT STD_LOGIC;
+			in_d      : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+			immed_x2  : OUT STD_LOGIC;
+			wr_m      : OUT STD_LOGIC;
+			word_byte : OUT STD_LOGIC;
+			Rb_N 	    : OUT STD_LOGIC;
+			rd_in	    : OUT STD_LOGIC;
+			wr_out	: OUT STD_LOGIC;
+			addr_io   : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+			a_sys		: OUT STD_LOGIC;
+			d_sys		: OUT STD_LOGIC;
+			ei		: OUT STD_LOGIC;
+			di		: OUT STD_LOGIC;
+			reti		: OUT STD_LOGIC;
+			inta		: OUT STD_LOGIC;
+			sys		: OUT STD_LOGIC;
+			pc_sys : IN STD_LOGIC_VECTOR(15 downto 0);
+			call	 : OUT STD_LOGIC;
+			il_inst : OUT STD_LOGIC
 		 );
 	END COMPONENT;
 	
@@ -91,7 +100,10 @@ ARCHITECTURE Structure OF proc IS
 				 tknbr    : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
 				 wr_io    : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 				 int_e	 : OUT STD_LOGIC;
-				 pc_sys   : OUT STD_LOGIC_VECTOR(15 downto 0)
+				 pc_sys   : OUT STD_LOGIC_VECTOR(15 downto 0);
+				 except	: IN  STD_LOGIC;
+				 exc_cod	: IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
+				 div_zero	: OUT STD_LOGIC
 		 );	
 	END COMPONENT;
 
@@ -150,7 +162,11 @@ BEGIN
 				inta => inta,
 				int_e => int_e_s,
 				sys => sys_s,
-				pc_sys => pc_sys
+				pc_sys => pc_sys,
+				exc_cod => exc_cod,
+				except => except,
+				call => call,
+				il_inst => il_inst
 			);
 		
 		e0: datapath
@@ -183,7 +199,10 @@ BEGIN
 				--intr => intr,
 				int_e => int_e_s,
 				sys => sys_s,
-				pc_sys => pc_sys
+				pc_sys => pc_sys,
+				exc_cod => exc_cod,
+				except => except,
+				div_zero => div_zero
 			);
 
 			int_e <= int_e_s;

@@ -11,9 +11,9 @@ ENTITY alu IS
           y  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
           op        : IN INST;
           w  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-			 z  : OUT STD_LOGIC
-			 div_zero : OUT STD_LOGIC
-			 );
+		  z  : OUT STD_LOGIC;
+		  div_zero : OUT STD_LOGIC
+	    );
 END alu;
 
 
@@ -81,6 +81,8 @@ BEGIN
          "XXXXXXXXXXXXXXXX";
 
 	z <= '1' when y = x"0000" else '0';
+
+    div_zero <= '1' when y = x"0000" and (op = DIV_I or op = DIVU_I) else '0';
 
     addsub_inst : addsub PORT MAP (x, y, op, addsub_res);
     cmp_inst : cmp PORT MAP (x, y, op, cmp_res);
