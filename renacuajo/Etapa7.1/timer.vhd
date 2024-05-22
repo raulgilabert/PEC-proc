@@ -31,7 +31,7 @@ BEGIN
 
             counter <= counter + 1;
 
-            if counter = 2500000 then
+            if counter = 312500 then
                 intr_s <= '1';
                 counter <= "0000000000000000000000";
             END if;

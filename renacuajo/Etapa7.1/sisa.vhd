@@ -13,7 +13,7 @@ ENTITY sisa IS
           SRAM_OE_N : out   std_logic := '1';
           SRAM_WE_N : out   std_logic := '1';
 			 LEDG		  : OUT	 std_LOGIC_VECTOR(7 DOWNTO 0);
-			 LEDR		  : OUT	 std_LOGIC_VECTOR(7 DOWNTO 0);
+			 LEDR		  : OUT	 std_LOGIC_VECTOR(9 DOWNTO 0);
 			 HEX0 	  : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 			 HEX1 	  : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 			 HEX2		  : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
@@ -97,7 +97,8 @@ ARCHITECTURE Structure OF sisa IS
 			IID			: IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 			rd_switch	: IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 			read_key	: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-			int_e		: IN STD_LOGIC
+			int_e		: IN STD_LOGIC;
+			inta        : IN STD_LOGIC
 		);
 	END COMPONENT;
 	
@@ -311,7 +312,7 @@ BEGIN
 				wr_out => wr_out_s,
 				rd_in => rd_in_s,
 				led_verdes => LEDG,
-				led_rojos => LEDR, 
+				led_rojos => LEDR(7 downto 0), 
 				hex => hex_s,
 				n_hex => n_hex_s,
 				read_char => ps2_char_s,
@@ -322,7 +323,8 @@ BEGIN
 				iid => iid_s,
 				rd_switch => rd_switch_s,
 				read_key => read_key_s,
-				int_e => int_e_s
+				int_e => int_e_s,
+				inta => inta_s
 			);
 			
 		disp: driver7display
@@ -402,7 +404,7 @@ BEGIN
 		tim: timer
 			PORT map (
 				boot => SW(9),
-				clk => CLOCK_50,
+				clk => clk_neg,
 				inta => timer_inta_s,
 				intr => timer_intr_s
 			);
@@ -417,5 +419,6 @@ BEGIN
 				rd_switch => rd_switch_s
 			);
 		
+			ledR(9) <= timer_inta_s;
 	
 END Structure;

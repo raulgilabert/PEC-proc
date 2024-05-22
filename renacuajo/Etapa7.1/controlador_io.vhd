@@ -32,8 +32,8 @@ ENTITY controladores_io IS
 		iid			: IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 		rd_switch	: IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 		read_key	: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-		int_e		: IN STD_LOGIC
-		
+		int_e		: IN STD_LOGIC;
+		inta		: IN STD_LOGIC
 	);
 END controladores_io;
 
@@ -69,8 +69,10 @@ BEGIN
 		END if;
 	END PROCESS;
 	
-	rd_io <= io_mem(to_integer(unsigned(addr_io))) when rd_in = '1' else "XXXXXXXXXXXXXXXX"; --xxxx per is algu ha llegit quan no es pot
+	--rd_io <= io_mem(to_integer(unsigned(addr_io))) when rd_in = '1' else "XXXXXXXX" & iid;
 	
+	rd_io <= x"00"&iid when inta = '1' else io_mem(to_integer(unsigned(addr_io))) when rd_in = '1' else "XXXXXXXXXXXXXXXX";
+
 	led_verdes <= io_mem(5)(7 downto 0);
 	led_rojos <= io_mem(6)(7 downto 0);
 	n_hex <= io_mem(9)(3 downto 0);
