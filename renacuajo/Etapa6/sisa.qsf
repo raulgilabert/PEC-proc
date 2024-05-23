@@ -496,6 +496,8 @@ set_location_assignment PIN_Y7 -to SRAM_LB_N
 set_location_assignment PIN_T8 -to SRAM_OE_N
 set_location_assignment PIN_W7 -to SRAM_UB_N
 set_location_assignment PIN_AA10 -to SRAM_WE_N
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+set_global_assignment -name VHDL_FILE timer.vhd
 set_global_assignment -name VHDL_FILE IO_controllers/vga_sync.vhd
 set_global_assignment -name VHDL_FILE IO_controllers/vga_ram_dual.vhd
 set_global_assignment -name VHDL_FILE IO_controllers/vga_font_rom.vhd

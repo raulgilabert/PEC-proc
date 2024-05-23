@@ -1,6 +1,7 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
 USE ieee.numeric_std.all;
+use ieee.std_logic_unsigned.all;
 
 LIBRARY work;
 USE work.renacuajo_pkg.all;
@@ -26,24 +27,40 @@ ENTITY controladores_io IS
 		-----------------------------------------------
 		SW 		  	: IN STD_LOGIC_VECTOR(9 DOWNTO 0);
 		KEY		  	: IN STD_LOGIC_VECTOR(3 DOWNTO 0)
-	-----------------------------------------------
+
 	);
 END controladores_io;
 
 ARCHITECTURE Structure of controladores_io is
 
-	TYPE t_io is array(0 to 255) of std_logic_vector(15 downto 0);
+	TYPE t_io is array(0 to 31) of std_logic_vector(15 downto 0);
 	SIGNAL io_mem: t_io;
+	signal contador_ciclos : STD_LOGIC_VECTOR(15 downto 0):=x"0000";
+	signal contador_milisegundos : STD_LOGIC_VECTOR(15 downto 0):=x"0000";
 BEGIN
 
 	PROCESS (CLOCK_50)
 	BEGIN
 		if rising_edge(CLOCK_50) then
+			io_mem(21) <= x"0000";
+
 			clear_char <= '0';
+			
+			if contador_ciclos=0 then
+				contador_ciclos<=x"C350"; -- tiempo de ciclo=20ns(50Mhz) 1ms=50000ciclos
+				if contador_milisegundos>0 then
+					contador_milisegundos <= contador_milisegundos-1;
+				end if;
+			else
+				contador_ciclos <= contador_ciclos-1;
+			end if;
+			
 			if (wr_out = '1') then
 				if (addr_io = x"10") then
 					clear_char <= '1';
 					io_mem(to_integer(unsigned(addr_io))) <= x"0000";
+				elsif addr_io = x"15" then 
+					contador_milisegundos <= wr_io;
 				else
 					io_mem(to_integer(unsigned(addr_io))) <= wr_io;
 				end if;
@@ -52,6 +69,8 @@ BEGIN
 				io_mem(8)(7 downto 0) <= SW(7 downto 0);
 				io_mem(15)(7 downto 0) <= read_char;
 				io_mem(16)(0) <= data_ready;
+				io_mem(20) <= contador_ciclos;
+				io_mem(21) <= contador_milisegundos;
 			END if;
 		END if;
 	END PROCESS;

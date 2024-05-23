@@ -67,3 +67,13 @@ incremental_db/
 db/
 _output_files/
 PLLJ_PLLSPE_INFO.txt
+*/work/
+
+
+# ModelSim
+
+*.dat
+*.dbs
+*.prw
+*.psm
+

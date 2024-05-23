@@ -8,7 +8,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.NUMERIC_STD.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 
@@ -45,17 +45,17 @@ begin
             if (we1 = '1') then
                 if (byte_m = '1') then
                     if (addr1(0) = '0') then
-                        mem0(conv_integer(addr_write)) <= d1(7 downto 0);  -- escrivim nomes 1 byte (8 bits)
+                        mem0(to_integer(addr_write)) <= d1(7 downto 0);  -- escrivim nomes 1 byte (8 bits)
                     else
-                        mem1(conv_integer(addr_write)) <= d1(7 downto 0);  -- escrivim nomes 1 byte (8 bits)
+                        mem1(to_integer(addr_write)) <= d1(7 downto 0);  -- escrivim nomes 1 byte (8 bits)
                     end if;
                 else
-                    mem0(conv_integer(addr_write)) <= d1(7 downto 0);   -- escrivim nomes 1 byte (8 bits)
-                    mem1(conv_integer(addr_write)) <= d1(15 downto 8);  -- escrivim nomes 1 byte (8 bits)
+                    mem0(to_integer(addr_write)) <= d1(7 downto 0);   -- escrivim nomes 1 byte (8 bits)
+                    mem1(to_integer(addr_write)) <= d1(15 downto 8);  -- escrivim nomes 1 byte (8 bits)
                 end if;
             end if;
-            o2(7 downto 0) <= mem0(conv_integer(addr2)) ;
-            o2(15 downto 8) <= mem1(conv_integer(addr2)) ;
+            o2(7 downto 0) <= mem0(to_integer(addr2)) ;
+            o2(15 downto 8) <= mem1(to_integer(addr2)) ;
         end if;
     end process rwrite_port ;
 

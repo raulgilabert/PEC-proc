@@ -57,7 +57,7 @@ ARCHITECTURE Structure OF sisa IS
           rd_data   	: out std_logic_vector(15 downto 0);
           we        	: in  std_logic;
           byte_m    	: in  std_logic;
-          -- seÃƒÂ¯Ã‚Â¿Ã‚Â½ales para la placa de desarrollo
+          -- seÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ales para la placa de desarrollo
           SRAM_ADDR 	: out   std_logic_vector(17 downto 0);
           SRAM_DQ   	: inout std_logic_vector(15 downto 0);
           SRAM_UB_N 	: out   std_logic;
@@ -139,6 +139,8 @@ ARCHITECTURE Structure OF sisa IS
          vga_cursor_enable : in std_logic
 		);	
 	END COMPONENT;
+
+
 	
 	SIGNAL rd_data_s 	: std_LOGIC_VECTOR(15 downto 0);
 	SIGNAL addr_s 		: STD_LOGIC_VECTOR(15 downto 0);
@@ -281,5 +283,6 @@ BEGIN
 	VGA_R <= red(3 downto 0);
 	VGA_G <= green(3 downto 0);
 	VGA_B <= blue(3 DOWNTO 0);
-	
+
+
 END Structure;

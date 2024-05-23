@@ -45,7 +45,13 @@ architecture comportament of test_sisa is
 			 SW 		  : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
 			 KEY		  : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 			 PS2_CLK	  : INOUT std_logic;
-			 PS2_DAT	  : INOUT std_logic);
+			 PS2_DAT	  : INOUT std_logic;
+			 VGA_R     : out std_logic_vector(3 downto 0); -- vga red pixel value
+			 VGA_G     : out std_logic_vector(3 downto 0); -- vga green pixel value
+             VGA_B     : out std_logic_vector(3 downto 0); -- vga blue pixel value
+			 VGA_HS 	  : out std_logic; -- vga control signal
+             VGA_VS    : out std_logic -- vga control signal
+			 );
    end component;
 
    
@@ -77,7 +83,7 @@ begin
          CLOCK_50   => clk,
          SW        => botones,
 		 KEY		=> keys,
-
+		
          SRAM_ADDR  => addr_SoC,
          SRAM_DQ    => data_mem,
 			SRAM_UB_N 	=> ub_m,
