@@ -29,7 +29,9 @@ entity MemoryController is
         vga_byte_m : out std_logic;
 	
         -- Exceptions
-        mem_except : OUT STD_LOGIC -- 1 quan adreça no alineada
+        mem_except : OUT STD_LOGIC; -- 1 quan adreça no alineada
+        mode : IN mode_t;-- USER o SYSTEM 
+        mem_prot : OUT STD_LOGIC
           );
 end MemoryController;
 
@@ -90,8 +92,9 @@ begin
 
   --SRAM_DQ <= data;
 
-  -- Exceptions
+  -- Exceptions --
 
   mem_except <= '1' when byte_m = '0' and addr(0) = '1' else '0';
-	
+  mem_prot <= '1' when mode = USER and ((addr >= x"8000" and addr < x"A000") or (addr > x"B2BE" and addr < x"FFFF")) else '0';
+	                                                            --     ^ de moment permetem ^ que VGA es pugui per aixo no esta inclosa
 end comportament;

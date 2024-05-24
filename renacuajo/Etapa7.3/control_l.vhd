@@ -45,6 +45,8 @@ ARCHITECTURE Structure OF control_l IS
 	SIGNAL jump_wd: std_logic;
 	SIGNAL special: INST;
 	SIGNAL op_s: INST;
+
+
 BEGIN
 
 	with ir(5 downto 3) select
@@ -138,7 +140,10 @@ BEGIN
 			  "001" when ir(15 downto 12) = OP_SPECIAL and special = RETI_I else --hardcodegem que baixi el registre s1
 			  ir(8 downto 6);
 
-	addr_d <= ir(11 downto 9);
+	addr_d <= "011" when ir(15 downto 12) = OP_JUMP and jump = CALL_I else
+			  ir(11 downto 9);
+
+	
 
 	ei <= '1' when ir(15 downto 12) = OP_SPECIAL and special = EI_I else '0';
 	di <= '1' when ir(15 downto 12) = OP_SPECIAL and special = DI_I else
@@ -209,12 +214,6 @@ BEGIN
 			"10" when ir(15 downto 12) = OP_JUMP else --jal
 			"11" when ir(15 downto 12) = OP_IO and ir(8) = '0' else --in
 			"00";
-		
-	--with ir(15 downto 12) select -- ara in_d te dos bits
-		--in_d <= "01" when "0011",   --st
-			--	  "01" when "1101", --stb
-				--  "10" when "1010", --jal
-				  --"00" when others;
 	
 	wr_out <= '1' when ir(15 downto 12) = OP_IO and ir(8) = '1'  else --OUT
 				 '0';
@@ -230,6 +229,7 @@ BEGIN
 			 '0';
 	
 	d_sys <= '1' when ir(15 downto 12) = OP_SPECIAL and special = WRS_I else 
+			 '1' when ir(15 downto 12) = OP_JUMP and jump = CALL_I else
 			 '0';
 	
 END Structure;

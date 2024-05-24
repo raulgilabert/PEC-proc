@@ -7,15 +7,17 @@ USE work.renacuajo_pkg.all;
 
 ENTITY exception_controller IS
     PORT (
-        clk     : IN  STD_LOGIC;
-        boot    : IN  STD_LOGIC;
-        alu_in  : IN  STD_LOGIC; -- div_zero
-        mem_in  : IN  STD_LOGIC; -- alinacio impar
-        con_in  : IN  STD_LOGIC; -- inst ilegal
-        int_in  : IN  STD_LOGIC; -- interrupcio
-        call_in : IN  STD_LOGIC; -- syscall
-        exc_cod : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-        except  : OUT STD_LOGIC
+        clk         : IN  STD_LOGIC;
+        boot        : IN  STD_LOGIC;
+        alu_in      : IN  STD_LOGIC; -- div_zero
+        mem_in      : IN  STD_LOGIC; -- alinacio impar
+        con_in      : IN  STD_LOGIC; -- inst ilegal
+        int_in      : IN  STD_LOGIC; -- interrupcio
+        call_in     : IN  STD_LOGIC; -- syscall
+        inst_prot   : IN  STD_LOGIC; -- instruccio protegida
+        mem_prot    : IN  STD_LOGIC; -- memoria protegida
+        exc_cod     : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+        except      : OUT STD_LOGIC
     );
 END ENTITY;
 
@@ -37,11 +39,15 @@ BEGIN
                 exc_cod <= x"F";
             elsif call_in = '1' then 
                 exc_cod <= x"E";
+            elsif inst_prot = '1' then
+                exc_cod <= x"D";
+            elsif mem_prot = '1' then
+                exc_cod <= x"B";
             END if;
         END if;
     END PROCESS;
 
-    except <= alu_in or mem_in or con_in or int_in or call_in when boot = '0' else '0';
+    except <= alu_in or mem_in or con_in or int_in or call_in or inst_prot or mem_prot when boot = '0' else '0';
 
 
 END Structure;

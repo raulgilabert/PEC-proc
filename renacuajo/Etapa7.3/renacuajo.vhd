@@ -19,6 +19,8 @@ package renacuajo_pkg is
         EI_I, DI_I, RETI_I, GETIID_I, RDS_I, WRS_I, HALT_I,        -- Special instruction
         NOP_I, ILLEGAL_I
     );
+	 
+	 type mode_t is (USER, SYSTEM);
 
 -- OP CODES--
     constant OP_ARIT    : STD_LOGIC_VECTOR(3 DOWNTO 0) := "0000";

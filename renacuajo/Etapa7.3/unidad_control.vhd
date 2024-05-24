@@ -43,8 +43,9 @@ ENTITY unidad_control IS
 		  sys		: OUT STD_LOGIC;
 		  pc_sys : IN STD_LOGIC_VECTOR(15 downto 0);
 		  call	 : OUT STD_LOGIC;
-		  il_inst : OUT STD_LOGIC
-		  
+		  il_inst : OUT STD_LOGIC;
+		  inst_prot : OUT STD_LOGIC;
+		  mode	: OUT mode_t
 		  );
 END unidad_control;
 
@@ -138,8 +139,28 @@ ARCHITECTURE Structure OF unidad_control IS
 	SIGNAL in_d_s : std_logic_vector(1 downto 0);
 	SIGNAL d_sys_s : STD_LOGIC;
 	SIGNAL sys_s : STD_LOGIC;
+
+
+	SIGNAL mode_s: mode_t;
 	
 BEGIN
+	mode <= mode_s;
+
+	PROCESS (clk, boot)
+	BEGIN
+		if boot = '1' then 
+			mode_s <= USER;
+		END if;
+
+		if op_s = CALL_I then
+			mode_s <= SYSTEM;
+		elsif op_s = RETI_I then 
+			mode_s <= USER;
+		END if;
+	END PROCESS;
+
+	inst_prot <= '1' when mode_s = USER and (op_s = RDS_I or op_s = WRS_I or op_s = EI_I or op_s = DI_I or op_s = RETI_I or op_s = GETIID_I) else '0';
+
 	PROCESS (clk)
 	BEGIN
 		if rising_edge(clk) then
@@ -208,7 +229,7 @@ BEGIN
 			in_d => in_d,
 			addr_a => addr_a,
 			addr_d => addr_d,
-			op => op,
+			op => op_s,
 			d_sys => d_sys,
 			sys => sys_s,
 			except => except,

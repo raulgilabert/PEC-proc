@@ -78,7 +78,8 @@ ARCHITECTURE Structure OF sisa IS
 		wr_data_VGA	: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 		rd_data_VGA	: IN STD_LOGIC_VECTOR(15 DOWNTO 0);
 		vga_byte_m	: OUT std_logic;
-		mem_except : OUT STD_LOGIC -- 1 quan adreça no alineada
+		mem_except : OUT STD_LOGIC; -- 1 quan adreça no alineada
+		mem_prot : OUT STD_LOGIC
 		);
 	END COMPONENT;
 	
@@ -204,15 +205,17 @@ ARCHITECTURE Structure OF sisa IS
 
 	COMPONENT exception_controller IS
 		PORT (
-			clk     : IN  STD_LOGIC;
-			boot    : IN  STD_LOGIC;
-			alu_in  : IN  STD_LOGIC; -- div_zero
-			mem_in  : IN  STD_LOGIC; -- alinacio impar
-			con_in  : IN  STD_LOGIC; -- inst ilegal
-			int_in  : IN  STD_LOGIC; -- interrupcio
-			call_in : IN  STD_LOGIC; -- syscall
-			exc_cod : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-			except  : OUT STD_LOGIC
+			clk         : IN  STD_LOGIC;
+			boot        : IN  STD_LOGIC;
+			alu_in      : IN  STD_LOGIC; -- div_zero
+			mem_in      : IN  STD_LOGIC; -- alinacio impar
+			con_in      : IN  STD_LOGIC; -- inst ilegal
+			int_in      : IN  STD_LOGIC; -- interrupcio
+			call_in     : IN  STD_LOGIC; -- syscall
+			inst_prot   : IN  STD_LOGIC; -- instruccio protegida
+			mem_prot    : IN  STD_LOGIC; -- memoria protegida
+			exc_cod     : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+			except      : OUT STD_LOGIC
 		);
 	END COMPONENT;
 		
@@ -276,6 +279,8 @@ ARCHITECTURE Structure OF sisa IS
 	SIGNAL mem_except_s : std_logic;
 	SIGNAL il_inst_s : std_logic;
 	SIGNAL call_s : std_logic;
+	SIGNAL mem_prot_s : std_logic;
+	SIGNAL inst_prot_s : std_logic;
 
 BEGIN
 
@@ -332,7 +337,8 @@ BEGIN
 			wr_data_VGA => wr_data_VGA_s,
 			rd_data_VGA => rd_data_VGA_s,
 			vga_byte_m  => vga_byte_m_s,
-			mem_except => mem_except_s
+			mem_except => mem_except_s,
+			mem_prot => mem_prot_s
 		);
 		
 		io0: controladores_io
@@ -462,7 +468,9 @@ BEGIN
 				int_in => intr_s,
 				call_in => call_s,
 				exc_cod => exc_cod_s,
-				except => except_s
+				except => except_s, 
+				inst_prot => inst_prot_s,
+				mem_prot => mem_prot_s
 			);
 	
 END Structure;

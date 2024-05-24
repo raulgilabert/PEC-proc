@@ -53,7 +53,9 @@ BEGIN
 				sys_regs(0) <= sys_regs(7);
 				sys_regs(1) <= PCret;
 				sys_regs(2) <= x"000" & exc_cod;
-				sys_regs(3) <= addr_m;
+				if exc_cod = x"1" then   -- hem de ficar el if sino en un call es sobreescriuria
+					sys_regs(3) <= addr_m;
+				END if;
 				sys_regs(7)(1) <= '0';
 			END if;
 		END if;
