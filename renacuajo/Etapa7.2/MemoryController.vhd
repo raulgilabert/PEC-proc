@@ -27,7 +27,8 @@ entity MemoryController is
         wr_data_VGA	: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
         rd_data_VGA	: IN STD_LOGIC_VECTOR(15 DOWNTO 0);
         vga_byte_m : out std_logic;
-        mem_except: OUT STD_LOGIC
+        mem_except: OUT STD_LOGIC;
+        mem_op      : IN STD_LOGIC
 	
           );
 end MemoryController;
@@ -87,7 +88,7 @@ begin
   wr_data_VGA <= wr_data;
   vga_byte_m <= byte_m;
 
-  mem_except <= '1' when byte_m = '0' and addr(0) = '1' else '0';
+  mem_except <= '1' when byte_m = '0' and addr(0) = '1' and mem_op = '1' else '0';
 
   --SRAM_DQ <= data;
 	

@@ -25,7 +25,8 @@ ENTITY proc IS
 			exc_code 	: in std_logic_vector(3 DOWNTO 0);
 			div_zero 	: out std_logic;
 			il_inst 	: out std_logic;
-			call 		: out std_logic
+			call 		: out std_logic;
+			mem_op 	: out std_logic
 	);
 END proc;
 
@@ -67,7 +68,8 @@ ARCHITECTURE Structure OF proc IS
 			 sys   	: OUT STD_LOGIC;
 			 pc_sys  : IN STD_LOGIC_VECTOR(15 downto 0);
 			 call   : OUT STD_LOGIC;
-			 il_inst : OUT STD_LOGIC
+			 il_inst : OUT STD_LOGIC;
+			 mem_op : OUT STD_LOGIC
 		 );
 	END COMPONENT;
 	
@@ -166,7 +168,8 @@ BEGIN
 				except => except,
 				exc_code => exc_code,
 				call => call,
-				il_inst => il_inst
+				il_inst => il_inst,
+			mem_op => mem_op
 			);
 		
 		e0: datapath

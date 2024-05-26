@@ -61,6 +61,7 @@ BEGIN
 		if boot = '1' then 
 			sys_regs(2) <= x"0000";
 			sys_regs(5) <= x"0000";
+			sys_regs(3) <= x"0000";
 			sys_regs(7) <= x"0000";
 		END if;
 	END PROCESS;

@@ -30,7 +30,8 @@ ENTITY control_l IS
 		  geti		 : OUT STD_LOGIC;
 		  inta		 : OUT STD_LOGIC;
 		  call       : OUT STD_LOGIC;
-		  il_inst	 : OUT STD_LOGIC
+		  il_inst	 : OUT STD_LOGIC;
+		  mem_op     : OUT STD_LOGIC
 		 );
 END control_l; 
 
@@ -113,6 +114,7 @@ BEGIN
 			    ST_I when OP_ST, -- ST
 			    move when OP_MOV, --MOVI i MOVHI
 			    branch when OP_BRANCH, -- BZ & BNZ
+				io when OP_IO, --IN & OUT
 			    mul_div when OP_MULDIV, --MUL & DIV
 			    jump when OP_JUMP, --JAL
 		        LDB_I when OP_LDB, --LDB
@@ -233,4 +235,8 @@ BEGIN
 	
 	d_sys <= '1' when ir(15 downto 12) = OP_SPECIAL and special = WRS_I else 
 			 '0';
+	
+	mem_op <= '1' when (ir(15 downto 12) = OP_LD or ir(15 downto 12) = OP_LDB or
+				        ir(15 downto 12) = OP_ST or ir(15 downto 12) = OP_STB) else
+			  '0';
 END Structure;

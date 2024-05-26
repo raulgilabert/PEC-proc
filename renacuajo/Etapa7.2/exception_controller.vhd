@@ -33,15 +33,15 @@ BEGIN
                 exc_code <= x"1";
             elsif con_in = '1' then 
                 exc_code <= x"0";
-            elsif int_in = '1' then 
-                exc_code <= x"F";
-            elsif call_in = '1' then 
-                exc_code <= x"E";
+--            elsif int_in = '1' then 
+--                exc_code <= x"F";
+--            elsif call_in = '1' then 
+--                exc_code <= x"E";
             END if;
         END if;
     END PROCESS;
 
-    except <= alu_in or mem_in or con_in or int_in or call_in when boot = '0' else '0';
+    except <= alu_in or mem_in or con_in when boot = '0' else '0';
 
 
 END Structure;

@@ -43,7 +43,8 @@ ENTITY unidad_control IS
 		  sys		: OUT STD_LOGIC;
 		  pc_sys : IN STD_LOGIC_VECTOR(15 downto 0);
 		  call	 : OUT STD_LOGIC;
-		  il_inst : OUT STD_LOGIC
+		  il_inst : OUT STD_LOGIC;
+		  mem_op : OUT STD_LOGIC
 		  );
 END unidad_control;
 
@@ -74,7 +75,8 @@ ARCHITECTURE Structure OF unidad_control IS
 				geti		 : OUT STD_LOGIC;
 				inta		 : OUT STD_LOGIC;
 				call		 : OUT STD_LOGIC;
-				il_inst	 : OUT STD_LOGIC
+				il_inst	 : OUT STD_LOGIC;
+				mem_op : OUT STD_LOGIC
 		);
 	END COMPONENT;
 
@@ -239,7 +241,8 @@ BEGIN
 			reti => reti_s,
 			inta => inta_s,
 			call => call,
-			il_inst => il_inst
+			il_inst => il_inst,
+			mem_op => mem_op
 		);
 	
 		reti <= reti_s;

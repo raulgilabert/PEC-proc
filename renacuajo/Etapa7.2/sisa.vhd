@@ -53,7 +53,8 @@ ARCHITECTURE Structure OF sisa IS
 			exc_code	: in  std_logic_vector(3 downto 0);
 			div_zero	: out std_logic;
 			il_inst 	: out std_logic;
-			call 		: out std_logic
+			call 		: out std_logic;
+			mem_op		: out std_logic
 		);
 	END COMPONENT;
 	
@@ -78,7 +79,8 @@ ARCHITECTURE Structure OF sisa IS
 		wr_data_VGA	: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 		rd_data_VGA	: IN STD_LOGIC_VECTOR(15 DOWNTO 0);
 		vga_byte_m	: OUT std_logic;
-		mem_except 	: OUT std_logic
+		mem_except 	: OUT std_logic;
+		mem_op	    : IN  std_logic
 		);
 	END COMPONENT;
 	
@@ -278,6 +280,8 @@ ARCHITECTURE Structure OF sisa IS
 	SIGNAL il_inst_s : std_logic;
 	SIGNAL call_s : std_logic;
 
+	SIGNAL mem_op_s : std_logic;
+
 
 BEGIN
 
@@ -311,7 +315,8 @@ BEGIN
 			except => except_s,
 			div_zero => div_zero_s,
 			il_inst => il_inst_s,
-			call => call_s
+			call => call_s,
+			mem_op => mem_op_s
 		);
 		
 	mem0: MemoryController
@@ -334,7 +339,8 @@ BEGIN
 			wr_data_VGA => wr_data_VGA_s,
 			rd_data_VGA => rd_data_VGA_s,
 			vga_byte_m  => vga_byte_m_s,
-			mem_except => mem_except_s
+			mem_except => mem_except_s,
+			mem_op => mem_op_s
 		);
 		
 		io0: controladores_io
