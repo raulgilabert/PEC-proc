@@ -61,13 +61,14 @@ ARCHITECTURE Structure OF datapath IS
 		boot	: IN  STD_LOGIC;
 		sys		: IN  STD_LOGIC;
 		PCret		: IN  STD_LOGIC_VECTOR(15 downto 0);
-		except  : IN std_logic;
-		exc_code: IN std_logic_vector(3 downto 0);
 		a      	: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 		b		: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 		int_e	: OUT STD_LOGIC; 					-- interrupt enable
-		PCsys	: OUT STD_LOGIC_VECTOR(15 downto 0)
-			);
+		PCsys	: OUT STD_LOGIC_VECTOR(15 downto 0);
+		addr_m	: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+		except	: IN  STD_LOGIC;
+		exc_code: IN  STD_LOGIC_VECTOR(3 DOWNTO 0)
+	);
 	END COMPONENT;
 	
 	COMPONENT alu IS
@@ -90,6 +91,7 @@ ARCHITECTURE Structure OF datapath IS
 	SIGNAL rb_out: std_logic_vector(15 downto 0);
 	SIGNAL z: std_logic;
 	SIGNAL new_pc: std_logic_vector(15 downto 0);
+	SIGNAL addr_m_s: std_logic_vector(15 downto 0);
 BEGIN
 
 	reg0: regfile
@@ -113,6 +115,7 @@ BEGIN
 			sys => sys,
 			PCret => pc,
 			PCsys => pc_sys,
+			addr_m => addr_m_s,
 			except => except,
 			exc_code => exc_code
 		);
@@ -136,7 +139,7 @@ BEGIN
 			  datard_m  when others;
 				
 	with ins_dad select
-		addr_m <= pc when '0',
+		addr_m_s <= pc when '0',
 					 rd_alu when others;
 					 
 	with immed_x2 select
@@ -159,5 +162,6 @@ BEGIN
 	tknbr(0) <= '1' when (op = BZ_I or op = BNZ_I) else '0';
 	
 	wr_io <= rb;
+	addr_m <= addr_m_s;
 	
 END Structure;
