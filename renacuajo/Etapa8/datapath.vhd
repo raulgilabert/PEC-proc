@@ -41,7 +41,6 @@ ENTITY datapath IS
 		  div_zero : OUT std_logic;
 		  we_tlb	: IN STD_LOGIC;
 		  in_data	: IN STD_LOGIC;
-		  flush		: IN STD_LOGIC;
 		  v_a_f		: IN STD_LOGIC;
 		  miss_tlb_data: OUT STD_LOGIC;
 		  miss_tlb_instr: OUT STD_LOGIC;
@@ -97,7 +96,7 @@ ARCHITECTURE Structure OF datapath IS
       clk     : IN  STD_LOGIC;
       boot    : IN  STD_LOGIC;
       we      : IN  STD_LOGIC; -- ctivar si es vol mapejar
-      flush   : IN  STD_LOGIC;
+	  flush	  : IN  STD_LOGIC;
       v_a_f   : IN  STD_LOGIC; -- quan es vol mapejar una pagina virtual a fisica
       addr    : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
       tag_in  : IN  STD_LOGIC_VECTOR(5 DOWNTO 0);
@@ -176,7 +175,7 @@ BEGIN
 			clk => clk,
 			boot => boot,
 			we => we_tlb_instr, -- activar si es vol mapejar
-			flush => flush,
+			flush => rb(3),
 			v_a_f => v_a_f, -- quan es vol mapejar una pagina virtual a fisica
 			addr => ra(2 downto 0),
 			tag_in => rb(5 downto 0),
@@ -194,7 +193,7 @@ BEGIN
 		  clk => clk,
 		  boot => boot,
 		  we => we_tlb_data, -- activar si es vol mapejar
-		  flush => flush,
+		  flush => rb(1),
 		  v_a_f => v_a_f, -- quan es vol mapejar una pagina virtual a fisica
 		  addr => ra(2 downto 0),
 		  tag_in => rb(5 downto 0),

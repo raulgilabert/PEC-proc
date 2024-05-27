@@ -26,7 +26,14 @@ ENTITY proc IS
 			div_zero 	: out std_logic;
 			il_inst 	: out std_logic;
 			call 		: out std_logic;
-			mem_op 	: out std_logic
+			mem_op 	: out std_logic;
+			miss_tlb_data: OUT STD_LOGIC;
+			miss_tlb_instr: OUT STD_LOGIC;
+			pag_inv_data : OUT STD_LOGIC;
+			pag_inv_instr: OUT STD_LOGIC;
+			pag_priv_data: OUT STD_LOGIC;
+			pag_priv_instr:OUT STD_LOGIC;
+			pag_ill : OUT STD_LOGIC
 	);
 END proc;
 
@@ -69,7 +76,10 @@ ARCHITECTURE Structure OF proc IS
 			 pc_sys  : IN STD_LOGIC_VECTOR(15 downto 0);
 			 call   : OUT STD_LOGIC;
 			 il_inst : OUT STD_LOGIC;
-			 mem_op : OUT STD_LOGIC
+			 mem_op : OUT STD_LOGIC;
+			 we_tlb	 : OUT STD_LOGIC;
+			 in_data	 : OUT STD_LOGIC;
+			 v_a_f		 : OUT STD_LOGIC
 		 );
 	END COMPONENT;
 	
@@ -105,7 +115,16 @@ ARCHITECTURE Structure OF proc IS
 				 pc_sys   : OUT STD_LOGIC_VECTOR(15 downto 0);
 				 except	 : IN STD_LOGIC;
 				 exc_code : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-				 div_zero : OUT STD_LOGIC
+				 div_zero : OUT STD_LOGIC;we_tlb	: IN STD_LOGIC;
+				 in_data	: IN STD_LOGIC;
+				 v_a_f		: IN STD_LOGIC;
+				 miss_tlb_data: OUT STD_LOGIC;
+				 miss_tlb_instr: OUT STD_LOGIC;
+				 pag_inv_data : OUT STD_LOGIC;
+				 pag_inv_instr: OUT STD_LOGIC;
+				 pag_priv_data: OUT STD_LOGIC;
+				 pag_priv_instr:OUT STD_LOGIC;
+				 pag_ill : OUT STD_LOGIC
 		 );	
 	END COMPONENT;
 
@@ -130,6 +149,9 @@ ARCHITECTURE Structure OF proc IS
 		SIGNAL int_e_s : std_logic;
 		SIGNAL sys_s : STD_LOGIC;
 		SIGNAL pc_sys : STD_LOGIC_VECTOR(15 downto 0);
+		SIGNAL we_tlb_s	 : STD_LOGIC;
+		SIGNAL in_data_s	 : STD_LOGIC;
+		SIGNAL v_a_f_s	:  STD_LOGIC;
 BEGIN
 
 		c0: unidad_control
@@ -169,7 +191,10 @@ BEGIN
 				exc_code => exc_code,
 				call => call,
 				il_inst => il_inst,
-			mem_op => mem_op
+				mem_op => mem_op,
+				we_tlb => we_tlb_s,
+		  		in_data	=> in_data_s,
+		 		v_a_f => v_a_f_s
 			);
 		
 		e0: datapath
@@ -205,7 +230,17 @@ BEGIN
 				pc_sys => pc_sys,
 				except => except,
 				exc_code => exc_code,
-				div_zero => div_zero
+				div_zero => div_zero,
+				we_tlb => we_tlb_s,
+		  		in_data	=> in_data_s,
+		 		v_a_f => v_a_f_s,
+				miss_tlb_data => miss_tlb_data,
+				pag_inv_data => pag_inv_data, -- pagina invalida
+				pag_priv_data => pag_priv_data, -- pagina privilagiada
+				miss_tlb_instr => miss_tlb_instr,
+				pag_inv_instr => pag_inv_instr, -- pagina invalida
+				pag_priv_instr => pag_priv_instr, -- pagina privilagiada
+				pag_ill => pag_ill -- pagina read_only -- pagina read_only
 			);
 
 			int_e <= int_e_s;

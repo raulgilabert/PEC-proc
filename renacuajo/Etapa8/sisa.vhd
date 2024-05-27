@@ -54,7 +54,14 @@ ARCHITECTURE Structure OF sisa IS
 			div_zero	: out std_logic;
 			il_inst 	: out std_logic;
 			call 		: out std_logic;
-			mem_op		: out std_logic
+			mem_op		: out std_logic;
+			miss_tlb_data: OUT STD_LOGIC;
+			miss_tlb_instr: OUT STD_LOGIC;
+			pag_inv_data : OUT STD_LOGIC;
+			pag_inv_instr: OUT STD_LOGIC;
+			pag_priv_data: OUT STD_LOGIC;
+			pag_priv_instr:OUT STD_LOGIC;
+			pag_ill : OUT STD_LOGIC
 		);
 	END COMPONENT;
 	
@@ -66,7 +73,7 @@ ARCHITECTURE Structure OF sisa IS
           rd_data   	: out std_logic_vector(15 downto 0);
           we        	: in  std_logic;
           byte_m    	: in  std_logic;
-          -- seÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ales para la placa de desarrollo
+          -- seÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¯ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¿ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â½ales para la placa de desarrollo
           SRAM_ADDR 	: out   std_logic_vector(17 downto 0);
           SRAM_DQ   	: inout std_logic_vector(15 downto 0);
           SRAM_UB_N 	: out   std_logic;
@@ -215,7 +222,14 @@ ARCHITECTURE Structure OF sisa IS
 			int_in  : IN  STD_LOGIC; -- interrupcio
 			call_in : IN  STD_LOGIC; -- syscall
 			exc_code: OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-			except  : OUT STD_LOGIC
+			except  : OUT STD_LOGIC;
+			miss_tlb_data: IN STD_LOGIC;
+			miss_tlb_instr: IN STD_LOGIC;
+			pag_inv_data : IN STD_LOGIC;
+			pag_inv_instr: IN STD_LOGIC;
+			pag_priv_data: IN STD_LOGIC;
+			pag_priv_instr:IN STD_LOGIC;
+			pag_ill : IN STD_LOGIC
 		);
 	END COMPONENT;
 
@@ -282,6 +296,14 @@ ARCHITECTURE Structure OF sisa IS
 
 	SIGNAL mem_op_s : std_logic;
 
+	SIGNAL miss_tlb_data_s : STD_LOGIC;
+	SIGNAL miss_tlb_instr_s : STD_LOGIC;
+	SIGNAL pag_inv_data_s : STD_LOGIC;
+	SIGNAL pag_inv_instr_s : STD_LOGIC;
+	SIGNAL pag_priv_data_s : STD_LOGIC;
+	SIGNAL pag_priv_instr_s : STD_LOGIC;
+	SIGNAL pag_ill_s : STD_LOGIC;
+
 
 BEGIN
 
@@ -316,7 +338,14 @@ BEGIN
 			div_zero => div_zero_s,
 			il_inst => il_inst_s,
 			call => call_s,
-			mem_op => mem_op_s
+			mem_op => mem_op_s,
+			miss_tlb_data => miss_tlb_data_s,
+			miss_tlb_instr => miss_tlb_instr_s,
+			pag_inv_data => pag_inv_data_s,
+			pag_inv_instr => pag_inv_instr_s,
+			pag_priv_data => pag_priv_data_s,
+			pag_priv_instr => pag_priv_instr_s,
+			pag_ill => pag_ill_s
 		);
 		
 	mem0: MemoryController
@@ -471,7 +500,14 @@ BEGIN
 				int_in => intr_s,
 				call_in => call_s,
 				exc_code => exc_code_s,
-				except => except_s
+				except => except_s,
+				miss_tlb_data => miss_tlb_data_s,
+				miss_tlb_instr => miss_tlb_instr_s,
+				pag_inv_data => pag_inv_data_s,
+				pag_inv_instr => pag_inv_instr_s,
+				pag_priv_data => pag_priv_data_s,
+				pag_priv_instr => pag_priv_instr_s,
+				pag_ill => pag_ill_s
 			);
 	
 END Structure;

@@ -16,7 +16,8 @@ package renacuajo_pkg is
         
         LDB_I, STB_I,                                               -- Byte memory instructions
 
-        EI_I, DI_I, RETI_I, GETIID_I, RDS_I, WRS_I, HALT_I,        -- Special instruction
+        EI_I, DI_I, RETI_I, GETIID_I, RDS_I, WRS_I, HALT_I,
+        WRPI_I, WRVI_I, WRPD_I, WRVD_I, FLUSH_I,        -- Special instruction
         NOP_I, ILLEGAL_I                                            -- No operation and illegal instruction
     );
 
@@ -73,6 +74,11 @@ package renacuajo_pkg is
     constant F_GETIID   : STD_LOGIC_VECTOR(5 DOWNTO 0) := "101000";
     constant F_RDS      : STD_LOGIC_VECTOR(5 DOWNTO 0) := "101100";
     constant F_WRS      : STD_LOGIC_VECTOR(5 DOWNTO 0) := "110000";
+    constant F_WRPI     : STD_LOGIC_VECTOR(5 DOWNTO 0) := "110100";
+    constant F_WRVI     : STD_LOGIC_VECTOR(5 DOWNTO 0) := "110101";
+    constant F_WRPD     : STD_LOGIC_VECTOR(5 DOWNTO 0) := "110110";
+    constant F_WRVD     : STD_LOGIC_VECTOR(5 DOWNTO 0) := "110111";
+    constant F_FLUSH    : STD_LOGIC_VECTOR(5 DOWNTO 0) := "111000";
     constant F_HALT     : STD_LOGIC_VECTOR(5 DOWNTO 0) := "111111";
 
 end package renacuajo_pkg;
