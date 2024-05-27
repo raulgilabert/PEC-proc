@@ -156,6 +156,8 @@ BEGIN
 			mode_s <= SYSTEM;
 		elsif op_s = RETI_I then 
 			mode_s <= USER;
+		else 
+			mode_s <= mode_s;
 		END if;
 	END PROCESS;
 
