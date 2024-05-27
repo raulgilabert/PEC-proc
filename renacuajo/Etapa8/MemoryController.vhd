@@ -75,6 +75,7 @@ begin
       byte_m        => byte_m
     );
 
+
 	write_s <= we when addr < x"C000" else
 			   '0';
 				

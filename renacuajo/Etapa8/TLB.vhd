@@ -21,7 +21,6 @@ ENTITY tlb IS
         pag_inv : OUT STD_LOGIC; -- pagina invalida
         pag_priv: OUT STD_LOGIC; -- pagina privilagiada
         pag_ill : OUT STD_LOGIC  -- pagina read_only
-
     );
 END tlb;
 
@@ -33,33 +32,31 @@ ARCHITECTURE Structure OF tlb IS
     SIGNAL fisica : t_fisica;
 
     SIGNAL miss_s : STD_LOGIC;
-    SIGNAL sortida : STD_LOGIC_VECTOR(4 DOWNTO 0);
+    SIGNAL sortida : STD_LOGIC_VECTOR(5 DOWNTO 0);
     SIGNAL pag_tlb : STD_LOGIC_VECTOR(3 DOWNTO 0);
 BEGIN
 
     PROCESS(clk, boot)
     BEGIN
-        if boot = '1' then -- inicialitzacio 3 per usuari i 5 per sistema
-            fisica(0) <= "100000"; --usuari
-            virtual(0) <= x"0";
-            fisica(1) <= "100001";
-            virtual(1) <= x"1";
-            fisica(2) <= "100010";
-            virtual(2) <= x"2";
-            fisica(3) <= "101000"; --sistema
-            virtual(3) <= x"8";
-            fisica(4) <= "101101";
-            virtual(4) <= x"C";
-            fisica(5) <= "101101";
-            virtual(5) <= x"D";
-            fisica(6) <= "101110";
-            virtual(6) <= x"E";
-            fisica(7) <= "101111";
-            virtual(7) <= x"F";
-        END if;
-
-        if rising_edge(clk) then 
-            if flush = '1' then     -- invalidem totes les pàgines
+		if rising_edge(clk) then 
+			  if boot = '1' then -- inicialitzacio 3 per usuari i 5 per sistema
+					fisica(0) <= "100000"; --usuari
+					virtual(0) <= x"0";
+					fisica(1) <= "100001";
+					virtual(1) <= x"1";
+					fisica(2) <= "100010";
+					virtual(2) <= x"2";
+					fisica(3) <= "101000"; --sistema
+					virtual(3) <= x"8";
+					fisica(4) <= "101101";
+					virtual(4) <= x"C";
+					fisica(5) <= "101101";
+					virtual(5) <= x"D";
+					fisica(6) <= "101110";
+					virtual(6) <= x"E";
+					fisica(7) <= "101111";
+					virtual(7) <= x"F";
+            elsif flush = '1' then     -- invalidem totes les pàgines
                 for i in 0 to 7 loop
                     fisica(i)(5) <= '0';
                 end loop;
