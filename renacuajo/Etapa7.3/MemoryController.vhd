@@ -29,7 +29,7 @@ entity MemoryController is
         vga_byte_m : out std_logic;
         mem_except: OUT STD_LOGIC;
         mem_op      : IN STD_LOGIC;
-        mode: IN mode_t;
+        mode: IN STD_LOGIC;
         mem_prot: OUT STD_LOGIC
 	
           );
@@ -92,7 +92,7 @@ begin
 
   mem_except <= '1' when byte_m = '0' and addr(0) = '1' and mem_op = '1' else '0';
 
-  mem_prot <= '1' when mode = USER and ((addr >= x"8000" and addr <= x"A000") or (addr > x"B2BE" and addr < x"FFFF")) else '0';
+  mem_prot <= '1' when mode = '0' and ((addr >= x"8000" and addr <= x"A000") or (addr > x"B2BE" and addr < x"FFFF")) else '0';
   
   
   --SRAM_DQ <= data;
