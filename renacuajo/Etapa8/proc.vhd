@@ -79,7 +79,8 @@ ARCHITECTURE Structure OF proc IS
 			 mem_op : OUT STD_LOGIC;
 			 we_tlb	 : OUT STD_LOGIC;
 			 in_data	 : OUT STD_LOGIC;
-			 v_a_f		 : OUT STD_LOGIC
+			 v_a_f		 : OUT STD_LOGIC;
+			 flush		: OUT STD_LOGIC
 		 );
 	END COMPONENT;
 	
@@ -118,6 +119,7 @@ ARCHITECTURE Structure OF proc IS
 				 div_zero : OUT STD_LOGIC;we_tlb	: IN STD_LOGIC;
 				 in_data	: IN STD_LOGIC;
 				 v_a_f		: IN STD_LOGIC;
+				 flush		: IN STD_LOGIC;
 				 miss_tlb_data: OUT STD_LOGIC;
 				 miss_tlb_instr: OUT STD_LOGIC;
 				 pag_inv_data : OUT STD_LOGIC;
@@ -152,6 +154,7 @@ ARCHITECTURE Structure OF proc IS
 		SIGNAL we_tlb_s	 : STD_LOGIC;
 		SIGNAL in_data_s	 : STD_LOGIC;
 		SIGNAL v_a_f_s	:  STD_LOGIC;
+		SIGNAL flush_s	: STD_LOGIC;
 BEGIN
 
 		c0: unidad_control
@@ -194,7 +197,8 @@ BEGIN
 				mem_op => mem_op,
 				we_tlb => we_tlb_s,
 		  		in_data	=> in_data_s,
-		 		v_a_f => v_a_f_s
+		 		v_a_f => v_a_f_s,
+				flush => flush_s
 			);
 		
 		e0: datapath
@@ -240,7 +244,8 @@ BEGIN
 				miss_tlb_instr => miss_tlb_instr,
 				pag_inv_instr => pag_inv_instr, -- pagina invalida
 				pag_priv_instr => pag_priv_instr, -- pagina privilagiada
-				pag_ill => pag_ill -- pagina read_only -- pagina read_only
+				pag_ill => pag_ill, -- pagina read_only -- pagina read_only
+				flush => flush_s
 			);
 
 			int_e <= int_e_s;

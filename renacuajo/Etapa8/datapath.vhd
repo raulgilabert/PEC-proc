@@ -42,6 +42,7 @@ ENTITY datapath IS
 		  we_tlb	: IN STD_LOGIC;
 		  in_data	: IN STD_LOGIC;
 		  v_a_f		: IN STD_LOGIC;
+		  flush		: IN STD_LOGIC;
 		  miss_tlb_data: OUT STD_LOGIC;
 		  miss_tlb_instr: OUT STD_LOGIC;
 		  pag_inv_data : OUT STD_LOGIC;
@@ -132,6 +133,8 @@ ARCHITECTURE Structure OF datapath IS
 	SIGNAL pag_ill_data : STD_LOGIC;
 	SIGNAL pag_ill_instr : STD_LOGIC;
 	SIGNAL f_tag : STD_LOGIC_VECTOR(3 downto 0);
+	SIGNAL flush_instr : STD_LOGIC;
+	SIGNAL flush_data : STD_LOGIC;
 BEGIN
 
 	reg0: regfile
@@ -175,7 +178,7 @@ BEGIN
 			clk => clk,
 			boot => boot,
 			we => we_tlb_instr, -- activar si es vol mapejar
-			flush => rb(3),
+			flush => flush_intr,
 			v_a_f => v_a_f, -- quan es vol mapejar una pagina virtual a fisica
 			addr => ra(2 downto 0),
 			tag_in => rb(5 downto 0),
@@ -193,7 +196,7 @@ BEGIN
 		  clk => clk,
 		  boot => boot,
 		  we => we_tlb_data, -- activar si es vol mapejar
-		  flush => rb(1),
+		  flush => flush_data,
 		  v_a_f => v_a_f, -- quan es vol mapejar una pagina virtual a fisica
 		  addr => ra(2 downto 0),
 		  tag_in => rb(5 downto 0),
@@ -211,6 +214,8 @@ BEGIN
 	we_tlb_instr <= '1' when in_data = '0' and we_tlb = '1' else '0';
 	pag_ill <= pag_ill_data or pag_ill_instr;
 	addr_m_s <= f_tag & addr_virtual(11 downto 0);
+	flush_instr <= rb(1) & flush;
+	flush_data <= rb(3) & flush;
 
 	new_pc <= std_logic_vector(unsigned(pc) + 2);
 		

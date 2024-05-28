@@ -34,7 +34,8 @@ ENTITY control_l IS
 		  mem_op     : OUT STD_LOGIC;
 		  we_tlb	 : OUT STD_LOGIC;
 		  in_data	 : OUT STD_LOGIC;
-		  v_a_f		 : OUT STD_LOGIC
+		  v_a_f		 : OUT STD_LOGIC;
+		  flush		: OUT STD_LOGIC
 		 );
 END control_l; 
 
@@ -104,6 +105,7 @@ BEGIN
 	we_tlb <= '1' when op_s = WRVI_I or op_s = WRPI_I or op_s = WRPD_I or op_s = WRVD_I else '0';
 	in_data	<= '1' when op_s = WRPD_I or op_s = WRVD_I else '0';
 	v_a_f <= '1' when op_s = WRPI_I or  op_s = WRPD_I else '0';
+	flush <= '1' when op_s = FLUSH_I else '0';
 
 	with ir(8) select
 		move <= MOVI_I when '0', -- MOVI

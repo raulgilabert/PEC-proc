@@ -21,6 +21,7 @@ ENTITY exception_controller IS
 		pag_priv_data: IN STD_LOGIC;
 		pag_priv_instr:IN STD_LOGIC;
 		pag_ill : IN STD_LOGIC;
+        mode    : IN mode_t;
         exc_code: OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
         except  : OUT STD_LOGIC
     );
@@ -63,7 +64,7 @@ BEGIN
     END PROCESS;
 
     except <= alu_in or mem_in or con_in or miss_tlb_data or miss_tlb_instr or pag_inv_instr 
-            or pag_inv_data or pag_priv_instr or pag_priv_data or pag_ill when boot = '0' else '0';
+            or pag_inv_data or (pag_priv_instr and mode = USER) or (pag_priv_data and mode = USER) or pag_ill when boot = '0' else '0';
 
 
 END Structure;

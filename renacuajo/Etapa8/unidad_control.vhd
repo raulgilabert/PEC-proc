@@ -47,7 +47,8 @@ ENTITY unidad_control IS
 		  mem_op : OUT STD_LOGIC;
 		  we_tlb	 : OUT STD_LOGIC;
 		  in_data	 : OUT STD_LOGIC;
-		  v_a_f		 : OUT STD_LOGIC
+		  v_a_f		 : OUT STD_LOGIC;
+		  flush		: OUT STD_LOGIC
 		  );
 END unidad_control;
 
@@ -82,7 +83,8 @@ ARCHITECTURE Structure OF unidad_control IS
 				mem_op : OUT STD_LOGIC;
 				we_tlb	 : OUT STD_LOGIC;
 				in_data	 : OUT STD_LOGIC;
-				v_a_f		 : OUT STD_LOGIC
+				v_a_f		 : OUT STD_LOGIC;
+				flush		: OUT STD_LOGIC
 		);
 	END COMPONENT;
 
@@ -251,7 +253,8 @@ BEGIN
 			mem_op => mem_op,
 			we_tlb => we_tlb,
 		  	in_data	=> in_data,
-		 	v_a_f => v_a_f
+		 	v_a_f => v_a_f,
+			flush => flush
 		);
 	
 		reti <= reti_s;
