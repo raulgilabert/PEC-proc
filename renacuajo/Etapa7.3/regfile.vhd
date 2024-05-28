@@ -26,8 +26,7 @@ ENTITY regfile IS
 		addr_m	: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 		except	: IN  STD_LOGIC;
 		exc_code: IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
-		mode	: OUT mode_t;
-		op    	: IN INST
+		mode	: OUT STD_LOGIC
 	);
 END regfile;
 ARCHITECTURE Structure OF regfile IS
@@ -48,7 +47,7 @@ BEGIN
 			elsif (di = '1') then
 				sys_regs(7)(1) <= '0';
 			elsif (reti = '1') then 
-				sys_regs(7) <= sys_regs(0);
+				sys_regs(7) <= sys_regs(0)(15 downto 1) & '0';
 			END if;	
 			
 			if sys = '1' then 
@@ -57,6 +56,7 @@ BEGIN
 				sys_regs(2) <= x"000" & exc_code;
 				sys_regs(3) <= addr_m;
 				sys_regs(7)(1) <= '0';
+				sys_regs(7)(0) <= '1'; --activem el mode sistema
 			END if;
 		END if;
 			
@@ -64,7 +64,7 @@ BEGIN
 			sys_regs(2) <= x"0000";
 			sys_regs(5) <= x"0000";
 			sys_regs(3) <= x"0000";
-			sys_regs(7) <= x"0000";
+			sys_regs(7) <= x"0001";
 		END if;
 	END PROCESS;
 	
@@ -72,6 +72,7 @@ BEGIN
 	b <= regs(to_integer(unsigned(addr_b)));
 
 	int_e <= sys_regs(7)(1);
+	mode <= sys_regs(7)(0);
 	
 	PCsys <= sys_regs(5); -- per permetre que es faci l'escriptura en pujada de flanc
 
