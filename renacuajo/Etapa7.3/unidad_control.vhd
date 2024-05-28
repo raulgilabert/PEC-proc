@@ -46,7 +46,7 @@ ENTITY unidad_control IS
 		  il_inst : OUT STD_LOGIC;
 		  mem_op : OUT STD_LOGIC;
 		  inst_prot : OUT STD_LOGIC;
-		  mode : IN mode_t
+		  mode : IN STD_LOGIC
 		  );
 END unidad_control;
 
@@ -161,7 +161,7 @@ BEGIN
 --		end if;
 --	end process;
 
-	inst_prot <= '1' when mode = USER and (op_s = RDS_I or op_s = WRS_I or op_s = EI_I or op_s = DI_I or op_s = RETI_I or op_s = GETIID_I) else '0';
+	inst_prot <= '1' when mode = '0' and (op_s = RDS_I or op_s = WRS_I or op_s = EI_I or op_s = DI_I or op_s = RETI_I or op_s = GETIID_I) else '0';
 
 	PROCESS (clk)
 	BEGIN

@@ -61,7 +61,7 @@ begin
         if rising_edge(clk) then 
             case state IS
                 when F => 
-                    if except = '1' and exc_code = x"1" then
+                    if except = '1' then
                         state <= SYSTEM;
                     else
                         state <= DEMW;
