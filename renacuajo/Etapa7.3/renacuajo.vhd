@@ -20,6 +20,8 @@ package renacuajo_pkg is
         NOP_I, ILLEGAL_I                                            -- No operation and illegal instruction
     );
 
+    type mode_t is (USER, SYSTEM);
+
 -- OP CODES--
     constant OP_ARIT    : STD_LOGIC_VECTOR(3 DOWNTO 0) := "0000";
     constant OP_CMP     : STD_LOGIC_VECTOR(3 DOWNTO 0) := "0001";

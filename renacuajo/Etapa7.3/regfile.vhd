@@ -25,7 +25,9 @@ ENTITY regfile IS
 		PCsys	: OUT STD_LOGIC_VECTOR(15 downto 0);
 		addr_m	: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 		except	: IN  STD_LOGIC;
-		exc_code: IN  STD_LOGIC_VECTOR(3 DOWNTO 0)
+		exc_code: IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
+		mode	: OUT mode_t;
+		op    	: IN INST
 	);
 END regfile;
 ARCHITECTURE Structure OF regfile IS
