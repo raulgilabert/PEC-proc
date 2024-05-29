@@ -174,7 +174,7 @@ BEGIN
 			 jump_wd when ir(15 downto 12) = OP_JUMP else --jal
 			 '1' when ir(15 downto 12) = OP_LDB else --ldb
 			 '1' when ir(15 downto 12) = OP_IO and ir(8) = '0' else --in
-			 '1' when ir(15 downto 12) = OP_SPECIAL and (special = WRS_I or special = GETIID_I) else --wrs
+			 '1' when ir(15 downto 12) = OP_SPECIAL and (special = WRS_I or special = RDS_I or special = GETIID_I) else --wrs
 			 '0';
 					
 	--with ir(15 downto 12) select

@@ -85,9 +85,9 @@ begin
     ei <= ei_l when state_s = DEMW else '0';
     di <= di_l when state_s = DEMW else '0';
     inta <= inta_l when state_s = DEMW else '0';
-    d_sys <= '1' when state_s = SYSTEM else d_sys_l;
+    d_sys <= '1' when state_s = SYSTEM and op_l /= RDS_I else d_sys_l;
     wrd <= wrd_l when state_s = DEMW else
-            '1' when state_s = SYSTEM else 
+            '0' when state_s = SYSTEM else 
             '0';
     wr_m <= wr_m_l when state_s = DEMW else '0';
     word_byte <= w_b when state_s = DEMW else '0';
@@ -95,7 +95,7 @@ begin
     in_d <= "10" when state_s = SYSTEM else in_d_l;
     addr_d <= "001" when state_s = SYSTEM else addr_d_l;
     addr_a <= "101" when state_s = SYSTEM else addr_a_l;
-    op <= WRS_I when state_s = SYSTEM else op_l;
+    op <= op_l;
     sys <= '1' when state_s = SYSTEM else '0';
 
     state <= state_s;

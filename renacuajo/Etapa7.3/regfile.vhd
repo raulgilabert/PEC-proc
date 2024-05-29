@@ -51,7 +51,7 @@ BEGIN
 				sys_regs(7) <= sys_regs(0)(15 downto 1) & '0';
 			END if;	
 			
-			if sys = '1' then 
+			if sys = '1' and sys_regs(7)(0) = '0' then 
 				sys_regs(0) <= sys_regs(7);
 				sys_regs(1) <= PCret;
 				sys_regs(2) <= x"000" & exc_code;
