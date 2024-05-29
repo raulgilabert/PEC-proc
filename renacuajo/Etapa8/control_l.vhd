@@ -31,7 +31,11 @@ ENTITY control_l IS
 		  inta		 : OUT STD_LOGIC;
 		  call       : OUT STD_LOGIC;
 		  il_inst	 : OUT STD_LOGIC;
-		  mem_op     : OUT STD_LOGIC
+		  mem_op     : OUT STD_LOGIC;
+		  we_tlb	 : OUT STD_LOGIC;
+		  in_data	 : OUT STD_LOGIC;
+		  v_a_f		 : OUT STD_LOGIC;
+		  flush		: OUT STD_LOGIC
 		 );
 END control_l; 
 
@@ -84,14 +88,25 @@ BEGIN
 				ILLEGAL_I when others;-- JAL
 
 	with ir(5 downto 0) select 
-		special <= EI_I when F_EI,
-				   DI_I when F_DI,
-				   RETI_I when F_RETI,
-				   RDS_I when F_RDS,
-				   WRS_I when F_WRS,
-				   GETIID_I when F_GETIID,
-				   HALT_I when F_HALT,
-				   ILLEGAL_I when others;
+	special <= EI_I when F_EI,
+				DI_I when F_DI,
+				RETI_I when F_RETI,
+				RDS_I when F_RDS,
+				WRS_I when F_WRS,
+				GETIID_I when F_GETIID,
+				HALT_I when F_HALT,
+				WRPI_I when F_WRPI,
+				WRVI_I when F_WRVI,
+				WRPD_I when F_WRPD,
+				WRVD_I when F_WRVD,
+				FLUSH_I when F_FLUSH,
+				ILLEGAL_I when others;
+
+	we_tlb <= '1' when op_s = WRVI_I or op_s = WRPI_I or op_s = WRPD_I or op_s = WRVD_I else '0';
+	in_data	<= '1' when op_s = WRPD_I or op_s = WRVD_I else '0';
+	v_a_f <= '1' when op_s = WRPI_I or  op_s = WRPD_I else '0';
+	flush <= '1' when op_s = FLUSH_I else '0';
+		
 
 	with ir(8) select
 		move <= MOVI_I when '0', -- MOVI

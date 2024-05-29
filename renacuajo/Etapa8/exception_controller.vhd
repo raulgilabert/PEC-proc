@@ -16,6 +16,14 @@ ENTITY exception_controller IS
         call_in : IN  STD_LOGIC; -- syscall
         inst_prot : IN  STD_LOGIC; -- instruccio protegida
         mem_prot  : IN  STD_LOGIC; -- memoria protegida
+        mode    : IN  mode_t;
+        miss_tlb_data: IN STD_LOGIC;
+		miss_tlb_instr: IN STD_LOGIC;
+		pag_inv_data : IN STD_LOGIC;
+		pag_inv_instr: IN STD_LOGIC;
+		pag_priv_data: IN STD_LOGIC;
+		pag_priv_instr:IN STD_LOGIC;
+		pag_ill : IN STD_LOGIC;
         exc_code: OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
         except  : OUT STD_LOGIC
     );
@@ -23,6 +31,8 @@ END ENTITY;
 
 ARCHITECTURE Structure OF exception_controller IS
 
+SIGNAL pag_priv_data_s : STD_LOGIC;
+SIGNAL pag_priv_instr_s : STD_LOGIC;
 
 BEGIN
 
@@ -43,11 +53,31 @@ BEGIN
                 exc_code <= x"E";
             elsif int_in = '1' then 
                 exc_code <= x"F";
+            elsif miss_tlb_data = '1'then
+                exc_code <= x"7";
+            elsif miss_tlb_instr = '1'then
+                exc_code <= x"6";
+            elsif pag_inv_instr = '1'then
+                exc_code <= x"8"; 
+            elsif pag_inv_data = '1'then
+                exc_code <= x"9"; 
+            elsif pag_priv_instr = '1'then
+                exc_code <= x"A"; 
+            elsif pag_priv_data = '1'then
+                exc_code <= x"B"; 
+            elsif pag_ill = '1'then
+                exc_code <= x"C";  
            END if;
         END if;
     END PROCESS;
 
-    except <= alu_in or mem_in or con_in or inst_prot or mem_prot or call_in when boot = '0' else '0';
+    pag_priv_instr_s <= '1' when (pag_priv_instr = '1' and mode = USER) else '0';
+    pag_priv_data_s <= '1' when (pag_priv_data = '1' and mode = USER) else '0'; 
+
+    except <= alu_in or mem_in or con_in or inst_prot or mem_prot or call_in
+              or miss_tlb_data or miss_tlb_instr or pag_inv_instr or pag_priv_data_s
+              or pag_inv_data or pag_priv_instr_s  
+              or pag_ill when boot = '0' else '0';
 
 
 END Structure;

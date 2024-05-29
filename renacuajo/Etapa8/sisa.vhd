@@ -223,6 +223,7 @@ ARCHITECTURE Structure OF sisa IS
 			call_in : IN  STD_LOGIC; -- syscall
 			inst_prot : IN  STD_LOGIC; -- instruccio protegida
 			mem_prot : IN  STD_LOGIC; -- memoria protegida
+			mode	: IN  mode_t;
 			exc_code: OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 			except  : OUT STD_LOGIC
 		);
@@ -489,7 +490,8 @@ BEGIN
 				exc_code => exc_code_s,
 				except => except_s,
 				inst_prot => inst_prot_s,
-				mem_prot => mem_prot_s
+				mem_prot => mem_prot_s,
+				mode => mode_s
 			);
 	
 END Structure;

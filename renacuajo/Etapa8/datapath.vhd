@@ -40,7 +40,18 @@ ENTITY datapath IS
 		  pc_sys : OUT STD_LOGIC_VECTOR(15 downto 0);
 		  div_zero : OUT std_logic;
 		  mode		: OUT mode_t;
-		  call		: IN STD_LOGIC
+		  call		: IN STD_LOGIC;
+		  we_tlb	: IN STD_LOGIC;
+		  in_data	: IN STD_LOGIC;
+		  v_a_f		: IN STD_LOGIC;
+		  flush		: IN STD_LOGIC;
+		  miss_tlb_data: OUT STD_LOGIC;
+		  miss_tlb_instr: OUT STD_LOGIC;
+		  pag_inv_data : OUT STD_LOGIC;
+		  pag_inv_instr: OUT STD_LOGIC;
+		  pag_priv_data: OUT STD_LOGIC;
+		  pag_priv_instr:OUT STD_LOGIC;
+		  pag_ill : OUT STD_LOGIC
 		  );
 END datapath;
 
@@ -78,12 +89,31 @@ ARCHITECTURE Structure OF datapath IS
 	COMPONENT alu IS
 		 PORT (x  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 				 y  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-          op        : IN INST;
+          		 op : IN INST;
 				 w  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 				 z  : OUT STD_LOGIC;
 				 div_zero : OUT std_logic
 				 );
 	END COMPONENT;
+
+	COMPONENT TLB IS
+    PORT (
+      clk     : IN  STD_LOGIC;
+      boot    : IN  STD_LOGIC;
+      we      : IN  STD_LOGIC; -- ctivar si es vol mapejar
+	  flush	  : IN  STD_LOGIC;
+      v_a_f   : IN  STD_LOGIC; -- quan es vol mapejar una pagina virtual a fisica
+      addr    : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
+      tag_in  : IN  STD_LOGIC_VECTOR(5 DOWNTO 0);
+      v_tag   : IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
+      f_tag   : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+      --Excepcions
+      miss    : OUT STD_LOGIC;
+      pag_inv : OUT STD_LOGIC; -- pagina invalida
+      pag_priv: OUT STD_LOGIC; -- pagina privilagiada
+      pag_ill : OUT STD_LOGIC  -- pagina read_only
+    );
+  END COMPONENT;
 			
 	SIGNAL ra: std_logic_vector(15 downto 0);	
 	SIGNAL rb: std_logic_vector(15 downto 0);	
@@ -96,6 +126,17 @@ ARCHITECTURE Structure OF datapath IS
 	SIGNAL z: std_logic;
 	SIGNAL new_pc: std_logic_vector(15 downto 0);
 	SIGNAL addr_m_s: std_logic_vector(15 downto 0);
+
+	SIGNAL addr_virtual : STD_LOGIC_VECTOR(15 downto 0);
+	SIGNAL f_tag_instr : STD_LOGIC_VECTOR(3 downto 0);
+	SIGNAL f_tag_data : STD_LOGIC_VECTOR(3 downto 0);
+	SIGNAL we_tlb_instr : STD_LOGIC;
+	SIGNAL we_tlb_data : STD_LOGIC;
+	SIGNAL pag_ill_data : STD_LOGIC;
+	SIGNAL pag_ill_instr : STD_LOGIC;
+	SIGNAL f_tag : STD_LOGIC_VECTOR(3 downto 0);
+	SIGNAL flush_instr : STD_LOGIC;
+	SIGNAL flush_data : STD_LOGIC;
 BEGIN
 
 	reg0: regfile
@@ -136,6 +177,52 @@ BEGIN
 			div_zero => div_zero
 		);
 
+		inst_tlb: TLB
+		PORT map (
+			clk => clk,
+			boot => boot,
+			we => we_tlb_instr, -- activar si es vol mapejar
+			flush => flush_instr,
+			v_a_f => v_a_f, -- quan es vol mapejar una pagina virtual a fisica
+			addr => ra(2 downto 0),
+			tag_in => rb(5 downto 0),
+			v_tag => addr_virtual(15 downto 12),
+			f_tag => f_tag_instr,
+			--Excepcions
+			miss => miss_tlb_instr,
+			pag_inv => pag_inv_instr, -- pagina invalida
+			pag_priv => pag_priv_instr, -- pagina privilagiada
+			pag_ill => pag_ill_instr -- pagina read_only
+		);
+
+	  data_tlb: TLB
+		PORT map (
+		  clk => clk,
+		  boot => boot,
+		  we => we_tlb_data, -- activar si es vol mapejar
+		  flush => flush_data,
+		  v_a_f => v_a_f, -- quan es vol mapejar una pagina virtual a fisica
+		  addr => ra(2 downto 0),
+		  tag_in => rb(5 downto 0),
+		  v_tag => addr_virtual(15 downto 12),
+		  f_tag => f_tag_data,
+		  --Excepcions
+		  miss => miss_tlb_data,
+		  pag_inv => pag_inv_data, -- pagina invalida
+		  pag_priv => pag_priv_data, -- pagina privilagiada
+		  pag_ill => pag_ill_data -- pagina read_only
+		);
+
+	addr_virtual <= pc when ins_dad = '1' else rd_alu;
+	we_tlb_data <= '1' when in_data = '1' and we_tlb = '1' else '0';
+	we_tlb_instr <= '1' when in_data = '0' and we_tlb = '1' else '0';
+	pag_ill <= pag_ill_data or pag_ill_instr;
+	addr_m_s <= f_tag & addr_virtual(11 downto 0);
+	flush_instr <= rb(1) and flush;
+	flush_data <= rb(3) and flush;
+
+	f_tag <= f_tag_instr when ins_dad = '0' else f_tag_instr;
+
 	new_pc <= std_logic_vector(unsigned(pc) + 2);
 		
 	with in_d select
@@ -143,10 +230,6 @@ BEGIN
 			  new_pc when "10",
 			  rd_io	when "11",
 			  datard_m  when others;
-				
-	with ins_dad select
-		addr_m_s <= pc when '0',
-					 rd_alu when others;
 					 
 	with immed_x2 select
 		immed_out <= immed when '0',
