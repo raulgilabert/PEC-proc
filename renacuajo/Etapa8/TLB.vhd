@@ -48,7 +48,7 @@ BEGIN
 					virtual(2) <= x"2";
 					fisica(3) <= "101000"; --sistema
 					virtual(3) <= x"8";
-					fisica(4) <= "101101";
+					fisica(4) <= "101100";
 					virtual(4) <= x"C";
 					fisica(5) <= "101101";
 					virtual(5) <= x"D";
