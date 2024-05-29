@@ -115,7 +115,8 @@ ARCHITECTURE Structure OF unidad_control IS
          addr_a    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
 		 op		   : OUT INST;
 		 d_sys		: OUT STD_LOGIC;
-		 sys		: OUT STD_LOGIC
+		 sys		: OUT STD_LOGIC;
+		 state		: OUT state_t
  	);
 	END COMPONENT;
 
@@ -141,6 +142,7 @@ ARCHITECTURE Structure OF unidad_control IS
 	SIGNAL in_d_s : std_logic_vector(1 downto 0);
 	SIGNAL d_sys_s : STD_LOGIC;
 	SIGNAL sys_s : STD_LOGIC;
+	SIGNAL state_s : state_t;
 	
 BEGIN
 	--mode <= mode_s;
@@ -161,7 +163,7 @@ BEGIN
 --		end if;
 --	end process;
 
-	inst_prot <= '1' when mode = '0' and (op_s = RDS_I or op_s = WRS_I or op_s = EI_I or op_s = DI_I or op_s = RETI_I or op_s = GETIID_I) else '0';
+	inst_prot <= '1' when mode = '0' and (op_s = RDS_I or op_s = WRS_I or op_s = EI_I or op_s = DI_I or op_s = RETI_I or op_s = GETIID_I) and state_s = DEMW else '0';
 
 	PROCESS (clk)
 	BEGIN
@@ -235,7 +237,8 @@ BEGIN
 			d_sys => d_sys,
 			sys => sys_s,
 			except => except,
-			exc_code => exc_code
+			exc_code => exc_code,
+			state => state_s
 		);
 	
 	c_l: control_l

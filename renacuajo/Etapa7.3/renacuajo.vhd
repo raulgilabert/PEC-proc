@@ -20,6 +20,7 @@ package renacuajo_pkg is
         NOP_I, ILLEGAL_I                                            -- No operation and illegal instruction
     );
 
+    TYPE state_t is (F, DEMW, SYSTEM);
 
 -- OP CODES--
     constant OP_ARIT    : STD_LOGIC_VECTOR(3 DOWNTO 0) := "0000";

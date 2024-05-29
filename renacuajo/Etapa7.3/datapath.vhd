@@ -39,7 +39,8 @@ ENTITY datapath IS
 		  sys		: IN STD_LOGIC;
 		  pc_sys : OUT STD_LOGIC_VECTOR(15 downto 0);
 		  div_zero : OUT std_logic;
-		  mode		: OUT STD_LOGIC
+		  mode		: OUT STD_LOGIC;
+		  call		: IN STD_LOGIC
 		  );
 END datapath;
 
@@ -69,7 +70,8 @@ ARCHITECTURE Structure OF datapath IS
 		addr_m	: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 		except	: IN  STD_LOGIC;
 		exc_code: IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
-		mode	: OUT STD_LOGIC
+		mode	: OUT STD_LOGIC;
+		call	: IN STD_LOGIC
 	);
 	END COMPONENT;
 	
@@ -120,7 +122,8 @@ BEGIN
 			addr_m => addr_m_s,
 			except => except,
 			exc_code => exc_code,
-			mode => mode
+			mode => mode,
+			call => call
 		);
 		
 	alu0: alu

@@ -110,7 +110,8 @@ ARCHITECTURE Structure OF proc IS
 				 except	 : IN STD_LOGIC;
 				 exc_code : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 				 div_zero : OUT STD_LOGIC;
-				 mode : OUT std_logic
+				 mode : OUT std_logic;
+				 call : IN std_logic
 		 );	
 	END COMPONENT;
 
@@ -136,6 +137,7 @@ ARCHITECTURE Structure OF proc IS
 		SIGNAL sys_s : STD_LOGIC;
 		SIGNAL pc_sys : STD_LOGIC_VECTOR(15 downto 0);
 		SIGNAL mode_s : std_logic;
+		SIGNAL call_s : std_logic;
 BEGIN
 
 		c0: unidad_control
@@ -173,7 +175,7 @@ BEGIN
 				pc_sys => pc_sys,
 				except => except,
 				exc_code => exc_code,
-				call => call,
+				call => call_s,
 				il_inst => il_inst,
 			mem_op => mem_op,
 			mode => mode_s,
@@ -214,9 +216,11 @@ BEGIN
 				except => except,
 				exc_code => exc_code,
 				div_zero => div_zero,
-				mode => mode_s
+				mode => mode_s,
+				call => call_s
 			);
 			int_e <= int_e_s;
 			mode <= mode_s;
+			call <= call_s;
 			
 END Structure;

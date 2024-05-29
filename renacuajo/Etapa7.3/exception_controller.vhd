@@ -47,7 +47,7 @@ BEGIN
         END if;
     END PROCESS;
 
-    except <= alu_in or mem_in or con_in or inst_prot or mem_prot when boot = '0' else '0';
+    except <= alu_in or mem_in or con_in or inst_prot or mem_prot or call_in when boot = '0' else '0';
 
 
 END Structure;

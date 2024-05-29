@@ -64,9 +64,27 @@ constant tSD_dataskew : time := tSD - 1 ns;
 SIGNAL mem_array: mem_array_type;
 
     -- Instructions to read a text file into RAM --
+    procedure Load_FitxerCodiUserMemoria (signal data_word :inout mem_array_type) is
+        -- Open File in Read Mode
+        file romfile   :text open read_mode is "jpsistema-user.code.rom";
+        variable lbuf  :line;
+        --variable i     :integer := 49152;  -- X"C000" ==> 49152 adreca inicial S.O.
+        variable i     :integer := 8192;  -- X"C000" ==> 49152 adreca inicial S.O., pero como la memoria se direcciona a nivel de word (dos bytes) ==>  X"6000" ==> 24576 es la direccion inicial del S.O.
+        variable fdata :std_logic_vector (15 downto 0);
+    begin
+        while not endfile(romfile) loop
+            -- read data from input file
+            readline(romfile, lbuf);
+            --read(lbuf, fdata);
+            hread(lbuf, fdata);
+            data_word(i) <= fdata;
+            i := i+1;
+        end loop;
+    end procedure;
+    -- Instructions to read a text file into RAM --
     procedure Load_FitxerDadesMemoria (signal data_word :inout mem_array_type) is
         -- Open File in Read Mode
-        file romfile   :text open read_mode is "6.test2_interrupt.data.rom";
+        file romfile   :text open read_mode is "jpsistema-sys.data.rom";
         variable lbuf  :line;
         --variable i     :integer := 49152;  -- X"C000" ==> 49152 adreca inicial S.O.
         variable i     :integer := 16384;  -- X"C000" ==> 49152 adreca inicial S.O., pero como la memoria se direcciona a nivel de word (dos bytes) ==>  X"6000" ==> 24576 es la direccion inicial del S.O.
@@ -85,7 +103,7 @@ SIGNAL mem_array: mem_array_type;
     -- Instructions to read a text file into RAM --
     procedure Load_FitxerCodiMemoria (signal data_word :inout mem_array_type) is
         -- Open File in Read Mode
-        file romfile   :text open read_mode is "6.test2_interrupt.code.rom";
+        file romfile   :text open read_mode is "jpsistema-sys.code.rom";
         variable lbuf  :line;
         --variable i     :integer := 49152;  -- X"C000" ==> 49152 adreca inicial S.O.
         variable i     :integer := 24576;  -- X"C000" ==> 49152 adreca inicial S.O., pero como la memoria se direcciona a nivel de word (dos bytes) ==>  X"6000" ==> 24576 es la direccion inicial del S.O.
@@ -162,6 +180,7 @@ if (boot'event and boot = '1') then
 	-- Procedural Call --
 	Load_FitxerDadesMemoria(mem_array);
 	Load_FitxerCodiMemoria(mem_array);
+    Load_FitxerCodiUserMemoria (mem_array);
 	--mem_array (65500) <= X"ABCD";
 	
 else

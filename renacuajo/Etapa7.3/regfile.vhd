@@ -26,7 +26,8 @@ ENTITY regfile IS
 		addr_m	: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 		except	: IN  STD_LOGIC;
 		exc_code: IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
-		mode	: OUT STD_LOGIC
+		mode	: OUT STD_LOGIC;
+		call	: IN  STD_LOGIC
 	);
 END regfile;
 ARCHITECTURE Structure OF regfile IS
