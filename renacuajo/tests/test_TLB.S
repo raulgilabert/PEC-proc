@@ -28,9 +28,8 @@ main:
 
     ; per fer un flush hem de fer una crida a sistema 
     ; en concret la 1
-    movi r1, 1
-    call r1
-    movi r1, 2
+    movi r2, 8
+    flush r2
     st 0(r1), r2 ; fallada perque la pagina es invalida
 
     move r1, 0
