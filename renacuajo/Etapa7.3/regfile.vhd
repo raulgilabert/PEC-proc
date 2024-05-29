@@ -3,6 +3,9 @@ USE ieee.std_logic_1164.all;
 USE ieee.numeric_std.all;        --Esta libreria sera necesaria si usais conversiones TO_INTEGER
 --USE ieee.std_logic_unsigned.all; --Esta libreria sera necesaria si usais conversiones CONV_INTEGER
 
+LIBRARY work;
+USE work.renacuajo_pkg.all;
+
 ENTITY regfile IS
    PORT (
 		clk    	: IN  STD_LOGIC;
@@ -26,7 +29,7 @@ ENTITY regfile IS
 		addr_m	: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 		except	: IN  STD_LOGIC;
 		exc_code: IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
-		mode	: OUT STD_LOGIC;
+		mode	: OUT mode_t;
 		call	: IN  STD_LOGIC
 	);
 END regfile;
@@ -73,7 +76,7 @@ BEGIN
 	b <= regs(to_integer(unsigned(addr_b)));
 
 	int_e <= sys_regs(7)(1);
-	mode <= sys_regs(7)(0);
+	mode <= USER when sys_regs(7)(0) = '0' else SYSTEM;
 	
 	PCsys <= sys_regs(5); -- per permetre que es faci l'escriptura en pujada de flanc
 

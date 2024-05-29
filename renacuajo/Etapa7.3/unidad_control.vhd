@@ -46,7 +46,7 @@ ENTITY unidad_control IS
 		  il_inst : OUT STD_LOGIC;
 		  mem_op : OUT STD_LOGIC;
 		  inst_prot : OUT STD_LOGIC;
-		  mode : IN STD_LOGIC
+		  mode : IN mode_t
 		  );
 END unidad_control;
 
@@ -145,25 +145,8 @@ ARCHITECTURE Structure OF unidad_control IS
 	SIGNAL state_s : state_t;
 	
 BEGIN
-	--mode <= mode_s;
 
---	PROCESS (clk,boot)
---	begin
---		if boot = '1' then
---			mode_s <= SYSTEM;
---		END if;
---
-	--	if sys_s = '1' then
---			mode_s <= SYSTEM;
---		end if;
---		if op_s = CALL_I then
---			mode_s <= SYSTEM;
---		elsif op_s = RETI_I then
---			mode_s <= USER;
---		end if;
---	end process;
-
-	inst_prot <= '1' when mode = '0' and (op_s = RDS_I or op_s = WRS_I or op_s = EI_I or op_s = DI_I or op_s = RETI_I or op_s = GETIID_I) and state_s = DEMW else '0';
+	inst_prot <= '1' when mode = USER and (op_s = RDS_I or op_s = WRS_I or op_s = EI_I or op_s = DI_I or op_s = RETI_I or op_s = GETIID_I) and state_s = DEMW else '0';
 
 	PROCESS (clk)
 	BEGIN

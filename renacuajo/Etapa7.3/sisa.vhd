@@ -58,7 +58,7 @@ ARCHITECTURE Structure OF sisa IS
 			il_inst 	: out std_logic;
 			call 		: out std_logic;
 			mem_op		: out std_logic;
-			mode		: out std_logic;
+			mode		: out mode_t;
 			inst_prot	: out std_logic
 		);
 	END COMPONENT;
@@ -87,7 +87,7 @@ ARCHITECTURE Structure OF sisa IS
 		mem_except 	: OUT std_logic;
 		mem_op	    : IN  std_logic;
 		mem_prot		: OUT  std_logic;
-		mode		: IN STD_LOGIC
+		mode		: IN mode_t
 		);
 	END COMPONENT;
 	
@@ -292,7 +292,7 @@ ARCHITECTURE Structure OF sisa IS
 	SIGNAL mem_op_s : std_logic;
 	SIGNAL mem_prot_s : std_logic;
 	SIGNAL inst_prot_s : std_logic;
-	SIGNAL mode_s : std_logic;
+	SIGNAL mode_s : mode_t;
 
 
 BEGIN

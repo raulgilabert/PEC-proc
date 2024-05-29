@@ -21,6 +21,7 @@ package renacuajo_pkg is
     );
 
     TYPE state_t is (F, DEMW, SYSTEM);
+    TYPE mode_t is (USER, SYSTEM);
 
 -- OP CODES--
     constant OP_ARIT    : STD_LOGIC_VECTOR(3 DOWNTO 0) := "0000";
