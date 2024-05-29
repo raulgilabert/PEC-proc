@@ -32,7 +32,7 @@ main:
     flush r2
     st 0(r1), r2 ; fallada perque la pagina es invalida
 
-    move r1, 0
+    movi r1, 0
     movhi r1, 0xC0
     jmp r1 ; intentem saltar a una adreça de sistema en el fetch saltara interrupcio
 
