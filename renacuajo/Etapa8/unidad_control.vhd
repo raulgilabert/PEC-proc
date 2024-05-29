@@ -46,7 +46,11 @@ ENTITY unidad_control IS
 		  il_inst : OUT STD_LOGIC;
 		  mem_op : OUT STD_LOGIC;
 		  inst_prot : OUT STD_LOGIC;
-		  mode : IN mode_t
+		  mode : IN mode_t;
+		  we_tlb	 : OUT STD_LOGIC;
+		  in_data	 : OUT STD_LOGIC;
+		  v_a_f		 : OUT STD_LOGIC;
+		  flush		: OUT STD_LOGIC
 		  );
 END unidad_control;
 

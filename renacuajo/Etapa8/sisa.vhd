@@ -222,8 +222,15 @@ ARCHITECTURE Structure OF sisa IS
 			int_in  : IN  STD_LOGIC; -- interrupcio
 			call_in : IN  STD_LOGIC; -- syscall
 			inst_prot : IN  STD_LOGIC; -- instruccio protegida
-			mem_prot : IN  STD_LOGIC; -- memoria protegida
-			mode	: IN  mode_t;
+			mem_prot  : IN  STD_LOGIC; -- memoria protegida
+			mode    : IN  mode_t;
+			miss_tlb_data: IN STD_LOGIC;
+			miss_tlb_instr: IN STD_LOGIC;
+			pag_inv_data : IN STD_LOGIC;
+			pag_inv_instr: IN STD_LOGIC;
+			pag_priv_data: IN STD_LOGIC;
+			pag_priv_instr:IN STD_LOGIC;
+			pag_ill : IN STD_LOGIC;
 			exc_code: OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 			except  : OUT STD_LOGIC
 		);
@@ -295,6 +302,13 @@ ARCHITECTURE Structure OF sisa IS
 	SIGNAL inst_prot_s : std_logic;
 	SIGNAL mode_s : mode_t;
 
+	SIGNAL miss_tlb_data_s : STD_LOGIC;
+	SIGNAL miss_tlb_instr_s : STD_LOGIC;
+	SIGNAL pag_inv_data_s : STD_LOGIC;
+	SIGNAL pag_inv_instr_s : STD_LOGIC;
+	SIGNAL pag_priv_data_s : STD_LOGIC;
+	SIGNAL pag_priv_instr_s : STD_LOGIC;
+	SIGNAL pag_ill_s : STD_LOGIC;
 
 BEGIN
 
@@ -491,7 +505,14 @@ BEGIN
 				except => except_s,
 				inst_prot => inst_prot_s,
 				mem_prot => mem_prot_s,
-				mode => mode_s
+				mode => mode_s,
+				miss_tlb_data => miss_tlb_data_s,
+				miss_tlb_instr => miss_tlb_instr_s,
+				pag_inv_data => pag_inv_data_s,
+				pag_inv_instr => pag_inv_instr_s,
+				pag_priv_data => pag_priv_data_s,
+				pag_priv_instr => pag_priv_instr_s,
+				pag_ill => pag_ill_s
 			);
 	
 END Structure;

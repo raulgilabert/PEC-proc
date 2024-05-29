@@ -28,7 +28,14 @@ ENTITY proc IS
 			call 		: out std_logic;
 			mem_op 	: out std_logic;
 			mode		: out mode_t;
-			inst_prot	: out std_logic
+			inst_prot	: out std_logic;
+			miss_tlb_data: OUT STD_LOGIC;
+			miss_tlb_instr: OUT STD_LOGIC;
+			pag_inv_data : OUT STD_LOGIC;
+			pag_inv_instr: OUT STD_LOGIC;
+			pag_priv_data: OUT STD_LOGIC;
+			pag_priv_instr:OUT STD_LOGIC;
+			pag_ill : OUT STD_LOGIC
 	);
 END proc;
 
@@ -73,45 +80,60 @@ ARCHITECTURE Structure OF proc IS
 			 il_inst : OUT STD_LOGIC;
 			 mem_op : OUT STD_LOGIC;
 			 mode	: IN mode_t;
-			 inst_prot : OUT std_logic
+			 inst_prot : OUT std_logic;
+			 we_tlb	 : OUT STD_LOGIC;
+			 in_data	 : OUT STD_LOGIC;
+			 v_a_f		 : OUT STD_LOGIC;
+			 flush		: OUT STD_LOGIC
 		 );
 	END COMPONENT;
 	
 	COMPONENT datapath IS
 		 PORT (clk      : IN  STD_LOGIC;
-				 op       : IN INST;
-				 wrd      : IN  STD_LOGIC;
-				 addr_a   : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
-				 addr_b   : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
-				 addr_d   : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
-				 immed    : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-				 immed_x2 : IN  STD_LOGIC;
-				 datard_m : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-				 ins_dad  : IN  STD_LOGIC;
-				 pc       : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-				 in_d     : IN  STD_LOGIC_VECTOR(1 DOWNTO 0);
-				 Rb_N     : IN STD_LOGIC;
-				 rd_io	 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-				 d_sys	 : IN STD_LOGIC;
-				 a_sys	 : IN STD_LOGIC;
-				 ei 	 : IN STD_LOGIC;
-				 di 	 : IN STD_LOGIC;
-				 reti	 : IN STD_LOGIC;
-				 boot	 : IN STD_LOGIC;
-				 --intr	 : IN STD_LOGIC;
-				 sys	: IN STD_LOGIC;
-				 addr_m   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-				 data_wr  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-				 aluout	 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-				 tknbr    : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
-				 wr_io    : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-				 int_e	 : OUT STD_LOGIC;
-				 pc_sys   : OUT STD_LOGIC_VECTOR(15 downto 0);
-				 except	 : IN STD_LOGIC;
-				 exc_code : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-				 div_zero : OUT STD_LOGIC;
-				 mode : OUT mode_t;
-				 call : IN std_logic
+		 op        : IN INST;
+		 wrd      : IN  STD_LOGIC;
+		 addr_a   : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
+		 addr_b   : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
+		 addr_d   : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
+		 immed    : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+		 immed_x2 : IN  STD_LOGIC;
+		 datard_m : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+		 ins_dad  : IN  STD_LOGIC;
+		 pc       : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+		 in_d     : IN  STD_LOGIC_VECTOR(1 DOWNTO 0);
+		 Rb_N     : IN  STD_LOGIC;
+		 d_sys	   : IN  STD_LOGIC;					
+		 a_sys	   : IN  STD_LOGIC;
+		 ei 	   : IN  STD_LOGIC;
+		 di 	   : IN  STD_LOGIC;
+		 reti	   : IN  STD_LOGIC;
+		 rd_io	   : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);	
+		 boot	   : IN  STD_LOGIC;
+		 except   : IN  std_logic;
+		 exc_code : IN  std_logic_vector(3 downto 0);
+		 addr_m   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		 data_wr  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		 aluout   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		 tknbr    : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+		 wr_io    : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		 --intr		: IN STD_LOGIC;
+		 int_e		: OUT STD_LOGIC;
+		 sys		: IN STD_LOGIC;
+		 pc_sys : OUT STD_LOGIC_VECTOR(15 downto 0);
+		 div_zero : OUT std_logic;
+		 mode		: OUT mode_t;
+		 call		: IN STD_LOGIC;
+		 we_tlb	: IN STD_LOGIC;
+		 in_data	: IN STD_LOGIC;
+		 v_a_f		: IN STD_LOGIC;
+		 flush		: IN STD_LOGIC;
+		 miss_tlb_data: OUT STD_LOGIC;
+		 miss_tlb_instr: OUT STD_LOGIC;
+		 pag_inv_data : OUT STD_LOGIC;
+		 pag_inv_instr: OUT STD_LOGIC;
+		 pag_priv_data: OUT STD_LOGIC;
+		 pag_priv_instr:OUT STD_LOGIC;
+		 pag_ill : OUT STD_LOGIC
 		 );	
 	END COMPONENT;
 
@@ -138,6 +160,10 @@ ARCHITECTURE Structure OF proc IS
 		SIGNAL pc_sys : STD_LOGIC_VECTOR(15 downto 0);
 		SIGNAL mode_s : mode_t;
 		SIGNAL call_s : std_logic;
+		SIGNAL we_tlb_s	 : STD_LOGIC;
+		SIGNAL in_data_s	 : STD_LOGIC;
+		SIGNAL v_a_f_s	:  STD_LOGIC;
+		SIGNAL flush_s	: STD_LOGIC;
 BEGIN
 
 		c0: unidad_control
@@ -177,9 +203,13 @@ BEGIN
 				exc_code => exc_code,
 				call => call_s,
 				il_inst => il_inst,
-			mem_op => mem_op,
-			mode => mode_s,
-			inst_prot => inst_prot
+				mem_op => mem_op,
+				mode => mode_s,
+				inst_prot => inst_prot,
+				we_tlb => we_tlb_s,
+		  		in_data	=> in_data_s,
+		 		v_a_f => v_a_f_s,
+				flush => flush_s
 			);
 		
 		e0: datapath
@@ -217,7 +247,18 @@ BEGIN
 				exc_code => exc_code,
 				div_zero => div_zero,
 				mode => mode_s,
-				call => call_s
+				call => call_s,
+				we_tlb => we_tlb_s,
+		  		in_data	=> in_data_s,
+		 		v_a_f => v_a_f_s,
+				miss_tlb_data => miss_tlb_data,
+				pag_inv_data => pag_inv_data, -- pagina invalida
+				pag_priv_data => pag_priv_data, -- pagina privilagiada
+				miss_tlb_instr => miss_tlb_instr,
+				pag_inv_instr => pag_inv_instr, -- pagina invalida
+				pag_priv_instr => pag_priv_instr, -- pagina privilagiada
+				pag_ill => pag_ill, -- pagina read_only -- pagina read_only
+				flush => flush_s
 			);
 			int_e <= int_e_s;
 			mode <= mode_s;
