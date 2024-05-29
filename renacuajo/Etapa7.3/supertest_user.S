@@ -16,7 +16,7 @@ main: ; entrada user
 
     ; crida a sistema
     movi r1, 0
-    calls, r1
+    calls r1
 
 loop:
     ; fem un loop a la espera d'interrupcions

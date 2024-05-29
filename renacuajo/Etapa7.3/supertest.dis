@@ -1,0 +1,300 @@
+
+temp_sistema.o:     file format elf32-sisa
+temp_sistema.o
+architecture: sisa:3, flags 0x00000112:
+EXEC_P, HAS_SYMS, D_PAGED
+start address 0x00000000
+
+Program Header:
+    LOAD off    0x00000000 vaddr 0x00003f6c paddr 0x00003f6c align 2**0
+         filesz 0x000000a6 memsz 0x000000a6 flags r-x
+    LOAD off    0x000000a6 vaddr 0x00008000 paddr 0x00008000 align 2**0
+         filesz 0x0000003c memsz 0x0000003c flags rw-
+    LOAD off    0x000000e2 vaddr 0x0000c000 paddr 0x0000c000 align 2**0
+         filesz 0x000000bc memsz 0x000000bc flags r-x
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn  Flags
+  0 .sistema      000000bc  0000c000  0000c000  000000e2  2**0  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .user         00000012  00004000  00004000  00000094  2**0  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .sysdata      0000003c  00008000  00008000  000000a6  2**1  CONTENTS, ALLOC, LOAD, DATA
+SYMBOL TABLE:
+0000c000 l    d  .sistema	00000000 .sistema
+0000c022 l       .sistema	00000000 RSI_default
+0000c02e l       .sistema	00000000 RSE_default
+0000c02c l       .sistema	00000000 RSE_resume
+0000c030 l       .sistema	00000000 RSE_TLB
+0000c032 l       .sistema	00000000 RSE_mem
+0000c03c l       .sistema	00000000 RSE_inst
+0000c046 l       .sistema	00000000 syscall
+0000c050 l       .sistema	00000000 RSG
+0000c04e l       .sistema	00000000 exit
+0000c082 l       .sistema	00000000 syscall_treat
+0000c09a l       .sistema	00000000 interrupt_treat
+0000c070 l       .sistema	00000000 exception_treat
+0000c0a8 l       .sistema	00000000 end_RSG
+0000c000 g       .sistema	00000000 __entry_point
+
+
+Disassembly of section .sistema:
+
+0000c000 <__entry_point>:
+    c000:	f021 	di	
+    c002:	5e00 	movi	r7, 0
+    c004:	5f90 	movhi	r7, -112
+    c006:	fdf0 	wrs	s6, r7
+    c008:	5c50 	movi	r6, 80
+    c00a:	5dc0 	movhi	r6, -64
+    c00c:	fbb0 	wrs	s5, r6
+    c00e:	5a4e 	movi	r5, 78
+    c010:	5bc0 	movhi	r5, -64
+    c012:	5c00 	movi	r6, 0
+    c014:	5d40 	movhi	r6, 64
+    c016:	f3b0 	wrs	s1, r6
+    c018:	5c02 	movi	r6, 2
+    c01a:	f1b0 	wrs	s0, r6
+    c01c:	5e00 	movi	r7, 0
+    c01e:	5f10 	movhi	r7, 16
+    c020:	f024 	reti	
+
+0000c022 <RSI_default>:
+    c022:	5406 	movi	r2, 6
+    c024:	5580 	movhi	r2, -128
+    c026:	5201 	movi	r1, 1
+    c028:	4280 	st	0(r2), r1
+    c02a:	a183 	jmp	r6
+
+0000c02c <RSE_resume>:
+    c02c:	a183 	jmp	r6
+
+0000c02e <RSE_default>:
+    c02e:	ffff 	halt	
+
+0000c030 <RSE_TLB>:
+    c030:	ffff 	halt	
+
+0000c032 <RSE_mem>:
+    c032:	5204 	movi	r1, 4
+    c034:	5380 	movhi	r1, -128
+    c036:	5201 	movi	r1, 1
+    c038:	4440 	st	0(r1), r2
+    c03a:	a183 	jmp	r6
+
+0000c03c <RSE_inst>:
+    c03c:	5202 	movi	r1, 2
+    c03e:	5380 	movhi	r1, -128
+    c040:	5201 	movi	r1, 1
+    c042:	4440 	st	0(r1), r2
+    c044:	a183 	jmp	r6
+
+0000c046 <syscall>:
+    c046:	5200 	movi	r1, 0
+    c048:	5380 	movhi	r1, -128
+    c04a:	4840 	st	0(r1), r4
+    c04c:	a183 	jmp	r6
+
+0000c04e <exit>:
+    c04e:	ffff 	halt	
+
+0000c050 <RSG>:
+    c050:	ffac 	rds	r7, s6
+    c052:	43c0 	st	0(r7), r1
+    c054:	2ffe 	addi	r7, r7, -2
+    c056:	45c0 	st	0(r7), r2
+    c058:	2ffe 	addi	r7, r7, -2
+    c05a:	47c0 	st	0(r7), r3
+    c05c:	2ffe 	addi	r7, r7, -2
+    c05e:	4dc0 	st	0(r7), r6
+    c060:	2ffe 	addi	r7, r7, -2
+    c062:	f2ac 	rds	r1, s2
+    c064:	540e 	movi	r2, 14
+    c066:	1699 	cmpeq	r3, r2, r1
+    c068:	670c 	bnz	r3, 26
+    c06a:	540f 	movi	r2, 15
+    c06c:	1699 	cmpeq	r3, r2, r1
+    c06e:	6715 	bnz	r3, 44
+
+0000c070 <exception_treat>:
+    c070:	5410 	movi	r2, 16
+    c072:	5580 	movhi	r2, -128
+    c074:	0261 	add	r1, r1, r1
+    c076:	04a1 	add	r2, r2, r1
+    c078:	3480 	ld	r2, 0(r2)
+    c07a:	ac84 	jal	r6, r2
+    c07c:	52a8 	movi	r1, -88
+    c07e:	53c0 	movhi	r1, -64
+    c080:	a043 	jmp	r1
+
+0000c082 <syscall_treat>:
+    c082:	f2ec 	rds	r1, s3
+    c084:	5407 	movi	r2, 7
+    c086:	0242 	and	r1, r1, r2
+    c088:	0261 	add	r1, r1, r1
+    c08a:	542c 	movi	r2, 44
+    c08c:	5580 	movhi	r2, -128
+    c08e:	04a1 	add	r2, r2, r1
+    c090:	3480 	ld	r2, 0(r2)
+    c092:	ac84 	jal	r6, r2
+    c094:	52a8 	movi	r1, -88
+    c096:	53c0 	movhi	r1, -64
+    c098:	a043 	jmp	r1
+
+0000c09a <interrupt_treat>:
+    c09a:	f228 	getiid	r1
+    c09c:	0261 	add	r1, r1, r1
+    c09e:	5408 	movi	r2, 8
+    c0a0:	5580 	movhi	r2, -128
+    c0a2:	04a1 	add	r2, r2, r1
+    c0a4:	3480 	ld	r2, 0(r2)
+    c0a6:	ac84 	jal	r6, r2
+
+0000c0a8 <end_RSG>:
+    c0a8:	3dc0 	ld	r6, 0(r7)
+    c0aa:	2fc2 	addi	r7, r7, 2
+    c0ac:	37c0 	ld	r3, 0(r7)
+    c0ae:	2fc2 	addi	r7, r7, 2
+    c0b0:	35c0 	ld	r2, 0(r7)
+    c0b2:	2fc2 	addi	r7, r7, 2
+    c0b4:	33c0 	ld	r1, 0(r7)
+    c0b6:	2fc2 	addi	r7, r7, 2
+    c0b8:	fdf0 	wrs	s6, r7
+    c0ba:	f024 	reti	
+
+temp_sistema.o:     file format elf32-sisa
+temp_sistema.o
+architecture: sisa:3, flags 0x00000112:
+EXEC_P, HAS_SYMS, D_PAGED
+start address 0x00000000
+
+Program Header:
+    LOAD off    0x00000000 vaddr 0x00003f6c paddr 0x00003f6c align 2**0
+         filesz 0x000000a6 memsz 0x000000a6 flags r-x
+    LOAD off    0x000000a6 vaddr 0x00008000 paddr 0x00008000 align 2**0
+         filesz 0x0000003c memsz 0x0000003c flags rw-
+    LOAD off    0x000000e2 vaddr 0x0000c000 paddr 0x0000c000 align 2**0
+         filesz 0x000000bc memsz 0x000000bc flags r-x
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn  Flags
+  0 .sistema      000000bc  0000c000  0000c000  000000e2  2**0  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .user         00000012  00004000  00004000  00000094  2**0  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .sysdata      0000003c  00008000  00008000  000000a6  2**1  CONTENTS, ALLOC, LOAD, DATA
+SYMBOL TABLE:
+00008000 l    d  .sysdata	00000000 .sysdata
+00008000 l       .sysdata	00000000 code_call
+00008002 l       .sysdata	00000000 flag_inst
+00008004 l       .sysdata	00000000 flag_data
+00008006 l       .sysdata	00000000 flag_inte
+00008008 l       .sysdata	00000000 interrupts_vector
+00008010 l       .sysdata	00000000 exceptions_vector
+0000802c l       .sysdata	00000000 syscall_vector
+
+
+Disassembly of section .sysdata:
+
+00008000 <code_call>:
+	...
+
+00008002 <flag_inst>:
+	...
+
+00008004 <flag_data>:
+	...
+
+00008006 <flag_inte>:
+	...
+
+00008008 <interrupts_vector>:
+    8008:	c022 	stf	-60(r0), f0
+    800a:	c022 	stf	-60(r0), f0
+    800c:	c022 	stf	-60(r0), f0
+    800e:	c022 	stf	-60(r0), f0
+
+00008010 <exceptions_vector>:
+    8010:	c02e 	stf	-36(r0), f0
+    8012:	c02e 	stf	-36(r0), f0
+    8014:	c02c 	stf	-40(r0), f0
+    8016:	c02c 	stf	-40(r0), f0
+    8018:	c02e 	stf	-36(r0), f0
+    801a:	c02e 	stf	-36(r0), f0
+    801c:	c030 	stf	-32(r0), f0
+    801e:	c030 	stf	-32(r0), f0
+    8020:	c030 	stf	-32(r0), f0
+    8022:	c030 	stf	-32(r0), f0
+    8024:	c030 	stf	-32(r0), f0
+    8026:	c032 	stf	-28(r0), f0
+    8028:	c02e 	stf	-36(r0), f0
+    802a:	c03c 	stf	-8(r0), f0
+
+0000802c <syscall_vector>:
+    802c:	c046 	stf	12(r1), f0
+    802e:	c046 	stf	12(r1), f0
+    8030:	c046 	stf	12(r1), f0
+    8032:	c046 	stf	12(r1), f0
+    8034:	c046 	stf	12(r1), f0
+    8036:	c046 	stf	12(r1), f0
+    8038:	c046 	stf	12(r1), f0
+    803a:	c046 	stf	12(r1), f0
+
+temp_sistema.o:     file format elf32-sisa
+temp_sistema.o
+architecture: sisa:3, flags 0x00000112:
+EXEC_P, HAS_SYMS, D_PAGED
+start address 0x00000000
+
+Program Header:
+    LOAD off    0x00000000 vaddr 0x00003f6c paddr 0x00003f6c align 2**0
+         filesz 0x000000a6 memsz 0x000000a6 flags r-x
+    LOAD off    0x000000a6 vaddr 0x00008000 paddr 0x00008000 align 2**0
+         filesz 0x0000003c memsz 0x0000003c flags rw-
+    LOAD off    0x000000e2 vaddr 0x0000c000 paddr 0x0000c000 align 2**0
+         filesz 0x000000bc memsz 0x000000bc flags r-x
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn  Flags
+  0 .sistema      000000bc  0000c000  0000c000  000000e2  2**0  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .user         00000012  00004000  00004000  00000094  2**0  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .sysdata      0000003c  00008000  00008000  000000a6  2**1  CONTENTS, ALLOC, LOAD, DATA
+SYMBOL TABLE:
+00004000 l    d  .user	00000000 .user
+0000400c l       .user	00000000 loop
+00004000 g       .user	00000000 main
+
+
+Disassembly of section .user:
+
+00004000 <main>:
+    4000:	5200 	movi	r1, 0
+    4002:	5380 	movhi	r1, -128
+    4004:	3440 	ld	r2, 0(r1)
+    4006:	ffff 	halt	
+    4008:	5200 	movi	r1, 0
+    400a:	a047 	calls	r1
+
+0000400c <loop>:
+    400c:	1259 	cmpeq	r1, r1, r1
+    400e:	63fe 	bnz	r1, -2
+    4010:	ffff 	halt	
+
+temp_sistema.o:     file format elf32-sisa
+temp_sistema.o
+architecture: sisa:3, flags 0x00000112:
+EXEC_P, HAS_SYMS, D_PAGED
+start address 0x00000000
+
+Program Header:
+    LOAD off    0x00000000 vaddr 0x00003f6c paddr 0x00003f6c align 2**0
+         filesz 0x000000a6 memsz 0x000000a6 flags r-x
+    LOAD off    0x000000a6 vaddr 0x00008000 paddr 0x00008000 align 2**0
+         filesz 0x0000003c memsz 0x0000003c flags rw-
+    LOAD off    0x000000e2 vaddr 0x0000c000 paddr 0x0000c000 align 2**0
+         filesz 0x000000bc memsz 0x000000bc flags r-x
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn  Flags
+  0 .sistema      000000bc  0000c000  0000c000  000000e2  2**0  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .user         00000012  00004000  00004000  00000094  2**0  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .sysdata      0000003c  00008000  00008000  000000a6  2**1  CONTENTS, ALLOC, LOAD, DATA
+SYMBOL TABLE:
+
+
