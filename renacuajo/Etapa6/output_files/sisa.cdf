@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP2C20F484) Path("C:/Users/pec01/Documents/GitHub/PEC-proc/renacuajo/Etapa6/output_files/") File("sisa.sof") MfrSpec(OpMask(1));
+		Device PartName(EP2C20F484) Path("C:/Users/rgilabert/Documents/GitHub/PEC-proc/renacuajo/Etapa6/output_files/") File("sisa.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 
