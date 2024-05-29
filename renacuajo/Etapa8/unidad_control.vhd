@@ -82,7 +82,11 @@ ARCHITECTURE Structure OF unidad_control IS
 				inta		 : OUT STD_LOGIC;
 				call		 : OUT STD_LOGIC;
 				il_inst	 : OUT STD_LOGIC;
-				mem_op : OUT STD_LOGIC
+				mem_op : OUT STD_LOGIC;
+				we_tlb	 : OUT STD_LOGIC;
+				in_data	 : OUT STD_LOGIC;
+				v_a_f		 : OUT STD_LOGIC;
+				flush		: OUT STD_LOGIC
 		);
 	END COMPONENT;
 
@@ -254,7 +258,11 @@ BEGIN
 			inta => inta_s,
 			call => call,
 			il_inst => il_inst,
-			mem_op => mem_op
+			mem_op => mem_op,
+			we_tlb => we_tlb,
+		  	in_data	=> in_data,
+		 	v_a_f => v_a_f,
+			flush => flush
 		);
 	
 		reti <= reti_s;

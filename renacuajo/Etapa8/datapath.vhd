@@ -213,7 +213,7 @@ BEGIN
 		  pag_ill => pag_ill_data -- pagina read_only
 		);
 
-	addr_virtual <= pc when ins_dad = '1' else rd_alu;
+	addr_virtual <= pc when ins_dad = '0' else rd_alu;
 	we_tlb_data <= '1' when in_data = '1' and we_tlb = '1' else '0';
 	we_tlb_instr <= '1' when in_data = '0' and we_tlb = '1' else '0';
 	pag_ill <= pag_ill_data or pag_ill_instr;

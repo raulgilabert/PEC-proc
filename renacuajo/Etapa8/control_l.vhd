@@ -165,13 +165,23 @@ BEGIN
 
 	reti <= '1' when ir(15 downto 12) = OP_SPECIAL and special = RETI_I else '0';
 
-	with ir(15 downto 12) select
-		addr_b <= ir(11 downto 9) when OP_ST,
-					 ir(11 downto 9) when OP_STB,
-					 ir(11 downto 9) when OP_BRANCH,
-					 ir(11 downto 9) when OP_IO,
-					 ir(11 downto 9) when OP_JUMP,
-					 ir(2 downto 0) when others;
+	addr_b <= ir(11 downto 9) when ir(15 downto 12) = OP_ST else 
+			  ir(11 downto 9) when ir(15 downto 12) = OP_STB else 
+			  ir(11 downto 9) when ir(15 downto 12) = OP_BRANCH else
+			  ir(11 downto 9) when ir(15 downto 12) = OP_IO else
+			  ir(11 downto 9) when ir(15 downto 12) = OP_JUMP else
+			  ir(11 downto 9) when op_s = WRPI_I or op_s = WRVI_I 
+			  					   or op_s = WRPD_I or op_s = WRVD_I else
+			  ir(2 downto 0);
+	
+	--with ir(15 downto 12) select
+	--	addr_b <= ir(11 downto 9) when OP_ST,
+	--				 ir(11 downto 9) when OP_STB,
+	--				 ir(11 downto 9) when OP_BRANCH,
+	---				 ir(11 downto 9) when OP_IO,
+	--				 ir(11 downto 9) when OP_JUMP,
+	--				 ir(11 downto 9) when OP_SPECIAL,
+	--				 ir(2 downto 0) when others;
 
 	immed <= ir(7) & ir(7) & ir(7) & ir(7) & ir(7) & ir(7) & ir(7) & ir(7) & ir(7 downto 0) when ir(15 downto 12) = OP_MOV else
 			ir(5) & ir(5) & ir(5) & ir(5) & ir(5) & ir(5) & ir(5) & ir(5) & ir(5) & ir(5) & ir(5 downto 0);
