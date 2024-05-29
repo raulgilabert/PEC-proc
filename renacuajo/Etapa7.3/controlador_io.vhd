@@ -59,6 +59,7 @@ BEGIN
 
 			if contador_ciclos=0 then
 				contador_ciclos<=x"C350"; -- tiempo de ciclo=20ns(50Mhz) 1ms=50000ciclos
+				--contador_ciclos<=x"0004"; -- tiempo de ciclo=20ns(50Mhz) 1ms=50000ciclos
 				if contador_milisegundos>0 then
 					contador_milisegundos <= contador_milisegundos-1;
 				end if;
@@ -71,6 +72,8 @@ BEGIN
 				if (addr_io = x"10") then
 					clear_char <= '1';
 					io_mem(to_integer(unsigned(addr_io))) <= x"0000";
+				elsif addr_io = x"15" then 
+					contador_milisegundos <= wr_io;
 				else
 					io_mem(to_integer(unsigned(addr_io))) <= wr_io;
 				end if;
@@ -79,6 +82,8 @@ BEGIN
 				io_mem(8)(7 downto 0) <= interruptors;
 				io_mem(15)(7 downto 0) <= read_char;
 				io_mem(16)(0) <= data_ready;
+				io_mem(20) <= contador_ciclos;
+				io_mem(21) <= contador_milisegundos;
 			END if;
 		END if;
 	END PROCESS;
