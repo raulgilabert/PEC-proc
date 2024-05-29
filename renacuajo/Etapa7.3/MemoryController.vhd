@@ -86,7 +86,7 @@ begin
 	VGA_addr_s <= addr(12 downto 0);--std_LOGIC_VECTOR(unsigned(addr) - x"A000");
 	 
 	addr_VGA <= VGA_addr_s when addr >= x"A000" and addr <= x"B2BE" else "0000000000000";
-	we_VGA <= '1' when addr >= x"A000" and addr <= x"B2BE" else '0';
+	we_VGA <= '1' when addr >= x"A000" and addr <= x"B2BE" and we = '1' else '0';
   wr_data_VGA <= wr_data;
   vga_byte_m <= byte_m;
 
