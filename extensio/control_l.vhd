@@ -34,7 +34,8 @@ ENTITY control_l IS
 		  il_inst	 : OUT STD_LOGIC;
 		  mem_op     : OUT STD_LOGIC;
 		  va_old_vd       : OUT STD_LOGIC;
-		  vec_produce_sca : OUT STD_LOGIC
+		  vec_produce_sca : OUT STD_LOGIC;
+		  vec_inst		: OUT STD_LOGIC
 		 );
 END control_l; 
 
@@ -99,11 +100,15 @@ BEGIN
 				   ILLEGAL_I when others;
 
 	with ir(5 downto 3) select
-	 	super_special <= ILLEGAL_I when F_LDV, -- TODO: LDV
-						 ILLEGAL_I when F_STV, -- TODO: STV
+	 	super_special <= LDV_I when F_LDV, -- TODO: LDV
+						 STV_I when F_STV, -- TODO: STV
 						 MVVR_I when F_MVVR, -- MVVR
 						 MVRV_I when F_MVRV, -- MVRV
 						 special when others; -- ILLEGAL
+
+
+	vec_inst <= '1' when op_s = LDV_I or op_s = STV_I else
+				'0';
 
 	with ir(8) select
 		move <= MOVI_I when '0', -- MOVI
@@ -142,7 +147,9 @@ BEGIN
 	with ir (5 downto 3) select
 		special_Rb_N <= '1' when F_MVVR, --MVVR
 						'1' when F_MVRV, --MVRV
-						'0' when others; -- TODO LDV, STV
+						'1' when F_LDV,  --LDV
+						'1' when F_STV,	 --STV
+						'0' when others; 
 
 	with ir(15 downto 12) select
 		Rb_N <= '1' when OP_ADDI, --ADDI
@@ -197,6 +204,7 @@ BEGIN
 			 '0';
 	
 	vwrd <= '1' when ir(15 downto 12) = OP_SPECIAL and super_special = MVRV_I else --mvr TODO: ADDV, SUBV, MULV, DIVV, LDV
+			'1' when ir(15 downto 12) = OP_SPECIAL and super_special = LDV_I else  
 			'0';
 	--with ir(15 downto 12) select
 		--wrd <= '1' when "0000", 						--op arit
@@ -209,10 +217,17 @@ BEGIN
 			   --'1' when "1101",			--ldb
 			   --'0' when others;
 
-	 with ir(15 downto 12) select
-		wr_m <= '1' when OP_ST,
-				  '1' when OP_STB,
-				  '0' when others;
+	--with ir(15 downto 12) select
+	--	wr_m <= '1' when OP_ST,
+	--			  '1' when OP_STB,
+	--			  '1' when OP_STV
+	--			  '0' when others;
+
+
+	wr_m <= '1' when op_s = ST_I else
+			'1' when op_s = STB_I else 
+			'1' when op_s = STV_I else 
+			'0';
 				  
 	with ir(15 downto 12) select
 		word_byte <= '1' when OP_LDB,

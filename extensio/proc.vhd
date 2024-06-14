@@ -9,8 +9,10 @@ ENTITY proc IS
 	PORT (clk 			: IN STD_LOGIC;
 			boot 			: IN STD_LOGIC;
 			datard_m 	: IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+			vec_rd		: IN STD_LOGIC_VECTOR(127 DOWNTO 0);
 			addr_m 		: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 			data_wr		: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			vec_wr		: OUT STD_LOGIC_VECTOR(127 DOWNTO 0);
 			wr_m 			: OUT STD_LOGIC;
 			word_byte 	: OUT STD_LOGIC;
 			addr_io	  	: out std_LOGIC_VECTOR(7 DOWNTO 0);
@@ -26,7 +28,9 @@ ENTITY proc IS
 			div_zero 	: out std_logic;
 			il_inst 	: out std_logic;
 			call 		: out std_logic;
-			mem_op 	: out std_logic
+			mem_op 	: out std_logic;
+			vec		: out std_logic;
+			done	: in  std_logic
 	);
 END proc;
 
@@ -35,83 +39,88 @@ ARCHITECTURE Structure OF proc IS
 
 	COMPONENT unidad_control IS
 	    PORT (boot      : IN  STD_LOGIC;
-          clk       : IN  STD_LOGIC;
-          datard_m  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-			 aluout    : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-		    tknbr     : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
-			intr	: IN  STD_LOGIC;
-			int_e	: IN STD_LOGIC;
-			except	: IN STD_LOGIC;
-			exc_code	: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-          op        : OUT INST;
-          wrd       : OUT STD_LOGIC;
-          vwrd       : OUT STD_LOGIC;
-          addr_a    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-          addr_b    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-          addr_d    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-          immed     : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-          pc        : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-          ins_dad   : OUT STD_LOGIC;
-          in_d      : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
-          immed_x2  : OUT STD_LOGIC;
-          wr_m      : OUT STD_LOGIC;
-          word_byte : OUT STD_LOGIC;
-			 Rb_N		  : OUT STD_LOGIC;
-			 rd_in	  : OUT STD_LOGIC;
-			 wr_out	  : OUT STD_LOGIC;
-			 addr_io   : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-			 d_sys	   : OUT STD_LOGIC;
-			 a_sys	   : OUT STD_LOGIC;
-			 ei 	   : OUT STD_LOGIC;
-			 di		: OUT STD_LOGIC;
-			 reti	   : OUT STD_LOGIC;
-			 inta	   : OUT STD_LOGIC;
-			 sys   	: OUT STD_LOGIC;
-			 pc_sys  : IN STD_LOGIC_VECTOR(15 downto 0);
-			 call   : OUT STD_LOGIC;
-			 il_inst : OUT STD_LOGIC;
-			 mem_op : OUT STD_LOGIC;
-			 va_old_vd : OUT STD_LOGIC;
-			 vec_produce_sca : OUT STD_LOGIC
+				clk       : IN  STD_LOGIC;
+				datard_m  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+				tknbr		: IN  STD_LOGIC_VECTOR(1 DOWNTO 0);
+				aluout	: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+				intr		: IN  STD_LOGIC;
+				int_e		: IN  STD_LOGIC;
+				except	: IN  STD_LOGIC;
+				exc_code	: IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
+				vec_done	: IN  STD_LOGIC;
+				op        : OUT INST;
+				wrd       : OUT STD_LOGIC;
+				vwrd       : OUT STD_LOGIC;
+				addr_a    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+				addr_b    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+				addr_d    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+				immed     : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+				pc        : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+				ins_dad   : OUT STD_LOGIC;
+				in_d      : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+				immed_x2  : OUT STD_LOGIC;
+				wr_m      : OUT STD_LOGIC;
+				word_byte : OUT STD_LOGIC;
+				Rb_N 	    : OUT STD_LOGIC;
+				rd_in	    : OUT STD_LOGIC;
+				wr_out	: OUT STD_LOGIC;
+				addr_io   : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+				a_sys		: OUT STD_LOGIC;
+				d_sys		: OUT STD_LOGIC;
+				ei		: OUT STD_LOGIC;
+				di		: OUT STD_LOGIC;
+				reti		: OUT STD_LOGIC;
+				inta		: OUT STD_LOGIC;
+				sys		: OUT STD_LOGIC;
+				pc_sys : IN STD_LOGIC_VECTOR(15 downto 0);
+				call	 : OUT STD_LOGIC;
+				il_inst : OUT STD_LOGIC;
+				mem_op : OUT STD_LOGIC;
+				va_old_vd : OUT STD_LOGIC;
+				vec_produce_sca : OUT STD_LOGIC;
+				vec_inst	: OUT STD_LOGIC
 		 );
 	END COMPONENT;
 	
 	COMPONENT datapath IS
 		 PORT (clk      : IN  STD_LOGIC;
-				 op       : IN INST;
-				 wrd      : IN  STD_LOGIC;
-				 vwrd      : IN  STD_LOGIC;
-				 addr_a   : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
-				 addr_b   : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
-				 addr_d   : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
-				 immed    : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-				 immed_x2 : IN  STD_LOGIC;
-				 datard_m : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-				 ins_dad  : IN  STD_LOGIC;
-				 pc       : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-				 in_d     : IN  STD_LOGIC_VECTOR(1 DOWNTO 0);
-				 Rb_N     : IN STD_LOGIC;
-				 rd_io	 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-				 d_sys	 : IN STD_LOGIC;
-				 a_sys	 : IN STD_LOGIC;
-				 ei 	 : IN STD_LOGIC;
-				 di 	 : IN STD_LOGIC;
-				 reti	 : IN STD_LOGIC;
-				 boot	 : IN STD_LOGIC;
-				 --intr	 : IN STD_LOGIC;
-				 sys	: IN STD_LOGIC;
-				 va_old_vd	: IN STD_LOGIC;
-				 vec_produce_sca : IN STD_LOGIC;
-				 addr_m   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-				 data_wr  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-				 aluout	 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-				 tknbr    : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
-				 wr_io    : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-				 int_e	 : OUT STD_LOGIC;
-				 pc_sys   : OUT STD_LOGIC_VECTOR(15 downto 0);
-				 except	 : IN STD_LOGIC;
-				 exc_code : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-				 div_zero : OUT STD_LOGIC
+				op        : IN INST;
+				wrd      : IN  STD_LOGIC;
+				vwrd      : IN  STD_LOGIC;
+				addr_a   : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
+				addr_b   : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
+				addr_d   : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
+				immed    : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+				immed_x2 : IN  STD_LOGIC;
+				datard_m : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+				vec_rd   : IN  STD_LOGIC_VECTOR(127 DOWNTO 0);
+				ins_dad  : IN  STD_LOGIC;
+				pc       : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+				in_d     : IN  STD_LOGIC_VECTOR(1 DOWNTO 0);
+				Rb_N     : IN  STD_LOGIC;
+				d_sys	   : IN  STD_LOGIC;					
+				a_sys	   : IN  STD_LOGIC;
+				ei 	   : IN  STD_LOGIC;
+				di 	   : IN  STD_LOGIC;
+				reti	   : IN  STD_LOGIC;
+				rd_io	   : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);	
+				boot	   : IN  STD_LOGIC;
+				except   : IN  std_logic;
+				exc_code : IN  std_logic_vector(3 downto 0);
+				va_old_vd	   : IN  STD_LOGIC;
+				vec_produce_sca : IN  STD_LOGIC;
+				vec		: IN  STD_LOGIC;
+				addr_m   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+				data_wr  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+				vec_wr   : OUT STD_LOGIC_VECTOR(127 DOWNTO 0);
+				aluout   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+				tknbr    : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+				wr_io    : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+				--intr		: IN STD_LOGIC;
+				int_e		: OUT STD_LOGIC;
+				sys		: IN STD_LOGIC;
+				pc_sys : OUT STD_LOGIC_VECTOR(15 downto 0);
+				div_zero : OUT std_logic
 		 );	
 	END COMPONENT;
 
@@ -139,6 +148,7 @@ ARCHITECTURE Structure OF proc IS
 		SIGNAL pc_sys : STD_LOGIC_VECTOR(15 downto 0);
 		SIGNAL va_old_vd : std_logic;
 		SIGNAL vec_produce_sca : std_logic;
+		SIGNAL vec_s : std_logic;
 BEGIN
 
 		c0: unidad_control
@@ -179,10 +189,14 @@ BEGIN
 				exc_code => exc_code,
 				call => call,
 				il_inst => il_inst,
-			mem_op => mem_op,
-			va_old_vd => va_old_vd,
-			vec_produce_sca => vec_produce_sca
+				mem_op => mem_op,
+				va_old_vd => va_old_vd,
+				vec_produce_sca => vec_produce_sca,
+				vec_inst => vec_s,
+				vec_done => done
 			);
+
+		vec <= vec_s;
 		
 		e0: datapath
 			PORT map(
@@ -220,7 +234,10 @@ BEGIN
 				exc_code => exc_code,
 				div_zero => div_zero,
 				va_old_vd => va_old_vd,
-				vec_produce_sca => vec_produce_sca
+				vec_produce_sca => vec_produce_sca,
+				vec_wr => vec_wr,
+				vec_rd => vec_rd,
+				vec => vec_s
 			);
 
 			int_e <= int_e_s;

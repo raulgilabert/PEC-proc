@@ -17,6 +17,7 @@ ENTITY datapath IS
           immed    : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
           immed_x2 : IN  STD_LOGIC;
           datard_m : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+		  vec_rd   : IN  STD_LOGIC_VECTOR(127 DOWNTO 0);
           ins_dad  : IN  STD_LOGIC;
           pc       : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
           in_d     : IN  STD_LOGIC_VECTOR(1 DOWNTO 0);
@@ -32,8 +33,10 @@ ENTITY datapath IS
 		  exc_code : IN  std_logic_vector(3 downto 0);
 		  va_old_vd	   : IN  STD_LOGIC;
 		  vec_produce_sca : IN  STD_LOGIC;
+		  vec		: IN  STD_LOGIC;
           addr_m   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           data_wr  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		  vec_wr   : OUT STD_LOGIC_VECTOR(127 DOWNTO 0);
 		  aluout   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 		  tknbr    : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
 		  wr_io    : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -131,6 +134,7 @@ ARCHITECTURE Structure OF datapath IS
 	SIGNAL old_vd: std_logic_vector(127 downto 0);
 	SIGNAL div_zero_s: std_LOGIC;
 	SIGNAL div_zero_s1: std_LOGIC;
+	SIGNAL vd_alu: std_logic_vector(127 downto 0);
 
 BEGIN
 
@@ -184,6 +188,7 @@ BEGIN
 		);
 	
 	va <= va_s when va_old_vd = '0' else old_vd;
+	vd <= vd_alu when vec = '0' else vec_rd;
 
 	valu0: valu
 		PORT map(
@@ -192,12 +197,14 @@ BEGIN
 			y => vb,
 			immed => rb_out(2 downto 0),
 			op => op,
-			w_vec => vd,
+			w_vec => vd_alu,
 			w_sca => rd_alu_vec,
 			div_zero => div_zero_s
 		);
 
-		div_zero <= div_zero_s or div_zero_s1;
+
+
+	div_zero <= div_zero_s or div_zero_s1;
 		
 	rd_alu <= rd_alu_sca when vec_produce_sca = '0' else rd_alu_vec;
 
@@ -218,6 +225,7 @@ BEGIN
 						 immed(14 downto 0) & '0' when others;
 	
 	data_wr <= rb;
+	vec_wr <= vb;
 
 	with Rb_N select
 		rb_out <= rb when '0',

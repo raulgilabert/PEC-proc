@@ -18,6 +18,7 @@ ENTITY unidad_control IS
 		  int_e		: IN  STD_LOGIC;
 		  except	: IN  STD_LOGIC;
 		  exc_code	: IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
+		  vec_done	: IN  STD_LOGIC;
           op        : OUT INST;
           wrd       : OUT STD_LOGIC;
           vwrd       : OUT STD_LOGIC;
@@ -47,7 +48,8 @@ ENTITY unidad_control IS
 		  il_inst : OUT STD_LOGIC;
 		  mem_op : OUT STD_LOGIC;
 		  va_old_vd : OUT STD_LOGIC;
-		  vec_produce_sca : OUT STD_LOGIC
+		  vec_produce_sca : OUT STD_LOGIC;
+		  vec_inst	: OUT STD_LOGIC
 		  );
 END unidad_control;
 
@@ -82,7 +84,8 @@ ARCHITECTURE Structure OF unidad_control IS
 				il_inst	 : OUT STD_LOGIC;
 				mem_op : OUT STD_LOGIC;
 				va_old_vd 	 : OUT STD_LOGIC;
-				vec_produce_sca : OUT STD_LOGIC
+				vec_produce_sca : OUT STD_LOGIC;
+				vec_inst 	: OUT STD_LOGIC
 		);
 	END COMPONENT;
 
@@ -104,6 +107,7 @@ ARCHITECTURE Structure OF unidad_control IS
          addr_a_l  : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
 		 op_l	   : IN  INST;
 		 d_sys_l : IN STD_LOGIC;
+		 vec	 : IN  STD_LOGIC;
 		 except    : IN  STD_LOGIC;
          exc_code  : IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
          ldpc      : OUT STD_LOGIC;
@@ -148,6 +152,7 @@ ARCHITECTURE Structure OF unidad_control IS
 	SIGNAL in_d_s : std_logic_vector(1 downto 0);
 	SIGNAL d_sys_s : STD_LOGIC;
 	SIGNAL sys_s : STD_LOGIC;
+	SIGNAL vec_inst_s : STD_LOGIC;
 
 	
 BEGIN
@@ -225,8 +230,11 @@ BEGIN
 			d_sys => d_sys,
 			sys => sys_s,
 			except => except,
-			exc_code => exc_code
+			exc_code => exc_code,
+			vec => vec_inst_s
 		);
+
+		vec_inst <= vec_inst_s;
 	
 	c_l: control_l
 		PORT map(
@@ -257,7 +265,8 @@ BEGIN
 			il_inst => il_inst,
 			mem_op => mem_op,
 			va_old_vd => va_old_vd,
-			vec_produce_sca => vec_produce_sca
+			vec_produce_sca => vec_produce_sca,
+			vec_inst => vec_inst_s
 		);
 	
 		reti <= reti_s;
