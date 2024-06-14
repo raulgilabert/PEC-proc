@@ -129,6 +129,9 @@ ARCHITECTURE Structure OF datapath IS
 	SIGNAL va: std_logic_vector(127 downto 0);
 	SIGNAL vb: std_logic_vector(127 downto 0);
 	SIGNAL old_vd: std_logic_vector(127 downto 0);
+	SIGNAL div_zero_s: std_LOGIC;
+	SIGNAL div_zero_s1: std_LOGIC;
+
 BEGIN
 
 	reg0: regfile
@@ -177,7 +180,7 @@ BEGIN
 			op => op,
 			w => rd_alu_sca,
 			z => z,
-			div_zero => div_zero
+			div_zero => div_zero_s1
 		);
 	
 	va <= va_s when va_old_vd = '0' else old_vd;
@@ -191,9 +194,11 @@ BEGIN
 			op => op,
 			w_vec => vd,
 			w_sca => rd_alu_vec,
-			div_zero => div_zero
+			div_zero => div_zero_s
 		);
 
+		div_zero <= div_zero_s or div_zero_s1;
+		
 	rd_alu <= rd_alu_sca when vec_produce_sca = '0' else rd_alu_vec;
 
 	new_pc <= std_logic_vector(unsigned(pc) + 2);

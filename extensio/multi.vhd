@@ -21,9 +21,9 @@ entity multi is
          addr_d_l  : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
          addr_a_l  : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
          op_l      : IN  INST;
-			d_sys_l   : IN std_LOGIc;
-         except   : IN  STD_LOGIC;
-         exc_code : IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
+		 d_sys_l   : IN  std_LOGIc;
+         except    : IN  STD_LOGIC;
+         exc_code  : IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
          ldpc      : OUT STD_LOGIC;
          wrd       : OUT STD_LOGIC;
          vwrd      : OUT STD_LOGIC;
@@ -38,15 +38,17 @@ entity multi is
          addr_d    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
          addr_a    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
          op        : OUT INST;
-			d_sys		 : OUT STD_LOGIC;
-            sys    : OUT STD_LOGIC
+		 d_sys	   : OUT STD_LOGIC;
+         sys       : OUT STD_LOGIC;
+         vec       : IN  STD_LOGIC;
+         vec_done  : IN  STD_LOGIC
      );
 end entity;
 
 architecture Structure of multi is
 
     -- Aqui iria la declaracion de las los estados de la maquina de estados
-    TYPE state_t is (F, DEMW, SYSTEM);
+    TYPE state_t is (F, DEMW, SYSTEM, M);
 
     SIGNAL state: state_t; 
 
@@ -71,11 +73,19 @@ begin
                 when DEMW => 
                     if (intr = '1' and int_e = '1') or except = '1' then 
                         state <= SYSTEM;
+                    elsif vec = '1' then 
+                        state <= M;
                     else 
                         state <= F;
                     END if;
                 when SYSTEM => 
                     state <= F;
+                when M => 
+                    if vec_done = '0' then 
+                        state <= M;
+                    else 
+                        state <= F;
+                    END if;
                 END case;
 		 else 
 			state <= state;
