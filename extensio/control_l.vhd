@@ -243,6 +243,7 @@ BEGIN
 		immed_x2 <= '1' when OP_LD,
 						'1' when OP_ST,
 						'1' when OP_BRANCH,
+						'1' when OP_SPECIAL,
 						'0' when others;
 		
 	in_d <= "01" when ir(15 downto 12) = OP_LD else --ld
