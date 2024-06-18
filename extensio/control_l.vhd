@@ -184,6 +184,7 @@ BEGIN
 
 	immed <= ir(7) & ir(7) & ir(7) & ir(7) & ir(7) & ir(7) & ir(7) & ir(7) & ir(7 downto 0) when ir(15 downto 12) = OP_MOV else
 			"0000000000000" & ir(2 downto 0) when ir(15 downto 12) = OP_SPECIAL else
+			ir(2) & ir(2) & ir(2) & ir(2) & ir(2) & ir(2) & ir(2) & ir(2) & ir(2) & ir(2) & ir(2) & ir(2) & ir(2) & ir(2 downto 0) when ir(15 downto 12) = OP_SPECIAL else
 			ir(5) & ir(5) & ir(5) & ir(5) & ir(5) & ir(5) & ir(5) & ir(5) & ir(5) & ir(5) & ir(5 downto 0);
 	
 	with ir(2 downto 0) select
