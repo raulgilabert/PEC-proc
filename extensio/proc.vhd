@@ -59,6 +59,7 @@ ARCHITECTURE Structure OF proc IS
 				ins_dad   : OUT STD_LOGIC;
 				in_d      : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
 				immed_x2  : OUT STD_LOGIC;
+				immed_x16 : OUT STD_LOGIC;
 				wr_m      : OUT STD_LOGIC;
 				word_byte : OUT STD_LOGIC;
 				Rb_N 	    : OUT STD_LOGIC;
@@ -92,6 +93,7 @@ ARCHITECTURE Structure OF proc IS
 				addr_d   : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
 				immed    : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 				immed_x2 : IN  STD_LOGIC;
+				immed_x16: IN  STD_LOGIC;
 				datard_m : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 				vec_rd   : IN  STD_LOGIC_VECTOR(127 DOWNTO 0);
 				ins_dad  : IN  STD_LOGIC;
@@ -125,6 +127,7 @@ ARCHITECTURE Structure OF proc IS
 	END COMPONENT;
 
 		SIGNAL immed_x2: std_logic;
+		SIGNAL immed_x16: std_logic;
 		SIGNAL in_d: std_logic_vector(1 downto 0);
 		SIGNAL ins_dad: std_logic;
 		SIGNAL wrd: std_logic;
@@ -193,7 +196,8 @@ BEGIN
 				va_old_vd => va_old_vd,
 				vec_produce_sca => vec_produce_sca,
 				vec_inst => vec_s,
-				vec_done => done
+				vec_done => done,
+				immed_x16 => immed_x16
 			);
 
 		vec <= vec_s;
@@ -237,7 +241,8 @@ BEGIN
 				vec_produce_sca => vec_produce_sca,
 				vec_wr => vec_wr,
 				vec_rd => vec_rd,
-				vec => vec_s
+				vec => vec_s,
+				immed_x16 => immed_x16
 			);
 
 			int_e <= int_e_s;

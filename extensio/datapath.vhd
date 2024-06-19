@@ -16,6 +16,7 @@ ENTITY datapath IS
           addr_d   : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
           immed    : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
           immed_x2 : IN  STD_LOGIC;
+		  immed_x16: IN  STD_LOGIC;
           datard_m : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 		  vec_rd   : IN  STD_LOGIC_VECTOR(127 DOWNTO 0);
           ins_dad  : IN  STD_LOGIC;
@@ -220,10 +221,16 @@ BEGIN
 		addr_m_s <= pc when '0',
 					 rd_alu when others;
 					 
-	with immed_x2 select
-		immed_out <= immed when '0',
-						 immed(14 downto 0) & '0' when others;
+	--with immed_x2 select
+		--immed_out <= immed when '0',
+		--				 immed(14 downto 0) & '0' when others;
+
 	
+	immed_out <= immed(14 downto 0) & '0' when immed_x2 = '1' and immed_x16 = '0' else
+				 immed(11 downto 0) & "0000" when immed_x2 = '0' and immed_x16 = '1' else
+				 immed;
+
+
 	data_wr <= rb;
 	vec_wr <= vb;
 

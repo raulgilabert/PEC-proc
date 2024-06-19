@@ -18,6 +18,7 @@ ENTITY control_l IS
           wr_m       : OUT STD_LOGIC;
           in_d       : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
           immed_x2   : OUT STD_LOGIC;
+		  immed_x16	 : OUT STD_LOGIC;
           word_byte  : OUT STD_LOGIC;
 		  Rb_N       : OUT STD_LOGIC;
 		  addr_io	 : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
@@ -239,11 +240,13 @@ BEGIN
 		ldpc <= '0' when x"FFFF",
 				  '1' when others;
 				  
+	immed_x16 <= '1' when op_s = LDV_I or op = STV_I else
+				 '0';
+
 	with ir(15 downto 12) select
 		immed_x2 <= '1' when OP_LD,
 						'1' when OP_ST,
 						'1' when OP_BRANCH,
-						'1' when OP_SPECIAL,
 						'0' when others;
 		
 	in_d <= "01" when ir(15 downto 12) = OP_LD else --ld

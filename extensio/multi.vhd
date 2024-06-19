@@ -103,6 +103,7 @@ begin
             '0';
 
     vwrd <= vwrd_l when state = DEMW else
+            '1' when state = M else
             '0';
     wr_m <= wr_m_l when state = DEMW else '0';
     word_byte <= w_b when state = DEMW else '0';

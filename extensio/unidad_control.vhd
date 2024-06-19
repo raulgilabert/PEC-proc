@@ -30,6 +30,7 @@ ENTITY unidad_control IS
           ins_dad   : OUT STD_LOGIC;
           in_d      : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
           immed_x2  : OUT STD_LOGIC;
+		  immed_x16 : OUT STD_LOGIC;
           wr_m      : OUT STD_LOGIC;
           word_byte : OUT STD_LOGIC;
 		  Rb_N 	    : OUT STD_LOGIC;
@@ -68,6 +69,7 @@ ARCHITECTURE Structure OF unidad_control IS
 				wr_m       : OUT STD_LOGIC;
 				in_d       : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
 				immed_x2   : OUT STD_LOGIC;
+				immed_x16  : OUT STD_LOGIC;
 				word_byte  : OUT STD_LOGIC;
 				Rb_N       : OUT STD_LOGIC;
 				addr_io	 : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
@@ -266,7 +268,8 @@ BEGIN
 			mem_op => mem_op,
 			va_old_vd => va_old_vd,
 			vec_produce_sca => vec_produce_sca,
-			vec_inst => vec_inst_s
+			vec_inst => vec_inst_s,
+			immed_x16 => immed_x16
 		);
 	
 		reti <= reti_s;
